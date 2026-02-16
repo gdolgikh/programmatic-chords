@@ -1,0 +1,224 @@
+---
+const { frets, fingers, barres = [], size = 'large' } = Astro.props;
+
+const stringCount = 6;
+const fretCount = 5;
+const isLarge = size === 'large';
+const stringSpacing = isLarge ? 24 : 16;
+const fretSpacing = isLarge ? 30 : 20;
+const dotRadius = isLarge ? 8 : 5.5;
+const fontSize = isLarge ? 12 : 9;
+const topPad = isLarge ? 28 : 20;
+const leftPad = isLarge ? 32 : 22;
+const nutWidth = isLarge ? 4 : 3;
+
+const diagramW = (stringCount - 1) * stringSpacing;
+const diagramH = fretCount * fretSpacing;
+const svgW = leftPad + diagramW + (isLarge ? 16 : 10);
+const svgH = topPad + diagramH + (isLarge ? 12 : 8);
+
+// Determine starting fret
+const playedFrets = frets.filter(f => f > 0);
+const minFret = playedFrets.length ? Math.min(...playedFrets) : 1;
+const maxFret = playedFrets.length ? Math.max(...playedFrets) : 1;
+let startFret = 1;
+let showNut = true;
+if (maxFret > 5) {
+  startFret = minFret;
+  showNut = false;
+}
+
+// Check if a position is covered by a barre
+function isBarre(stringIdx, fretNum) {
+  return barres.some(b =>
+    b.fret === fretNum &&
+    stringIdx >= b.fromString &&
+    stringIdx <= b.toString
+  );
+}
+
+// Pre-compute all SVG elements
+const fretLines = Array.from({ length: fretCount + 1 }, (_, i) => ({
+  x1: leftPad,
+  y1: topPad + i * fretSpacing,
+  x2: leftPad + diagramW,
+  y2: topPad + i * fretSpacing,
+}));
+
+const stringLines = Array.from({ length: stringCount }, (_, i) => ({
+  x1: leftPad + i * stringSpacing,
+  y1: topPad,
+  x2: leftPad + i * stringSpacing,
+  y2: topPad + diagramH,
+  sw: (i === 0 || i === 5) ? '1.5' : '1',
+}));
+
+// Open/Muted indicators
+const indicators = frets.map((fret, i) => {
+  const x = leftPad + i * stringSpacing;
+  const y = topPad - (isLarge ? 14 : 10);
+  if (fret === -1) return { type: 'muted', x, y };
+  if (fret === 0) return { type: 'open', x, y: y - 3, r: dotRadius * 0.6 };
+  return null;
+}).filter(Boolean);
+
+// Barre shapes
+const barreShapes = barres.map(barre => {
+  const relFret = barre.fret - startFret + 1;
+  const y = topPad + (relFret - 1) * fretSpacing + fretSpacing / 2;
+  const x1 = leftPad + barre.fromString * stringSpacing;
+  const x2 = leftPad + barre.toString * stringSpacing;
+  return {
+    x: x1 - dotRadius,
+    y: y - dotRadius + 1,
+    width: x2 - x1 + dotRadius * 2,
+    height: dotRadius * 2 - 2,
+    rx: dotRadius - 1,
+  };
+});
+
+// Finger dots (not covered by barres)
+const dots = frets.map((fret, i) => {
+  if (fret < 1) return null;
+  if (isBarre(i, fret)) return null;
+  const x = leftPad + i * stringSpacing;
+  const relFret = fret - startFret + 1;
+  const y = topPad + (relFret - 1) * fretSpacing + fretSpacing / 2;
+  return { x, y, r: dotRadius };
+}).filter(Boolean);
+
+// Finger numbers (large only)
+const fingerLabels = isLarge ? frets.map((fret, i) => {
+  if (fret < 1 || fingers[i] === 0) return null;
+  const x = leftPad + i * stringSpacing;
+  const relFret = fret - startFret + 1;
+  const y = topPad + (relFret - 1) * fretSpacing + fretSpacing / 2;
+  return { x, y: y + 4, label: fingers[i] };
+}).filter(Boolean) : [];
+---
+
+<svg
+  viewBox={`0 0 ${svgW} ${svgH}`}
+  xmlns="http://www.w3.org/2000/svg"
+  class:list={['chord-svg', size]}
+  role="img"
+>
+  <defs>
+    <linearGradient id={`dotGrad-${size}`} x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a78bfa" />
+      <stop offset="100%" stop-color="#7c3aed" />
+    </linearGradient>
+  </defs>
+
+  {/* Nut */}
+  {showNut && (
+    <rect
+      x={leftPad - 1}
+      y={topPad - nutWidth}
+      width={diagramW + 2}
+      height={nutWidth}
+      rx="1"
+      fill="rgba(255,255,255,0.85)"
+    />
+  )}
+
+  {/* Fret position number */}
+  {!showNut && (
+    <text
+      x={leftPad - 10}
+      y={topPad + fretSpacing / 2 + 4}
+      text-anchor="middle"
+      font-size={fontSize}
+      fill="rgba(255,255,255,0.7)"
+      font-family="system-ui, sans-serif"
+      font-weight="600"
+    >{startFret}</text>
+  )}
+
+  {/* Fret lines */}
+  {fretLines.map(l => (
+    <line
+      x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2}
+      stroke="rgba(255,255,255,0.3)"
+      stroke-width="1"
+    />
+  ))}
+
+  {/* String lines */}
+  {stringLines.map(l => (
+    <line
+      x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2}
+      stroke="rgba(255,255,255,0.35)"
+      stroke-width={l.sw}
+    />
+  ))}
+
+  {/* Open / Muted indicators */}
+  {indicators.map(ind => (
+    ind.type === 'muted' ? (
+      <text
+        x={ind.x}
+        y={ind.y}
+        text-anchor="middle"
+        font-size={fontSize}
+        fill="rgba(255,255,255,0.5)"
+        font-family="system-ui, sans-serif"
+        font-weight="600"
+      >&times;</text>
+    ) : (
+      <circle
+        cx={ind.x}
+        cy={ind.y}
+        r={ind.r}
+        fill="none"
+        stroke="rgba(255,255,255,0.6)"
+        stroke-width="1.5"
+      />
+    )
+  ))}
+
+  {/* Barres */}
+  {barreShapes.map(b => (
+    <rect
+      x={b.x} y={b.y}
+      width={b.width} height={b.height}
+      rx={b.rx}
+      fill={`url(#dotGrad-${size})`}
+      opacity="0.95"
+    />
+  ))}
+
+  {/* Finger dots */}
+  {dots.map(d => (
+    <circle
+      cx={d.x} cy={d.y} r={d.r}
+      fill={`url(#dotGrad-${size})`}
+    />
+  ))}
+
+  {/* Finger numbers */}
+  {fingerLabels.map(fl => (
+    <text
+      x={fl.x}
+      y={fl.y}
+      text-anchor="middle"
+      font-size="10"
+      fill="white"
+      font-weight="700"
+      font-family="system-ui, sans-serif"
+    >{fl.label}</text>
+  ))}
+</svg>
+
+<style>
+  .chord-svg.large {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+  }
+  .chord-svg.small {
+    width: 100%;
+    max-width: 140px;
+    height: auto;
+  }
+</style>

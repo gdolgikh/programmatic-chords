@@ -1,0 +1,232 @@
+---
+import Layout from '../components/Layout.astro';
+import ChordDiagram from '../components/ChordDiagram.astro';
+import { chords } from '../data/chords.js';
+
+export function getStaticPaths() {
+  return chords.map(chord => ({
+    params: { slug: chord.slug },
+    props: { chord },
+  }));
+}
+
+const { chord } = Astro.props;
+
+// Find prev/next chords
+const idx = chords.findIndex(c => c.slug === chord.slug);
+const prev = idx > 0 ? chords[idx - 1] : null;
+const next = idx < chords.length - 1 ? chords[idx + 1] : null;
+
+// String labels
+const stringNames = ['E', 'A', 'D', 'G', 'B', 'e'];
+
+// Build notes-on-strings info
+const fretLabel = (f) => {
+  if (f === -1) return '×';
+  if (f === 0) return 'Open';
+  return `Fret ${f}`;
+};
+---
+
+<Layout title={`${chord.name} — ChordLab`}>
+  <article class="chord-page">
+    <div class="chord-hero glass">
+      <div class="chord-diagram-wrap">
+        <ChordDiagram
+          frets={chord.frets}
+          fingers={chord.fingers}
+          barres={chord.barres}
+          size="large"
+        />
+      </div>
+
+      <div class="chord-info">
+        <div class="chord-badge">{chord.quality}</div>
+        <h1 class="chord-name">{chord.name}</h1>
+        <p class="chord-desc">{chord.description}</p>
+
+        <div class="chord-frets">
+          <h3 class="detail-heading">String by String</h3>
+          <div class="fret-list">
+            {chord.frets.map((f, i) => (
+              <div class:list={['fret-item', { muted: f === -1 }]}>
+                <span class="fret-string">{stringNames[i]}</span>
+                <span class="fret-value">{fretLabel(f)}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="chord-nav">
+      {prev ? (
+        <a href={`/${prev.slug}/`} class="nav-btn glass">
+          <span class="nav-arrow">&larr;</span>
+          <span class="nav-label">{prev.name}</span>
+        </a>
+      ) : <div />}
+      <a href="/" class="nav-btn glass nav-home">All Chords</a>
+      {next ? (
+        <a href={`/${next.slug}/`} class="nav-btn glass">
+          <span class="nav-label">{next.name}</span>
+          <span class="nav-arrow">&rarr;</span>
+        </a>
+      ) : <div />}
+    </nav>
+  </article>
+</Layout>
+
+<style>
+  .chord-page {
+    padding-top: 1rem;
+  }
+
+  .chord-hero {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2.5rem;
+    padding: 2.5rem;
+    align-items: start;
+  }
+
+  .chord-diagram-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .chord-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .chord-badge {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #a78bfa;
+    background: rgba(139, 92, 246, 0.15);
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+  }
+
+  .chord-name {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  .chord-desc {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 520px;
+  }
+
+  .detail-heading {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .fret-list {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .fret-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0.4rem 0.6rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    min-width: 52px;
+  }
+
+  .fret-item.muted {
+    opacity: 0.4;
+  }
+
+  .fret-string {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #a78bfa;
+  }
+
+  .fret-value {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+  }
+
+  .chord-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 1rem;
+  }
+
+  .nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .nav-btn:hover {
+    color: white;
+  }
+
+  .nav-arrow {
+    font-size: 1.1rem;
+  }
+
+  .nav-home {
+    color: rgba(167, 139, 250, 0.8);
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .chord-hero {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem;
+    }
+
+    .chord-diagram-wrap {
+      justify-self: center;
+    }
+
+    .chord-nav {
+      flex-direction: column;
+    }
+
+    .nav-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
