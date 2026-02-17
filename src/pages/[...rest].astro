@@ -1,0 +1,35 @@
+---
+import { chords } from '../data/chords';
+
+export async function getStaticPaths() {
+  // Get all unique root notes
+  const rootNotes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+
+  // Create redirect paths for simplified URLs (e.g., c-chord-guitar, d-chord-guitar)
+  const redirectPaths = rootNotes.map(note => {
+    // Find the major chord for this note
+    const majorChord = chords.find(c => c.root === note && c.quality === 'Major');
+
+    if (!majorChord) {
+      return null;
+    }
+
+    // Create slug for the simplified version
+    const simplifiedSlug = note === 'C#' || note === 'D#' || note === 'F#' || note === 'G#' || note === 'A#'
+      ? note.toLowerCase().replace('#', '-sharp') + '-chord-guitar'
+      : note.toLowerCase() + '-chord-guitar';
+
+    return {
+      params: { rest: simplifiedSlug },
+      props: { majorChordSlug: majorChord.slug }
+    };
+  }).filter(Boolean);
+
+  return redirectPaths;
+}
+
+const { majorChordSlug } = Astro.props;
+
+// Perform redirect
+return Astro.redirect(`/${majorChordSlug}/`);
+---

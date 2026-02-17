@@ -1,6 +1,6 @@
 export const chords = [
   // ── C Chords ──
-  { name: 'C Major', slug: 'c-chord-guitar', root: 'C', quality: 'Major', frets: [-1, 3, 2, 0, 1, 0], fingers: [0, 3, 2, 0, 1, 0], barres: [], description: 'One of the first chords every guitarist learns. Bright and open, C Major forms the foundation of countless songs in popular music.' },
+  { name: 'C Major', slug: 'c-major-chord-guitar', root: 'C', quality: 'Major', frets: [-1, 3, 2, 0, 1, 0], fingers: [0, 3, 2, 0, 1, 0], barres: [], description: 'One of the first chords every guitarist learns. Bright and open, C Major forms the foundation of countless songs in popular music.' },
   { name: 'C Minor', slug: 'c-minor-chord-guitar', root: 'C', quality: 'Minor', frets: [-1, 3, 5, 5, 4, 3], fingers: [0, 1, 3, 4, 2, 1], barres: [{ fret: 3, fromString: 1, toString: 5 }], description: 'A dark, emotional barre chord rooted at the 3rd fret. C Minor adds drama and depth to progressions in keys like C minor and Eb major.' },
   { name: 'C7', slug: 'c7-chord-guitar', root: 'C', quality: '7', frets: [-1, 3, 2, 3, 1, 0], fingers: [0, 3, 2, 4, 1, 0], barres: [], description: 'The dominant seventh of F major. C7 adds a bluesy tension that naturally resolves to F, making it essential for blues and jazz.' },
   { name: 'C5', slug: 'c5-chord-guitar', root: 'C', quality: '5', frets: [-1, 3, 3, 2, -1, -1], fingers: [0, 1, 2, 1, 0, 0], barres: [], description: 'A power chord with just root and perfect fifth. C5 is the foundation of heavy rock and punk, offering pure, aggressive tone.' },
@@ -14,7 +14,7 @@ export const chords = [
   { name: 'C7sus4', slug: 'c7sus4-chord-guitar', root: 'C', quality: '7sus4', frets: [-1, 3, 3, 3, 1, 0], fingers: [0, 1, 2, 3, 1, 0], barres: [], description: 'A dominant seventh with a suspended fourth. C7sus4 creates unresolved bluesy tension perfect for rock and soul.' },
 
   // ── C#/Db Chords ──
-  { name: 'C# Major', slug: 'c-sharp-chord-guitar', root: 'C#', quality: 'Major', frets: [-1, 4, 3, 1, 2, 1], fingers: [0, 3, 2, 1, 2, 1], barres: [{ fret: 1, fromString: 1, toString: 5 }], description: 'A bright barre chord at the 1st fret. C# Major has a brilliant, ringing tone found in many modern rock songs.' },
+  { name: 'C# Major', slug: 'c-sharp-major-chord-guitar', root: 'C#', quality: 'Major', frets: [-1, 4, 3, 1, 2, 1], fingers: [0, 3, 2, 1, 2, 1], barres: [{ fret: 1, fromString: 1, toString: 5 }], description: 'A bright barre chord at the 1st fret. C# Major has a brilliant, ringing tone found in many modern rock songs.' },
   { name: 'C# Minor', slug: 'c-sharp-minor-chord-guitar', root: 'C#', quality: 'Minor', frets: [-1, 4, 6, 6, 5, 4], fingers: [0, 1, 3, 4, 2, 1], barres: [{ fret: 4, fromString: 1, toString: 5 }], description: 'A powerful barre chord at the 4th fret. C# Minor is rich and deep, commonly used in metal and progressive rock.' },
   { name: 'C#7', slug: 'c-sharp-7-chord-guitar', root: 'C#', quality: '7', frets: [-1, 4, 3, 4, 2, 1], fingers: [0, 3, 2, 4, 1, 0], barres: [], description: 'A dominant seventh with sharp, energetic character. C#7 is perfect for blues in E major.' },
   { name: 'C#5', slug: 'c-sharp-5-chord-guitar', root: 'C#', quality: '5', frets: [-1, 4, 4, 3, -1, -1], fingers: [0, 1, 2, 1, 0, 0], barres: [], description: 'A power chord rooted at C#. Essential for heavy metal and hard rock riffing.' },
@@ -28,7 +28,7 @@ export const chords = [
   { name: 'C#7sus4', slug: 'c-sharp-7sus4-chord-guitar', root: 'C#', quality: '7sus4', frets: [-1, 4, 4, 4, 2, 1], fingers: [0, 1, 2, 3, 1, 0], barres: [], description: 'A dominant seventh sus4 with blues character. C#7sus4 has gritty, funky energy.' },
 
   // ── D Chords ──
-  { name: 'D Major', slug: 'd-chord-guitar', root: 'D', quality: 'Major', frets: [-1, -1, 0, 2, 3, 2], fingers: [0, 0, 0, 1, 3, 2], barres: [], description: 'A bright, cheerful open chord played on the top four strings. D Major is a staple of folk, country, and pop music.' },
+  { name: 'D Major', slug: 'd-major-chord-guitar', root: 'D', quality: 'Major', frets: [-1, -1, 0, 2, 3, 2], fingers: [0, 0, 0, 1, 3, 2], barres: [], description: 'A bright, cheerful open chord played on the top four strings. D Major is a staple of folk, country, and pop music.' },
   { name: 'D Minor', slug: 'd-minor-chord-guitar', root: 'D', quality: 'Minor', frets: [-1, -1, 0, 2, 3, 1], fingers: [0, 0, 0, 2, 3, 1], barres: [], description: 'Often called the saddest of all keys. D Minor\'s open voicing has a haunting, melancholic quality beloved in classical and rock.' },
   { name: 'D7', slug: 'd7-chord-guitar', root: 'D', quality: '7', frets: [-1, -1, 0, 2, 1, 2], fingers: [0, 0, 0, 2, 1, 3], barres: [], description: 'A funky dominant seventh chord with an open, jangling sound. Essential for blues turnarounds and folk progressions.' },
   { name: 'D5', slug: 'd5-chord-guitar', root: 'D', quality: '5', frets: [-1, -1, 0, 2, 3, 2], fingers: [0, 0, 0, 1, 2, 1], barres: [], description: 'A powerful power chord. D5 is the bedrock of heavy rock and metal music.' },
@@ -42,7 +42,7 @@ export const chords = [
   { name: 'D7sus4', slug: 'd7sus4-chord-guitar', root: 'D', quality: '7sus4', frets: [-1, -1, 0, 2, 1, 3], fingers: [0, 0, 0, 1, 1, 2], barres: [], description: 'A dominant seventh sus4. D7sus4 has funky, bluesy character.' },
 
   // ── D#/Eb Chords ──
-  { name: 'D# Major', slug: 'd-sharp-chord-guitar', root: 'D#', quality: 'Major', frets: [-1, -1, 1, 3, 4, 3], fingers: [0, 0, 1, 2, 4, 3], barres: [], description: 'A bright barre chord position. D# Major is brilliant and cutting through, used in modern rock.' },
+  { name: 'D# Major', slug: 'd-sharp-major-chord-guitar', root: 'D#', quality: 'Major', frets: [-1, -1, 1, 3, 4, 3], fingers: [0, 0, 1, 2, 4, 3], barres: [], description: 'A bright barre chord position. D# Major is brilliant and cutting through, used in modern rock.' },
   { name: 'D# Minor', slug: 'd-sharp-minor-chord-guitar', root: 'D#', quality: 'Minor', frets: [-1, -1, 1, 3, 4, 2], fingers: [0, 0, 1, 2, 4, 1], barres: [], description: 'A dark barre position. D# Minor is moody and introspective.' },
   { name: 'D#7', slug: 'd-sharp-7-chord-guitar', root: 'D#', quality: '7', frets: [-1, -1, 1, 3, 2, 3], fingers: [0, 0, 1, 3, 2, 4], barres: [], description: 'A dominant seventh with sharp edge. D#7 is perfect for blues in G# major.' },
   { name: 'D#5', slug: 'd-sharp-5-chord-guitar', root: 'D#', quality: '5', frets: [-1, -1, 1, 3, 4, 3], fingers: [0, 0, 1, 2, 3, 2], barres: [], description: 'A power chord. D#5 is heavy and powerful.' },
@@ -56,7 +56,7 @@ export const chords = [
   { name: 'D#7sus4', slug: 'd-sharp-7sus4-chord-guitar', root: 'D#', quality: '7sus4', frets: [-1, -1, 1, 3, 2, 4], fingers: [0, 0, 1, 2, 1, 3], barres: [], description: 'A dominant seventh sus4. D#7sus4 has bluesy character.' },
 
   // ── E Chords ──
-  { name: 'E Major', slug: 'e-chord-guitar', root: 'E', quality: 'Major', frets: [0, 2, 2, 1, 0, 0], fingers: [0, 2, 3, 1, 0, 0], barres: [], description: 'A powerful, full-sounding open chord using all six strings. E Major is the backbone of rock, blues, and countless guitar riffs.' },
+  { name: 'E Major', slug: 'e-major-chord-guitar', root: 'E', quality: 'Major', frets: [0, 2, 2, 1, 0, 0], fingers: [0, 2, 3, 1, 0, 0], barres: [], description: 'A powerful, full-sounding open chord using all six strings. E Major is the backbone of rock, blues, and countless guitar riffs.' },
   { name: 'E Minor', slug: 'e-minor-chord-guitar', root: 'E', quality: 'Minor', frets: [0, 2, 2, 0, 0, 0], fingers: [0, 2, 3, 0, 0, 0], barres: [], description: 'The easiest chord on guitar — just two fingers. Despite its simplicity, E Minor\'s rich, open sound is deeply expressive.' },
   { name: 'E7', slug: 'e7-chord-guitar', root: 'E', quality: '7', frets: [0, 2, 0, 1, 0, 0], fingers: [0, 2, 0, 1, 0, 0], barres: [], description: 'A dominant seventh with attitude. E7 drives blues progressions and adds a gritty edge to rock and folk songs.' },
   { name: 'E5', slug: 'e5-chord-guitar', root: 'E', quality: '5', frets: [0, 2, 2, 2, 0, 0], fingers: [0, 1, 2, 3, 0, 0], barres: [], description: 'A power chord with pure, aggressive tone. E5 is essential for heavy rock and metal.' },
@@ -70,7 +70,7 @@ export const chords = [
   { name: 'E7sus4', slug: 'e7sus4-chord-guitar', root: 'E', quality: '7sus4', frets: [0, 2, 0, 2, 0, 0], fingers: [0, 1, 0, 2, 0, 0], barres: [], description: 'A dominant seventh sus4. E7sus4 has bluesy, funky character.' },
 
   // ── F Chords ──
-  { name: 'F Major', slug: 'f-chord-guitar', root: 'F', quality: 'Major', frets: [1, 3, 3, 2, 1, 1], fingers: [1, 3, 4, 2, 1, 1], barres: [{ fret: 1, fromString: 0, toString: 5 }], description: 'The infamous barre chord that challenges every beginner. Once mastered, F Major unlocks the entire fretboard.' },
+  { name: 'F Major', slug: 'f-major-chord-guitar', root: 'F', quality: 'Major', frets: [1, 3, 3, 2, 1, 1], fingers: [1, 3, 4, 2, 1, 1], barres: [{ fret: 1, fromString: 0, toString: 5 }], description: 'The infamous barre chord that challenges every beginner. Once mastered, F Major unlocks the entire fretboard.' },
   { name: 'F Minor', slug: 'f-minor-chord-guitar', root: 'F', quality: 'Minor', frets: [1, 3, 3, 1, 1, 1], fingers: [1, 3, 4, 1, 1, 1], barres: [{ fret: 1, fromString: 0, toString: 5 }], description: 'A moody barre chord with a dark, cinematic quality. F Minor appears frequently in dramatic ballads and film scores.' },
   { name: 'F7', slug: 'f7-chord-guitar', root: 'F', quality: '7', frets: [1, 3, 1, 2, 1, 1], fingers: [1, 4, 1, 2, 1, 1], barres: [{ fret: 1, fromString: 0, toString: 5 }], description: 'A dominant seventh. F7 is bluesy and classic.' },
   { name: 'F5', slug: 'f5-chord-guitar', root: 'F', quality: '5', frets: [1, 3, 3, 2, -1, -1], fingers: [1, 2, 3, 1, 0, 0], barres: [], description: 'A power chord. F5 is powerful and heavy.' },
@@ -84,7 +84,7 @@ export const chords = [
   { name: 'F7sus4', slug: 'f7sus4-chord-guitar', root: 'F', quality: '7sus4', frets: [1, 3, 1, 3, 1, 1], fingers: [1, 2, 1, 3, 1, 1], barres: [{ fret: 1, fromString: 0, toString: 5 }], description: 'A dominant seventh sus4. F7sus4 has bluesy character.' },
 
   // ── F#/Gb Chords ──
-  { name: 'F# Major', slug: 'f-sharp-chord-guitar', root: 'F#', quality: 'Major', frets: [2, 4, 4, 3, 2, 2], fingers: [1, 3, 4, 2, 1, 1], barres: [{ fret: 2, fromString: 0, toString: 5 }], description: 'A barre chord at the 2nd fret. F# Major is bright and brilliant.' },
+  { name: 'F# Major', slug: 'f-sharp-major-chord-guitar', root: 'F#', quality: 'Major', frets: [2, 4, 4, 3, 2, 2], fingers: [1, 3, 4, 2, 1, 1], barres: [{ fret: 2, fromString: 0, toString: 5 }], description: 'A barre chord at the 2nd fret. F# Major is bright and brilliant.' },
   { name: 'F# Minor', slug: 'f-sharp-minor-chord-guitar', root: 'F#', quality: 'Minor', frets: [2, 4, 4, 2, 2, 2], fingers: [1, 3, 4, 1, 1, 1], barres: [{ fret: 2, fromString: 0, toString: 5 }], description: 'A barre chord at the 2nd fret. F# Minor is rich and deep.' },
   { name: 'F#7', slug: 'f-sharp-7-chord-guitar', root: 'F#', quality: '7', frets: [2, 4, 2, 3, 2, 2], fingers: [1, 3, 1, 2, 1, 1], barres: [{ fret: 2, fromString: 0, toString: 5 }], description: 'A dominant seventh. F#7 is classic and bluesy.' },
   { name: 'F#5', slug: 'f-sharp-5-chord-guitar', root: 'F#', quality: '5', frets: [2, 4, 4, 3, -1, -1], fingers: [1, 2, 3, 1, 0, 0], barres: [], description: 'A power chord. F#5 is powerful and heavy.' },
@@ -98,7 +98,7 @@ export const chords = [
   { name: 'F#7sus4', slug: 'f-sharp-7sus4-chord-guitar', root: 'F#', quality: '7sus4', frets: [2, 4, 2, 4, 2, 2], fingers: [1, 2, 1, 3, 1, 1], barres: [{ fret: 2, fromString: 0, toString: 5 }], description: 'A dominant seventh sus4. F#7sus4 has bluesy character.' },
 
   // ── G Chords ──
-  { name: 'G Major', slug: 'g-chord-guitar', root: 'G', quality: 'Major', frets: [3, 2, 0, 0, 0, 3], fingers: [2, 1, 0, 0, 0, 3], barres: [], description: 'A big, resonant open chord that rings with warmth. G Major is one of the most-used chords in all of popular music.' },
+  { name: 'G Major', slug: 'g-major-chord-guitar', root: 'G', quality: 'Major', frets: [3, 2, 0, 0, 0, 3], fingers: [2, 1, 0, 0, 0, 3], barres: [], description: 'A big, resonant open chord that rings with warmth. G Major is one of the most-used chords in all of popular music.' },
   { name: 'G Minor', slug: 'g-minor-chord-guitar', root: 'G', quality: 'Minor', frets: [3, 5, 5, 3, 3, 3], fingers: [1, 3, 4, 1, 1, 1], barres: [{ fret: 3, fromString: 0, toString: 5 }], description: 'A full barre chord at the 3rd fret with a somber, powerful sound. Common in R&B, hip-hop, and classical music.' },
   { name: 'G7', slug: 'g7-chord-guitar', root: 'G', quality: '7', frets: [3, 2, 0, 0, 0, 1], fingers: [3, 2, 0, 0, 0, 1], barres: [], description: 'A dominant seventh chord that naturally pulls toward C Major. G7 is essential for blues, jazz, and traditional folk music.' },
   { name: 'G5', slug: 'g5-chord-guitar', root: 'G', quality: '5', frets: [3, 5, 5, 5, -1, -1], fingers: [1, 2, 3, 4, 0, 0], barres: [], description: 'A power chord. G5 is powerful and heavy.' },
@@ -112,7 +112,7 @@ export const chords = [
   { name: 'G7sus4', slug: 'g7sus4-chord-guitar', root: 'G', quality: '7sus4', frets: [3, 5, 3, 3, 1, 3], fingers: [2, 3, 1, 1, 1, 2], barres: [], description: 'A dominant seventh sus4. G7sus4 has bluesy character.' },
 
   // ── G#/Ab Chords ──
-  { name: 'G# Major', slug: 'g-sharp-chord-guitar', root: 'G#', quality: 'Major', frets: [4, 3, 1, 1, 1, 4], fingers: [2, 1, 0, 0, 0, 3], barres: [], description: 'A ringing open-like position. G# Major is bright and brilliant.' },
+  { name: 'G# Major', slug: 'g-sharp-major-chord-guitar', root: 'G#', quality: 'Major', frets: [4, 3, 1, 1, 1, 4], fingers: [2, 1, 0, 0, 0, 3], barres: [], description: 'A ringing open-like position. G# Major is bright and brilliant.' },
   { name: 'G# Minor', slug: 'g-sharp-minor-chord-guitar', root: 'G#', quality: 'Minor', frets: [4, 6, 6, 4, 4, 4], fingers: [1, 3, 4, 1, 1, 1], barres: [{ fret: 4, fromString: 0, toString: 5 }], description: 'A barre chord at the 4th fret. G# Minor is rich and deep.' },
   { name: 'G#7', slug: 'g-sharp-7-chord-guitar', root: 'G#', quality: '7', frets: [4, 3, 1, 1, 1, 2], fingers: [3, 2, 0, 0, 0, 1], barres: [], description: 'A dominant seventh. G#7 is bluesy and classic.' },
   { name: 'G#5', slug: 'g-sharp-5-chord-guitar', root: 'G#', quality: '5', frets: [4, 6, 6, 6, -1, -1], fingers: [1, 2, 3, 4, 0, 0], barres: [], description: 'A power chord. G#5 is powerful and heavy.' },
@@ -126,7 +126,7 @@ export const chords = [
   { name: 'G#7sus4', slug: 'g-sharp-7sus4-chord-guitar', root: 'G#', quality: '7sus4', frets: [4, 6, 4, 4, 2, 4], fingers: [2, 3, 1, 1, 1, 2], barres: [], description: 'A dominant seventh sus4. G#7sus4 has bluesy character.' },
 
   // ── A Chords ──
-  { name: 'A Major', slug: 'a-chord-guitar', root: 'A', quality: 'Major', frets: [-1, 0, 2, 2, 2, 0], fingers: [0, 0, 1, 2, 3, 0], barres: [], description: 'A compact, punchy open chord with a bright, clear tone. A Major is fundamental to rock, country, and pop.' },
+  { name: 'A Major', slug: 'a-major-chord-guitar', root: 'A', quality: 'Major', frets: [-1, 0, 2, 2, 2, 0], fingers: [0, 0, 1, 2, 3, 0], barres: [], description: 'A compact, punchy open chord with a bright, clear tone. A Major is fundamental to rock, country, and pop.' },
   { name: 'A Minor', slug: 'a-minor-chord-guitar', root: 'A', quality: 'Minor', frets: [-1, 0, 2, 2, 1, 0], fingers: [0, 0, 2, 3, 1, 0], barres: [], description: 'A simple yet deeply emotional open chord. A Minor is one of the most versatile chords in any guitarist\'s vocabulary.' },
   { name: 'A7', slug: 'a7-chord-guitar', root: 'A', quality: '7', frets: [-1, 0, 2, 0, 2, 0], fingers: [0, 0, 1, 0, 2, 0], barres: [], description: 'An open dominant seventh with a relaxed, bluesy vibe. A7 is a mainstay of acoustic blues and folk music.' },
   { name: 'A5', slug: 'a5-chord-guitar', root: 'A', quality: '5', frets: [-1, 0, 2, 2, -1, -1], fingers: [0, 0, 1, 2, 0, 0], barres: [], description: 'A power chord. A5 is powerful and heavy.' },
@@ -140,7 +140,7 @@ export const chords = [
   { name: 'A7sus4', slug: 'a7sus4-chord-guitar', root: 'A', quality: '7sus4', frets: [-1, 0, 2, 0, 3, 0], fingers: [0, 0, 1, 0, 2, 0], barres: [], description: 'A dominant seventh sus4. A7sus4 has bluesy character.' },
 
   // ── A#/Bb Chords ──
-  { name: 'A# Major', slug: 'a-sharp-chord-guitar', root: 'A#', quality: 'Major', frets: [1, 1, 3, 3, 3, 1], fingers: [1, 1, 2, 3, 4, 1], barres: [{ fret: 1, fromString: 0, toString: 5 }], description: 'A barre chord at the 1st fret. A# Major is bright and powerful.' },
+  { name: 'A# Major', slug: 'a-sharp-major-chord-guitar', root: 'A#', quality: 'Major', frets: [1, 1, 3, 3, 3, 1], fingers: [1, 1, 2, 3, 4, 1], barres: [{ fret: 1, fromString: 0, toString: 5 }], description: 'A barre chord at the 1st fret. A# Major is bright and powerful.' },
   { name: 'A# Minor', slug: 'a-sharp-minor-chord-guitar', root: 'A#', quality: 'Minor', frets: [1, 1, 3, 3, 2, 1], fingers: [1, 1, 3, 4, 2, 1], barres: [{ fret: 1, fromString: 0, toString: 5 }], description: 'A barre chord at the 1st fret. A# Minor is dark and rich.' },
   { name: 'A#7', slug: 'a-sharp-7-chord-guitar', root: 'A#', quality: '7', frets: [1, 1, 3, 1, 3, 1], fingers: [1, 1, 3, 1, 3, 1], barres: [{ fret: 1, fromString: 0, toString: 5 }], description: 'A dominant seventh. A#7 is bluesy and classic.' },
   { name: 'A#5', slug: 'a-sharp-5-chord-guitar', root: 'A#', quality: '5', frets: [1, 1, 3, 3, -1, -1], fingers: [1, 1, 2, 3, 0, 0], barres: [{ fret: 1, fromString: 0, toString: 1 }], description: 'A power chord. A#5 is powerful and heavy.' },
@@ -154,7 +154,7 @@ export const chords = [
   { name: 'A#7sus4', slug: 'a-sharp-7sus4-chord-guitar', root: 'A#', quality: '7sus4', frets: [1, 1, 3, 1, 4, 1], fingers: [1, 1, 2, 1, 3, 1], barres: [{ fret: 1, fromString: 0, toString: 5 }], description: 'A dominant seventh sus4. A#7sus4 has bluesy character.' },
 
   // ── B Chords ──
-  { name: 'B Major', slug: 'b-chord-guitar', root: 'B', quality: 'Major', frets: [-1, 2, 4, 4, 4, 2], fingers: [0, 1, 2, 3, 4, 1], barres: [{ fret: 2, fromString: 1, toString: 5 }], description: 'A barre chord at the 2nd fret with a bright, full sound. B Major is essential for playing in sharp keys like E and B.' },
+  { name: 'B Major', slug: 'b-major-chord-guitar', root: 'B', quality: 'Major', frets: [-1, 2, 4, 4, 4, 2], fingers: [0, 1, 2, 3, 4, 1], barres: [{ fret: 2, fromString: 1, toString: 5 }], description: 'A barre chord at the 2nd fret with a bright, full sound. B Major is essential for playing in sharp keys like E and B.' },
   { name: 'B Minor', slug: 'b-minor-chord-guitar', root: 'B', quality: 'Minor', frets: [-1, 2, 4, 4, 3, 2], fingers: [0, 1, 3, 4, 2, 1], barres: [{ fret: 2, fromString: 1, toString: 5 }], description: 'A rich barre chord with a melancholic edge. B Minor is key to playing in the popular keys of D major and B minor.' },
   { name: 'B7', slug: 'b7-chord-guitar', root: 'B', quality: '7', frets: [-1, 2, 1, 2, 0, 2], fingers: [0, 2, 1, 3, 0, 4], barres: [], description: 'An open-position dominant seventh with a twangy character. B7 naturally resolves to E Major and is vital for blues in E.' },
   { name: 'B5', slug: 'b5-chord-guitar', root: 'B', quality: '5', frets: [-1, 2, 4, 4, -1, -1], fingers: [0, 1, 3, 4, 0, 0], barres: [{ fret: 2, fromString: 1, toString: 1 }], description: 'A power chord. B5 is powerful and heavy.' },
