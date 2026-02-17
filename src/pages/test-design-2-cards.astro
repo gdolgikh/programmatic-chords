@@ -1,0 +1,230 @@
+---
+import Layout from '../components/Layout.astro';
+import ChordDiagram from '../components/ChordDiagram.astro';
+
+const chord = {
+  name: 'C Major',
+  quality: 'Major',
+  root: 'C',
+  frets: [-1, 3, 2, 0, 1, 0],
+  fingers: [0, 3, 2, 0, 1, 0],
+  barres: [],
+  description: 'One of the first chords every guitarist learns. Bright and open, C Major forms the foundation of countless songs in popular music.'
+};
+
+const stringNames = ['E', 'A', 'D', 'G', 'B', 'e'];
+const fretLabel = (f) => {
+  if (f === -1) return '×';
+  if (f === 0) return 'Open';
+  return `Fret ${f}`;
+};
+---
+
+<Layout title={`${chord.name} — Design Test 2 (Cards)`}>
+  <article class="chord-page">
+    <div class="header">
+      <h1>{chord.name}</h1>
+      <p class="tagline">Difficulty: ⭐⭐ (Beginner Friendly)</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card diagram-card">
+        <h3>Fingering</h3>
+        <div class="diagram-container">
+          <ChordDiagram
+            frets={chord.frets}
+            fingers={chord.fingers}
+            barres={chord.barres}
+            size="large"
+          />
+        </div>
+      </div>
+
+      <div class="card info-card">
+        <h3>About This Chord</h3>
+        <p>{chord.description}</p>
+      </div>
+
+      <div class="card theory-card">
+        <h3>Theory</h3>
+        <div class="theory-content">
+          <p><strong>Notes:</strong> C, E, G</p>
+          <p><strong>Type:</strong> Major Triad</p>
+          <p><strong>Common in:</strong> Pop, Rock, Folk</p>
+        </div>
+      </div>
+
+      <div class="card frets-card">
+        <h3>String by String</h3>
+        <div class="fret-list">
+          {chord.frets.map((f, i) => (
+            <div class:list={['fret-item', { muted: f === -1 }]}>
+              <span class="fret-string">{stringNames[i]}</span>
+              <span class="fret-value">{fretLabel(f)}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="card tips-card">
+        <h3>Beginner Tips</h3>
+        <ul>
+          <li>Press down firmly on the frets</li>
+          <li>Keep fingers close to the fret wire</li>
+          <li>Practice switching to Em and Am</li>
+        </ul>
+      </div>
+
+      <div class="card songs-card">
+        <h3>Found In Songs</h3>
+        <ul>
+          <li>Knockin' on Heaven's Door</li>
+          <li>Wild Thing</li>
+          <li>Wonderwall</li>
+        </ul>
+      </div>
+    </div>
+
+    <nav class="nav-back">
+      <a href="/">← Back to all chords</a>
+    </nav>
+  </article>
+</Layout>
+
+<style>
+  .chord-page {
+    padding: 2rem 0;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+  }
+
+  .header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .tagline {
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    color: #a78bfa;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .diagram-card {
+    grid-column: 1 / -1;
+  }
+
+  .diagram-container {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .theory-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .theory-content p {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .fret-list {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .fret-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0.4rem 0.6rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
+    min-width: 48px;
+  }
+
+  .fret-item.muted {
+    opacity: 0.4;
+  }
+
+  .fret-string {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #a78bfa;
+  }
+
+  .fret-value {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .card ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .card li {
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+  }
+
+  .card p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+  }
+
+  .nav-back {
+    margin-top: 2rem;
+  }
+
+  .nav-back a {
+    color: #a78bfa;
+    text-decoration: none;
+  }
+
+  .nav-back a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .diagram-card {
+      grid-column: 1;
+    }
+  }
+</style>

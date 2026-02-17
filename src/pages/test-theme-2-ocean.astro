@@ -1,0 +1,241 @@
+---
+import Layout from '../components/Layout.astro';
+import ChordDiagram from '../components/ChordDiagram.astro';
+import { chords, getChordsByRoot, rootOrder } from '../data/chords.js';
+
+const groups = getChordsByRoot();
+---
+
+<Layout title="ChordLab — Ocean Deep Theme Test">
+  <style is:global>
+    :root {
+      --bg-base: #051420;
+      --bg-gradient-1: #051420;
+      --bg-gradient-2: #0a1f2e;
+      --bg-gradient-3: #0d2a3d;
+      --bg-gradient-4: #051420;
+      --accent-primary: #67e8f9;
+      --accent-secondary: #0891b2;
+      --accent-tertiary: #14b8a6;
+      --accent-light: #bae6fd;
+      --accent-purple: #0ea5e9;
+      --accent-darker: #0369a1;
+      --orb-color-1: #06b6d4;
+      --orb-color-2: #0ea5e9;
+      --orb-color-3: #14b8a6;
+      --glass-bg: rgba(6, 182, 212, 0.05);
+      --glass-bg-hover: rgba(6, 182, 212, 0.08);
+      --glass-border: rgba(6, 182, 212, 0.08);
+      --glass-border-hover: rgba(6, 182, 212, 0.14);
+    }
+
+    body {
+      background: var(--bg-base);
+    }
+
+    .bg-layer {
+      background: linear-gradient(160deg,
+        var(--bg-gradient-1) 0%,
+        var(--bg-gradient-2) 30%,
+        var(--bg-gradient-3) 60%,
+        var(--bg-gradient-4) 100%);
+    }
+
+    .orb-1 {
+      background: radial-gradient(circle, var(--orb-color-1), transparent 70%);
+    }
+
+    .orb-2 {
+      background: radial-gradient(circle, var(--orb-color-2), transparent 70%);
+    }
+
+    .orb-3 {
+      background: radial-gradient(circle, var(--orb-color-3), transparent 70%);
+    }
+
+    .glass {
+      background: var(--glass-bg);
+      border-color: var(--glass-border);
+    }
+
+    .glass:hover {
+      background: var(--glass-bg-hover);
+      border-color: var(--glass-border-hover);
+    }
+
+    .logo-icon {
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-darker));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+
+  <div class="theme-label">🎨 Ocean Deep</div>
+
+  <section class="hero">
+    <h1 class="hero-title">Guitar Chord<br /><span class="accent">Catalog</span></h1>
+    <p class="hero-sub">25 essential chords with interactive diagrams, fingerings, and descriptions.</p>
+  </section>
+
+  {rootOrder.map(root => (
+    <section class="root-section" id={root.toLowerCase()}>
+      <h2 class="root-heading">
+        <span class="root-letter">{root}</span>
+        <span class="root-label">Chords</span>
+      </h2>
+      <div class="chord-grid">
+        {groups[root].map(chord => (
+          <a href={`/${chord.slug}/`} class="chord-card glass">
+            <div class="card-diagram">
+              <ChordDiagram
+                frets={chord.frets}
+                fingers={chord.fingers}
+                barres={chord.barres}
+                size="small"
+              />
+            </div>
+            <div class="card-info">
+              <h3 class="card-name">{chord.name}</h3>
+              <span class="card-badge">{chord.quality}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  ))}
+</Layout>
+
+<style>
+  .theme-label {
+    position: fixed;
+    top: 90px;
+    right: 1.5rem;
+    z-index: 99;
+    background: var(--accent-primary);
+    color: rgba(0, 0, 0, 0.9);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 2rem 0 3.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+
+  .accent {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.5);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .root-section {
+    margin-bottom: 3rem;
+  }
+
+  .root-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+    padding-left: 0.25rem;
+  }
+
+  .root-letter {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent-light), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .root-label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .chord-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 1rem;
+  }
+
+  .chord-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem 1rem 1rem;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .chord-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .card-diagram {
+    margin-bottom: 0.75rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card-info {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .card-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .card-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent-primary);
+    background: rgba(6, 182, 212, 0.12);
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+  }
+
+  @media (max-width: 600px) {
+    .chord-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    .theme-label {
+      top: 70px;
+      right: 1rem;
+      font-size: 0.75rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+</style>

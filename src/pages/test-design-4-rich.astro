@@ -1,0 +1,417 @@
+---
+import Layout from '../components/Layout.astro';
+import ChordDiagram from '../components/ChordDiagram.astro';
+
+const chord = {
+  name: 'C Major',
+  quality: 'Major',
+  root: 'C',
+  frets: [-1, 3, 2, 0, 1, 0],
+  fingers: [0, 3, 2, 0, 1, 0],
+  barres: [],
+  description: 'One of the first chords every guitarist learns. Bright and open, C Major forms the foundation of countless songs in popular music.'
+};
+
+const stringNames = ['E', 'A', 'D', 'G', 'B', 'e'];
+const fretLabel = (f) => {
+  if (f === -1) return '×';
+  if (f === 0) return 'Open';
+  return `Fret ${f}`;
+};
+---
+
+<Layout title={`${chord.name} — Design Test 4 (Feature Rich)`}>
+  <article class="chord-page">
+    <div class="hero-section">
+      <div class="hero-left">
+        <ChordDiagram
+          frets={chord.frets}
+          fingers={chord.fingers}
+          barres={chord.barres}
+          size="large"
+        />
+      </div>
+
+      <div class="hero-right">
+        <div class="badge-group">
+          <span class="badge difficulty">Difficulty: Beginner ⭐⭐</span>
+          <span class="badge type">Major Triad</span>
+          <span class="badge popularity">Popular</span>
+        </div>
+
+        <h1>{chord.name}</h1>
+        <p class="description">{chord.description}</p>
+
+        <div class="quick-facts">
+          <div class="fact">
+            <span class="fact-label">Notes:</span>
+            <span class="fact-value">C, E, G</span>
+          </div>
+          <div class="fact">
+            <span class="fact-label">Intervals:</span>
+            <span class="fact-value">Root • Major 3rd • Perfect 5th</span>
+          </div>
+          <div class="fact">
+            <span class="fact-label">Barres:</span>
+            <span class="fact-value">None (Beginner friendly)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <section class="content-card">
+        <h2>Fingering Guide</h2>
+        <div class="fret-detail">
+          {chord.frets.map((f, i) => (
+            <div class:list={['fret-row', { muted: f === -1 }]}>
+              <span class="fret-string-name">{stringNames[i]} String</span>
+              <span class="fret-instruction">{fretLabel(f)}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>Beginner Tips</h2>
+        <ul class="tips-list">
+          <li><strong>Hand position:</strong> Keep wrist straight, fingers curved</li>
+          <li><strong>Pressure:</strong> Press firmly near (not on) the fret wire</li>
+          <li><strong>Practice:</strong> Switch between C, Am, and G daily</li>
+          <li><strong>Common issue:</strong> Muted 2nd string? You need more finger pressure</li>
+        </ul>
+      </section>
+
+      <section class="content-card">
+        <h2>Music Theory</h2>
+        <div class="theory-box">
+          <p><strong>C Major</strong> is built from the root note <strong>C</strong>, plus a <strong>Major 3rd</strong> (E) and a <strong>Perfect 5th</strong> (G).</p>
+          <p>This is the most common chord shape in Western music and appears in thousands of songs.</p>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>Related Chords</h2>
+        <div class="related-chords">
+          <div class="related-item">
+            <strong>Cm</strong>
+            <p>Minor version (darker)</p>
+          </div>
+          <div class="related-item">
+            <strong>C7</strong>
+            <p>Dominant 7th (bluesy)</p>
+          </div>
+          <div class="related-item">
+            <strong>Cmaj7</strong>
+            <p>Jazz version (sophisticated)</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-card full-width">
+        <h2>Found In Popular Songs</h2>
+        <div class="songs-grid">
+          <div class="song-item">
+            <span class="song-title">Knockin' on Heaven's Door</span>
+            <span class="song-artist">Bob Dylan</span>
+          </div>
+          <div class="song-item">
+            <span class="song-title">Wild Thing</span>
+            <span class="song-artist">The Troggs</span>
+          </div>
+          <div class="song-item">
+            <span class="song-title">Wonderful Tonight</span>
+            <span class="song-artist">Eric Clapton</span>
+          </div>
+          <div class="song-item">
+            <span class="song-title">Wonderwall</span>
+            <span class="song-artist">Oasis</span>
+          </div>
+          <div class="song-item">
+            <span class="song-title">Sweet Home Chicago</span>
+            <span class="song-artist">Blues Standard</span>
+          </div>
+          <div class="song-item">
+            <span class="song-title">Sunshine of Your Love</span>
+            <span class="song-artist">Cream</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <nav class="nav-back">
+      <a href="/">← Back to all chords</a>
+    </nav>
+  </article>
+</Layout>
+
+<style>
+  .chord-page {
+    padding: 1rem 0;
+  }
+
+  .hero-section {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 3rem;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .hero-left {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .badge-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .badge.difficulty {
+    background: rgba(34, 197, 94, 0.15);
+    color: #86efac;
+  }
+
+  .badge.type {
+    background: rgba(59, 130, 246, 0.15);
+    color: #93c5fd;
+  }
+
+  .badge.popularity {
+    background: rgba(167, 139, 250, 0.15);
+    color: #d8b4fe;
+  }
+
+  .hero-right h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin: 0.5rem 0 1rem 0;
+  }
+
+  .description {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .quick-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .fact {
+    display: flex;
+    gap: 1rem;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+  }
+
+  .fact-label {
+    font-weight: 700;
+    color: #a78bfa;
+    min-width: 80px;
+  }
+
+  .fact-value {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .content-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .content-card.full-width {
+    grid-column: 1 / -1;
+  }
+
+  .content-card h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 1.25rem 0;
+    color: #a78bfa;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.9rem;
+  }
+
+  .fret-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .fret-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .fret-row.muted {
+    opacity: 0.5;
+  }
+
+  .fret-string-name {
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+  }
+
+  .fret-instruction {
+    color: #a78bfa;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .tips-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tips-list strong {
+    color: #a78bfa;
+  }
+
+  .theory-box {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+  }
+
+  .theory-box p {
+    margin: 0 0 1rem 0;
+  }
+
+  .theory-box p:last-child {
+    margin: 0;
+  }
+
+  .related-chords {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .related-item {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+  }
+
+  .related-item strong {
+    display: block;
+    font-size: 1.2rem;
+    color: #a78bfa;
+    margin-bottom: 0.3rem;
+  }
+
+  .related-item p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .songs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .song-item {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border-left: 3px solid #a78bfa;
+  }
+
+  .song-title {
+    display: block;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.3rem;
+  }
+
+  .song-artist {
+    display: block;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .nav-back {
+    margin-top: 2rem;
+  }
+
+  .nav-back a {
+    color: #a78bfa;
+    text-decoration: none;
+  }
+
+  .nav-back a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .content-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .related-chords {
+      grid-template-columns: 1fr;
+    }
+
+    .songs-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
