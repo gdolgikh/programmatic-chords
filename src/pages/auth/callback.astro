@@ -1,0 +1,68 @@
+---
+// Auth callback — handles token exchange after Google OAuth redirect
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signing in...</title>
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #051420;
+      color: rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(103, 232, 249, 0.2);
+      border-top-color: #67e8f9;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 1rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .message { text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="message">
+    <div class="spinner"></div>
+    <p>Signing you in...</p>
+  </div>
+
+  <script>
+    import { supabase, supabaseConfigured } from '../../lib/supabase.js';
+
+    if (!supabaseConfigured) {
+      document.querySelector('.message p').textContent = 'Supabase not configured. Redirecting...';
+      setTimeout(() => { window.location.href = '/'; }, 1500);
+    } else {
+      // Handle PKCE flow (code in query string)
+      if (window.location.search.includes('code=')) {
+        const { error } = await supabase.auth.exchangeCodeForSession(window.location.search);
+        if (error) console.error('Auth callback error:', error);
+      }
+
+      // For implicit flow, Supabase auto-detects the hash fragment.
+      // Wait briefly for the session to be established either way.
+      const { data: { session } } = await supabase.auth.getSession();
+
+      if (!session) {
+        document.querySelector('.message p').textContent = 'Sign-in failed. Redirecting...';
+      }
+
+      const returnTo = localStorage.getItem('auth_return_to') || '/';
+      localStorage.removeItem('auth_return_to');
+      setTimeout(() => { window.location.href = returnTo; }, session ? 100 : 1500);
+    }
+  </script>
+</body>
+</html>

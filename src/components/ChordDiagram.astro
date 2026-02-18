@@ -1,5 +1,6 @@
 ---
-const { frets, fingers, barres = [], size = 'large', midi = [] } = Astro.props;
+const { frets, fingers, barres = [], size = 'large', midi = [], id = '' } = Astro.props;
+const gradId = id ? `dotGrad-${id}` : `dotGrad-${size}`;
 
 const stringCount = 6;
 const fretCount = 5;
@@ -119,7 +120,7 @@ const fingerLabels = isLarge ? frets.map((fret, i) => {
   data-midi={JSON.stringify(midi)}
 >
   <defs>
-    <linearGradient id={`dotGrad-${size}`} x1="0" y1="0" x2="0" y2="1">
+    <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#67e8f9" />
       <stop offset="100%" stop-color="#0891b2" />
     </linearGradient>
@@ -202,7 +203,7 @@ const fingerLabels = isLarge ? frets.map((fret, i) => {
       x={b.x} y={b.y}
       width={b.width} height={b.height}
       rx={b.rx}
-      fill={`url(#dotGrad-${size})`}
+      fill={`url(#${gradId})`}
       opacity="0.95"
     />
   ))}
@@ -211,7 +212,7 @@ const fingerLabels = isLarge ? frets.map((fret, i) => {
   {dots.map(d => (
     <circle
       cx={d.x} cy={d.y} r={d.r}
-      fill={`url(#dotGrad-${size})`}
+      fill={`url(#${gradId})`}
       class="finger-dot"
       data-string={d.stringIndex}
       data-midi={d.midiNote}
