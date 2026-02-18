@@ -89,6 +89,17 @@ const dots = frets.map((fret, i) => {
   return { x, y, r: dotRadius, stringIndex: i, midiNote };
 }).filter(Boolean);
 
+// Clickable dots for barre-covered positions
+const barreDots = frets.map((fret, i) => {
+  if (fret < 1) return null;
+  if (!isBarre(i, fret)) return null;
+  const x = leftPad + i * stringSpacing;
+  const relFret = fret - startFret + 1;
+  const y = topPad + (relFret - 1) * fretSpacing + fretSpacing / 2;
+  const midiNote = midi[i];
+  return { x, y, r: dotRadius, stringIndex: i, midiNote };
+}).filter(Boolean);
+
 // Finger numbers (large only)
 const fingerLabels = isLarge ? frets.map((fret, i) => {
   if (fret < 1 || fingers[i] === 0) return null;
@@ -220,6 +231,18 @@ const fingerLabels = isLarge ? frets.map((fret, i) => {
       font-family="system-ui, sans-serif"
       style="pointer-events: none; user-select: none;"
     >{fl.label}</text>
+  ))}
+
+  {/* Invisible clickable dots on barre positions */}
+  {barreDots.map(d => (
+    <circle
+      cx={d.x} cy={d.y} r={d.r}
+      fill="transparent"
+      class="finger-dot"
+      data-string={d.stringIndex}
+      data-midi={d.midiNote}
+      style="cursor: pointer;"
+    />
   ))}
 </svg>
 

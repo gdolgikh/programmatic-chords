@@ -440,21 +440,49 @@ export const chords = [
     "frets": [
       -1,
       3,
-      3,
-      2,
+      5,
+      5,
       -1,
       -1
     ],
     "fingers": [
       0,
       1,
-      2,
-      1,
+      3,
+      4,
       0,
       0
     ],
     "barres": [],
-    "description": "A power chord with just root and perfect fifth. C5 is the foundation of heavy rock and punk, offering pure, aggressive tone."
+    "description": "A power chord with just root and perfect fifth. C5 is the foundation of heavy rock and punk, offering pure, aggressive tone.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          3,
+          5,
+          5,
+          -1,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          3,
+          4,
+          0,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          48,
+          55,
+          60
+        ]
+      }
+    ]
   },
   {
     "name": "Cdim",
@@ -1623,7 +1651,39 @@ export const chords = [
         "toString": 5
       }
     ],
-    "description": "A bright barre chord at the 1st fret. C# Major has a brilliant, ringing tone found in many modern rock songs."
+    "description": "A bright barre chord at the 1st fret. C# Major has a brilliant, ringing tone found in many modern rock songs.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          4,
+          3,
+          1,
+          2,
+          1
+        ],
+        "fingers": [
+          0,
+          3,
+          2,
+          1,
+          2,
+          1
+        ],
+        "baseFret": 1,
+        "barres": [
+          1
+        ],
+        "midi": [
+          49,
+          53,
+          56,
+          61,
+          65
+        ]
+      }
+    ]
   },
   {
     "name": "C# Minor",
@@ -1653,7 +1713,39 @@ export const chords = [
         "toString": 5
       }
     ],
-    "description": "A powerful barre chord at the 4th fret. C# Minor is rich and deep, commonly used in metal and progressive rock."
+    "description": "A powerful barre chord at the 4th fret. C# Minor is rich and deep, commonly used in metal and progressive rock.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          4,
+          6,
+          6,
+          5,
+          4
+        ],
+        "fingers": [
+          0,
+          1,
+          3,
+          4,
+          2,
+          1
+        ],
+        "baseFret": 1,
+        "barres": [
+          4
+        ],
+        "midi": [
+          49,
+          56,
+          61,
+          64,
+          68
+        ]
+      }
+    ]
   },
   {
     "name": "C#7",
@@ -1677,7 +1769,37 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "A dominant seventh with sharp, energetic character. C#7 is perfect for blues in E major."
+    "description": "A dominant seventh with sharp, energetic character. C#7 is perfect for blues in E major.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          4,
+          3,
+          4,
+          2,
+          1
+        ],
+        "fingers": [
+          0,
+          3,
+          2,
+          4,
+          1,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          49,
+          53,
+          59,
+          61,
+          65
+        ]
+      }
+    ]
   },
   {
     "name": "C#5",
@@ -1687,21 +1809,49 @@ export const chords = [
     "frets": [
       -1,
       4,
-      4,
-      3,
+      6,
+      6,
       -1,
       -1
     ],
     "fingers": [
       0,
       1,
-      2,
-      1,
+      3,
+      4,
       0,
       0
     ],
     "barres": [],
-    "description": "A power chord rooted at C#. Essential for heavy metal and hard rock riffing."
+    "description": "A power chord rooted at C#. Essential for heavy metal and hard rock riffing.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          4,
+          6,
+          6,
+          -1,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          3,
+          4,
+          0,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          49,
+          56,
+          61
+        ]
+      }
+    ]
   },
   {
     "name": "C#dim",
@@ -1712,20 +1862,49 @@ export const chords = [
       -1,
       4,
       5,
-      3,
+      6,
       5,
-      4
+      -1
     ],
     "fingers": [
       0,
-      2,
-      3,
       1,
+      2,
       4,
-      2
+      3,
+      0
     ],
     "barres": [],
-    "description": "A diminished chord with tense, eerie character. C#dim is often used to create tension before resolving."
+    "description": "A diminished chord with tense, eerie character. C#dim is often used to create tension before resolving.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          4,
+          5,
+          6,
+          5,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          49,
+          55,
+          61,
+          64
+        ]
+      }
+    ]
   },
   {
     "name": "C#dim7",
@@ -1735,10 +1914,10 @@ export const chords = [
     "frets": [
       -1,
       4,
-      6,
       5,
-      6,
-      5
+      3,
+      5,
+      -1
     ],
     "fingers": [
       0,
@@ -1746,10 +1925,39 @@ export const chords = [
       3,
       2,
       4,
-      2
+      0
     ],
     "barres": [],
-    "description": "A fully diminished seventh with symmetrical, mysterious quality. C#dim7 is essential for classical harmony."
+    "description": "A fully diminished seventh with symmetrical, mysterious quality. C#dim7 is essential for classical harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          4,
+          5,
+          3,
+          5,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          49,
+          55,
+          58,
+          64
+        ]
+      }
+    ]
   },
   {
     "name": "C#aug",
@@ -1773,7 +1981,37 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "An augmented chord with ethereal, floating quality. C#aug creates tension used in progressive and jazz music."
+    "description": "An augmented chord with ethereal, floating quality. C#aug creates tension used in progressive and jazz music.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          4,
+          3,
+          2,
+          2,
+          1
+        ],
+        "fingers": [
+          0,
+          3,
+          2,
+          1,
+          1,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          49,
+          53,
+          57,
+          61,
+          65
+        ]
+      }
+    ]
   },
   {
     "name": "C#sus2",
@@ -1786,24 +2024,47 @@ export const chords = [
       1,
       1,
       2,
-      1
+      -1
     ],
     "fingers": [
       0,
-      3,
+      4,
       1,
       1,
       2,
-      1
+      0
     ],
-    "barres": [
+    "barres": [],
+    "description": "A suspended second with open, ambiguous quality. C#sus2 is popular in modern indie and alternative rock.",
+    "baseFret": 1,
+    "allPositions": [
       {
-        "fret": 1,
-        "fromString": 2,
-        "toString": 5
+        "frets": [
+          -1,
+          4,
+          1,
+          1,
+          2,
+          -1
+        ],
+        "fingers": [
+          0,
+          4,
+          1,
+          1,
+          2,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          49,
+          51,
+          56,
+          61
+        ]
       }
-    ],
-    "description": "A suspended second with open, ambiguous quality. C#sus2 is popular in modern indie and alternative rock."
+    ]
   },
   {
     "name": "C#sus4",
@@ -1816,24 +2077,47 @@ export const chords = [
       4,
       1,
       2,
-      1
+      -1
     ],
     "fingers": [
       0,
-      2,
       3,
+      4,
       1,
       2,
-      1
+      0
     ],
-    "barres": [
+    "barres": [],
+    "description": "A suspended fourth that creates natural tension. C#sus4 resolves beautifully to C# Major.",
+    "baseFret": 1,
+    "allPositions": [
       {
-        "fret": 1,
-        "fromString": 1,
-        "toString": 5
+        "frets": [
+          -1,
+          4,
+          4,
+          1,
+          2,
+          -1
+        ],
+        "fingers": [
+          0,
+          3,
+          4,
+          1,
+          2,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          49,
+          54,
+          56,
+          61
+        ]
       }
-    ],
-    "description": "A suspended fourth that creates natural tension. C#sus4 resolves beautifully to C# Major."
+    ]
   },
   {
     "name": "C#maj7",
@@ -1863,7 +2147,39 @@ export const chords = [
         "toString": 5
       }
     ],
-    "description": "A sophisticated major seventh with jazz elegance. C#maj7 is smooth and contemporary."
+    "description": "A sophisticated major seventh with jazz elegance. C#maj7 is smooth and contemporary.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          4,
+          3,
+          1,
+          1,
+          1
+        ],
+        "fingers": [
+          0,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "baseFret": 1,
+        "barres": [
+          1
+        ],
+        "midi": [
+          49,
+          53,
+          56,
+          60,
+          65
+        ]
+      }
+    ]
   },
   {
     "name": "C#m7",
@@ -1887,7 +2203,37 @@ export const chords = [
       1
     ],
     "barres": [],
-    "description": "A soulful minor seventh chord. C#m7 is perfect for R&B and contemporary soul music."
+    "description": "A soulful minor seventh chord. C#m7 is perfect for R&B and contemporary soul music.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          4,
+          6,
+          4,
+          5,
+          4
+        ],
+        "fingers": [
+          0,
+          1,
+          3,
+          1,
+          2,
+          1
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          49,
+          56,
+          59,
+          64,
+          68
+        ]
+      }
+    ]
   },
   {
     "name": "C#7sus4",
@@ -1900,18 +2246,47 @@ export const chords = [
       4,
       4,
       2,
-      1
+      -1
     ],
     "fingers": [
       0,
-      1,
       2,
       3,
+      4,
       1,
       0
     ],
     "barres": [],
-    "description": "A dominant seventh sus4 with blues character. C#7sus4 has gritty, funky energy."
+    "description": "A dominant seventh sus4 with blues character. C#7sus4 has gritty, funky energy.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          4,
+          4,
+          4,
+          2,
+          -1
+        ],
+        "fingers": [
+          0,
+          2,
+          3,
+          4,
+          1,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          49,
+          54,
+          59,
+          61
+        ]
+      }
+    ]
   },
   {
     "name": "D Major",
@@ -2348,22 +2723,50 @@ export const chords = [
     "quality": "5",
     "frets": [
       -1,
+      5,
+      7,
+      7,
       -1,
-      0,
-      2,
-      3,
-      2
+      -1
     ],
     "fingers": [
       0,
-      0,
-      0,
       1,
-      2,
-      1
+      3,
+      4,
+      0,
+      0
     ],
     "barres": [],
-    "description": "A powerful power chord. D5 is the bedrock of heavy rock and metal music."
+    "description": "A powerful power chord. D5 is the bedrock of heavy rock and metal music.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          5,
+          7,
+          7,
+          -1,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          3,
+          4,
+          0,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          50,
+          57,
+          62
+        ]
+      }
+    ]
   },
   {
     "name": "Ddim",
@@ -3923,22 +4326,50 @@ export const chords = [
     "quality": "5",
     "frets": [
       -1,
+      6,
+      8,
+      8,
       -1,
-      1,
-      3,
-      4,
-      3
+      -1
     ],
     "fingers": [
       0,
-      0,
       1,
-      2,
       3,
-      2
+      4,
+      0,
+      0
     ],
     "barres": [],
-    "description": "A power chord. D#5 is heavy and powerful."
+    "description": "A power chord. D#5 is heavy and powerful.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          6,
+          8,
+          8,
+          -1,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          3,
+          4,
+          0,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          51,
+          58,
+          63
+        ]
+      }
+    ]
   },
   {
     "name": "D#dim",
@@ -5521,20 +5952,48 @@ export const chords = [
       0,
       2,
       2,
-      2,
-      0,
-      0
+      -1,
+      -1,
+      -1
     ],
     "fingers": [
       0,
       1,
       2,
-      3,
+      0,
       0,
       0
     ],
     "barres": [],
-    "description": "A power chord with pure, aggressive tone. E5 is essential for heavy rock and metal."
+    "description": "A power chord with pure, aggressive tone. E5 is essential for heavy rock and metal.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          0,
+          2,
+          2,
+          -1,
+          -1,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          2,
+          0,
+          0,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          40,
+          47,
+          52
+        ]
+      }
+    ]
   },
   {
     "name": "Edim",
@@ -7167,20 +7626,48 @@ export const chords = [
       1,
       3,
       3,
-      2,
+      -1,
       -1,
       -1
     ],
     "fingers": [
       1,
-      2,
       3,
-      1,
+      4,
+      0,
       0,
       0
     ],
     "barres": [],
-    "description": "A power chord. F5 is powerful and heavy."
+    "description": "A power chord. F5 is powerful and heavy.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          1,
+          3,
+          3,
+          -1,
+          -1,
+          -1
+        ],
+        "fingers": [
+          1,
+          3,
+          4,
+          0,
+          0,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          41,
+          48,
+          53
+        ]
+      }
+    ]
   },
   {
     "name": "Fdim",
@@ -8368,7 +8855,40 @@ export const chords = [
         "toString": 5
       }
     ],
-    "description": "A barre chord at the 2nd fret. F# Major is bright and brilliant."
+    "description": "A barre chord at the 2nd fret. F# Major is bright and brilliant.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          2,
+          4,
+          4,
+          3,
+          2,
+          2
+        ],
+        "fingers": [
+          1,
+          3,
+          4,
+          2,
+          1,
+          1
+        ],
+        "baseFret": 1,
+        "barres": [
+          2
+        ],
+        "midi": [
+          42,
+          49,
+          54,
+          58,
+          61,
+          66
+        ]
+      }
+    ]
   },
   {
     "name": "F# Minor",
@@ -8398,7 +8918,40 @@ export const chords = [
         "toString": 5
       }
     ],
-    "description": "A barre chord at the 2nd fret. F# Minor is rich and deep."
+    "description": "A barre chord at the 2nd fret. F# Minor is rich and deep.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          2,
+          4,
+          4,
+          2,
+          2,
+          2
+        ],
+        "fingers": [
+          1,
+          3,
+          4,
+          1,
+          1,
+          1
+        ],
+        "baseFret": 1,
+        "barres": [
+          2
+        ],
+        "midi": [
+          42,
+          49,
+          54,
+          57,
+          61,
+          66
+        ]
+      }
+    ]
   },
   {
     "name": "F#7",
@@ -8428,7 +8981,40 @@ export const chords = [
         "toString": 5
       }
     ],
-    "description": "A dominant seventh. F#7 is classic and bluesy."
+    "description": "A dominant seventh. F#7 is classic and bluesy.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          2,
+          4,
+          2,
+          3,
+          2,
+          2
+        ],
+        "fingers": [
+          1,
+          3,
+          1,
+          2,
+          1,
+          1
+        ],
+        "baseFret": 1,
+        "barres": [
+          2
+        ],
+        "midi": [
+          42,
+          49,
+          52,
+          58,
+          61,
+          66
+        ]
+      }
+    ]
   },
   {
     "name": "F#5",
@@ -8439,20 +9025,48 @@ export const chords = [
       2,
       4,
       4,
-      3,
+      -1,
       -1,
       -1
     ],
     "fingers": [
       1,
-      2,
       3,
-      1,
+      4,
+      0,
       0,
       0
     ],
     "barres": [],
-    "description": "A power chord. F#5 is powerful and heavy."
+    "description": "A power chord. F#5 is powerful and heavy.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          2,
+          4,
+          4,
+          -1,
+          -1,
+          -1
+        ],
+        "fingers": [
+          1,
+          3,
+          4,
+          0,
+          0,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          42,
+          49,
+          54
+        ]
+      }
+    ]
   },
   {
     "name": "F#dim",
@@ -8462,21 +9076,50 @@ export const chords = [
     "frets": [
       2,
       3,
-      1,
+      4,
       2,
-      1,
-      2
+      -1,
+      -1
     ],
     "fingers": [
+      1,
       2,
+      4,
       3,
-      1,
-      2,
-      1,
-      3
+      0,
+      0
     ],
     "barres": [],
-    "description": "A diminished chord. F#dim has eerie quality."
+    "description": "A diminished chord. F#dim has eerie quality.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          2,
+          3,
+          4,
+          2,
+          -1,
+          -1
+        ],
+        "fingers": [
+          1,
+          2,
+          4,
+          3,
+          0,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          42,
+          48,
+          54,
+          57
+        ]
+      }
+    ]
   },
   {
     "name": "F#dim7",
@@ -8489,7 +9132,7 @@ export const chords = [
       1,
       2,
       1,
-      1
+      -1
     ],
     "fingers": [
       2,
@@ -8497,16 +9140,40 @@ export const chords = [
       1,
       2,
       1,
-      1
+      0
     ],
-    "barres": [
+    "barres": [],
+    "description": "A fully diminished seventh. F#dim7 is symmetrical and mysterious.",
+    "baseFret": 1,
+    "allPositions": [
       {
-        "fret": 1,
-        "fromString": 5,
-        "toString": 5
+        "frets": [
+          2,
+          3,
+          1,
+          2,
+          1,
+          -1
+        ],
+        "fingers": [
+          2,
+          3,
+          1,
+          2,
+          1,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          42,
+          48,
+          51,
+          57,
+          60
+        ]
       }
-    ],
-    "description": "A fully diminished seventh. F#dim7 is symmetrical and mysterious."
+    ]
   },
   {
     "name": "F#aug",
@@ -8515,22 +9182,52 @@ export const chords = [
     "quality": "aug",
     "frets": [
       2,
-      4,
+      1,
+      0,
       3,
       3,
-      2,
-      1
+      -1
     ],
     "fingers": [
+      2,
       1,
+      0,
       3,
-      2,
-      2,
-      1,
+      4,
       0
     ],
     "barres": [],
-    "description": "An augmented chord. F#aug has ethereal quality."
+    "description": "An augmented chord. F#aug has ethereal quality.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          2,
+          1,
+          0,
+          3,
+          3,
+          -1
+        ],
+        "fingers": [
+          2,
+          1,
+          0,
+          3,
+          4,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          42,
+          46,
+          50,
+          58,
+          62
+        ]
+      }
+    ]
   },
   {
     "name": "F#sus2",
@@ -8540,27 +9237,51 @@ export const chords = [
     "frets": [
       2,
       4,
-      1,
-      1,
-      2,
-      2
-    ],
-    "fingers": [
-      2,
       4,
       1,
+      2,
+      -1
+    ],
+    "fingers": [
+      1,
+      3,
+      4,
       1,
       2,
-      2
+      0
     ],
-    "barres": [
+    "barres": [],
+    "description": "A suspended second. F#sus2 is open and modern.",
+    "baseFret": 1,
+    "allPositions": [
       {
-        "fret": 2,
-        "fromString": 4,
-        "toString": 5
+        "frets": [
+          2,
+          4,
+          4,
+          1,
+          2,
+          -1
+        ],
+        "fingers": [
+          1,
+          3,
+          4,
+          1,
+          2,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          42,
+          49,
+          54,
+          56,
+          61
+        ]
       }
-    ],
-    "description": "A suspended second. F#sus2 is open and modern."
+    ]
   },
   {
     "name": "F#sus4",
@@ -8590,7 +9311,40 @@ export const chords = [
         "toString": 5
       }
     ],
-    "description": "A suspended fourth. F#sus4 creates natural tension."
+    "description": "A suspended fourth. F#sus4 creates natural tension.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          2,
+          4,
+          4,
+          4,
+          2,
+          2
+        ],
+        "fingers": [
+          1,
+          2,
+          3,
+          4,
+          1,
+          1
+        ],
+        "baseFret": 1,
+        "barres": [
+          2
+        ],
+        "midi": [
+          42,
+          49,
+          54,
+          59,
+          61,
+          66
+        ]
+      }
+    ]
   },
   {
     "name": "F#maj7",
@@ -8614,7 +9368,38 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "A sophisticated major seventh. F#maj7 is bright and jazzy."
+    "description": "A sophisticated major seventh. F#maj7 is bright and jazzy.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          2,
+          4,
+          3,
+          3,
+          2,
+          1
+        ],
+        "fingers": [
+          1,
+          3,
+          2,
+          2,
+          1,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          42,
+          49,
+          53,
+          58,
+          61,
+          65
+        ]
+      }
+    ]
   },
   {
     "name": "F#m7",
@@ -8644,7 +9429,40 @@ export const chords = [
         "toString": 5
       }
     ],
-    "description": "A soulful minor seventh. F#m7 is smooth and contemporary."
+    "description": "A soulful minor seventh. F#m7 is smooth and contemporary.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          2,
+          4,
+          2,
+          2,
+          2,
+          2
+        ],
+        "fingers": [
+          1,
+          3,
+          1,
+          1,
+          1,
+          1
+        ],
+        "baseFret": 1,
+        "barres": [
+          2
+        ],
+        "midi": [
+          42,
+          49,
+          52,
+          57,
+          61,
+          66
+        ]
+      }
+    ]
   },
   {
     "name": "F#7sus4",
@@ -8674,7 +9492,40 @@ export const chords = [
         "toString": 5
       }
     ],
-    "description": "A dominant seventh sus4. F#7sus4 has bluesy character."
+    "description": "A dominant seventh sus4. F#7sus4 has bluesy character.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          2,
+          4,
+          2,
+          4,
+          2,
+          2
+        ],
+        "fingers": [
+          1,
+          2,
+          1,
+          3,
+          1,
+          1
+        ],
+        "baseFret": 1,
+        "barres": [
+          2
+        ],
+        "midi": [
+          42,
+          49,
+          52,
+          59,
+          61,
+          66
+        ]
+      }
+    ]
   },
   {
     "name": "G Major",
@@ -9122,20 +9973,48 @@ export const chords = [
       3,
       5,
       5,
-      5,
+      -1,
       -1,
       -1
     ],
     "fingers": [
       1,
-      2,
       3,
       4,
+      0,
       0,
       0
     ],
     "barres": [],
-    "description": "A power chord. G5 is powerful and heavy."
+    "description": "A power chord. G5 is powerful and heavy.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          3,
+          5,
+          5,
+          -1,
+          -1,
+          -1
+        ],
+        "fingers": [
+          1,
+          3,
+          4,
+          0,
+          0,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          43,
+          50,
+          55
+        ]
+      }
+    ]
   },
   {
     "name": "Gdim",
@@ -10760,20 +11639,48 @@ export const chords = [
       4,
       6,
       6,
-      6,
+      -1,
       -1,
       -1
     ],
     "fingers": [
       1,
-      2,
       3,
       4,
+      0,
       0,
       0
     ],
     "barres": [],
-    "description": "A power chord. G#5 is powerful and heavy."
+    "description": "A power chord. G#5 is powerful and heavy.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          4,
+          6,
+          6,
+          -1,
+          -1,
+          -1
+        ],
+        "fingers": [
+          1,
+          3,
+          4,
+          0,
+          0,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          44,
+          51,
+          56
+        ]
+      }
+    ]
   },
   {
     "name": "G#dim",
@@ -12403,7 +13310,35 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "A power chord. A5 is powerful and heavy."
+    "description": "A power chord. A5 is powerful and heavy.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          0,
+          2,
+          2,
+          -1,
+          -1
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          2,
+          0,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          45,
+          52,
+          57
+        ]
+      }
+    ]
   },
   {
     "name": "Adim",
@@ -13989,7 +14924,7 @@ export const chords = [
     "root": "A#",
     "quality": "5",
     "frets": [
-      1,
+      -1,
       1,
       3,
       3,
@@ -13997,21 +14932,43 @@ export const chords = [
       -1
     ],
     "fingers": [
+      0,
       1,
-      1,
-      2,
       3,
+      4,
       0,
       0
     ],
-    "barres": [
+    "barres": [],
+    "description": "A power chord. A#5 is powerful and heavy.",
+    "baseFret": 1,
+    "allPositions": [
       {
-        "fret": 1,
-        "fromString": 0,
-        "toString": 1
+        "frets": [
+          -1,
+          1,
+          3,
+          3,
+          -1,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          3,
+          4,
+          0,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          46,
+          53,
+          58
+        ]
       }
-    ],
-    "description": "A power chord. A#5 is powerful and heavy."
+    ]
   },
   {
     "name": "A#dim",
@@ -15653,7 +16610,37 @@ export const chords = [
         "toString": 1
       }
     ],
-    "description": "A power chord. B5 is powerful and heavy."
+    "description": "A power chord. B5 is powerful and heavy.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          2,
+          4,
+          4,
+          -1,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          3,
+          4,
+          0,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [
+          2
+        ],
+        "midi": [
+          47,
+          54,
+          59
+        ]
+      }
+    ]
   },
   {
     "name": "Bdim",
@@ -16825,6 +17812,8 @@ export const chords = [
     ]
   }
 ];
+
+
 
 // Group chords by root note for navigation
 export function getChordsByRoot() {
