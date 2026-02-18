@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import SettingsPanel, { type ProgressionSettings } from '@/components/guitar/SettingsPanel';
 import ChordProgressionDisplay from '@/components/guitar/ChordProgressionDisplay';
 import PlaybackControls from '@/components/guitar/PlaybackControls';
@@ -31,6 +31,19 @@ export default function Index() {
   const [showSaved, setShowSaved] = useState(false);
   const [saveName, setSaveName] = useState('');
   const [showSaveInput, setShowSaveInput] = useState(false);
+  const [showUserMenu, setShowUserMenu] = useState(false);
+  const userMenuRef = useRef<HTMLDivElement>(null);
+
+  // Close user menu on outside click
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) {
+        setShowUserMenu(false);
+      }
+    };
+    document.addEventListener('click', handleClick);
+    return () => document.removeEventListener('click', handleClick);
+  }, []);
 
   const tuning = TUNINGS[settings.tuning];
 
@@ -133,25 +146,63 @@ export default function Index() {
             </h1>
             {user ? (
               <div className="flex items-center gap-3">
-                <button
-                  onClick={() => setShowSaved(!showSaved)}
-                  className="text-sm font-semibold px-3 py-1.5 rounded-lg transition-all"
-                  style={{ color: '#67e8f9', background: 'rgba(103,232,249,0.08)', border: '1px solid rgba(103,232,249,0.2)' }}
-                >
-                  My Progressions
-                </button>
-                <button
-                  onClick={signOut}
-                  className="flex items-center gap-2"
-                  title="Sign out"
-                >
-                  <img
-                    src={user.user_metadata?.avatar_url || user.user_metadata?.picture || ''}
-                    alt={user.user_metadata?.full_name || 'User'}
-                    className="w-8 h-8 rounded-full"
-                    style={{ border: '2px solid rgba(103,232,249,0.4)' }}
-                  />
-                </button>
+                <div className="relative" ref={userMenuRef}>
+                  <button
+                    onClick={(e) => { e.stopPropagation(); setShowUserMenu(!showUserMenu); }}
+                    className="flex items-center gap-2 cursor-pointer"
+                    style={{ background: 'none', border: 'none', padding: 0 }}
+                  >
+                    <img
+                      src={user.user_metadata?.avatar_url || user.user_metadata?.picture || ''}
+                      alt={user.user_metadata?.full_name || 'User'}
+                      className="w-9 h-9 rounded-full transition-all"
+                      style={{ border: showUserMenu ? '2px solid rgba(103,232,249,0.7)' : '2px solid rgba(103,232,249,0.4)' }}
+                    />
+                  </button>
+                  {showUserMenu && (
+                    <div
+                      className="absolute right-0 z-[120] min-w-[220px] p-2 rounded-[14px]"
+                      style={{
+                        top: 'calc(100% + 10px)',
+                        background: 'rgba(5, 20, 32, 0.95)',
+                        backdropFilter: 'blur(24px)',
+                        WebkitBackdropFilter: 'blur(24px)',
+                        border: '1px solid rgba(6, 182, 212, 0.2)',
+                        boxShadow: '0 12px 40px rgba(0,0,0,0.4)',
+                      }}
+                    >
+                      <div className="flex flex-col px-3 py-2">
+                        <span className="text-sm font-semibold text-white">
+                          {user.user_metadata?.full_name || user.user_metadata?.name || 'User'}
+                        </span>
+                        <span className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                          {user.email || ''}
+                        </span>
+                      </div>
+                      <div className="my-1.5" style={{ height: '1px', background: 'rgba(255,255,255,0.08)' }} />
+                      <button
+                        onClick={() => { setShowSaved(true); setShowUserMenu(false); }}
+                        className="flex items-center gap-2.5 w-full px-3 py-2 rounded-lg text-sm font-medium transition-all text-left"
+                        style={{ color: 'rgba(255,255,255,0.75)', background: 'none', border: 'none' }}
+                        onMouseEnter={(e) => { e.currentTarget.style.color = 'white'; e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.75)'; e.currentTarget.style.background = 'none'; }}
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                        My Progressions
+                      </button>
+                      <button
+                        onClick={() => { signOut(); setShowUserMenu(false); }}
+                        className="flex items-center gap-2.5 w-full px-3 py-2 rounded-lg text-sm font-medium transition-all text-left"
+                        style={{ color: 'rgba(255,255,255,0.75)', background: 'none', border: 'none' }}
+                        onMouseEnter={(e) => { e.currentTarget.style.color = 'white'; e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.75)'; e.currentTarget.style.background = 'none'; }}
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                        Sign out
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
             ) : (
               <button

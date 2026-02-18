@@ -31,11 +31,10 @@ export function useAuth() {
       alert('Supabase is not configured yet. Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY to your .env file.');
       return;
     }
-    localStorage.setItem('auth_return_to', window.location.pathname);
     await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: window.location.origin + '/auth/callback/',
+        redirectTo: window.location.origin + '/progression-generator/auth/callback',
       },
     });
   };
