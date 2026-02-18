@@ -31,7 +31,6 @@ const groups = getChordsByRoot();
             </div>
             <div class="card-info">
               <h3 class="card-name">{chord.name}</h3>
-              <span class="card-badge">{chord.quality}</span>
             </div>
           </a>
         ))}
@@ -133,17 +132,6 @@ const groups = getChordsByRoot();
     font-size: 0.95rem;
     font-weight: 700;
     color: rgba(255, 255, 255, 0.9);
-  }
-
-  .card-badge {
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: rgba(103, 232, 249, 0.8);
-    background: rgba(6, 182, 212, 0.12);
-    padding: 0.2rem 0.6rem;
-    border-radius: 6px;
   }
 
   @media (max-width: 600px) {
