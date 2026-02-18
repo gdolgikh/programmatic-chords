@@ -1,5 +1,5 @@
 ---
-const { frets, fingers, barres = [], size = 'large' } = Astro.props;
+const { frets, fingers, barres = [], size = 'large', midi = [] } = Astro.props;
 
 const stringCount = 6;
 const fretCount = 5;
@@ -57,8 +57,9 @@ const stringLines = Array.from({ length: stringCount }, (_, i) => ({
 const indicators = frets.map((fret, i) => {
   const x = leftPad + i * stringSpacing;
   const y = topPad - (isLarge ? 14 : 10);
+  const midiNote = midi[i];
   if (fret === -1) return { type: 'muted', x, y };
-  if (fret === 0) return { type: 'open', x, y: y - 3, r: dotRadius * 0.6 };
+  if (fret === 0) return { type: 'open', x, y: y - 3, r: dotRadius * 0.6, stringIndex: i, midiNote };
   return null;
 }).filter(Boolean);
 
@@ -84,7 +85,8 @@ const dots = frets.map((fret, i) => {
   const x = leftPad + i * stringSpacing;
   const relFret = fret - startFret + 1;
   const y = topPad + (relFret - 1) * fretSpacing + fretSpacing / 2;
-  return { x, y, r: dotRadius };
+  const midiNote = midi[i]; // Get MIDI note for this string
+  return { x, y, r: dotRadius, stringIndex: i, midiNote };
 }).filter(Boolean);
 
 // Finger numbers (large only)
@@ -98,10 +100,12 @@ const fingerLabels = isLarge ? frets.map((fret, i) => {
 ---
 
 <svg
+  id="chord-diagram"
   viewBox={`0 0 ${svgW} ${svgH}`}
   xmlns="http://www.w3.org/2000/svg"
   class:list={['chord-svg', size]}
   role="img"
+  data-midi={JSON.stringify(midi)}
 >
   <defs>
     <linearGradient id={`dotGrad-${size}`} x1="0" y1="0" x2="0" y2="1">
@@ -170,9 +174,13 @@ const fingerLabels = isLarge ? frets.map((fret, i) => {
         cx={ind.x}
         cy={ind.y}
         r={ind.r}
-        fill="none"
+        fill="rgba(255,255,255,0.05)"
         stroke="rgba(255,255,255,0.6)"
         stroke-width="1.5"
+        class="finger-dot"
+        data-string={ind.stringIndex}
+        data-midi={ind.midiNote}
+        style="cursor: pointer;"
       />
     )
   ))}
@@ -193,6 +201,10 @@ const fingerLabels = isLarge ? frets.map((fret, i) => {
     <circle
       cx={d.x} cy={d.y} r={d.r}
       fill={`url(#dotGrad-${size})`}
+      class="finger-dot"
+      data-string={d.stringIndex}
+      data-midi={d.midiNote}
+      style="cursor: pointer;"
     />
   ))}
 
@@ -206,6 +218,7 @@ const fingerLabels = isLarge ? frets.map((fret, i) => {
       fill="white"
       font-weight="700"
       font-family="system-ui, sans-serif"
+      style="pointer-events: none; user-select: none;"
     >{fl.label}</text>
   ))}
 </svg>
@@ -220,5 +233,11 @@ const fingerLabels = isLarge ? frets.map((fret, i) => {
     width: 100%;
     max-width: 140px;
     height: auto;
+  }
+  .finger-dot {
+    transition: filter 0.15s ease;
+  }
+  .finger-dot:hover {
+    filter: brightness(1.2);
   }
 </style>
