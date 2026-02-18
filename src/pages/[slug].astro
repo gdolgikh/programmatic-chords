@@ -12,6 +12,10 @@ export function getStaticPaths() {
 
 const { chord } = Astro.props;
 
+// Build a unique meta description from the chord's existing description
+const firstSentence = chord.description.split('. ')[0] + '.';
+const metaDescription = `Learn how to play ${chord.name} on guitar. Interactive chord diagram with finger positions, fret placement, and audio playback. ${firstSentence}`;
+
 // Find prev/next chords
 const idx = chords.findIndex(c => c.slug === chord.slug);
 const prev = idx > 0 ? chords[idx - 1] : null;
@@ -50,7 +54,7 @@ const fretLabel = (f) => {
 };
 ---
 
-<Layout title={`${chord.name} — ChordLab`}>
+<Layout title={`${chord.name} — ChordLab`} description={metaDescription}>
   <script>
     // Audio playback implementation
     let Tone;

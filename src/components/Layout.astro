@@ -2,7 +2,7 @@
 import '@fontsource-variable/inter';
 import interLatinFont from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 import Header from './Header.astro';
-const { title = 'ChordLab — Guitar Chord Catalog' } = Astro.props;
+const { title = 'ChordLab — Guitar Chord Catalog', description = 'Free guitar chord library with 144 chords across all 12 keys. Features interactive chord diagrams, finger placement guides, and audio playback for every chord.' } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -11,6 +11,7 @@ const { title = 'ChordLab — Guitar Chord Catalog' } = Astro.props;
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
+  <meta name="description" content={description} />
   <link rel="preload" href={interLatinFont} as="font" type="font/woff2" crossorigin />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🎸</text></svg>" />
 </head>
