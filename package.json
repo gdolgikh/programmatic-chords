@@ -5,9 +5,13 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "migrate-chords": "node scripts/migrate-chords.js",
+    "validate-chords": "node scripts/validate-chords.js",
+    "update-chords": "npm run migrate-chords && npm run validate-chords"
   },
   "dependencies": {
+    "@tombatossals/chords-db": "^0.5.1",
     "astro": "^4.16.0"
   }
 }

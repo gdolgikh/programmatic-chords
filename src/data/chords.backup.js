@@ -16825,16 +16825,3 @@ export const chords = [
     ]
   }
 ];
-
-// Group chords by root note for navigation
-export function getChordsByRoot() {
-  const groups = {};
-  for (const chord of chords) {
-    if (!groups[chord.root]) groups[chord.root] = [];
-    groups[chord.root].push(chord);
-  }
-  return groups;
-}
-
-// Note order for navigation
-export const rootOrder = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
