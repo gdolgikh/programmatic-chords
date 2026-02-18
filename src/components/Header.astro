@@ -29,6 +29,8 @@ const groups = getChordsByRoot();
           </div>
         </div>
       ))}
+      <div class="nav-separator"></div>
+      <a href="/progression-generator/" class="nav-progchord">Progression Generator</a>
     </nav>
   </div>
 </header>
@@ -197,6 +199,33 @@ const groups = getChordsByRoot();
     background: rgba(255, 255, 255, 0.1);
   }
 
+  .nav-separator {
+    width: 1px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.15);
+    margin: 0 0.25rem;
+    flex-shrink: 0;
+  }
+
+  .nav-progchord {
+    color: #67e8f9;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.4rem 0.85rem;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 1px solid rgba(103, 232, 249, 0.25);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .nav-progchord:hover {
+    color: white;
+    background: rgba(103, 232, 249, 0.12);
+    border-color: rgba(103, 232, 249, 0.4);
+  }
+
   /* Mobile */
   @media (max-width: 768px) {
     .menu-toggle {
@@ -262,6 +291,21 @@ const groups = getChordsByRoot();
     .nav-link {
       font-size: 1rem;
       padding: 0.5rem;
+    }
+
+    .nav-separator {
+      width: auto;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      margin: 0.5rem 0;
+    }
+
+    .nav-progchord {
+      font-size: 1.1rem;
+      padding: 0.75rem 0.5rem;
+      text-align: left;
+      border: none;
+      border-radius: 0;
     }
   }
 </style>
