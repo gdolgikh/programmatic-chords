@@ -112,6 +112,13 @@ export default function Index() {
       </header>
 
       <main className="max-w-7xl mx-auto px-6 py-6 space-y-6">
+        <section className="text-center max-w-2xl mx-auto">
+          <h2 className="text-2xl font-bold tracking-tight text-foreground">Chord Progression Generator</h2>
+          <p className="mt-2 text-muted-foreground">
+            Instantly generate guitar chord progressions in any key and scale. Experiment with different styles, tweak voicings, and play them back — a quick way to find inspiration for your next song.
+          </p>
+        </section>
+
         <section className="flex justify-center">
           <SettingsPanel settings={settings} onChange={setSettings} onGenerate={handleGenerate} />
         </section>
