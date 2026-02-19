@@ -45,14 +45,8 @@
       document.querySelector('.message p').textContent = 'Supabase not configured. Redirecting...';
       setTimeout(() => { window.location.href = '/'; }, 1500);
     } else {
-      // Handle PKCE flow (code in query string)
-      if (window.location.search.includes('code=')) {
-        const { error } = await supabase.auth.exchangeCodeForSession(window.location.search);
-        if (error) console.error('Auth callback error:', error);
-      }
-
-      // For implicit flow, Supabase auto-detects the hash fragment.
-      // Wait briefly for the session to be established either way.
+      // The Supabase client automatically detects the PKCE auth code in the URL
+      // and exchanges it during initialization. getSession() waits for that to complete.
       const { data: { session } } = await supabase.auth.getSession();
 
       if (!session) {
