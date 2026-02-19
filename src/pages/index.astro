@@ -12,6 +12,22 @@ const groups = getChordsByRoot();
     <p class="hero-sub">Explore the complete guitar chord reference. 144 chords across 12 root notes with interactive diagrams, precise fingerings, and guidance for every skill level.</p>
   </section>
 
+  <div class="filter-bar">
+    <div class="filter-group">
+      <button class="filter-btn active" data-filter="expert">Expert</button>
+      <button class="filter-btn" data-filter="intermediate">Intermediate</button>
+      <button class="filter-btn" data-filter="beginner">Beginner</button>
+    </div>
+    <div class="filter-tooltip-wrap">
+      <button class="filter-info" aria-label="How difficulty works">?</button>
+      <div class="filter-tooltip">
+        <p><strong>Beginner</strong> — open chords with no barre, minimal stretching. The classics you learn first.</p>
+        <p><strong>Intermediate</strong> — adds partial barres, wider finger stretches, and trickier shapes.</p>
+        <p><strong>Expert</strong> — the full library, including full barre chords and complex fingerings.</p>
+      </div>
+    </div>
+  </div>
+
   {rootOrder.map(root => (
     <section class="root-section" id={root.toLowerCase()}>
       <h2 class="root-heading">
@@ -20,7 +36,7 @@ const groups = getChordsByRoot();
       </h2>
       <div class="chord-grid">
         {groups[root].map(chord => (
-          <a href={`/${chord.slug}/`} class="chord-card glass">
+          <a href={`/${chord.slug}/`} class="chord-card glass" data-difficulty={chord.difficulty}>
             <div class="card-diagram">
               <ChordDiagram
                 frets={chord.frets}
@@ -153,9 +169,176 @@ const groups = getChordsByRoot();
     color: var(--ink);
   }
 
+  /* --- Filter bar --- */
+  .filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .filter-group {
+    display: flex;
+    border: 1px solid var(--rule);
+    overflow: hidden;
+  }
+
+  .filter-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    color: var(--ink-faded);
+    border: none;
+    border-right: 1px solid var(--rule);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .filter-btn:last-child {
+    border-right: none;
+  }
+
+  .filter-btn:hover {
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  .filter-btn.active {
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  /* Tooltip */
+  .filter-tooltip-wrap {
+    position: relative;
+  }
+
+  .filter-info {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--ink-faded);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .filter-info:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+
+  .filter-tooltip {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    background: var(--card-bg);
+    border: 1px solid var(--rule);
+    padding: 0.85rem 1rem;
+    z-index: 100;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .filter-tooltip-wrap.open .filter-tooltip {
+    display: block;
+  }
+
+  .filter-tooltip p {
+    font-size: 0.78rem;
+    line-height: 1.55;
+    color: var(--ink-faded);
+    margin-bottom: 0.5rem;
+  }
+
+  .filter-tooltip p:last-child {
+    margin-bottom: 0;
+  }
+
+  .filter-tooltip strong {
+    color: var(--ink);
+  }
+
+  /* Hidden states */
+  .chord-card[hidden] {
+    display: none;
+  }
+
+  .root-section[hidden] {
+    display: none;
+  }
+
   @media (max-width: 600px) {
     .chord-grid {
       grid-template-columns: repeat(2, 1fr);
     }
+
+    .filter-btn {
+      padding: 0.45rem 0.7rem;
+      font-size: 0.65rem;
+    }
+
+    .filter-tooltip {
+      left: 0;
+      transform: none;
+    }
   }
 </style>
+
+<script is:inline>
+  (function () {
+    const levels = {
+      beginner: ['Easy'],
+      intermediate: ['Easy', 'Medium'],
+      expert: ['Easy', 'Medium', 'Hard'],
+    };
+
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.chord-card[data-difficulty]');
+    const sections = document.querySelectorAll('.root-section');
+    const infoBtn = document.querySelector('.filter-info');
+    const tooltipWrap = document.querySelector('.filter-tooltip-wrap');
+
+    function applyFilter(filter) {
+      const allowed = levels[filter];
+      cards.forEach(function (card) {
+        card.hidden = allowed.indexOf(card.dataset.difficulty) === -1;
+      });
+      sections.forEach(function (section) {
+        var visible = section.querySelectorAll('.chord-card:not([hidden])');
+        section.hidden = visible.length === 0;
+      });
+      buttons.forEach(function (btn) {
+        btn.classList.toggle('active', btn.dataset.filter === filter);
+      });
+    }
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        applyFilter(btn.dataset.filter);
+      });
+    });
+
+    // Tooltip toggle
+    infoBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      tooltipWrap.classList.toggle('open');
+    });
+    document.addEventListener('click', function () {
+      tooltipWrap.classList.remove('open');
+    });
+  })();
+</script>

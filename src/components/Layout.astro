@@ -1,6 +1,6 @@
 ---
 import Header from './Header.astro';
-const { title = 'Chord Library - Learn Guitar Chords', description = 'Free guitar chord library with 144 chords across all 12 keys. Features interactive chord diagrams, finger placement guides, and audio playback for every chord.' } = Astro.props;
+const { title = 'Chord Library - Learn Guitar Chords', description = 'Free guitar chord library with 144 chords across all 12 keys. Features interactive chord diagrams, finger placement guides, and audio playback for every chord.', keywords = '' } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -10,6 +10,7 @@ const { title = 'Chord Library - Learn Guitar Chords', description = 'Free guita
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
+  {keywords && <meta name="keywords" content={keywords} />}
   <style>
     /* Self-hosted fonts — latin only */
     @font-face {

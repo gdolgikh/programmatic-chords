@@ -17815,6 +17815,15 @@ export const chords = [
 
 
 
+// --- Difficulty ---
+import { getChordDifficulty } from './chordDifficulty.js';
+
+for (const chord of chords) {
+  if (!chord.difficulty) {
+    chord.difficulty = getChordDifficulty(chord).difficulty;
+  }
+}
+
 // Group chords by root note for navigation
 export function getChordsByRoot() {
   const groups = {};
@@ -17823,6 +17832,11 @@ export function getChordsByRoot() {
     groups[chord.root].push(chord);
   }
   return groups;
+}
+
+// Filter chords by difficulty level
+export function getChordsByDifficulty(level) {
+  return chords.filter((chord) => chord.difficulty === level);
 }
 
 // Note order for navigation

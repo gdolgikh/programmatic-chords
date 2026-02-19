@@ -2,6 +2,7 @@
 import Layout from '../components/Layout.astro';
 import ChordDiagram from '../components/ChordDiagram.astro';
 import { chords } from '../data/chords.js';
+import { getChordAliases } from '../data/chordAliases.js';
 
 export function getStaticPaths() {
   return chords.map(chord => ({
@@ -46,6 +47,9 @@ const getMidiData = () => {
 
 const chordMidi = getMidiData();
 
+// Chord name aliases for SEO
+const aliases = getChordAliases(chord.root, chord.quality, chord.name);
+
 // Build notes-on-strings info
 const fretLabel = (f) => {
   if (f === -1) return '×';
@@ -54,7 +58,7 @@ const fretLabel = (f) => {
 };
 ---
 
-<Layout title={`${chord.name} — ChordLab`} description={metaDescription}>
+<Layout title={`${chord.name} — ChordLab`} description={metaDescription} keywords={[chord.name, ...aliases].join(', ')}>
   <script>
     // Audio playback implementation
     let Tone;
@@ -229,33 +233,36 @@ const fretLabel = (f) => {
       }
     }
 
-    // Check auth and saved state
-    const { data: { session } } = await supabase.auth.getSession();
-    if (session?.user) {
-      saveBtn.style.display = 'inline-flex';
+    function showLoggedOut() {
+      bookmarkIcon.setAttribute('fill', 'none');
+      saveText.textContent = 'Sign in to save';
+      saveBtn.classList.remove('saved');
+      isSaved = false;
+    }
+
+    async function showLoggedIn(userId) {
+      saveText.textContent = 'Save';
       const { data } = await supabase
         .from('saved_chords')
         .select('id')
-        .eq('user_id', session.user.id)
+        .eq('user_id', userId)
         .eq('chord_slug', slug)
         .maybeSingle();
       if (data) updateIcon(true);
     }
 
+    // Check auth and saved state
+    const { data: { session } } = await supabase.auth.getSession();
+    if (session?.user) {
+      await showLoggedIn(session.user.id);
+    }
+
     // Listen for auth changes
     supabase.auth.onAuthStateChange(async (_event, session) => {
       if (session?.user) {
-        saveBtn.style.display = 'inline-flex';
-        const { data } = await supabase
-          .from('saved_chords')
-          .select('id')
-          .eq('user_id', session.user.id)
-          .eq('chord_slug', slug)
-          .maybeSingle();
-        updateIcon(!!data);
+        await showLoggedIn(session.user.id);
       } else {
-        saveBtn.style.display = 'none';
-        updateIcon(false);
+        showLoggedOut();
       }
     });
 
@@ -315,22 +322,32 @@ const fretLabel = (f) => {
       </div>
 
       <div class="chord-info">
-        <div class="chord-badge">{chord.quality}</div>
+        <div class:list={['chord-badge', `badge-${chord.difficulty.toLowerCase()}`]}>{chord.difficulty === 'Easy' ? 'Beginner' : chord.difficulty === 'Medium' ? 'Intermediate' : 'Expert'}</div>
         <button
           class="save-chord-btn"
           id="saveChordBtn"
           data-slug={chord.slug}
           data-name={chord.name}
-          style="display:none"
           aria-label="Save chord"
         >
           <svg class="bookmark-icon" id="bookmarkIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
           </svg>
-          <span id="saveText">Save</span>
+          <span id="saveText">Sign in to save</span>
         </button>
         <h1 class="chord-name">{chord.name}</h1>
         <p class="chord-desc">{chord.description}</p>
+
+        {aliases.length > 0 && (
+          <div class="chord-aliases">
+            <h3 class="detail-heading">Also known as</h3>
+            <ul class="alias-list">
+              {aliases.map(alias => (
+                <li class="alias-tag">{alias}</li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         <div class="chord-frets">
           <h3 class="detail-heading">String by String</h3>
@@ -475,10 +492,43 @@ const fretLabel = (f) => {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    padding: 0.3rem 0.8rem;
+  }
+
+  .badge-easy {
+    color: #2e7d32;
+    background: rgba(46, 125, 50, 0.08);
+    border: 1px solid rgba(46, 125, 50, 0.25);
+  }
+
+  .badge-medium {
+    color: #e65100;
+    background: rgba(230, 81, 0, 0.08);
+    border: 1px solid rgba(230, 81, 0, 0.25);
+  }
+
+  .badge-hard {
     color: var(--red);
     background: rgba(192, 57, 43, 0.08);
-    padding: 0.3rem 0.8rem;
     border: 1px solid rgba(192, 57, 43, 0.2);
+  }
+
+  :global(html.dark) .badge-easy {
+    color: #66bb6a;
+    background: rgba(102, 187, 106, 0.1);
+    border-color: rgba(102, 187, 106, 0.25);
+  }
+
+  :global(html.dark) .badge-medium {
+    color: #ffb74d;
+    background: rgba(255, 183, 77, 0.1);
+    border-color: rgba(255, 183, 77, 0.25);
+  }
+
+  :global(html.dark) .badge-hard {
+    color: var(--red);
+    background: rgba(212, 168, 67, 0.1);
+    border-color: rgba(212, 168, 67, 0.25);
   }
 
   .save-chord-btn {
@@ -527,6 +577,26 @@ const fretLabel = (f) => {
     line-height: 1.7;
     color: var(--ink-faded);
     max-width: 520px;
+  }
+
+  .chord-aliases {
+    margin-top: 0.25rem;
+  }
+
+  .alias-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    list-style: none;
+  }
+
+  .alias-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--ink-faded);
+    padding: 0.2rem 0.55rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
   }
 
   .detail-heading {
