@@ -3,7 +3,7 @@ import { getChordsByRoot, rootOrder } from '../data/chords.js';
 const groups = getChordsByRoot();
 ---
 
-<header class="site-header">
+<header class="site-header" transition:persist>
   <div class="header-inner">
     <a href="/" class="logo">
       <span class="logo-icon">&#9835;</span>
@@ -500,14 +500,13 @@ const groups = getChordsByRoot();
   }
 </style>
 
-<script is:inline>
-  document.getElementById('themeToggle')?.addEventListener('click', function() {
-    var isDark = document.documentElement.classList.toggle('dark');
+<script>
+  // Theme toggle (in module script since header is persisted — runs once)
+  document.getElementById('themeToggle')?.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.toggle('dark');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
-</script>
 
-<script>
   const toggle = document.getElementById('menuToggle');
   const nav = document.getElementById('mainNav');
 

@@ -67,86 +67,92 @@ import { chords } from '../data/chords.js';
   <script>
     import { supabase, supabaseConfigured } from '../lib/supabase.js';
 
-    const loading = document.getElementById('loading');
-    const signInPrompt = document.getElementById('signInPrompt');
-    const signInBtn = document.getElementById('signInBtn');
-    const savedContent = document.getElementById('savedContent');
-    const emptyState = document.getElementById('emptyState');
-    const chordGrid = document.getElementById('chordGrid');
-    const allCards = chordGrid?.querySelectorAll('.chord-card');
+    let authSubscription;
 
-    loading.style.display = 'none';
+    document.addEventListener('astro:page-load', () => {
+      const loading = document.getElementById('loading');
+      if (!loading) return; // Not the saved page
 
-    if (!supabaseConfigured) {
-      signInPrompt.style.display = 'flex';
-      signInBtn?.addEventListener('click', () => {
-        alert('Supabase is not configured yet. Add PUBLIC_SUPABASE_URL and PUBLIC_SUPABASE_ANON_KEY to your .env file.');
-      });
-    } else {
+      const signInPrompt = document.getElementById('signInPrompt');
+      const signInBtn = document.getElementById('signInBtn');
+      const savedContent = document.getElementById('savedContent');
+      const emptyState = document.getElementById('emptyState');
+      const chordGrid = document.getElementById('chordGrid');
+      const allCards = chordGrid?.querySelectorAll('.chord-card');
 
-    function showSavedCards(slugs) {
-      // Hide all cards first
-      allCards?.forEach(card => card.style.display = 'none');
+      loading.style.display = 'none';
 
-      if (!slugs || slugs.length === 0) {
-        emptyState.style.display = 'flex';
+      // Clean up previous auth listener
+      authSubscription?.unsubscribe();
+
+      if (!supabaseConfigured) {
+        signInPrompt.style.display = 'flex';
+        signInBtn?.addEventListener('click', () => {
+          alert('Supabase is not configured yet. Add PUBLIC_SUPABASE_URL and PUBLIC_SUPABASE_ANON_KEY to your .env file.');
+        });
         return;
       }
 
-      emptyState.style.display = 'none';
-      // Show cards matching saved slugs, in saved order
-      slugs.forEach(slug => {
-        const card = chordGrid?.querySelector(`[data-slug="${slug}"]`);
-        if (card) {
-          card.style.display = 'flex';
-          // Move to end to preserve saved order
-          chordGrid.appendChild(card);
+      function showSavedCards(slugs) {
+        allCards?.forEach(card => (card as HTMLElement).style.display = 'none');
+
+        if (!slugs || slugs.length === 0) {
+          emptyState.style.display = 'flex';
+          return;
         }
-      });
-    }
 
-    async function loadSavedChords(userId) {
-      const { data, error } = await supabase
-        .from('saved_chords')
-        .select('chord_slug')
-        .eq('user_id', userId)
-        .order('created_at', { ascending: false });
-
-      const slugs = (!error && data) ? data.map(d => d.chord_slug) : [];
-      showSavedCards(slugs);
-    }
-
-    // Check auth
-    const { data: { session } } = await supabase.auth.getSession();
-
-    if (session?.user) {
-      savedContent.style.display = 'block';
-      await loadSavedChords(session.user.id);
-    } else {
-      signInPrompt.style.display = 'flex';
-    }
-
-    // Listen for auth changes
-    supabase.auth.onAuthStateChange(async (_event, session) => {
-      if (session?.user) {
-        signInPrompt.style.display = 'none';
-        savedContent.style.display = 'block';
-        await loadSavedChords(session.user.id);
-      } else {
-        savedContent.style.display = 'none';
-        signInPrompt.style.display = 'flex';
+        emptyState.style.display = 'none';
+        slugs.forEach(slug => {
+          const card = chordGrid?.querySelector(`[data-slug="${slug}"]`) as HTMLElement;
+          if (card) {
+            card.style.display = 'flex';
+            chordGrid.appendChild(card);
+          }
+        });
       }
-    });
 
-    signInBtn?.addEventListener('click', async () => {
-      localStorage.setItem('auth_return_to', '/saved/');
-      await supabase.auth.signInWithOAuth({
-        provider: 'google',
-        options: { redirectTo: window.location.origin + '/auth/callback/' },
+      async function loadSavedChords(userId) {
+        const { data, error } = await supabase
+          .from('saved_chords')
+          .select('chord_slug')
+          .eq('user_id', userId)
+          .order('created_at', { ascending: false });
+
+        const slugs = (!error && data) ? data.map(d => d.chord_slug) : [];
+        showSavedCards(slugs);
+      }
+
+      (async () => {
+        const { data: { session } } = await supabase.auth.getSession();
+
+        if (session?.user) {
+          savedContent.style.display = 'block';
+          await loadSavedChords(session.user.id);
+        } else {
+          signInPrompt.style.display = 'flex';
+        }
+
+        const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
+          if (session?.user) {
+            signInPrompt.style.display = 'none';
+            savedContent.style.display = 'block';
+            await loadSavedChords(session.user.id);
+          } else {
+            savedContent.style.display = 'none';
+            signInPrompt.style.display = 'flex';
+          }
+        });
+        authSubscription = subscription;
+      })();
+
+      signInBtn?.addEventListener('click', async () => {
+        localStorage.setItem('auth_return_to', '/saved/');
+        await supabase.auth.signInWithOAuth({
+          provider: 'google',
+          options: { redirectTo: window.location.origin + '/auth/callback/' },
+        });
       });
     });
-
-    } // end supabaseConfigured
   </script>
 </Layout>
 

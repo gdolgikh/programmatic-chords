@@ -60,18 +60,11 @@ const fretLabel = (f) => {
 
 <Layout title={`${chord.name} — ChordLab`} description={metaDescription} keywords={[chord.name, ...aliases].join(', ')}>
   <script>
-    // Audio playback implementation
+    // Audio state persists across chord-to-chord navigation (module loaded once)
     let Tone;
     let sampler;
     let isLoading = false;
     let isLoaded = false;
-
-    const playButton = document.getElementById('play-chord-btn');
-    const statusDiv = document.getElementById('audio-status');
-    const diagram = document.getElementById('chord-diagram');
-
-    // Get MIDI data from SVG
-    const chordMidi = JSON.parse(diagram?.getAttribute('data-midi') || '[]');
 
     // Convert MIDI number to note name for Tone.js
     function midiToNoteName(midi) {
@@ -81,127 +74,108 @@ const fretLabel = (f) => {
       return noteNames[noteIndex] + octave;
     }
 
-    // Lazy load Tone.js on first interaction
-    async function initAudio() {
-      if (isLoaded) return;
-      if (isLoading) return;
+    // Re-bind DOM on every navigation (handles chord-to-chord transitions)
+    document.addEventListener('astro:page-load', () => {
+      const playButton = document.getElementById('play-chord-btn');
+      if (!playButton) return;
 
-      isLoading = true;
+      const statusDiv = document.getElementById('audio-status');
+      const diagram = document.getElementById('chord-diagram');
+      const chordMidi = JSON.parse(diagram?.getAttribute('data-midi') || '[]');
 
-      playButton.disabled = true;
-      playButton.classList.add('loading');
+      async function initAudio() {
+        if (isLoaded) return;
+        if (isLoading) return;
 
-      const playText = playButton.querySelector('.play-text');
-      const originalText = playText.textContent;
-      playText.textContent = 'Loading...';
+        isLoading = true;
+        playButton.disabled = true;
+        playButton.classList.add('loading');
 
-      statusDiv.textContent = 'Loading guitar sounds...';
-
-      try {
-        // Dynamic import of Tone.js from CDN
-        const ToneModule = await import('tone');
-        Tone = ToneModule.default || ToneModule;
-
-        // Start Tone.js audio context first
-        await Tone.start();
-
-        // Create sampler with acoustic guitar samples (same as ProgChord app)
-        sampler = new Tone.Sampler({
-          urls: {
-            A2: 'A2.mp3', C3: 'C3.mp3', 'D#3': 'Ds3.mp3', 'F#3': 'Fs3.mp3',
-            A3: 'A3.mp3', C4: 'C4.mp3', 'D#4': 'Ds4.mp3', 'F#4': 'Fs4.mp3',
-            A4: 'A4.mp3', C5: 'C5.mp3',
-          },
-          baseUrl: 'https://cdn.jsdelivr.net/gh/nbrosowsky/tonejs-instruments/samples/guitar-acoustic/',
-          release: 1.5,
-          onload: () => {
-            isLoaded = true;
-            isLoading = false;
-            playButton.disabled = false;
-            playButton.classList.remove('loading');
-            playText.textContent = originalText;
-            statusDiv.textContent = 'Ready to play!';
-            setTimeout(() => statusDiv.textContent = '', 2000);
-          },
-          onerror: () => {
-            console.warn('Sample loading failed, audio may not work');
-            isLoaded = true;
-            isLoading = false;
-            playButton.disabled = false;
-            playButton.classList.remove('loading');
-            playText.textContent = originalText;
-            statusDiv.textContent = 'Audio unavailable';
-          },
-        }).toDestination();
-        sampler.volume.value = -6;
-
-      } catch (error) {
-        console.error('Failed to load audio:', error);
-        statusDiv.textContent = 'Audio load failed';
-        playButton.disabled = false;
-        playButton.classList.remove('loading');
         const playText = playButton.querySelector('.play-text');
-        playText.textContent = 'Play';
-        isLoading = false;
-      }
-    }
+        const originalText = playText.textContent;
+        playText.textContent = 'Loading...';
+        statusDiv.textContent = 'Loading guitar sounds...';
 
-    // Play full chord with strum
-    async function playChord() {
-      if (!isLoaded) {
-        await initAudio();
-        return;
-      }
+        try {
+          const ToneModule = await import('tone');
+          Tone = ToneModule.default || ToneModule;
+          await Tone.start();
 
-      const now = Tone.now();
-      const strumDelay = 0.018; // 18ms between strings for natural strum
-
-      // Filter out null values (muted strings) and play only valid MIDI notes
-      chordMidi.forEach((midi, index) => {
-        if (midi !== null && midi !== undefined) {
-          const noteName = midiToNoteName(midi);
-          const time = now + (index * strumDelay);
-          sampler.triggerAttackRelease(noteName, '2n', time);
+          sampler = new Tone.Sampler({
+            urls: {
+              A2: 'A2.mp3', C3: 'C3.mp3', 'D#3': 'Ds3.mp3', 'F#3': 'Fs3.mp3',
+              A3: 'A3.mp3', C4: 'C4.mp3', 'D#4': 'Ds4.mp3', 'F#4': 'Fs4.mp3',
+              A4: 'A4.mp3', C5: 'C5.mp3',
+            },
+            baseUrl: 'https://cdn.jsdelivr.net/gh/nbrosowsky/tonejs-instruments/samples/guitar-acoustic/',
+            release: 1.5,
+            onload: () => {
+              isLoaded = true;
+              isLoading = false;
+              playButton.disabled = false;
+              playButton.classList.remove('loading');
+              playText.textContent = originalText;
+              statusDiv.textContent = 'Ready to play!';
+              setTimeout(() => statusDiv.textContent = '', 2000);
+            },
+            onerror: () => {
+              console.warn('Sample loading failed, audio may not work');
+              isLoaded = true;
+              isLoading = false;
+              playButton.disabled = false;
+              playButton.classList.remove('loading');
+              playText.textContent = originalText;
+              statusDiv.textContent = 'Audio unavailable';
+            },
+          }).toDestination();
+          sampler.volume.value = -6;
+        } catch (error) {
+          console.error('Failed to load audio:', error);
+          statusDiv.textContent = 'Audio load failed';
+          playButton.disabled = false;
+          playButton.classList.remove('loading');
+          playButton.querySelector('.play-text').textContent = 'Play';
+          isLoading = false;
         }
-      });
-
-      // Visual feedback
-      playButton.classList.add('playing');
-      setTimeout(() => playButton.classList.remove('playing'), 500);
-    }
-
-    // Play single note when dot clicked
-    async function playNote(midi) {
-      if (!isLoaded) {
-        await initAudio();
-        if (isLoaded) {
-          playNote(midi);
-        }
-        return;
       }
 
-      const noteName = midiToNoteName(midi);
-      sampler.triggerAttackRelease(noteName, '2n');
-    }
+      async function playChord() {
+        if (!isLoaded) { await initAudio(); return; }
 
-    // Attach event listeners
-    if (playButton) {
+        const now = Tone.now();
+        const strumDelay = 0.018;
+        chordMidi.forEach((midi, index) => {
+          if (midi !== null && midi !== undefined) {
+            sampler.triggerAttackRelease(midiToNoteName(midi), '2n', now + index * strumDelay);
+          }
+        });
+
+        playButton.classList.add('playing');
+        setTimeout(() => playButton.classList.remove('playing'), 500);
+      }
+
+      async function playNote(midi) {
+        if (!isLoaded) {
+          await initAudio();
+          if (isLoaded) playNote(midi);
+          return;
+        }
+        sampler.triggerAttackRelease(midiToNoteName(midi), '2n');
+      }
+
       playButton.addEventListener('click', playChord);
       playButton.addEventListener('mouseenter', initAudio, { once: true });
-    }
 
-    // Add click handlers to finger dots
-    document.querySelectorAll('.finger-dot').forEach(dot => {
-      dot.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const midi = parseInt(dot.getAttribute('data-midi'));
-        if (midi) {
-          playNote(midi);
-
-          // Visual feedback on dot
-          dot.style.filter = 'brightness(1.5)';
-          setTimeout(() => dot.style.filter = '', 200);
-        }
+      document.querySelectorAll('.finger-dot').forEach(dot => {
+        dot.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const midi = parseInt(dot.getAttribute('data-midi'));
+          if (midi) {
+            playNote(midi);
+            dot.style.filter = 'brightness(1.5)';
+            setTimeout(() => dot.style.filter = '', 200);
+          }
+        });
       });
     });
   </script>
@@ -209,94 +183,97 @@ const fretLabel = (f) => {
   <script>
     import { supabase, supabaseConfigured } from '../lib/supabase.js';
 
-    if (supabaseConfigured) {
+    let authSubscription;
+
+    document.addEventListener('astro:page-load', () => {
+      if (!supabaseConfigured) return;
+
+      const saveBtn = document.getElementById('saveChordBtn');
+      if (!saveBtn) return;
+
+      // Clean up previous auth listener from last chord page
+      authSubscription?.unsubscribe();
+
+      const bookmarkIcon = document.getElementById('bookmarkIcon');
+      const saveText = document.getElementById('saveText');
+      const slug = saveBtn.dataset.slug;
+      const chordName = saveBtn.dataset.name;
+      let isSaved = false;
+
+      function updateIcon(saved) {
+        isSaved = saved;
+        if (saved) {
+          bookmarkIcon.setAttribute('fill', 'currentColor');
+          saveText.textContent = 'Saved';
+          saveBtn.classList.add('saved');
+        } else {
+          bookmarkIcon.setAttribute('fill', 'none');
+          saveText.textContent = 'Save';
+          saveBtn.classList.remove('saved');
+        }
+      }
+
+      function showLoggedOut() {
+        bookmarkIcon.setAttribute('fill', 'none');
+        saveText.textContent = 'Sign in to save';
+        saveBtn.classList.remove('saved');
+        isSaved = false;
+      }
+
+      async function showLoggedIn(userId) {
+        saveText.textContent = 'Save';
+        const { data } = await supabase
+          .from('saved_chords')
+          .select('id')
+          .eq('user_id', userId)
+          .eq('chord_slug', slug)
+          .maybeSingle();
+        if (data) updateIcon(true);
+      }
+
       (async () => {
         try {
-          const saveBtn = document.getElementById('saveChordBtn');
-          const bookmarkIcon = document.getElementById('bookmarkIcon');
-          const saveText = document.getElementById('saveText');
-          const slug = saveBtn?.dataset.slug;
-          const chordName = saveBtn?.dataset.name;
-          let isSaved = false;
-
-          function updateIcon(saved) {
-            isSaved = saved;
-            if (saved) {
-              bookmarkIcon.setAttribute('fill', 'currentColor');
-              saveText.textContent = 'Saved';
-              saveBtn.classList.add('saved');
-            } else {
-              bookmarkIcon.setAttribute('fill', 'none');
-              saveText.textContent = 'Save';
-              saveBtn.classList.remove('saved');
-            }
-          }
-
-          function showLoggedOut() {
-            bookmarkIcon.setAttribute('fill', 'none');
-            saveText.textContent = 'Sign in to save';
-            saveBtn.classList.remove('saved');
-            isSaved = false;
-          }
-
-          async function showLoggedIn(userId) {
-            saveText.textContent = 'Save';
-            const { data } = await supabase
-              .from('saved_chords')
-              .select('id')
-              .eq('user_id', userId)
-              .eq('chord_slug', slug)
-              .maybeSingle();
-            if (data) updateIcon(true);
-          }
-
-          // Check auth and saved state
           const { data: { session } } = await supabase.auth.getSession();
-          if (session?.user) {
-            await showLoggedIn(session.user.id);
-          }
+          if (session?.user) await showLoggedIn(session.user.id);
 
-          // Listen for auth changes
-          supabase.auth.onAuthStateChange(async (_event, session) => {
-            if (session?.user) {
-              await showLoggedIn(session.user.id);
-            } else {
-              showLoggedOut();
-            }
+          const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
+            if (session?.user) await showLoggedIn(session.user.id);
+            else showLoggedOut();
           });
-
-          saveBtn?.addEventListener('click', async () => {
-            const { data: { session } } = await supabase.auth.getSession();
-            if (!session?.user) {
-              localStorage.setItem('auth_return_to', window.location.pathname);
-              await supabase.auth.signInWithOAuth({
-                provider: 'google',
-                options: { redirectTo: window.location.origin + '/auth/callback/' },
-              });
-              return;
-            }
-
-            saveBtn.disabled = true;
-            if (isSaved) {
-              await supabase
-                .from('saved_chords')
-                .delete()
-                .eq('user_id', session.user.id)
-                .eq('chord_slug', slug);
-              updateIcon(false);
-            } else {
-              await supabase
-                .from('saved_chords')
-                .insert({ user_id: session.user.id, chord_slug: slug, chord_name: chordName });
-              updateIcon(true);
-            }
-            saveBtn.disabled = false;
-          });
+          authSubscription = subscription;
         } catch (e) {
           console.error('Save feature error:', e);
         }
       })();
-    }
+
+      saveBtn.addEventListener('click', async () => {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (!session?.user) {
+          localStorage.setItem('auth_return_to', window.location.pathname);
+          await supabase.auth.signInWithOAuth({
+            provider: 'google',
+            options: { redirectTo: window.location.origin + '/auth/callback/' },
+          });
+          return;
+        }
+
+        saveBtn.disabled = true;
+        if (isSaved) {
+          await supabase
+            .from('saved_chords')
+            .delete()
+            .eq('user_id', session.user.id)
+            .eq('chord_slug', slug);
+          updateIcon(false);
+        } else {
+          await supabase
+            .from('saved_chords')
+            .insert({ user_id: session.user.id, chord_slug: slug, chord_name: chordName });
+          updateIcon(true);
+        }
+        saveBtn.disabled = false;
+      });
+    });
   </script>
 
   <article class="chord-page">
