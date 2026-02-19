@@ -32,6 +32,7 @@ export default function Index() {
   const [saveName, setSaveName] = useState('');
   const [showSaveInput, setShowSaveInput] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
+  const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'));
   const userMenuRef = useRef<HTMLDivElement>(null);
 
   // Close user menu on outside click
@@ -44,6 +45,13 @@ export default function Index() {
     document.addEventListener('click', handleClick);
     return () => document.removeEventListener('click', handleClick);
   }, []);
+
+  const toggleTheme = () => {
+    const next = !isDark;
+    setIsDark(next);
+    document.documentElement.classList.toggle('dark', next);
+    localStorage.setItem('theme', next ? 'dark' : 'light');
+  };
 
   const tuning = TUNINGS[settings.tuning];
 
@@ -125,25 +133,50 @@ export default function Index() {
 
   return (
     <div className="min-h-screen">
-      <header className="sticky top-0 z-50 px-6 pt-3">
-        <div className="max-w-7xl mx-auto h-16 flex items-center justify-between rounded-[20px] px-6"
-          style={{
-            background: 'rgba(255, 255, 255, 0.06)',
-            backdropFilter: 'blur(24px)',
-            WebkitBackdropFilter: 'blur(24px)',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
-            boxShadow: '0 8px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.08)',
-          }}
-        >
-          <a href="/" className="flex items-center gap-2 text-white no-underline font-bold text-lg tracking-tight hover:opacity-80 transition-opacity">
-            <span style={{ fontSize: '1.4rem', background: 'linear-gradient(135deg, #67e8f9, #0369a1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>&#9835;</span>
+      <header className="sticky top-0 z-50"
+        style={{
+          background: 'var(--th-bg)',
+          borderBottom: '3px solid var(--th-text)',
+        }}
+      >
+        <div className="max-w-7xl mx-auto h-14 flex items-center justify-between px-6">
+          <a href="/" className="flex items-center gap-2 no-underline font-bold text-lg tracking-tight hover:opacity-80 transition-opacity"
+            style={{ color: 'var(--th-text)', fontFamily: "'Playfair Display', serif", fontWeight: 900 }}
+          >
+            <span style={{ fontSize: '1.4rem', color: 'var(--th-accent)' }}>&#9835;</span>
             <span>Chord Library</span>
           </a>
           <div className="flex items-center gap-4">
-            <h1 className="text-xl font-bold tracking-tight">
-              <span className="text-foreground">Prog</span>
-              <span className="text-primary">Chord</span>
+            <h1 className="text-xl font-bold tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <span style={{ color: 'var(--th-text)' }}>Prog</span>
+              <span style={{ color: 'var(--th-accent)' }}>Chord</span>
             </h1>
+
+            {/* Theme toggle */}
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle dark mode"
+              className="flex items-center justify-center shrink-0"
+              style={{
+                width: 34, height: 34,
+                background: 'none',
+                border: '1px solid var(--th-rule)',
+                borderRadius: '50%',
+                color: 'var(--th-text-dim)',
+                cursor: 'pointer',
+              }}
+            >
+              {isDark ? (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+              ) : (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+              )}
+            </button>
+
             {user ? (
               <div className="flex items-center gap-3">
                 <div className="relative" ref={userMenuRef}>
@@ -156,46 +189,44 @@ export default function Index() {
                       src={user.user_metadata?.avatar_url || user.user_metadata?.picture || ''}
                       alt={user.user_metadata?.full_name || 'User'}
                       className="w-9 h-9 rounded-full transition-all"
-                      style={{ border: showUserMenu ? '2px solid rgba(103,232,249,0.7)' : '2px solid rgba(103,232,249,0.4)' }}
+                      style={{ border: `2px solid var(--th-rule)` }}
                     />
                   </button>
                   {showUserMenu && (
                     <div
-                      className="absolute right-0 z-[120] min-w-[220px] p-2 rounded-[14px]"
+                      className="absolute right-0 z-[120] min-w-[220px] p-2"
                       style={{
                         top: 'calc(100% + 10px)',
-                        background: 'rgba(5, 20, 32, 0.95)',
-                        backdropFilter: 'blur(24px)',
-                        WebkitBackdropFilter: 'blur(24px)',
-                        border: '1px solid rgba(6, 182, 212, 0.2)',
-                        boxShadow: '0 12px 40px rgba(0,0,0,0.4)',
+                        background: 'var(--th-bg)',
+                        border: '1px solid var(--th-rule)',
+                        boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
                       }}
                     >
                       <div className="flex flex-col px-3 py-2">
-                        <span className="text-sm font-semibold text-white">
+                        <span className="text-sm font-semibold" style={{ color: 'var(--th-text)' }}>
                           {user.user_metadata?.full_name || user.user_metadata?.name || 'User'}
                         </span>
-                        <span className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                        <span className="text-xs mt-0.5" style={{ color: 'var(--th-text-dim)' }}>
                           {user.email || ''}
                         </span>
                       </div>
-                      <div className="my-1.5" style={{ height: '1px', background: 'rgba(255,255,255,0.08)' }} />
+                      <div className="my-1.5" style={{ height: '1px', background: 'var(--th-rule)' }} />
                       <button
                         onClick={() => { setShowSaved(true); setShowUserMenu(false); }}
-                        className="flex items-center gap-2.5 w-full px-3 py-2 rounded-lg text-sm font-medium transition-all text-left"
-                        style={{ color: 'rgba(255,255,255,0.75)', background: 'none', border: 'none' }}
-                        onMouseEnter={(e) => { e.currentTarget.style.color = 'white'; e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; }}
-                        onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.75)'; e.currentTarget.style.background = 'none'; }}
+                        className="flex items-center gap-2.5 w-full px-3 py-2 text-sm font-medium transition-all text-left"
+                        style={{ color: 'var(--th-text-dim)', background: 'none', border: 'none' }}
+                        onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--th-text)'; e.currentTarget.style.background = 'var(--th-surface)'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--th-text-dim)'; e.currentTarget.style.background = 'none'; }}
                       >
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
                         My Progressions
                       </button>
                       <button
                         onClick={() => { signOut(); setShowUserMenu(false); }}
-                        className="flex items-center gap-2.5 w-full px-3 py-2 rounded-lg text-sm font-medium transition-all text-left"
-                        style={{ color: 'rgba(255,255,255,0.75)', background: 'none', border: 'none' }}
-                        onMouseEnter={(e) => { e.currentTarget.style.color = 'white'; e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; }}
-                        onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.75)'; e.currentTarget.style.background = 'none'; }}
+                        className="flex items-center gap-2.5 w-full px-3 py-2 text-sm font-medium transition-all text-left"
+                        style={{ color: 'var(--th-text-dim)', background: 'none', border: 'none' }}
+                        onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--th-text)'; e.currentTarget.style.background = 'var(--th-surface)'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--th-text-dim)'; e.currentTarget.style.background = 'none'; }}
                       >
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
                         Sign out
@@ -207,8 +238,8 @@ export default function Index() {
             ) : (
               <button
                 onClick={signIn}
-                className="flex items-center gap-2 text-sm font-semibold px-3 py-1.5 rounded-lg transition-all"
-                style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.9)' }}
+                className="flex items-center gap-2 text-sm font-semibold px-3 py-1.5 transition-all"
+                style={{ background: 'var(--th-surface)', border: '1px solid var(--th-rule)', color: 'var(--th-text)' }}
               >
                 <svg width="16" height="16" viewBox="0 0 48 48">
                   <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
@@ -225,7 +256,7 @@ export default function Index() {
 
       <main className="max-w-7xl mx-auto px-6 py-6 space-y-6">
         <section className="text-center max-w-2xl mx-auto">
-          <h2 className="text-2xl font-bold tracking-tight text-foreground">Chord Progression Generator</h2>
+          <h2 className="text-2xl font-bold tracking-tight text-foreground" style={{ fontFamily: "'Playfair Display', serif" }}>Chord Progression Generator</h2>
           <p className="mt-2 text-muted-foreground">
             Instantly generate guitar chord progressions in any key and scale. Experiment with different styles, tweak voicings, and play them back — a quick way to find inspiration for your next song.
           </p>
@@ -247,21 +278,21 @@ export default function Index() {
                     onChange={(e) => setSaveName(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleSaveProgression()}
                     placeholder="Progression name..."
-                    className="px-3 py-1.5 rounded-lg text-sm bg-transparent text-white"
-                    style={{ border: '1px solid rgba(255,255,255,0.15)', outline: 'none', width: '200px' }}
+                    className="px-3 py-1.5 text-sm"
+                    style={{ border: '1px solid var(--th-rule)', outline: 'none', width: '200px', background: 'var(--th-surface)', color: 'var(--th-text)' }}
                     autoFocus
                   />
                   <button
                     onClick={handleSaveProgression}
-                    className="text-sm font-semibold px-3 py-1.5 rounded-lg"
-                    style={{ background: 'linear-gradient(135deg, #0891b2, #06b6d4)', color: 'white' }}
+                    className="text-sm font-semibold px-3 py-1.5"
+                    style={{ background: 'var(--th-text)', color: 'var(--th-bg)' }}
                   >
                     Save
                   </button>
                   <button
                     onClick={() => { setShowSaveInput(false); setSaveName(''); }}
-                    className="text-sm px-2 py-1.5 rounded-lg"
-                    style={{ color: 'rgba(255,255,255,0.5)' }}
+                    className="text-sm px-2 py-1.5"
+                    style={{ color: 'var(--th-text-dim)' }}
                   >
                     Cancel
                   </button>
@@ -269,8 +300,8 @@ export default function Index() {
               ) : (
                 <button
                   onClick={() => setShowSaveInput(true)}
-                  className="flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-lg transition-all"
-                  style={{ background: 'rgba(103,232,249,0.08)', border: '1px solid rgba(103,232,249,0.2)', color: '#67e8f9' }}
+                  className="flex items-center gap-2 text-sm font-semibold px-4 py-2 transition-all"
+                  style={{ background: 'transparent', border: '1px solid var(--th-accent)', color: 'var(--th-accent)' }}
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
@@ -325,28 +356,29 @@ export default function Index() {
         {showSaved && user && (
           <div
             className="fixed inset-0 z-[60] flex items-center justify-center"
-            style={{ background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)' }}
+            style={{ background: 'var(--th-overlay)', backdropFilter: 'blur(4px)' }}
             onClick={() => setShowSaved(false)}
           >
             <div
-              className="w-full max-w-lg max-h-[70vh] overflow-y-auto rounded-2xl p-6"
+              className="w-full max-w-lg max-h-[70vh] overflow-y-auto p-6"
               style={{
-                background: 'rgba(5, 20, 32, 0.95)',
-                border: '1px solid rgba(6, 182, 212, 0.2)',
-                boxShadow: '0 24px 80px rgba(0,0,0,0.5)',
+                background: 'var(--th-bg)',
+                border: '1px solid var(--th-rule)',
+                boxShadow: '0 24px 80px rgba(0,0,0,0.2)',
               }}
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-bold text-white">My Progressions</h3>
+                <h3 className="text-lg font-bold" style={{ color: 'var(--th-text)', fontFamily: "'Playfair Display', serif" }}>My Progressions</h3>
                 <button
                   onClick={() => setShowSaved(false)}
-                  className="text-white/50 hover:text-white text-xl leading-none"
+                  className="text-xl leading-none"
+                  style={{ color: 'var(--th-text-dim)' }}
                 >&times;</button>
               </div>
 
               {progressions.length === 0 ? (
-                <p className="text-white/40 text-sm text-center py-8">
+                <p className="text-sm text-center py-8" style={{ color: 'var(--th-text-dim)' }}>
                   No saved progressions yet. Generate one and save it!
                 </p>
               ) : (
@@ -356,19 +388,22 @@ export default function Index() {
                     return (
                       <div
                         key={prog.id}
-                        className="flex items-center justify-between rounded-xl px-4 py-3 transition-all cursor-pointer"
-                        style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}
+                        className="flex items-center justify-between px-4 py-3 transition-all cursor-pointer"
+                        style={{ background: 'var(--th-card)', border: '1px solid var(--th-rule)' }}
                         onClick={() => handleLoadProgression(prog)}
+                        onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--th-card-hover)'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.background = 'var(--th-card)'; }}
                       >
                         <div>
-                          <div className="text-sm font-semibold text-white">{prog.name}</div>
-                          <div className="text-xs text-white/40 mt-0.5">
+                          <div className="text-sm font-semibold" style={{ color: 'var(--th-text)' }}>{prog.name}</div>
+                          <div className="text-xs mt-0.5" style={{ color: 'var(--th-text-dim)' }}>
                             {progChords.map(c => `${c.root}${c.type === 'major' ? '' : c.type}`).join(' → ')}
                           </div>
                         </div>
                         <button
                           onClick={(e) => { e.stopPropagation(); deleteProgression(prog.id); }}
-                          className="text-white/30 hover:text-red-400 text-sm px-2 py-1 rounded transition-colors"
+                          className="text-sm px-2 py-1 transition-colors"
+                          style={{ color: 'var(--th-rule)' }}
                           title="Delete"
                         >
                           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
