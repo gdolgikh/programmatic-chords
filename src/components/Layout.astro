@@ -1,6 +1,4 @@
 ---
-import '@fontsource-variable/inter';
-import interLatinFont from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 import Header from './Header.astro';
 const { title = 'Chord Library - Learn Guitar Chords', description = 'Free guitar chord library with 144 chords across all 12 keys. Features interactive chord diagrams, finger placement guides, and audio playback for every chord.' } = Astro.props;
 ---
@@ -12,16 +10,53 @@ const { title = 'Chord Library - Learn Guitar Chords', description = 'Free guita
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
-  <link rel="preload" href={interLatinFont} as="font" type="font/woff2" crossorigin />
+  <style>
+    /* Self-hosted fonts — latin only */
+    @font-face {
+      font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 400 900;
+      font-display: swap;
+      src: url('/fonts/playfair-display-latin.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Playfair Display';
+      font-style: italic;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('/fonts/playfair-display-italic-latin.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'IBM Plex Sans';
+      font-style: normal;
+      font-weight: 300 700;
+      font-display: swap;
+      src: url('/fonts/ibm-plex-sans-latin.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'IBM Plex Mono';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('/fonts/ibm-plex-mono-400-latin.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'IBM Plex Mono';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('/fonts/ibm-plex-mono-500-latin.woff2') format('woff2');
+    }
+  </style>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🎸</text></svg>" />
+  <script is:inline>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark') document.documentElement.classList.add('dark');
+    })();
+  </script>
 </head>
 <body>
-  <div class="bg-layer"></div>
-  <div class="bg-orbs">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-  </div>
   <Header />
   <main>
     <slot />
@@ -30,6 +65,45 @@ const { title = 'Chord Library - Learn Guitar Chords', description = 'Free guita
 </html>
 
 <style is:global>
+  :root {
+    --cream: #f5f0e8;
+    --paper: #ede8dc;
+    --ink: #1a1510;
+    --ink-faded: #5a4f3f;
+    --red: #c0392b;
+    --rule: #c8bfa8;
+    --rule-bright: #c8bfa8;
+    --card-bg: #f5f0e8;
+    --card-hover: #ede8dc;
+
+    /* Diagram-specific */
+    --diagram-line: #1a1510;
+    --diagram-nut: #1a1510;
+    --diagram-dot: #1a1510;
+    --diagram-dot-text: #f5f0e8;
+    --diagram-open: #1a1510;
+    --diagram-mute: #5a4f3f;
+  }
+
+  html.dark {
+    --cream: #0e0d0b;
+    --paper: #161410;
+    --ink: #c8b98a;
+    --ink-faded: #6b5e42;
+    --red: #d4a843;
+    --rule: #2e2a22;
+    --rule-bright: #3d3830;
+    --card-bg: #1c1a16;
+    --card-hover: #221f1a;
+
+    --diagram-line: #3d3830;
+    --diagram-nut: #c8b98a;
+    --diagram-dot: #c8b98a;
+    --diagram-dot-text: #0e0d0b;
+    --diagram-open: #c8b98a;
+    --diagram-mute: #6b5e42;
+  }
+
   *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -41,95 +115,48 @@ const { title = 'Chord Library - Learn Guitar Chords', description = 'Free guita
   }
 
   body {
-    font-family: 'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif;
-    background: #051420;
-    color: rgba(255, 255, 255, 0.9);
+    font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
     min-height: 100vh;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    transition: background 0.3s ease, color 0.3s ease;
   }
 
-  .bg-layer {
+  /* Grain texture overlay — hidden on mobile for performance */
+  body::before {
+    content: '';
     position: fixed;
     inset: 0;
-    background: linear-gradient(160deg, #051420 0%, #0a1f2e 30%, #0d2a3d 60%, #051420 100%);
-    z-index: -3;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.6;
   }
 
-  .bg-orbs {
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    overflow: hidden;
-  }
-
-  .orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.4;
-    animation: orbFloat 20s ease-in-out infinite;
-  }
-
-  .orb-1 {
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, #06b6d4, transparent 70%);
-    top: -10%;
-    right: -10%;
-    animation-delay: 0s;
-  }
-
-  .orb-2 {
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, #0ea5e9, transparent 70%);
-    bottom: -15%;
-    left: -10%;
-    animation-delay: -7s;
-  }
-
-  .orb-3 {
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, #14b8a6, transparent 70%);
-    top: 40%;
-    left: 30%;
-    animation-delay: -14s;
-  }
-
-  @keyframes orbFloat {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(30px, -40px) scale(1.05); }
-    66% { transform: translate(-20px, 20px) scale(0.95); }
+  @media (max-width: 768px) {
+    body::before {
+      display: none;
+    }
   }
 
   main {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 100px 1.5rem 3rem;
+    padding: 0 24px 3rem;
   }
 
-  /* Glass card utility */
+  /* Editorial card utility */
   .glass {
-    background: rgba(6, 182, 212, 0.05);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(6, 182, 212, 0.08);
-    border-radius: 20px;
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.06);
-    transition: all 0.3s ease;
+    background: var(--card-bg);
+    border: 1px solid var(--rule);
+    border-radius: 0;
+    transition: background 0.2s ease;
   }
 
   .glass:hover {
-    background: rgba(6, 182, 212, 0.08);
-    border-color: rgba(6, 182, 212, 0.14);
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.25),
-      0 0 0 1px rgba(6, 182, 212, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    background: var(--card-hover);
   }
 
   a {

@@ -15,11 +15,54 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://www.progchord.com/Progchord-OG.png" />
-    <script type="module" crossorigin src="/progression-generator/assets/index-CyGmmw8U.js"></script>
-    <link rel="stylesheet" crossorigin href="/progression-generator/assets/index-CpsWKLyq.css">
+    <style>
+      @font-face {
+        font-family: 'Playfair Display';
+        font-style: normal;
+        font-weight: 400 900;
+        font-display: swap;
+        src: url('/fonts/playfair-display-latin.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Playfair Display';
+        font-style: italic;
+        font-weight: 400 700;
+        font-display: swap;
+        src: url('/fonts/playfair-display-italic-latin.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'IBM Plex Sans';
+        font-style: normal;
+        font-weight: 300 700;
+        font-display: swap;
+        src: url('/fonts/ibm-plex-sans-latin.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'IBM Plex Mono';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('/fonts/ibm-plex-mono-400-latin.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'IBM Plex Mono';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url('/fonts/ibm-plex-mono-500-latin.woff2') format('woff2');
+      }
+    </style>
+    <script type="module" crossorigin src="/progression-generator/assets/index-BHNze1K8.js"></script>
+    <link rel="stylesheet" crossorigin href="/progression-generator/assets/index-DvL44T7U.css">
   </head>
 
   <body>
+    <script>
+      (function() {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') document.documentElement.classList.add('dark');
+      })();
+    </script>
     <div id="root"></div>
   </body>
 </html>
