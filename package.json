@@ -11,7 +11,9 @@
     "update-chords": "npm run migrate-chords && npm run validate-chords"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
     "@fontsource-variable/inter": "^5.2.8",
+    "@supabase/supabase-js": "^2.97.0",
     "@tombatossals/chords-db": "^0.5.1",
     "astro": "^4.16.0",
     "tone": "^14.8.49"

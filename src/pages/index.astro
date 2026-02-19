@@ -42,27 +42,29 @@ const groups = getChordsByRoot();
 <style>
   .hero {
     text-align: center;
-    padding: 2rem 0 3.5rem;
+    padding: 3rem 0 3.5rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 2rem;
   }
 
   .hero-title {
+    font-family: 'Playfair Display', serif;
     font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 800;
+    font-weight: 900;
     line-height: 1.1;
     letter-spacing: -0.03em;
     margin-bottom: 1rem;
+    color: var(--ink);
   }
 
   .accent {
-    background: linear-gradient(135deg, #67e8f9, #0891b2, #14b8a6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--red);
+    font-style: italic;
   }
 
   .hero-sub {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.05rem;
+    color: var(--ink-faded);
     max-width: 480px;
     margin: 0 auto;
     line-height: 1.6;
@@ -78,29 +80,32 @@ const groups = getChordsByRoot();
     gap: 0.6rem;
     margin-bottom: 1.25rem;
     padding-left: 0.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--rule);
   }
 
   .root-letter {
-    font-size: 1.8rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #bae6fd, #0ea5e9);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--red);
   }
 
   .root-label {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-    opacity: 1;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--ink-faded);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 
   .chord-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-    gap: 1rem;
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
   }
 
   .chord-card {
@@ -110,16 +115,27 @@ const groups = getChordsByRoot();
     padding: 1.25rem 1rem 1rem;
     cursor: pointer;
     text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+    border-top: none;
+    border-left: none;
+    border-radius: 0;
   }
 
   .chord-card:hover {
-    transform: translateY(-2px);
+    background: var(--paper);
+    transform: none;
   }
 
   .card-diagram {
     margin-bottom: 0.75rem;
     display: flex;
     justify-content: center;
+    transition: transform 0.2s ease;
+  }
+
+  .chord-card:hover .card-diagram {
+    transform: scale(1.02);
   }
 
   .card-info {
@@ -131,15 +147,15 @@ const groups = getChordsByRoot();
   }
 
   .card-name {
+    font-family: 'Playfair Display', serif;
     font-size: 0.95rem;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--ink);
   }
 
   @media (max-width: 600px) {
     .chord-grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.75rem;
     }
   }
 </style>
