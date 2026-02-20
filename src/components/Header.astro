@@ -510,23 +510,32 @@ const groups = getChordsByRoot();
   const toggle = document.getElementById('menuToggle');
   const nav = document.getElementById('mainNav');
 
+  function closeMobileMenu() {
+    nav?.classList.remove('open');
+    toggle?.classList.remove('active');
+    document.body.style.overflow = '';
+    document.querySelectorAll('.nav-group.open').forEach(g => g.classList.remove('open'));
+  }
+
   toggle?.addEventListener('click', () => {
     const isOpening = !nav?.classList.contains('open');
-    nav?.classList.toggle('open');
-    toggle?.classList.toggle('active');
-
-    // Lock/unlock body scroll
     if (isOpening) {
+      nav?.classList.add('open');
+      toggle?.classList.add('active');
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = '';
+      closeMobileMenu();
     }
   });
 
   // Mobile accordion: single delegated listener instead of cloning DOM nodes
-  let isMobile = window.matchMedia('(max-width: 768px)').matches;
-  window.matchMedia('(max-width: 768px)').addEventListener('change', (e) => {
+  const mobileQuery = window.matchMedia('(max-width: 768px)');
+  let isMobile = mobileQuery.matches;
+  mobileQuery.addEventListener('change', (e) => {
     isMobile = e.matches;
+    if (!isMobile) {
+      closeMobileMenu();
+    }
   });
 
   document.querySelector('.main-nav')?.addEventListener('click', (e) => {
@@ -540,11 +549,7 @@ const groups = getChordsByRoot();
 
   // Close mobile menu on link click
   document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      nav?.classList.remove('open');
-      toggle?.classList.remove('active');
-      document.body.style.overflow = '';
-    });
+    link.addEventListener('click', () => closeMobileMenu());
   });
 </script>
 
