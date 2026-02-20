@@ -102,7 +102,7 @@ const sequencers = {
     const bass = p.slice(0, 2);
     const treble = p.slice(2);
     const top = treble[treble.length - 1];
-    const mid = treble[Math.floor(treble.length / 2)];
+    const mid = treble[treble.length - 2];
     return [bass[0], top, mid, top, bass[1], top, mid, top];
   },
 };
@@ -153,9 +153,9 @@ if (playedStrings.length >= 2) {
       const diagram = document.getElementById('chord-diagram');
       const chordMidi = JSON.parse(diagram?.getAttribute('data-midi') || '[]');
 
-      async function initAudio() {
-        if (isLoaded) return;
-        if (isLoading) return;
+      // Preload: import module + start loading samples (no user gesture needed)
+      async function preloadAudio() {
+        if (sampler || isLoading) return;
 
         isLoading = true;
         playButton.disabled = true;
@@ -164,12 +164,10 @@ if (playedStrings.length >= 2) {
         const playText = playButton.querySelector('.play-text');
         const originalText = playText.textContent;
         playText.textContent = 'Loading...';
-        statusDiv.textContent = 'Loading guitar sounds...';
 
         try {
           const ToneModule = await import('tone');
           Tone = ToneModule.default || ToneModule;
-          await Tone.start();
 
           sampler = new Tone.Sampler({
             urls: {
@@ -185,8 +183,6 @@ if (playedStrings.length >= 2) {
               playButton.disabled = false;
               playButton.classList.remove('loading');
               playText.textContent = originalText;
-              statusDiv.textContent = 'Ready to play!';
-              setTimeout(() => statusDiv.textContent = '', 2000);
             },
             onerror: () => {
               console.warn('Sample loading failed, audio may not work');
@@ -195,13 +191,11 @@ if (playedStrings.length >= 2) {
               playButton.disabled = false;
               playButton.classList.remove('loading');
               playText.textContent = originalText;
-              statusDiv.textContent = 'Audio unavailable';
             },
           }).toDestination();
           sampler.volume.value = -6;
         } catch (error) {
           console.error('Failed to load audio:', error);
-          statusDiv.textContent = 'Audio load failed';
           playButton.disabled = false;
           playButton.classList.remove('loading');
           playButton.querySelector('.play-text').textContent = 'Play';
@@ -209,8 +203,14 @@ if (playedStrings.length >= 2) {
         }
       }
 
+      // Resume AudioContext (requires user gesture — click/tap)
+      async function resumeAudio() {
+        if (Tone) await Tone.start();
+      }
+
       async function playChord() {
-        if (!isLoaded) { await initAudio(); return; }
+        if (!isLoaded) { await preloadAudio(); return; }
+        await resumeAudio();
 
         const now = Tone.now();
         const strumDelay = 0.018;
@@ -226,15 +226,16 @@ if (playedStrings.length >= 2) {
 
       async function playNote(midi) {
         if (!isLoaded) {
-          await initAudio();
+          await preloadAudio();
           if (isLoaded) playNote(midi);
           return;
         }
+        await resumeAudio();
         sampler.triggerAttackRelease(midiToNoteName(midi), '2n');
       }
 
       playButton.addEventListener('click', playChord);
-      playButton.addEventListener('mouseenter', initAudio, { once: true });
+      playButton.addEventListener('mouseenter', preloadAudio, { once: true });
 
       document.querySelectorAll('.finger-dot').forEach(dot => {
         dot.addEventListener('click', (e) => {
@@ -276,12 +277,13 @@ if (playedStrings.length >= 2) {
 
       // Arpeggio pattern playback with sequential dot highlight
       document.querySelectorAll('.play-pattern-btn').forEach(btn => {
-        btn.addEventListener('mouseenter', initAudio, { once: true });
+        btn.addEventListener('mouseenter', preloadAudio, { once: true });
         btn.addEventListener('click', async () => {
           if (!isLoaded) {
-            await initAudio();
+            await preloadAudio();
             if (!isLoaded) return;
           }
+          await resumeAudio();
           const midiNotes = JSON.parse(btn.dataset.midi);
           const panel = btn.closest('.tab-panel');
           const dots = panel ? panel.querySelectorAll('.arpeggio-dot') : [];
