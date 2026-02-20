@@ -1,0 +1,160 @@
+---
+import Layout from '../components/Layout.astro';
+---
+
+<Layout title="Terms of Service — Chord Library" description="Terms of Service for Chord Library. Read the terms and conditions for using our guitar chord reference service.">
+  <article class="legal-page">
+    <h1 class="legal-title">Terms of Service</h1>
+    <p class="legal-updated">Last updated: February 20, 2026</p>
+
+    <h2>1. Acceptance of Terms</h2>
+    <p>
+      By accessing or using Chord Library (<a href="https://www.chord-library.com">www.chord-library.com</a>),
+      you agree to these Terms of Service. If you do not agree, please do not use the service.
+    </p>
+
+    <h2>2. Description of Service</h2>
+    <p>
+      Chord Library is a free guitar chord reference providing interactive chord diagrams, audio playback,
+      and a chord progression generator. Registered users can save chords and progressions to their account.
+    </p>
+
+    <h2>3. Account Registration</h2>
+    <p>
+      Account creation is handled through Google OAuth. By signing in, you authorize us to receive your name,
+      email address, and profile picture from Google. You are responsible for maintaining the security of your
+      Google account. We are not liable for any unauthorized access resulting from your failure to protect your
+      account credentials.
+    </p>
+
+    <h2>4. Acceptable Use</h2>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Use automated tools to scrape, crawl, or extract data from the service</li>
+      <li>Attempt to gain unauthorized access to the service or its systems</li>
+      <li>Interfere with or disrupt the service or servers</li>
+      <li>Use the service for any unlawful purpose</li>
+      <li>Reproduce, distribute, or commercially exploit the service content without permission</li>
+    </ul>
+
+    <h2>5. Intellectual Property</h2>
+    <p>
+      The chord diagrams, site design, code, and content of Chord Library are the property of the service operator.
+      Chord voicing data is derived from community chord databases and is used in accordance with their respective licenses.
+    </p>
+    <p>
+      Your user-generated data (saved chords, progressions, and preferences) remains your property.
+      You grant us a limited license to store and display this data solely to provide the service to you.
+    </p>
+
+    <h2>6. Disclaimer of Warranties</h2>
+    <p>
+      The service is provided <strong>"as is"</strong> and <strong>"as available"</strong> without warranties of any kind,
+      whether express or implied. We do not guarantee that the service will be uninterrupted, error-free, or
+      free of harmful components.
+    </p>
+
+    <h2>7. Limitation of Liability</h2>
+    <p>
+      To the fullest extent permitted by applicable law, Chord Library and its operator shall not be liable for
+      any indirect, incidental, special, consequential, or punitive damages arising from your use of the service.
+      This limitation applies regardless of the legal theory on which the claim is based.
+    </p>
+    <p>
+      Nothing in these terms excludes or limits liability that cannot be excluded or limited under applicable EU law,
+      including liability for death or personal injury caused by negligence, or for fraud.
+    </p>
+
+    <h2>8. Account Termination</h2>
+    <p>
+      We reserve the right to suspend or terminate your account if you violate these terms.
+      You may delete your account and associated data at any time by contacting us at
+      <a href="/contact/">contact page</a>.
+    </p>
+
+    <h2>9. Modifications to Terms</h2>
+    <p>
+      We may update these Terms of Service from time to time. The "Last updated" date at the top of this page
+      reflects the most recent revision. Continued use of the service after changes constitutes acceptance
+      of the updated terms.
+    </p>
+
+    <h2>10. Governing Law</h2>
+    <p>
+      These terms are governed by the laws of Poland. Any disputes shall be subject to the jurisdiction of
+      Polish courts. If you are an EU consumer, you retain all rights afforded to you by mandatory consumer
+      protection laws in your country of residence.
+    </p>
+
+    <h2>11. Contact</h2>
+    <p>
+      For questions about these terms:<br>
+      <a href="/contact/">contact page</a>
+    </p>
+  </article>
+</Layout>
+
+<style>
+  .legal-page {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .legal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 900;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .legal-updated {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--ink-faded);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .legal-page h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .legal-page p,
+  .legal-page li {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--ink-faded);
+    margin-bottom: 0.75rem;
+  }
+
+  .legal-page ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .legal-page a {
+    color: var(--red);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .legal-page a:hover {
+    opacity: 0.8;
+  }
+
+  .legal-page strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+</style>

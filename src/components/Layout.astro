@@ -1,5 +1,7 @@
 ---
 import Header from './Header.astro';
+import Footer from './Footer.astro';
+import CookieConsent from './CookieConsent.astro';
 import { ViewTransitions } from 'astro:transitions';
 const { title = 'Chord Library - Learn Guitar Chords', description = 'Free guitar chord library with 144 chords across all 12 keys. Features interactive chord diagrams, finger placement guides, and audio playback for every chord.', keywords = '' } = Astro.props;
 ---
@@ -52,11 +54,27 @@ const { title = 'Chord Library - Learn Guitar Chords', description = 'Free guita
   </style>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🎸</text></svg>" />
   <ViewTransitions />
-  <script src="https://analytics.ahrefs.com/analytics.js" data-key="gp+f+eFsakb1xf/+OqLWIg" async></script>
   <script is:inline>
     (function() {
       var t = localStorage.getItem('theme');
       if (t === 'dark') document.documentElement.classList.add('dark');
+    })();
+  </script>
+  <script is:inline>
+    (function() {
+      function loadAnalytics() {
+        if (document.getElementById('ahrefs-analytics')) return;
+        var s = document.createElement('script');
+        s.id = 'ahrefs-analytics';
+        s.src = 'https://analytics.ahrefs.com/analytics.js';
+        s.dataset.key = 'gp+f+eFsakb1xf/+OqLWIg';
+        s.async = true;
+        document.head.appendChild(s);
+      }
+      if (localStorage.getItem('cookie_consent') === 'accepted') {
+        loadAnalytics();
+      }
+      window.__loadAnalytics = loadAnalytics;
     })();
   </script>
   <script is:inline>
@@ -71,6 +89,8 @@ const { title = 'Chord Library - Learn Guitar Chords', description = 'Free guita
   <main>
     <slot />
   </main>
+  <Footer />
+  <CookieConsent />
 </body>
 </html>
 

@@ -27,6 +27,9 @@ import { chords } from '../data/chords.js';
         </svg>
         <span>Sign in with Google</span>
       </button>
+      <p class="auth-legal-note">
+        By signing in, you agree to our <a href="/privacy-policy/">Privacy Policy</a> and <a href="/terms-of-service/">Terms of Service</a>.
+      </p>
     </div>
 
     <!-- Shown when signed in -->
@@ -218,6 +221,23 @@ import { chords } from '../data/chords.js';
 
   .sign-in-btn:hover {
     background: var(--rule);
+  }
+
+  .auth-legal-note {
+    font-size: 0.75rem;
+    color: var(--ink-faded);
+    margin-top: 0.25rem;
+    max-width: 320px;
+  }
+
+  .auth-legal-note a {
+    color: var(--red);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .auth-legal-note a:hover {
+    opacity: 0.8;
   }
 
   .page-title {
