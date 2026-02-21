@@ -1,0 +1,907 @@
+---
+import ChordDiagram from '../ChordDiagram.astro';
+import { chords } from '../../data/chords.js';
+import { getChordAliases } from '../../data/chordAliases.js';
+import { t, getLocalizedUrl, getDifficultyLabel, getFretLabel } from '../../i18n/index.js';
+
+const { chord, locale = 'en', chordName: nameOverride, chordDescription: descOverride } = Astro.props;
+
+const chordName = nameOverride || chord.name;
+const chordDescription = descOverride || chord.description;
+
+// Find prev/next chords
+const idx = chords.findIndex(c => c.slug === chord.slug);
+const prev = idx > 0 ? chords[idx - 1] : null;
+const next = idx < chords.length - 1 ? chords[idx + 1] : null;
+
+// String labels (universal)
+const stringNames = ['E', 'A', 'D', 'G', 'B', 'e'];
+
+// Get MIDI data safely
+const getMidiData = () => {
+  if (!chord.allPositions?.[0]?.midi) return [];
+  const midi = chord.allPositions[0].midi;
+  const fullMidi = [];
+  let midiIndex = 0;
+  for (let i = 0; i < chord.frets.length; i++) {
+    if (chord.frets[i] === -1) {
+      fullMidi[i] = null;
+    } else if (midiIndex < midi.length) {
+      fullMidi[i] = midi[midiIndex];
+      midiIndex++;
+    }
+  }
+  return fullMidi;
+};
+
+const chordMidi = getMidiData();
+
+// Chord name aliases for SEO
+const aliases = getChordAliases(chord.root, chord.quality, chord.name);
+
+// Generate arpeggio patterns
+const playedStrings = chord.frets
+  .map((fret, stringIdx) => ({ stringIdx, fret, midi: chordMidi[stringIdx] }))
+  .filter(s => s.fret !== -1);
+
+const ARPEGGIO_STEPS = 8;
+
+// Tab SVG layout
+const TAB_LEFT_PAD = 28;
+const TAB_RIGHT_PAD = 14;
+const TAB_TOP_PAD = 16;
+const TAB_BOTTOM_PAD = 10;
+const TAB_STRING_GAP = 20;
+const TAB_STEP_GAP = 34;
+const TAB_DOT_R = 8;
+const TAB_LABEL_SIZE = 11;
+const TAB_FRET_SIZE = 10;
+
+const tabLabels = ['e', 'B', 'G', 'D', 'A', 'E'];
+const tabDiagramH = 5 * TAB_STRING_GAP;
+const tabDiagramW = 7 * TAB_STEP_GAP;
+const tabSvgW = TAB_LEFT_PAD + tabDiagramW + TAB_RIGHT_PAD;
+const tabSvgH = TAB_TOP_PAD + tabDiagramH + TAB_BOTTOM_PAD;
+
+const tabStringY = (row: number) => TAB_TOP_PAD + row * TAB_STRING_GAP;
+const tabStepX = (step: number) => TAB_LEFT_PAD + step * TAB_STEP_GAP;
+
+const sequencers = {
+  ascending: (p) => p,
+  descending: (p) => [...p].reverse(),
+  insideOut: (p) => {
+    const seq = [];
+    let lo = 0, hi = p.length - 1;
+    while (lo <= hi) {
+      seq.push(p[lo]);
+      if (lo !== hi) seq.push(p[hi]);
+      lo++; hi--;
+    }
+    return seq;
+  },
+  travis: (p) => {
+    if (p.length < 4) return null;
+    const bass = p.slice(0, 2);
+    const treble = p.slice(2);
+    const top = treble[treble.length - 1];
+    const mid = treble[treble.length - 2];
+    return [bass[0], top, mid, top, bass[1], top, mid, top];
+  },
+};
+
+const arpeggioNames = {
+  ascending: t(locale, 'ascending'),
+  descending: t(locale, 'descending'),
+  insideOut: t(locale, 'insideOut'),
+  travis: t(locale, 'travisPicking'),
+};
+
+const arpeggioPatterns = [];
+if (playedStrings.length >= 2) {
+  const defs = [
+    { key: 'ascending', fn: sequencers.ascending },
+    { key: 'descending', fn: sequencers.descending },
+    { key: 'insideOut', fn: sequencers.insideOut },
+    { key: 'travis', fn: sequencers.travis },
+  ];
+  for (const def of defs) {
+    const seq = def.fn(playedStrings);
+    if (!seq) continue;
+    const steps = Array.from({ length: ARPEGGIO_STEPS }, (_, i) => seq[i % seq.length]);
+    arpeggioPatterns.push({
+      name: arpeggioNames[def.key],
+      steps,
+      midi: steps.map(s => s.midi),
+    });
+  }
+}
+
+// Translated strings for prev/next names
+// Import chord content for localized names of prev/next
+let prevName = prev?.name;
+let nextName = next?.name;
+if (locale !== 'en') {
+  try {
+    const chordContent = (await import(`../../i18n/chordContent/${locale}.js`)).default;
+    if (prev && chordContent[prev.slug]) prevName = chordContent[prev.slug].name;
+    if (next && chordContent[next.slug]) nextName = chordContent[next.slug].name;
+  } catch {}
+}
+
+const difficultyLabel = getDifficultyLabel(locale, chord.difficulty);
+const homeUrl = getLocalizedUrl(locale, '', 'index');
+---
+
+<script>
+  // Audio state persists across chord-to-chord navigation (module loaded once)
+  let Tone;
+  let sampler;
+  let isLoading = false;
+  let isLoaded = false;
+
+  function midiToNoteName(midi) {
+    const noteNames = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+    const octave = Math.floor(midi / 12) - 1;
+    const noteIndex = midi % 12;
+    return noteNames[noteIndex] + octave;
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    const playButton = document.getElementById('play-chord-btn');
+    if (!playButton) return;
+
+    const diagram = document.getElementById('chord-diagram');
+    const chordMidi = JSON.parse(diagram?.getAttribute('data-midi') || '[]');
+
+    // Read translated strings from data attributes
+    const i18nLoading = playButton.dataset.textLoading || 'Loading...';
+    const i18nPlay = playButton.dataset.textPlay || 'Play';
+
+    async function preloadAudio() {
+      if (sampler || isLoading) return;
+      isLoading = true;
+      playButton.disabled = true;
+      playButton.classList.add('loading');
+      const playText = playButton.querySelector('.play-text');
+      const originalText = playText.textContent;
+      playText.textContent = i18nLoading;
+
+      try {
+        const ToneModule = await import('tone');
+        Tone = ToneModule.default || ToneModule;
+        sampler = new Tone.Sampler({
+          urls: {
+            A2: 'A2.mp3', C3: 'C3.mp3', 'D#3': 'Ds3.mp3', 'F#3': 'Fs3.mp3',
+            A3: 'A3.mp3', C4: 'C4.mp3', 'D#4': 'Ds4.mp3', 'F#4': 'Fs4.mp3',
+            A4: 'A4.mp3', C5: 'C5.mp3',
+          },
+          baseUrl: 'https://cdn.jsdelivr.net/gh/nbrosowsky/tonejs-instruments/samples/guitar-acoustic/',
+          release: 1.5,
+          onload: () => {
+            isLoaded = true; isLoading = false;
+            playButton.disabled = false;
+            playButton.classList.remove('loading');
+            playText.textContent = originalText;
+          },
+          onerror: () => {
+            console.warn('Sample loading failed');
+            isLoaded = true; isLoading = false;
+            playButton.disabled = false;
+            playButton.classList.remove('loading');
+            playText.textContent = originalText;
+          },
+        }).toDestination();
+        sampler.volume.value = -6;
+      } catch (error) {
+        console.error('Failed to load audio:', error);
+        playButton.disabled = false;
+        playButton.classList.remove('loading');
+        playButton.querySelector('.play-text').textContent = i18nPlay;
+        isLoading = false;
+      }
+    }
+
+    async function resumeAudio() {
+      if (Tone) await Tone.start();
+    }
+
+    async function playChord() {
+      if (!isLoaded) { await preloadAudio(); return; }
+      await resumeAudio();
+      const now = Tone.now();
+      const strumDelay = 0.018;
+      chordMidi.forEach((midi, index) => {
+        if (midi !== null && midi !== undefined) {
+          sampler.triggerAttackRelease(midiToNoteName(midi), '2n', now + index * strumDelay);
+        }
+      });
+      playButton.classList.add('playing');
+      setTimeout(() => playButton.classList.remove('playing'), 500);
+    }
+
+    async function playNote(midi) {
+      if (!isLoaded) {
+        await preloadAudio();
+        if (isLoaded) playNote(midi);
+        return;
+      }
+      await resumeAudio();
+      sampler.triggerAttackRelease(midiToNoteName(midi), '2n');
+    }
+
+    playButton.addEventListener('click', playChord);
+    playButton.addEventListener('mouseenter', preloadAudio, { once: true });
+
+    document.querySelectorAll('.finger-dot').forEach(dot => {
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const midi = parseInt(dot.getAttribute('data-midi'));
+        if (midi) {
+          playNote(midi);
+          dot.style.filter = 'brightness(1.5)';
+          setTimeout(() => dot.style.filter = '', 200);
+        }
+      });
+    });
+
+    // Arpeggio pattern switching
+    const patternTabs = document.querySelectorAll('.pattern-tab');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+    patternTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        patternTabs.forEach(t => t.classList.remove('active'));
+        tabPanels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        const panel = document.querySelector(`[data-panel="${tab.dataset.pattern}"]`);
+        if (panel) panel.classList.add('active');
+      });
+    });
+
+    // Click-to-play individual arpeggio dots
+    document.querySelectorAll('.arpeggio-dot').forEach(dot => {
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const midi = parseInt(dot.getAttribute('data-midi'));
+        if (midi) {
+          playNote(midi);
+          dot.style.filter = 'brightness(1.5)';
+          setTimeout(() => dot.style.filter = '', 200);
+        }
+      });
+    });
+
+    // Arpeggio pattern playback
+    document.querySelectorAll('.play-pattern-btn').forEach(btn => {
+      btn.addEventListener('mouseenter', preloadAudio, { once: true });
+      const i18nPlaying = btn.dataset.textPlaying || 'Playing...';
+      const i18nPlayPattern = btn.dataset.textPlayPattern || 'Play Pattern';
+      btn.addEventListener('click', async () => {
+        if (!isLoaded) {
+          await preloadAudio();
+          if (!isLoaded) return;
+        }
+        await resumeAudio();
+        const midiNotes = JSON.parse(btn.dataset.midi);
+        const panel = btn.closest('.tab-panel');
+        const dots = panel ? panel.querySelectorAll('.arpeggio-dot') : [];
+        const now = Tone.now();
+        const noteDelay = 0.22;
+        midiNotes.forEach((midi, i) => {
+          if (midi !== null && midi !== undefined) {
+            sampler.triggerAttackRelease(midiToNoteName(midi), '4n', now + i * noteDelay);
+          }
+          if (dots[i]) {
+            setTimeout(() => {
+              dots[i].classList.add('playing');
+              setTimeout(() => dots[i].classList.remove('playing'), 180);
+            }, i * noteDelay * 1000);
+          }
+        });
+        btn.classList.add('playing');
+        const textEl = btn.querySelector('.play-pattern-text');
+        if (textEl) textEl.textContent = i18nPlaying;
+        setTimeout(() => {
+          btn.classList.remove('playing');
+          if (textEl) textEl.textContent = i18nPlayPattern;
+        }, midiNotes.length * noteDelay * 1000 + 500);
+      });
+    });
+  });
+</script>
+
+<script>
+  import { supabase, supabaseConfigured } from '../../lib/supabase.js';
+
+  let authSubscription;
+
+  document.addEventListener('astro:page-load', () => {
+    if (!supabaseConfigured) return;
+
+    const saveBtn = document.getElementById('saveChordBtn');
+    if (!saveBtn) return;
+
+    authSubscription?.unsubscribe();
+
+    const bookmarkIcon = document.getElementById('bookmarkIcon');
+    const saveText = document.getElementById('saveText');
+    const slug = saveBtn.dataset.slug;
+    const chordName = saveBtn.dataset.name;
+    let isSaved = false;
+
+    // Read translated strings from data attributes
+    const i18nSave = saveBtn.dataset.textSave || 'Save';
+    const i18nSaved = saveBtn.dataset.textSaved || 'Saved';
+    const i18nSignIn = saveBtn.dataset.textSignIn || 'Sign in to save';
+
+    function updateIcon(saved) {
+      isSaved = saved;
+      if (saved) {
+        bookmarkIcon.setAttribute('fill', 'currentColor');
+        saveText.textContent = i18nSaved;
+        saveBtn.classList.add('saved');
+      } else {
+        bookmarkIcon.setAttribute('fill', 'none');
+        saveText.textContent = i18nSave;
+        saveBtn.classList.remove('saved');
+      }
+    }
+
+    function showLoggedOut() {
+      bookmarkIcon.setAttribute('fill', 'none');
+      saveText.textContent = i18nSignIn;
+      saveBtn.classList.remove('saved');
+      isSaved = false;
+    }
+
+    async function showLoggedIn(userId) {
+      saveText.textContent = i18nSave;
+      const { data } = await supabase
+        .from('saved_chords')
+        .select('id')
+        .eq('user_id', userId)
+        .eq('chord_slug', slug)
+        .maybeSingle();
+      if (data) updateIcon(true);
+    }
+
+    (async () => {
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session?.user) await showLoggedIn(session.user.id);
+
+        const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
+          if (session?.user) await showLoggedIn(session.user.id);
+          else showLoggedOut();
+        });
+        authSubscription = subscription;
+      } catch (e) {
+        console.error('Save feature error:', e);
+      }
+    })();
+
+    saveBtn.addEventListener('click', async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session?.user) {
+        localStorage.setItem('auth_return_to', window.location.pathname);
+        await supabase.auth.signInWithOAuth({
+          provider: 'google',
+          options: { redirectTo: window.location.origin + '/auth/callback/' },
+        });
+        return;
+      }
+
+      saveBtn.disabled = true;
+      if (isSaved) {
+        await supabase
+          .from('saved_chords')
+          .delete()
+          .eq('user_id', session.user.id)
+          .eq('chord_slug', slug);
+        updateIcon(false);
+      } else {
+        await supabase
+          .from('saved_chords')
+          .insert({ user_id: session.user.id, chord_slug: slug, chord_name: chordName });
+        updateIcon(true);
+      }
+      saveBtn.disabled = false;
+    });
+  });
+</script>
+
+<article class="chord-page">
+  <div class="chord-hero glass">
+    <div class="chord-diagram-wrap">
+      <div class="chord-diagram-container">
+        <ChordDiagram
+          frets={chord.frets}
+          fingers={chord.fingers}
+          barres={chord.barres}
+          midi={chordMidi}
+          size="large"
+        />
+
+        <button
+          id="play-chord-btn"
+          class="play-button"
+          aria-label={t(locale, 'play')}
+          data-text-loading={t(locale, 'loading')}
+          data-text-play={t(locale, 'play')}
+        >
+          <svg class="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          <span class="play-text">{t(locale, 'play')}</span>
+        </button>
+
+        <div id="audio-status" class="audio-status" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="chord-info">
+      <div class:list={['chord-badge', `badge-${chord.difficulty.toLowerCase()}`]}>{difficultyLabel}</div>
+      <button
+        class="save-chord-btn"
+        id="saveChordBtn"
+        data-slug={chord.slug}
+        data-name={chord.name}
+        data-text-save={t(locale, 'save')}
+        data-text-saved={t(locale, 'saved')}
+        data-text-sign-in={t(locale, 'signInToSave')}
+        aria-label={t(locale, 'save')}
+      >
+        <svg class="bookmark-icon" id="bookmarkIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+        </svg>
+        <span id="saveText">{t(locale, 'signInToSave')}</span>
+      </button>
+      <h1 class="chord-name">{chordName}</h1>
+      <p class="chord-desc">{chordDescription}</p>
+
+      {aliases.length > 0 && (
+        <div class="chord-aliases">
+          <h3 class="detail-heading">{t(locale, 'alsoKnownAs')}</h3>
+          <ul class="alias-list">
+            {aliases.map(alias => (
+              <li class="alias-tag">{alias}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <div class="chord-frets">
+        <h3 class="detail-heading">{t(locale, 'stringByString')}</h3>
+        <div class="fret-list">
+          {chord.frets.map((f, i) => (
+            <div class:list={['fret-item', { muted: f === -1 }]}>
+              <span class="fret-string">{stringNames[i]}</span>
+              <span class="fret-value">{getFretLabel(locale, f)}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {arpeggioPatterns.length > 0 && (
+    <section class="arpeggio-section glass">
+      <h2 class="arpeggio-title">{t(locale, 'arpeggioTitle')}</h2>
+
+      <div class="pattern-selector">
+        {arpeggioPatterns.map((pattern, i) => (
+          <button
+            class:list={['pattern-tab', { active: i === 0 }]}
+            data-pattern={i}
+          >
+            {pattern.name}
+          </button>
+        ))}
+      </div>
+
+      <div class="pattern-panels">
+        {arpeggioPatterns.map((pattern, i) => (
+          <div class:list={['tab-panel', { active: i === 0 }]} data-panel={i}>
+            <svg
+              viewBox={`0 0 ${tabSvgW} ${tabSvgH}`}
+              xmlns="http://www.w3.org/2000/svg"
+              class="tab-svg"
+              role="img"
+              aria-label={`${pattern.name} arpeggio tablature for ${chordName}`}
+            >
+              {Array.from({ length: 6 }, (_, row) => (
+                <line
+                  x1={TAB_LEFT_PAD - 8}
+                  y1={tabStringY(row)}
+                  x2={TAB_LEFT_PAD + tabDiagramW + 8}
+                  y2={tabStringY(row)}
+                  stroke="var(--diagram-line)"
+                  stroke-width="0.8"
+                  opacity="0.4"
+                />
+              ))}
+
+              {tabLabels.map((label, row) => (
+                <text
+                  x={TAB_LEFT_PAD - 16}
+                  y={tabStringY(row)}
+                  text-anchor="middle"
+                  dominant-baseline="central"
+                  font-family="'IBM Plex Mono', monospace"
+                  font-size={TAB_LABEL_SIZE}
+                  font-weight="500"
+                  fill="var(--ink-faded)"
+                >{label}</text>
+              ))}
+
+              {pattern.steps.map((step, s) => {
+                const displayRow = 5 - step.stringIdx;
+                const cx = tabStepX(s);
+                const cy = tabStringY(displayRow);
+                return (
+                  <g>
+                    <circle
+                      cx={cx}
+                      cy={cy}
+                      r={TAB_DOT_R}
+                      fill="var(--diagram-dot)"
+                      class="arpeggio-dot"
+                      data-midi={step.midi}
+                      data-step={s}
+                    />
+                    <text
+                      x={cx}
+                      y={cy}
+                      text-anchor="middle"
+                      dominant-baseline="central"
+                      font-family="'IBM Plex Sans', sans-serif"
+                      font-size={TAB_FRET_SIZE}
+                      font-weight="700"
+                      fill="var(--diagram-dot-text)"
+                      style="pointer-events: none; user-select: none;"
+                    >{step.fret}</text>
+                  </g>
+                );
+              })}
+            </svg>
+
+            <button
+              class="play-pattern-btn"
+              data-midi={JSON.stringify(pattern.midi)}
+              data-text-playing={t(locale, 'playing')}
+              data-text-play-pattern={t(locale, 'playPattern')}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+              <span class="play-pattern-text">{t(locale, 'playPattern')}</span>
+            </button>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <nav class="chord-nav">
+    {prev ? (
+      <a href={getLocalizedUrl(locale, prev.slug, 'chord')} class="nav-btn glass">
+        <span class="nav-arrow">&larr;</span>
+        <span class="nav-label">{prevName}</span>
+      </a>
+    ) : <div />}
+    <a href={homeUrl} class="nav-btn glass nav-home">{t(locale, 'allChords')}</a>
+    {next ? (
+      <a href={getLocalizedUrl(locale, next.slug, 'chord')} class="nav-btn glass">
+        <span class="nav-label">{nextName}</span>
+        <span class="nav-arrow">&rarr;</span>
+      </a>
+    ) : <div />}
+  </nav>
+</article>
+
+<style>
+  .chord-page {
+    padding-top: 2rem;
+  }
+
+  .chord-hero {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2.5rem;
+    padding: 2.5rem;
+    align-items: start;
+    border: 1px solid var(--rule);
+  }
+
+  .chord-diagram-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+  }
+
+  .chord-diagram-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .play-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--ink);
+    border: none;
+    color: var(--cream);
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    max-width: 260px;
+    justify-content: center;
+  }
+
+  .play-button:hover { background: var(--ink-faded); }
+  .play-button:active { transform: translateY(0); }
+  .play-button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .play-button.loading { pointer-events: none; }
+  .play-button.loading .play-icon { animation: spin 1s linear infinite; }
+  .play-button.loading .play-text { opacity: 0.7; }
+  .play-button.playing { background: var(--red); }
+
+  .audio-status {
+    margin-top: 0.25rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--ink-faded);
+    text-align: center;
+    min-height: 1.2em;
+    width: 100%;
+    max-width: 260px;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .play-icon { transition: transform 0.3s ease; }
+
+  .chord-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .chord-badge {
+    align-self: flex-start;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.3rem 0.8rem;
+  }
+
+  .badge-easy { color: #2e7d32; background: rgba(46, 125, 50, 0.08); border: 1px solid rgba(46, 125, 50, 0.25); }
+  .badge-medium { color: #e65100; background: rgba(230, 81, 0, 0.08); border: 1px solid rgba(230, 81, 0, 0.25); }
+  .badge-hard { color: var(--red); background: rgba(192, 57, 43, 0.08); border: 1px solid rgba(192, 57, 43, 0.2); }
+
+  :global(html.dark) .badge-easy { color: #66bb6a; background: rgba(102, 187, 106, 0.1); border-color: rgba(102, 187, 106, 0.25); }
+  :global(html.dark) .badge-medium { color: #ffb74d; background: rgba(255, 183, 77, 0.1); border-color: rgba(255, 183, 77, 0.25); }
+  :global(html.dark) .badge-hard { color: var(--red); background: rgba(212, 168, 67, 0.1); border-color: rgba(212, 168, 67, 0.25); }
+
+  .save-chord-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    align-self: flex-start;
+    padding: 0.4rem 0.85rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    color: var(--ink-faded);
+    font-size: 0.85rem;
+    font-weight: 500;
+    font-family: 'IBM Plex Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .save-chord-btn:hover { background: var(--rule); color: var(--ink); }
+  .save-chord-btn.saved { color: var(--red); border-color: rgba(192, 57, 43, 0.3); background: rgba(192, 57, 43, 0.06); }
+  .save-chord-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .chord-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+
+  .chord-desc {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--ink-faded);
+    max-width: 520px;
+  }
+
+  .chord-aliases { margin-top: 0.25rem; }
+
+  .alias-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    list-style: none;
+  }
+
+  .alias-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--ink-faded);
+    padding: 0.2rem 0.55rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+  }
+
+  .detail-heading {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faded);
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .fret-list {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .fret-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0.4rem 0.6rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    min-width: 52px;
+  }
+
+  .fret-item.muted { opacity: 0.4; }
+
+  .fret-string {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--red);
+  }
+
+  .fret-value {
+    font-size: 0.75rem;
+    color: var(--ink-faded);
+    font-weight: 500;
+  }
+
+  .chord-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 1rem;
+  }
+
+  .nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ink-faded);
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px solid var(--rule);
+  }
+
+  .nav-btn:hover { color: var(--ink); background: var(--paper); }
+  .nav-arrow { font-size: 1.1rem; }
+  .nav-home { color: var(--red); border-color: var(--red); }
+  .nav-home:hover { background: var(--red); color: var(--cream); }
+
+  /* Arpeggio section */
+  .arpeggio-section { margin-top: 2rem; padding: 2rem 2.5rem; }
+
+  .arpeggio-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+
+  .pattern-selector {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  .pattern-tab {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 1rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    color: var(--ink-faded);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .pattern-tab:hover { color: var(--ink); border-color: var(--ink-faded); }
+  .pattern-tab.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .tab-svg {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    display: block;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 0.5rem 0;
+  }
+
+  .arpeggio-dot { cursor: pointer; transition: filter 0.15s ease; }
+  .arpeggio-dot:hover { filter: brightness(0.7); }
+  :global(html.dark) .arpeggio-dot:hover { filter: brightness(1.3); }
+  .arpeggio-dot.playing { filter: brightness(1.5); }
+
+  .play-pattern-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background: var(--ink);
+    border: none;
+    color: var(--cream);
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .play-pattern-btn:hover { background: var(--ink-faded); }
+  .play-pattern-btn.playing { background: var(--red); }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .chord-hero { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.5rem; }
+    .chord-diagram-wrap { justify-self: center; }
+    .chord-nav { flex-direction: column; }
+    .nav-btn { width: 100%; justify-content: center; }
+    .arpeggio-section { padding: 1.5rem; }
+    .tab-svg { max-width: 100%; }
+    .pattern-selector { gap: 0.35rem; }
+    .pattern-tab { padding: 0.4rem 0.75rem; font-size: 0.7rem; }
+  }
+</style>

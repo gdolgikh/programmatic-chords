@@ -1,0 +1,39 @@
+---
+import Layout from '../../components/Layout.astro';
+import ChordContent from '../../components/pages/ChordContent.astro';
+import { chords } from '../../data/chords.js';
+import { chordSlugs } from '../../i18n/slugs/es.js';
+import { t } from '../../i18n/index.js';
+
+export async function getStaticPaths() {
+  const esContent = (await import('../../i18n/chordContent/es.js')).default;
+  return chords.map(chord => {
+    const translatedSlug = chordSlugs[chord.slug] || chord.slug;
+    const content = esContent[chord.slug] || {};
+    return {
+      params: { slug: translatedSlug },
+      props: {
+        chord,
+        chordName: content.name || chord.name,
+        chordDescription: content.description || chord.description,
+      },
+    };
+  });
+}
+
+const { chord, chordName, chordDescription } = Astro.props;
+const firstSentence = chordDescription.split('. ')[0] + '.';
+const metaDescription = t('es', 'learnHowToPlay', { name: chordName, description: firstSentence });
+const aliases = (await import('../../data/chordAliases.js')).getChordAliases(chord.root, chord.quality, chord.name);
+---
+
+<Layout
+  locale="es"
+  title={`${chordName} — ChordLab`}
+  description={metaDescription}
+  keywords={[chordName, chord.name, ...aliases].join(', ')}
+  enSlug={chord.slug}
+  pageType="chord"
+>
+  <ChordContent chord={chord} locale="es" chordName={chordName} chordDescription={chordDescription} />
+</Layout>

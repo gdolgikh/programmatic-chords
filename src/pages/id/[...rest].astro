@@ -1,0 +1,30 @@
+---
+import { chords } from '../../data/chords';
+import { chordSlugs } from '../../i18n/slugs/id.js';
+
+export async function getStaticPaths() {
+  const rootNotes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+
+  const redirectPaths = rootNotes.map(note => {
+    const majorChord = chords.find(c => c.root === note && c.quality === 'Major');
+    if (!majorChord) return null;
+
+    // Indonesian uses same letter names as English
+    const noteSlug = note === 'C#' || note === 'D#' || note === 'F#' || note === 'G#' || note === 'A#'
+      ? note.toLowerCase().replace('#', '-sharp')
+      : note.toLowerCase();
+    const simplifiedSlug = `akor-${noteSlug}-gitar`;
+    const majorChordSlug = chordSlugs[majorChord.slug] || majorChord.slug;
+
+    return {
+      params: { rest: simplifiedSlug },
+      props: { majorChordSlug },
+    };
+  }).filter(Boolean);
+
+  return redirectPaths;
+}
+
+const { majorChordSlug } = Astro.props;
+return Astro.redirect(`/id/${majorChordSlug}/`);
+---

@@ -1,20 +1,28 @@
 ---
+import { t, getLocalizedUrl } from '../i18n/index.js';
+const { locale = 'en' } = Astro.props;
 const year = new Date().getFullYear();
+
+// Legal pages always link to English versions
+const privacyHref = '/privacy-policy/';
+const termsHref = '/terms-of-service/';
+const cookieHref = '/cookie-policy/';
+const contactHref = locale === 'en' ? '/contact/' : getLocalizedUrl(locale, 'contact', 'static');
 ---
 
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-links">
-      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href={privacyHref}>{t(locale, 'privacyPolicy')}</a>
       <span class="footer-sep">&middot;</span>
-      <a href="/terms-of-service/">Terms of Service</a>
+      <a href={termsHref}>{t(locale, 'termsOfService')}</a>
       <span class="footer-sep">&middot;</span>
-      <a href="/cookie-policy/">Cookie Policy</a>
+      <a href={cookieHref}>{t(locale, 'cookiePolicy')}</a>
       <span class="footer-sep">&middot;</span>
-      <a href="/contact/">Contact</a>
+      <a href={contactHref}>{t(locale, 'contact')}</a>
     </div>
     <div class="footer-copy">
-      &copy; {year} Chord Library
+      &copy; {year} {t(locale, 'copyright')}
     </div>
   </div>
 </footer>
@@ -50,14 +58,8 @@ const year = new Date().getFullYear();
     transition: color 0.15s ease;
   }
 
-  .footer-links a:hover {
-    color: var(--ink);
-  }
-
-  .footer-sep {
-    color: var(--rule);
-    font-size: 0.7rem;
-  }
+  .footer-links a:hover { color: var(--ink); }
+  .footer-sep { color: var(--rule); font-size: 0.7rem; }
 
   .footer-copy {
     font-family: 'IBM Plex Mono', monospace;

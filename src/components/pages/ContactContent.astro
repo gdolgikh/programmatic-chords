@@ -1,0 +1,85 @@
+---
+import { t } from '../../i18n/index.js';
+const { locale = 'en' } = Astro.props;
+---
+
+<article class="contact-page">
+  <h1 class="contact-title">{t(locale, 'contactTitle')}</h1>
+  <p>{t(locale, 'contactIntro')}</p>
+  <div class="contact-email">
+    <span class="contact-label">{t(locale, 'contactEmail')}</span>
+    <a id="contactLink" href="#" class="email-link"></a>
+  </div>
+  <p class="contact-note">{t(locale, 'contactNote')}</p>
+</article>
+
+<script is:inline>
+(function() {
+  var u = 'contact';
+  var d = 'chord-library.com';
+  var addr = u + '@' + d;
+  var el = document.getElementById('contactLink');
+  if (el) {
+    el.textContent = addr;
+    el.href = 'mailto:' + addr;
+  }
+})();
+</script>
+
+<style>
+  .contact-page {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .contact-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 900;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .contact-page p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--ink-faded);
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-email {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-faded);
+    flex-shrink: 0;
+  }
+
+  .email-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.95rem;
+    color: var(--red);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: opacity 0.15s ease;
+  }
+
+  .email-link:hover { opacity: 0.8; }
+  .contact-note { font-size: 0.85rem !important; color: var(--rule-bright) !important; }
+</style>

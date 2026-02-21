@@ -1,0 +1,222 @@
+---
+import ChordDiagram from '../ChordDiagram.astro';
+import { chords } from '../../data/chords.js';
+import { t, getLocalizedUrl } from '../../i18n/index.js';
+
+const { locale = 'en' } = Astro.props;
+
+// For non-English locales, load translated chord names
+let chordNameMap = {};
+if (locale !== 'en') {
+  try {
+    chordNameMap = (await import(`../../i18n/chordContent/${locale}.js`)).default;
+  } catch {}
+}
+
+function getChordName(chord) {
+  return chordNameMap[chord.slug]?.name || chord.name;
+}
+
+const homeUrl = getLocalizedUrl(locale, '', 'index');
+const savedUrl = locale === 'en' ? '/saved/' : getLocalizedUrl(locale, 'saved', 'static');
+---
+
+<div class="saved-page">
+  <!-- Shown while checking auth -->
+  <div id="loading" class="loading-state">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Shown when not signed in -->
+  <div id="signInPrompt" class="sign-in-prompt" style="display:none">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--rule)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+    </svg>
+    <h1>{t(locale, 'savedChordsTitle')}</h1>
+    <p>{t(locale, 'savedSignInPrompt')}</p>
+    <button class="sign-in-btn" id="signInBtn" data-return-to={savedUrl}>
+      <svg width="18" height="18" viewBox="0 0 48 48">
+        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+      </svg>
+      <span>{t(locale, 'signInWithGoogle')}</span>
+    </button>
+    <p class="auth-legal-note">
+      <Fragment set:html={t(locale, 'authLegalNote', {
+        privacy: `<a href="/privacy-policy/">${t(locale, 'privacyPolicy')}</a>`,
+        terms: `<a href="/terms-of-service/">${t(locale, 'termsOfService')}</a>`,
+      })} />
+    </p>
+  </div>
+
+  <!-- Shown when signed in -->
+  <div id="savedContent" style="display:none">
+    <h1 class="page-title">{t(locale, 'savedChordsTitle')}</h1>
+
+    <!-- Empty state -->
+    <div id="emptyState" class="empty-state" style="display:none">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--rule)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+      </svg>
+      <p>{t(locale, 'noSavedChords')}</p>
+      <a href={homeUrl} class="browse-link">{t(locale, 'browseLibrary')}</a>
+    </div>
+
+    <!-- Pre-rendered chord cards (hidden until matched) -->
+    <div id="chordGrid" class="chord-grid">
+      {chords.map(chord => (
+        <a href={getLocalizedUrl(locale, chord.slug, 'chord')} class="chord-card glass" data-slug={chord.slug} style="display:none">
+          <div class="card-diagram">
+            <ChordDiagram
+              frets={chord.frets}
+              fingers={chord.fingers}
+              barres={chord.barres}
+              size="small"
+              id={chord.slug}
+            />
+          </div>
+          <div class="card-info">
+            <h3 class="card-name">{getChordName(chord)}</h3>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script>
+  import { supabase, supabaseConfigured } from '../../lib/supabase.js';
+
+  let authSubscription;
+
+  document.addEventListener('astro:page-load', () => {
+    const loading = document.getElementById('loading');
+    if (!loading) return;
+
+    const signInPrompt = document.getElementById('signInPrompt');
+    const signInBtn = document.getElementById('signInBtn');
+    const savedContent = document.getElementById('savedContent');
+    const emptyState = document.getElementById('emptyState');
+    const chordGrid = document.getElementById('chordGrid');
+    const allCards = chordGrid?.querySelectorAll('.chord-card');
+
+    loading.style.display = 'none';
+    authSubscription?.unsubscribe();
+
+    if (!supabaseConfigured) {
+      signInPrompt.style.display = 'flex';
+      signInBtn?.addEventListener('click', () => {
+        alert('Supabase is not configured yet. Add PUBLIC_SUPABASE_URL and PUBLIC_SUPABASE_ANON_KEY to your .env file.');
+      });
+      return;
+    }
+
+    function showSavedCards(slugs) {
+      allCards?.forEach(card => (card as HTMLElement).style.display = 'none');
+      if (!slugs || slugs.length === 0) {
+        emptyState.style.display = 'flex';
+        return;
+      }
+      emptyState.style.display = 'none';
+      slugs.forEach(slug => {
+        const card = chordGrid?.querySelector(`[data-slug="${slug}"]`) as HTMLElement;
+        if (card) {
+          card.style.display = 'flex';
+          chordGrid.appendChild(card);
+        }
+      });
+    }
+
+    async function loadSavedChords(userId) {
+      const { data, error } = await supabase
+        .from('saved_chords')
+        .select('chord_slug')
+        .eq('user_id', userId)
+        .order('created_at', { ascending: false });
+      const slugs = (!error && data) ? data.map(d => d.chord_slug) : [];
+      showSavedCards(slugs);
+    }
+
+    (async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session?.user) {
+        savedContent.style.display = 'block';
+        await loadSavedChords(session.user.id);
+      } else {
+        signInPrompt.style.display = 'flex';
+      }
+
+      const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
+        if (session?.user) {
+          signInPrompt.style.display = 'none';
+          savedContent.style.display = 'block';
+          await loadSavedChords(session.user.id);
+        } else {
+          savedContent.style.display = 'none';
+          signInPrompt.style.display = 'flex';
+        }
+      });
+      authSubscription = subscription;
+    })();
+
+    signInBtn?.addEventListener('click', async () => {
+      const returnTo = signInBtn.dataset.returnTo || '/saved/';
+      localStorage.setItem('auth_return_to', returnTo);
+      await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: { redirectTo: window.location.origin + '/auth/callback/' },
+      });
+    });
+  });
+</script>
+
+<style>
+  .saved-page { min-height: 60vh; padding-top: 2rem; }
+  .loading-state { display: flex; justify-content: center; padding: 4rem 0; }
+  .spinner { width: 40px; height: 40px; border: 3px solid var(--rule); border-top-color: var(--ink); border-radius: 50%; animation: spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .sign-in-prompt { display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; padding: 4rem 1rem; }
+  .sign-in-prompt h1 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; color: var(--ink); }
+  .sign-in-prompt p { color: var(--ink-faded); max-width: 400px; }
+
+  .sign-in-btn {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.6rem 1.2rem; background: var(--paper);
+    border: 1px solid var(--rule); color: var(--ink);
+    font-size: 0.9rem; font-weight: 500;
+    font-family: 'IBM Plex Sans', sans-serif;
+    cursor: pointer; transition: all 0.2s ease; margin-top: 0.5rem;
+  }
+  .sign-in-btn:hover { background: var(--rule); }
+
+  .auth-legal-note { font-size: 0.75rem; color: var(--ink-faded); margin-top: 0.25rem; max-width: 320px; }
+  .auth-legal-note :global(a) { color: var(--red); text-decoration: underline; text-underline-offset: 2px; }
+  .auth-legal-note :global(a:hover) { opacity: 0.8; }
+
+  .page-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; margin-bottom: 1.5rem; color: var(--ink); padding-bottom: 0.75rem; border-bottom: 1px solid var(--rule); }
+
+  .empty-state { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; padding: 3rem 1rem; text-align: center; }
+  .empty-state p { color: var(--ink-faded); font-size: 1rem; }
+  .browse-link { color: var(--red); font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: opacity 0.2s; }
+  .browse-link:hover { opacity: 0.8; }
+
+  .chord-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 0; border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
+
+  .chord-card {
+    display: flex; flex-direction: column; align-items: center;
+    padding: 1.25rem 1rem 1rem; cursor: pointer; text-decoration: none;
+    border-bottom: 1px solid var(--rule); border-right: 1px solid var(--rule);
+    border-top: none; border-left: none; border-radius: 0;
+  }
+  .chord-card:hover { background: var(--paper); transform: none; }
+  .card-diagram { margin-bottom: 0.75rem; display: flex; justify-content: center; }
+  .card-info { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+  .card-name { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--ink); }
+
+  @media (max-width: 600px) {
+    .chord-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

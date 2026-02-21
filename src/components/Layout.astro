@@ -2,18 +2,39 @@
 import Header from './Header.astro';
 import Footer from './Footer.astro';
 import CookieConsent from './CookieConsent.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
 import { ViewTransitions } from 'astro:transitions';
-const { title = 'Chord Library - Learn Guitar Chords', description = 'Free guitar chord library with 144 chords across all 12 keys. Features interactive chord diagrams, finger placement guides, and audio playback for every chord.', keywords = '' } = Astro.props;
+import { getHrefLangAlternates, t } from '../i18n/index.js';
+
+const {
+  title = '',
+  description = '',
+  keywords = '',
+  locale = 'en',
+  enSlug = '',
+  pageType = 'index',
+} = Astro.props;
+
+const finalTitle = title || t(locale, 'siteTitle');
+const finalDesc = description || t(locale, 'siteDescription');
+
+// Generate hreflang alternates
+const alternates = getHrefLangAlternates(enSlug, pageType);
+const defaultAlt = alternates.find(a => a.locale === 'en');
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={locale}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title}</title>
-  <meta name="description" content={description} />
+  <title>{finalTitle}</title>
+  <meta name="description" content={finalDesc} />
   {keywords && <meta name="keywords" content={keywords} />}
+  {alternates.map(alt => (
+    <link rel="alternate" hreflang={alt.locale} href={alt.href} />
+  ))}
+  {defaultAlt && <link rel="alternate" hreflang="x-default" href={defaultAlt.href} />}
   <style>
     /* Self-hosted fonts — latin only */
     @font-face {
@@ -85,12 +106,12 @@ const { title = 'Chord Library - Learn Guitar Chords', description = 'Free guita
   </script>
 </head>
 <body>
-  <Header />
+  <Header locale={locale} enSlug={enSlug} pageType={pageType} />
   <main>
     <slot />
   </main>
-  <Footer />
-  <CookieConsent />
+  <Footer locale={locale} />
+  <CookieConsent locale={locale} />
 </body>
 </html>
 

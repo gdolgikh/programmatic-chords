@@ -1,0 +1,15 @@
+---
+import Layout from '../../components/Layout.astro';
+import SavedContent from '../../components/pages/SavedContent.astro';
+import { t } from '../../i18n/index.js';
+---
+
+<Layout
+  locale="id"
+  title={`${t('id', 'savedChordsTitle')} — Perpustakaan Akor`}
+  description={t('id', 'savedDescription')}
+  enSlug="saved"
+  pageType="static"
+>
+  <SavedContent locale="id" />
+</Layout>

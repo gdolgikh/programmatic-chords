@@ -1,0 +1,36 @@
+---
+import { chords } from '../../data/chords';
+import { chordSlugs } from '../../i18n/slugs/es.js';
+
+export async function getStaticPaths() {
+  const rootNotes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+
+  // Spanish solfege note slugs
+  const noteSlugMap = {
+    'C': 'do', 'C#': 'do-sostenido',
+    'D': 're', 'D#': 're-sostenido',
+    'E': 'mi', 'F': 'fa', 'F#': 'fa-sostenido',
+    'G': 'sol', 'G#': 'sol-sostenido',
+    'A': 'la', 'A#': 'la-sostenido',
+    'B': 'si',
+  };
+
+  const redirectPaths = rootNotes.map(note => {
+    const majorChord = chords.find(c => c.root === note && c.quality === 'Major');
+    if (!majorChord) return null;
+
+    const simplifiedSlug = `acorde-${noteSlugMap[note]}-guitarra`;
+    const majorChordSlug = chordSlugs[majorChord.slug] || majorChord.slug;
+
+    return {
+      params: { rest: simplifiedSlug },
+      props: { majorChordSlug },
+    };
+  }).filter(Boolean);
+
+  return redirectPaths;
+}
+
+const { majorChordSlug } = Astro.props;
+return Astro.redirect(`/es/${majorChordSlug}/`);
+---

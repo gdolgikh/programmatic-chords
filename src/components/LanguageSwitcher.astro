@@ -1,0 +1,125 @@
+---
+import { locales, t, getLocalizedUrl } from '../i18n/index.js';
+
+const { locale = 'en', enSlug = '', pageType = 'index' } = Astro.props;
+
+const links = locales.map(loc => ({
+  locale: loc,
+  label: t(loc, `lang${loc.charAt(0).toUpperCase() + loc.slice(1)}`),
+  href: getLocalizedUrl(loc, enSlug, pageType),
+  current: loc === locale,
+}));
+---
+
+<div class="lang-switcher">
+  <button class="lang-toggle" id="langToggle" aria-label="Change language">
+    <span class="lang-code">{locale.toUpperCase()}</span>
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </button>
+  <div class="lang-dropdown" id="langDropdown">
+    {links.map(link => (
+      <a
+        href={link.href}
+        class:list={['lang-option', { active: link.current }]}
+        hreflang={link.locale}
+      >
+        {link.label}
+      </a>
+    ))}
+  </div>
+</div>
+
+<style>
+  .lang-switcher {
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.35rem 0.6rem;
+    background: none;
+    border: 1px solid var(--rule);
+    color: var(--ink-faded);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border-radius: 0;
+  }
+
+  .lang-toggle:hover {
+    color: var(--ink);
+    border-color: var(--ink-faded);
+  }
+
+  .lang-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    min-width: 140px;
+    padding: 0.3rem;
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    box-shadow: 0 8px 24px rgba(26, 21, 16, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: all 0.2s ease;
+    z-index: 120;
+  }
+
+  .lang-dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .lang-option {
+    display: block;
+    padding: 0.45rem 0.75rem;
+    color: var(--ink-faded);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.15s ease;
+  }
+
+  .lang-option:hover {
+    color: var(--ink);
+    background: var(--paper);
+  }
+
+  .lang-option.active {
+    color: var(--red);
+    font-weight: 600;
+  }
+</style>
+
+<script is:inline>
+(function() {
+  function initLangSwitcher() {
+    var toggle = document.getElementById('langToggle');
+    var dropdown = document.getElementById('langDropdown');
+    if (!toggle || !dropdown) return;
+
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      dropdown.classList.toggle('open');
+    });
+
+    document.addEventListener('click', function() {
+      dropdown.classList.remove('open');
+    });
+  }
+
+  initLangSwitcher();
+  document.addEventListener('astro:after-swap', initLangSwitcher);
+})();
+</script>

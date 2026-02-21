@@ -1,0 +1,15 @@
+---
+import Layout from '../../components/Layout.astro';
+import ContactContent from '../../components/pages/ContactContent.astro';
+import { t } from '../../i18n/index.js';
+---
+
+<Layout
+  locale="es"
+  title={`${t('es', 'contactTitle')} — Biblioteca de Acordes`}
+  description="Ponte en contacto con el equipo de Biblioteca de Acordes. Preguntas, comentarios o solicitudes de datos."
+  enSlug="contact"
+  pageType="static"
+>
+  <ContactContent locale="es" />
+</Layout>

@@ -1,0 +1,278 @@
+---
+import ChordDiagram from '../ChordDiagram.astro';
+import { chords, getChordsByRoot, rootOrder } from '../../data/chords.js';
+import { t, getLocalizedUrl } from '../../i18n/index.js';
+
+const { locale = 'en' } = Astro.props;
+const groups = getChordsByRoot();
+
+// For non-English locales, load translated chord names
+let chordNameMap = {};
+if (locale !== 'en') {
+  try {
+    chordNameMap = (await import(`../../i18n/chordContent/${locale}.js`)).default;
+  } catch {}
+}
+
+function getChordName(chord) {
+  return chordNameMap[chord.slug]?.name || chord.name;
+}
+---
+
+<section class="hero">
+  <h1 class="hero-title">{t(locale, 'heroTitle1')}<br /><span class="accent">{t(locale, 'heroTitle2')}</span></h1>
+  <p class="hero-sub">{t(locale, 'heroSub')}</p>
+</section>
+
+<div class="filter-bar">
+  <div class="filter-group">
+    <button class="filter-btn active" data-filter="expert">{t(locale, 'filterExpert')}</button>
+    <button class="filter-btn" data-filter="intermediate">{t(locale, 'filterIntermediate')}</button>
+    <button class="filter-btn" data-filter="beginner">{t(locale, 'filterBeginner')}</button>
+  </div>
+  <div class="filter-tooltip-wrap">
+    <button class="filter-info" aria-label={t(locale, 'howDifficultyWorks')}>?</button>
+    <div class="filter-tooltip">
+      <p><strong>{t(locale, 'filterBeginner')}</strong> — {t(locale, 'filterBeginnerDesc')}</p>
+      <p><strong>{t(locale, 'filterIntermediate')}</strong> — {t(locale, 'filterIntermediateDesc')}</p>
+      <p><strong>{t(locale, 'filterExpert')}</strong> — {t(locale, 'filterExpertDesc')}</p>
+    </div>
+  </div>
+</div>
+
+{rootOrder.map(root => (
+  <section class="root-section" id={root.toLowerCase()}>
+    <h2 class="root-heading">
+      <span class="root-letter">{root}</span>
+      <span class="root-label">{t(locale, 'chordsLabel')}</span>
+    </h2>
+    <div class="chord-grid">
+      {groups[root].map(chord => (
+        <a href={getLocalizedUrl(locale, chord.slug, 'chord')} class="chord-card glass" data-difficulty={chord.difficulty}>
+          <div class="card-diagram">
+            <ChordDiagram
+              frets={chord.frets}
+              fingers={chord.fingers}
+              barres={chord.barres}
+              size="small"
+            />
+          </div>
+          <div class="card-info">
+            <h3 class="card-name">{getChordName(chord)}</h3>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+))}
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 3rem 0 3.5rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 2rem;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+
+  .accent { color: var(--red); font-style: italic; }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--ink-faded);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .root-section { margin-bottom: 3rem; }
+
+  .root-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+    padding-left: 0.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .root-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--red);
+  }
+
+  .root-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--ink-faded);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .chord-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+  }
+
+  .chord-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem 1rem 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+    border-top: none;
+    border-left: none;
+    border-radius: 0;
+  }
+
+  .chord-card:hover { background: var(--paper); transform: none; }
+
+  .card-diagram {
+    margin-bottom: 0.75rem;
+    display: flex;
+    justify-content: center;
+    transition: transform 0.2s ease;
+  }
+
+  .chord-card:hover .card-diagram { transform: scale(1.02); }
+
+  .card-info {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  /* Filter bar */
+  .filter-bar { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem; }
+  .filter-group { display: flex; border: 1px solid var(--rule); overflow: hidden; }
+
+  .filter-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    color: var(--ink-faded);
+    border: none;
+    border-right: 1px solid var(--rule);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .filter-btn:last-child { border-right: none; }
+  .filter-btn:hover { background: var(--paper); color: var(--ink); }
+  .filter-btn.active { background: var(--ink); color: var(--cream); }
+
+  .filter-tooltip-wrap { position: relative; }
+
+  .filter-info {
+    width: 1.5rem; height: 1.5rem; border-radius: 50%;
+    border: 1px solid var(--rule); background: transparent;
+    color: var(--ink-faded);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem; font-weight: 500;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .filter-info:hover { border-color: var(--ink); color: var(--ink); }
+
+  .filter-tooltip {
+    display: none; position: absolute;
+    top: calc(100% + 0.5rem); left: 50%; transform: translateX(-50%);
+    width: 280px; background: var(--card-bg);
+    border: 1px solid var(--rule); padding: 0.85rem 1rem;
+    z-index: 100; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .filter-tooltip-wrap.open .filter-tooltip { display: block; }
+  .filter-tooltip p { font-size: 0.78rem; line-height: 1.55; color: var(--ink-faded); margin-bottom: 0.5rem; }
+  .filter-tooltip p:last-child { margin-bottom: 0; }
+  .filter-tooltip strong { color: var(--ink); }
+
+  .chord-card[hidden] { display: none; }
+  .root-section[hidden] { display: none; }
+
+  @media (max-width: 600px) {
+    .chord-grid { grid-template-columns: repeat(2, 1fr); }
+    .filter-btn { padding: 0.45rem 0.7rem; font-size: 0.65rem; }
+    .filter-tooltip { left: 0; transform: none; }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var levels = {
+      beginner: ['Easy'],
+      intermediate: ['Easy', 'Medium'],
+      expert: ['Easy', 'Medium', 'Hard'],
+    };
+
+    var buttons = document.querySelectorAll('.filter-btn');
+    var cards = document.querySelectorAll('.chord-card[data-difficulty]');
+    var sections = document.querySelectorAll('.root-section');
+    var infoBtn = document.querySelector('.filter-info');
+    var tooltipWrap = document.querySelector('.filter-tooltip-wrap');
+
+    function applyFilter(filter) {
+      var allowed = levels[filter];
+      cards.forEach(function (card) {
+        card.hidden = allowed.indexOf(card.dataset.difficulty) === -1;
+      });
+      sections.forEach(function (section) {
+        var visible = section.querySelectorAll('.chord-card:not([hidden])');
+        section.hidden = visible.length === 0;
+      });
+      buttons.forEach(function (btn) {
+        btn.classList.toggle('active', btn.dataset.filter === filter);
+      });
+    }
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        applyFilter(btn.dataset.filter);
+      });
+    });
+
+    if (infoBtn) {
+      infoBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        tooltipWrap.classList.toggle('open');
+      });
+    }
+    document.addEventListener('click', function () {
+      if (tooltipWrap) tooltipWrap.classList.remove('open');
+    });
+  })();
+</script>

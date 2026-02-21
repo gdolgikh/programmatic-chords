@@ -1,0 +1,15 @@
+---
+import Layout from '../../components/Layout.astro';
+import ContactContent from '../../components/pages/ContactContent.astro';
+import { t } from '../../i18n/index.js';
+---
+
+<Layout
+  locale="id"
+  title={`${t('id', 'contactTitle')} — Perpustakaan Akor`}
+  description="Hubungi tim Perpustakaan Akor. Pertanyaan, masukan, atau permintaan data."
+  enSlug="contact"
+  pageType="static"
+>
+  <ContactContent locale="id" />
+</Layout>

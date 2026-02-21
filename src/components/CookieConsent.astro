@@ -1,12 +1,17 @@
-<div id="cookieConsent" class="cookie-banner" transition:persist style="display:none">
+---
+import { t } from '../i18n/index.js';
+const { locale = 'en' } = Astro.props;
+---
+
+<div id="cookieConsent" class="cookie-banner" style="display:none">
   <div class="cookie-inner">
     <p class="cookie-text">
-      We use cookies for essential site functionality and analytics.
-      <a href="/cookie-policy/" class="cookie-link">Cookie Policy</a>
+      {t(locale, 'cookieText')}
+      <a href="/cookie-policy/" class="cookie-link">{t(locale, 'cookiePolicy')}</a>
     </p>
     <div class="cookie-actions">
-      <button id="cookieReject" class="cookie-btn cookie-btn-reject">Reject</button>
-      <button id="cookieAccept" class="cookie-btn cookie-btn-accept">Accept</button>
+      <button id="cookieReject" class="cookie-btn cookie-btn-reject">{t(locale, 'cookieReject')}</button>
+      <button id="cookieAccept" class="cookie-btn cookie-btn-accept">{t(locale, 'cookieAccept')}</button>
     </div>
   </div>
 </div>
@@ -43,90 +48,40 @@
 
 <style>
   .cookie-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-    background: var(--card-bg);
+    position: fixed; bottom: 0; left: 0; right: 0;
+    z-index: 999; background: var(--card-bg);
     border-top: 1px solid var(--rule);
     padding: 1rem 24px;
     box-shadow: 0 -2px 12px rgba(0,0,0,0.06);
   }
 
   .cookie-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center;
+    justify-content: space-between; gap: 1.5rem;
   }
 
-  .cookie-text {
-    font-size: 0.85rem;
-    line-height: 1.5;
-    color: var(--ink-faded);
-    margin: 0;
-  }
+  .cookie-text { font-size: 0.85rem; line-height: 1.5; color: var(--ink-faded); margin: 0; }
+  .cookie-link { color: var(--red); text-decoration: underline; text-underline-offset: 2px; }
+  .cookie-link:hover { opacity: 0.8; }
 
-  .cookie-link {
-    color: var(--red);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .cookie-link:hover {
-    opacity: 0.8;
-  }
-
-  .cookie-actions {
-    display: flex;
-    gap: 0.5rem;
-    flex-shrink: 0;
-  }
+  .cookie-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
 
   .cookie-btn {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--rule);
-    cursor: pointer;
-    transition: all 0.15s ease;
-    white-space: nowrap;
+    font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.03em; padding: 0.5rem 1rem;
+    border: 1px solid var(--rule); cursor: pointer;
+    transition: all 0.15s ease; white-space: nowrap;
   }
 
-  .cookie-btn-reject {
-    background: transparent;
-    color: var(--ink-faded);
-  }
-
-  .cookie-btn-reject:hover {
-    background: var(--paper);
-    color: var(--ink);
-  }
-
-  .cookie-btn-accept {
-    background: var(--ink);
-    color: var(--cream);
-    border-color: var(--ink);
-  }
-
-  .cookie-btn-accept:hover {
-    opacity: 0.85;
-  }
+  .cookie-btn-reject { background: transparent; color: var(--ink-faded); }
+  .cookie-btn-reject:hover { background: var(--paper); color: var(--ink); }
+  .cookie-btn-accept { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .cookie-btn-accept:hover { opacity: 0.85; }
 
   @media (max-width: 480px) {
-    .cookie-inner {
-      flex-direction: column;
-      align-items: stretch;
-      gap: 0.75rem;
-    }
-
-    .cookie-actions {
-      justify-content: flex-end;
-    }
+    .cookie-inner { flex-direction: column; align-items: stretch; gap: 0.75rem; }
+    .cookie-actions { justify-content: flex-end; }
   }
 </style>

@@ -2,5 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /auth/
 Disallow: /saved/
+Disallow: /es/guardados/
+Disallow: /id/tersimpan/
 
 Sitemap: https://www.chord-library.com/sitemap-index.xml
