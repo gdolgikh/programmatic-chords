@@ -30,7 +30,7 @@ const groups = getChordsByRoot();
         </div>
       ))}
       <div class="nav-separator"></div>
-      <a href="/chord-palette/" class="nav-progchord">Chord Palette</a>
+      <a href="/chord-progression-generator/" class="nav-tool">Progression Builder</a>
     </nav>
 
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -235,7 +235,7 @@ const groups = getChordsByRoot();
     flex-shrink: 0;
   }
 
-  .nav-progchord {
+  .nav-tool {
     color: var(--red);
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.75rem;
@@ -250,7 +250,7 @@ const groups = getChordsByRoot();
     text-transform: uppercase;
   }
 
-  .nav-progchord:hover {
+  .nav-tool:hover {
     color: var(--cream);
     background: var(--red);
   }
@@ -477,7 +477,7 @@ const groups = getChordsByRoot();
       margin: 0.5rem 0;
     }
 
-    .nav-progchord {
+    .nav-tool {
       font-size: 1rem;
       padding: 0.75rem 0.5rem;
       text-align: left;

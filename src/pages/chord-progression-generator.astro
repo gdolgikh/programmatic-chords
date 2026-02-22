@@ -2,11 +2,11 @@
 import Layout from '../components/Layout.astro';
 ---
 
-<Layout title="Chord Palette - Scale-Based Chord Explorer" description="Explore chords by scale, build progressions, and generate AI backing tracks. Interactive guitar chord palette with audio playback.">
+<Layout title="Chord Progression Generator - Build & Play Guitar Progressions" description="Build chord progressions by scale, hear them instantly, and generate AI backing tracks. Pick a key, explore diatonic chords, and craft your next song.">
 
   <!-- Page Header -->
-  <section class="palette-header">
-    <h1>Chord <span>Palette</span></h1>
+  <section class="page-header">
+    <h1>Chord Progression <span>Generator</span></h1>
   </section>
 
   <!-- Scale Selector -->
@@ -88,9 +88,9 @@ import Layout from '../components/Layout.astro';
 
 <style is:global>
 /* ═══════════════════════════════════════════
-   Font Variables (used throughout Chord Palette CSS)
+   Font Variables (used throughout page CSS)
    ═══════════════════════════════════════════ */
-.palette-header,
+.page-header,
 .scale-selector,
 .grid-section,
 .diagram-section,
@@ -103,13 +103,13 @@ import Layout from '../components/Layout.astro';
 /* ═══════════════════════════════════════════
    Page Header
    ═══════════════════════════════════════════ */
-.palette-header {
+.page-header {
   margin-bottom: 2rem;
   border-bottom: 1px solid var(--rule);
   padding: 2rem 0 1rem;
 }
 
-.palette-header h1 {
+.page-header h1 {
   font-family: var(--font-serif);
   font-weight: 900;
   font-size: 2rem;
@@ -117,7 +117,7 @@ import Layout from '../components/Layout.astro';
   color: var(--ink);
 }
 
-.palette-header h1 span {
+.page-header h1 span {
   color: var(--red);
 }
 
@@ -788,7 +788,7 @@ html.dark .setting-select {
 }
 
 .generate-status.active {
-  animation: palette-pulse 1.5s ease infinite;
+  animation: loading-pulse 1.5s ease infinite;
 }
 
 .generate-status.error {
@@ -900,20 +900,20 @@ html.dark .setting-select {
   letter-spacing: 0.05em;
 }
 
-@keyframes palette-pulse {
+@keyframes loading-pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
 }
 
 .loading-indicator.active {
-  animation: palette-pulse 1.5s ease infinite;
+  animation: loading-pulse 1.5s ease infinite;
 }
 
 /* ═══════════════════════════════════════════
    Responsive
    ═══════════════════════════════════════════ */
 @media (max-width: 768px) {
-  .palette-header h1 { font-size: 1.5rem; }
+  .page-header h1 { font-size: 1.5rem; }
   .scale-label { font-size: 1.1rem; }
   .chord-grid { font-size: 0.85rem; }
   .bpm-control { margin-left: 0; width: 100%; margin-top: 0.5rem; }
@@ -951,7 +951,7 @@ html.dark .setting-select {
   });
 
   document.addEventListener('astro:page-load', () => {
-    // Only initialize on the chord-palette page
+    // Only initialize on the chord-progression-generator page
     if (!document.getElementById('chordGrid')) return;
 
     // ─── Lazy Tone.js loader ───
