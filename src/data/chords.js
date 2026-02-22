@@ -141,7 +141,8 @@ export const chords = [
           72
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the B string, your middle finger on the 2nd fret of the D string, and your ring finger on the 3rd fret of the A string. Mute the low E string, and let the G and high E strings ring open. Strum from the A string down. Keep your fingers arched so the open strings ring clearly without being accidentally muted."
   },
   {
     "name": "C Minor",
@@ -285,7 +286,8 @@ export const chords = [
           72
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the B string, your middle finger on the 1st fret of the D string, your ring finger on the 3rd fret of the A string, and your pinky on the 3rd fret of the high E string. Mute the low E string, and let the G string ring open. Strum from the A string down. Listen for a clean, even sound across all fretted strings — minor chords can lose their character if any note buzzes."
   },
   {
     "name": "C7",
@@ -430,7 +432,8 @@ export const chords = [
           72
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the B string, your middle finger on the 2nd fret of the D string, your ring finger on the 3rd fret of the A string, and your pinky on the 3rd fret of the G string. Mute the low E string, and let the high E string ring open. Strum from the A string down. Make sure the seventh note rings clearly — it gives this chord its bluesy character."
   },
   {
     "name": "C5",
@@ -482,7 +485,8 @@ export const chords = [
           60
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 3rd fret of the A string, your ring finger on the 5th fret of the D string, and your pinky on the 5th fret of the G string. Mute the low E, B, and high E strings. Strum from the A string down."
   },
   {
     "name": "Cdim",
@@ -612,7 +616,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 1st fret of the B string, your ring finger on the 2nd fret of the high E string, and your pinky on the 3rd fret of the A string. Mute the low E and G strings. Strum from the A string down. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "Cdim7",
@@ -751,7 +756,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 1st fret of the B string, your ring finger on the 2nd fret of the G string, and your pinky on the 2nd fret of the high E string. Mute the low E and A strings. Strum from the D string down. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "Caug",
@@ -893,7 +899,8 @@ export const chords = [
           72
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across the G and B strings at the 1st fret with your index finger. Place your middle finger on the 2nd fret of the D string, and your ring finger on the 3rd fret of the A string. Mute the low E and high E strings. Strum from the A string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. The augmented sound should feel unresolved and slightly tense — if it sounds like a normal major chord, check that every note is ringing."
   },
   {
     "name": "Csus2",
@@ -1032,7 +1039,8 @@ export const chords = [
           72
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the B string, your ring finger on the 3rd fret of the A string, and your pinky on the 3rd fret of the high E string. Mute the low E string, and let the D and G strings ring open. Strum from the A string down. The open, airy quality of a sus2 chord depends on every note ringing clearly — avoid letting your fingers brush adjacent strings."
   },
   {
     "name": "Csus4",
@@ -1183,7 +1191,8 @@ export const chords = [
           72
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across the B and high E strings at the 1st fret with your index finger. Place your ring finger on the 3rd fret of the A string, and your pinky on the 3rd fret of the D string. Mute the low E string, and let the G string ring open. Strum from the A string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. This chord wants to resolve. Try playing it followed by the major version of the same root to hear the natural pull."
   },
   {
     "name": "Cmaj7",
@@ -1326,7 +1335,8 @@ export const chords = [
           76
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the D string, your middle finger on the 3rd fret of the low E string, and your ring finger on the 3rd fret of the A string. Let the G, B, and high E strings ring open. Strum all six strings. The major seventh should ring with a smooth, jazzy sweetness. Take care that the seventh note is clear and not muffled."
   },
   {
     "name": "Cm7",
@@ -1467,7 +1477,8 @@ export const chords = [
           72
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 3rd fret of the A string, your ring finger on the 3rd fret of the G string, and your pinky on the 4th fret of the B string. Mute the low E and high E strings. Strum from the A string down. This chord should sound warm and mellow. If any notes buzz, adjust your finger angle until each string speaks clearly."
   },
   {
     "name": "C7sus4",
@@ -1621,7 +1632,8 @@ export const chords = [
           72
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across the B and high E strings at the 1st fret with your index finger. Place your middle finger on the 3rd fret of the A string, your ring finger on the 3rd fret of the D string, and your pinky on the 3rd fret of the G string. Mute the low E string. Strum from the A string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact."
   },
   {
     "name": "Cm7♭5",
@@ -1762,7 +1774,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 3rd fret of the A string, your middle finger on the 3rd fret of the G string, your ring finger on the 4th fret of the D string, and your pinky on the 4th fret of the B string. Mute the low E and high E strings. Strum from the A string down. The half-diminished sound is dark and tense — essential in jazz ii–V–i progressions. Make sure the flattened fifth rings out."
   },
   {
     "name": "CmMaj7",
@@ -1903,7 +1916,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, and your ring finger on the 3rd fret of the A string. Mute the low E and high E strings, and let the G and B strings ring open. Strum from the A string down. This chord has an unusual, dramatic tension between the minor third and major seventh. Let both notes ring to hear its full color."
   },
   {
     "name": "CaugMaj7",
@@ -2040,7 +2054,8 @@ export const chords = [
           64
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the G string, your middle finger on the 2nd fret of the D string, and your ring finger on the 3rd fret of the A string. Mute the low E string, and let the B and high E strings ring open. Strum from the A string down. A rare, lush chord. The raised fifth and major seventh create a dreamy dissonance — check each note sounds clearly."
   },
   {
     "name": "Caug7",
@@ -2176,7 +2191,8 @@ export const chords = [
           76
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the D string, your middle finger on the 3rd fret of the A string, your ring finger on the 3rd fret of the G string, and your pinky on the 4th fret of the high E string. Mute the low E and B strings. Strum from the A string down. The augmented seventh has a restless, unstable quality. It wants to resolve — try following it with a chord a fourth higher."
   },
   {
     "name": "C# Major",
@@ -2238,7 +2254,8 @@ export const chords = [
           65
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre from the A to the high E string at the 1st fret with your index finger. Place your middle finger on the 3rd fret of the D string, your middle finger on the 2nd fret of the B string, and your ring finger on the 4th fret of the A string. Mute the low E string. Strum from the A string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact."
   },
   {
     "name": "C# Minor",
@@ -2300,7 +2317,8 @@ export const chords = [
           68
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre from the A to the high E string at the 4th fret with your index finger. Place your middle finger on the 5th fret of the B string, your ring finger on the 6th fret of the D string, and your pinky on the 6th fret of the G string. Mute the low E string. Strum from the A string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact."
   },
   {
     "name": "C#7",
@@ -2354,7 +2372,8 @@ export const chords = [
           65
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the B string, your middle finger on the 3rd fret of the D string, your ring finger on the 4th fret of the A string, and your pinky on the 4th fret of the G string. Mute the low E string. Strum from the A string down. Make sure the seventh note rings clearly — it gives this chord its bluesy character."
   },
   {
     "name": "C#5",
@@ -2406,7 +2425,8 @@ export const chords = [
           61
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 4th fret of the A string, your ring finger on the 6th fret of the D string, and your pinky on the 6th fret of the G string. Mute the low E, B, and high E strings. Strum from the A string down."
   },
   {
     "name": "C#dim",
@@ -2459,7 +2479,8 @@ export const chords = [
           64
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 4th fret of the A string, your middle finger on the 5th fret of the D string, your ring finger on the 5th fret of the B string, and your pinky on the 6th fret of the G string. Mute the low E and high E strings. Strum from the A string down. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "C#dim7",
@@ -2512,7 +2533,8 @@ export const chords = [
           64
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 4th fret of the A string, your middle finger on the 3rd fret of the G string, your ring finger on the 5th fret of the D string, and your pinky on the 5th fret of the B string. Mute the low E and high E strings. Strum from the A string down. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "C#aug",
@@ -2566,7 +2588,8 @@ export const chords = [
           65
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the G string, your index finger on the 2nd fret of the B string, your middle finger on the 3rd fret of the D string, and your ring finger on the 4th fret of the A string. Mute the low E string. Strum from the A string down. The augmented sound should feel unresolved and slightly tense — if it sounds like a normal major chord, check that every note is ringing."
   },
   {
     "name": "C#sus2",
@@ -2619,7 +2642,8 @@ export const chords = [
           61
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your index finger on the 1st fret of the G string, your middle finger on the 2nd fret of the B string, and your pinky on the 4th fret of the A string. Mute the low E and high E strings. Strum from the A string down. The open, airy quality of a sus2 chord depends on every note ringing clearly — avoid letting your fingers brush adjacent strings."
   },
   {
     "name": "C#sus4",
@@ -2672,7 +2696,8 @@ export const chords = [
           61
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the G string, your middle finger on the 2nd fret of the B string, your ring finger on the 4th fret of the A string, and your pinky on the 4th fret of the D string. Mute the low E and high E strings. Strum from the A string down. This chord wants to resolve. Try playing it followed by the major version of the same root to hear the natural pull."
   },
   {
     "name": "C#maj7",
@@ -2734,7 +2759,8 @@ export const chords = [
           65
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre from the A to the high E string at the 1st fret with your index finger. Place your middle finger on the 3rd fret of the D string, and your ring finger on the 4th fret of the A string. Mute the low E string. Strum from the A string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. The major seventh should ring with a smooth, jazzy sweetness. Take care that the seventh note is clear and not muffled."
   },
   {
     "name": "C#m7",
@@ -2788,7 +2814,8 @@ export const chords = [
           68
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 4th fret of the A string, your index finger on the 4th fret of the G string, your index finger on the 4th fret of the high E string, your middle finger on the 5th fret of the B string, and your ring finger on the 6th fret of the D string. Mute the low E string. Strum from the A string down. This chord should sound warm and mellow. If any notes buzz, adjust your finger angle until each string speaks clearly."
   },
   {
     "name": "C#7sus4",
@@ -2841,7 +2868,8 @@ export const chords = [
           61
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the B string, your middle finger on the 4th fret of the A string, your ring finger on the 4th fret of the D string, and your pinky on the 4th fret of the G string. Mute the low E and high E strings. Strum from the A string down."
   },
   {
     "name": "C#m7♭5",
@@ -2977,7 +3005,8 @@ export const chords = [
           76
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the A string, your middle finger on the 1st fret of the G string, your ring finger on the 2nd fret of the D string, and your pinky on the 2nd fret of the B string. Mute the low E and high E strings. Strum from the A string down. The half-diminished sound is dark and tense — essential in jazz ii–V–i progressions. Make sure the flattened fifth rings out."
   },
   {
     "name": "C#mMaj7",
@@ -3126,7 +3155,8 @@ export const chords = [
         ],
         "capo": true
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the G string, your index finger on the 1st fret of the B string, your middle finger on the 2nd fret of the D string, and your pinky on the 4th fret of the A string. Mute the low E and high E strings. Strum from the A string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. This chord has an unusual, dramatic tension between the minor third and major seventh. Let both notes ring to hear its full color."
   },
   {
     "name": "C#augMaj7",
@@ -3264,7 +3294,8 @@ export const chords = [
           77
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the low E string, your index finger on the 1st fret of the B string, your index finger on the 1st fret of the high E string, your middle finger on the 2nd fret of the G string, your ring finger on the 3rd fret of the D string, and your pinky on the 4th fret of the A string. Strum all six strings. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. A rare, lush chord. The raised fifth and major seventh create a dreamy dissonance — check each note sounds clearly."
   },
   {
     "name": "C#aug7",
@@ -3401,7 +3432,8 @@ export const chords = [
           69
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the high E string, your middle finger on the 2nd fret of the G string, your ring finger on the 3rd fret of the D string, and your pinky on the 4th fret of the A string. Mute the low E string, and let the B string ring open. Strum from the A string down. The augmented seventh has a restless, unstable quality. It wants to resolve — try following it with a chord a fourth higher."
   },
   {
     "name": "D Major",
@@ -3547,7 +3579,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the G string, your middle finger on the 2nd fret of the high E string, and your ring finger on the 3rd fret of the B string. Mute the low E and A strings, and let the D string ring open. Strum from the D string down. Keep your fingers arched so the open strings ring clearly without being accidentally muted."
   },
   {
     "name": "D Minor",
@@ -3688,7 +3721,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the high E string, your middle finger on the 2nd fret of the G string, and your ring finger on the 3rd fret of the B string. Mute the low E and A strings, and let the D string ring open. Strum from the D string down. Listen for a clean, even sound across all fretted strings — minor chords can lose their character if any note buzzes."
   },
   {
     "name": "D7",
@@ -3829,7 +3863,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the B string, your middle finger on the 2nd fret of the G string, and your ring finger on the 2nd fret of the high E string. Mute the low E and A strings, and let the D string ring open. Strum from the D string down. Make sure the seventh note rings clearly — it gives this chord its bluesy character."
   },
   {
     "name": "D5",
@@ -3881,7 +3916,8 @@ export const chords = [
           62
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 5th fret of the A string, your ring finger on the 7th fret of the D string, and your pinky on the 7th fret of the G string. Mute the low E, B, and high E strings. Strum from the A string down."
   },
   {
     "name": "Ddim",
@@ -4011,7 +4047,8 @@ export const chords = [
           68
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the G string, and your middle finger on the 1st fret of the high E string. Mute the low E, A, and B strings, and let the D string ring open. Strum from the D string down. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "Ddim7",
@@ -4152,7 +4189,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your middle finger on the 1st fret of the G string, and your ring finger on the 1st fret of the high E string. Mute the low E and A strings, and let the D and B strings ring open. Strum from the D string down. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "Daug",
@@ -4288,7 +4326,8 @@ export const chords = [
           70
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the high E string, your middle finger on the 3rd fret of the G string, and your ring finger on the 3rd fret of the B string. Mute the low E and A strings, and let the D string ring open. Strum from the D string down. The augmented sound should feel unresolved and slightly tense — if it sounds like a normal major chord, check that every note is ringing."
   },
   {
     "name": "Dsus2",
@@ -4431,7 +4470,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your middle finger on the 2nd fret of the G string, and your ring finger on the 3rd fret of the B string. Mute the low E and A strings, and let the D and high E strings ring open. Strum from the D string down. The open, airy quality of a sus2 chord depends on every note ringing clearly — avoid letting your fingers brush adjacent strings."
   },
   {
     "name": "Dsus4",
@@ -4573,7 +4613,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the G string, your middle finger on the 3rd fret of the B string, and your ring finger on the 3rd fret of the high E string. Mute the low E and A strings, and let the D string ring open. Strum from the D string down. This chord wants to resolve. Try playing it followed by the major version of the same root to hear the natural pull."
   },
   {
     "name": "Dmaj7",
@@ -4725,7 +4766,8 @@ export const chords = [
           73
         ]
       }
-    ]
+    ],
+    "howToPlay": "Press your index finger flat across the G, B, and high E strings at the 2nd fret. Mute the low E and A strings, and let the D string ring open. Strum from the D string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. The major seventh should ring with a smooth, jazzy sweetness. Take care that the seventh note is clear and not muffled."
   },
   {
     "name": "Dm7",
@@ -4866,7 +4908,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the B string, your middle finger on the 1st fret of the high E string, and your ring finger on the 2nd fret of the G string. Mute the low E and A strings, and let the D string ring open. Strum from the D string down. This chord should sound warm and mellow. If any notes buzz, adjust your finger angle until each string speaks clearly."
   },
   {
     "name": "D7sus4",
@@ -5007,7 +5050,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the B string, your middle finger on the 2nd fret of the G string, and your pinky on the 3rd fret of the high E string. Mute the low E and A strings, and let the D string ring open. Strum from the D string down."
   },
   {
     "name": "Dm7♭5",
@@ -5146,7 +5190,8 @@ export const chords = [
           72
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the G string, your index finger on the 1st fret of the B string, and your index finger on the 1st fret of the high E string. Mute the low E and A strings, and let the D string ring open. Strum from the D string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. The half-diminished sound is dark and tense — essential in jazz ii–V–i progressions. Make sure the flattened fifth rings out."
   },
   {
     "name": "DmMaj7",
@@ -5290,7 +5335,8 @@ export const chords = [
         ],
         "capo": true
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the high E string, your middle finger on the 2nd fret of the G string, and your ring finger on the 2nd fret of the B string. Mute the low E and A strings, and let the D string ring open. Strum from the D string down. This chord has an unusual, dramatic tension between the minor third and major seventh. Let both notes ring to hear its full color."
   },
   {
     "name": "DaugMaj7",
@@ -5427,7 +5473,8 @@ export const chords = [
           73
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your middle finger on the 2nd fret of the B string, your ring finger on the 2nd fret of the high E string, and your pinky on the 3rd fret of the G string. Mute the low E and A strings, and let the D string ring open. Strum from the D string down. A rare, lush chord. The raised fifth and major seventh create a dreamy dissonance — check each note sounds clearly."
   },
   {
     "name": "Daug7",
@@ -5562,7 +5609,8 @@ export const chords = [
           70
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the B string, your middle finger on the 2nd fret of the high E string, and your pinky on the 3rd fret of the G string. Mute the low E and A strings, and let the D string ring open. Strum from the D string down. The augmented seventh has a restless, unstable quality. It wants to resolve — try following it with a chord a fourth higher."
   },
   {
     "name": "D# Major",
@@ -5703,7 +5751,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 3rd fret of the G string, your ring finger on the 3rd fret of the high E string, and your pinky on the 4th fret of the B string. Mute the low E and A strings. Strum from the D string down."
   },
   {
     "name": "D# Minor",
@@ -5844,7 +5893,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 2nd fret of the high E string, your ring finger on the 3rd fret of the G string, and your pinky on the 4th fret of the B string. Mute the low E and A strings. Strum from the D string down. Listen for a clean, even sound across all fretted strings — minor chords can lose their character if any note buzzes."
   },
   {
     "name": "D#7",
@@ -5987,7 +6037,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 2nd fret of the B string, your ring finger on the 3rd fret of the G string, and your pinky on the 3rd fret of the high E string. Mute the low E and A strings. Strum from the D string down. Make sure the seventh note rings clearly — it gives this chord its bluesy character."
   },
   {
     "name": "D#5",
@@ -6039,7 +6090,8 @@ export const chords = [
           63
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 6th fret of the A string, your ring finger on the 8th fret of the D string, and your pinky on the 8th fret of the G string. Mute the low E, B, and high E strings. Strum from the A string down."
   },
   {
     "name": "D#dim",
@@ -6169,7 +6221,8 @@ export const chords = [
           69
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 2nd fret of the G string, and your ring finger on the 2nd fret of the high E string. Mute the low E, A, and B strings. Strum from the D string down. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "D#dim7",
@@ -6306,7 +6359,8 @@ export const chords = [
           69
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 1st fret of the B string, your ring finger on the 2nd fret of the G string, and your pinky on the 2nd fret of the high E string. Mute the low E and A strings. Strum from the D string down. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "D#aug",
@@ -6444,7 +6498,8 @@ export const chords = [
           71
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the high E string, your middle finger on the 2nd fret of the G string, your ring finger on the 2nd fret of the B string, and your pinky on the 3rd fret of the D string. Mute the low E and A strings. Strum from the D string down. The augmented sound should feel unresolved and slightly tense — if it sounds like a normal major chord, check that every note is ringing."
   },
   {
     "name": "D#sus2",
@@ -6599,7 +6654,8 @@ export const chords = [
           77
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across all six strings at the 1st fret with your index finger. Place your ring finger on the 3rd fret of the G string, and your pinky on the 4th fret of the B string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string. The open, airy quality of a sus2 chord depends on every note ringing clearly — avoid letting your fingers brush adjacent strings."
   },
   {
     "name": "D#sus4",
@@ -6741,7 +6797,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 3rd fret of the G string, your ring finger on the 4th fret of the B string, and your pinky on the 4th fret of the high E string. Mute the low E and A strings. Strum from the D string down. This chord wants to resolve. Try playing it followed by the major version of the same root to hear the natural pull."
   },
   {
     "name": "D#maj7",
@@ -6898,7 +6955,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across the A and D strings at the 1st fret with your index finger. Place your ring finger on the 3rd fret of the G string, your ring finger on the 3rd fret of the B string, and your ring finger on the 3rd fret of the high E string. Mute the low E string. Strum from the A string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. The major seventh should ring with a smooth, jazzy sweetness. Take care that the seventh note is clear and not muffled."
   },
   {
     "name": "D#m7",
@@ -7039,7 +7097,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 2nd fret of the B string, your ring finger on the 2nd fret of the high E string, and your pinky on the 3rd fret of the G string. Mute the low E and A strings. Strum from the D string down. This chord should sound warm and mellow. If any notes buzz, adjust your finger angle until each string speaks clearly."
   },
   {
     "name": "D#7sus4",
@@ -7184,7 +7243,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 2nd fret of the B string, your ring finger on the 3rd fret of the G string, and your pinky on the 4th fret of the high E string. Mute the low E and A strings. Strum from the D string down."
   },
   {
     "name": "D#m7♭5",
@@ -7321,7 +7381,8 @@ export const chords = [
           69
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 2nd fret of the G string, your middle finger on the 2nd fret of the B string, and your middle finger on the 2nd fret of the high E string. Mute the low E and A strings. Strum from the D string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. The half-diminished sound is dark and tense — essential in jazz ii–V–i progressions. Make sure the flattened fifth rings out."
   },
   {
     "name": "D#mMaj7",
@@ -7461,7 +7522,8 @@ export const chords = [
         ],
         "capo": true
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 2nd fret of the high E string, your ring finger on the 3rd fret of the G string, and your pinky on the 3rd fret of the B string. Mute the low E and A strings. Strum from the D string down. This chord has an unusual, dramatic tension between the minor third and major seventh. Let both notes ring to hear its full color."
   },
   {
     "name": "D#augMaj7",
@@ -7602,7 +7664,8 @@ export const chords = [
         ],
         "capo": true
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the low E string, your index finger on the 1st fret of the B string, your index finger on the 1st fret of the high E string, your middle finger on the 2nd fret of the G string, your ring finger on the 3rd fret of the D string, and your pinky on the 4th fret of the A string. Strum all six strings. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. A rare, lush chord. The raised fifth and major seventh create a dreamy dissonance — check each note sounds clearly."
   },
   {
     "name": "D#aug7",
@@ -7739,7 +7802,8 @@ export const chords = [
           71
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 2nd fret of the B string, your ring finger on the 3rd fret of the high E string, and your pinky on the 4th fret of the G string. Mute the low E and A strings. Strum from the D string down. The augmented seventh has a restless, unstable quality. It wants to resolve — try following it with a chord a fourth higher."
   },
   {
     "name": "E Major",
@@ -7882,7 +7946,8 @@ export const chords = [
           71
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the G string, your middle finger on the 2nd fret of the A string, and your ring finger on the 2nd fret of the D string. Let the low E, B, and high E strings ring open. Strum all six strings. Keep your fingers arched so the open strings ring clearly without being accidentally muted."
   },
   {
     "name": "E Minor",
@@ -8025,7 +8090,8 @@ export const chords = [
           64
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your middle finger on the 2nd fret of the A string, and your ring finger on the 2nd fret of the D string. Let the low E, G, B, and high E strings ring open. Strum all six strings. Listen for a clean, even sound across all fretted strings — minor chords can lose their character if any note buzzes."
   },
   {
     "name": "E7",
@@ -8166,7 +8232,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the G string, and your middle finger on the 2nd fret of the A string. Let the low E, D, B, and high E strings ring open. Strum all six strings. Make sure the seventh note rings clearly — it gives this chord its bluesy character."
   },
   {
     "name": "E5",
@@ -8218,7 +8285,8 @@ export const chords = [
           52
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the A string, and your middle finger on the 2nd fret of the D string. Mute the G, B, and high E strings, and let the low E string ring open. Strum all six strings."
   },
   {
     "name": "Edim",
@@ -8348,7 +8416,8 @@ export const chords = [
           70
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the D string, your middle finger on the 3rd fret of the G string, and your ring finger on the 3rd fret of the high E string. Mute the low E, A, and B strings. Strum from the D string down. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "Edim7",
@@ -8484,7 +8553,8 @@ export const chords = [
           70
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the A string, your middle finger on the 2nd fret of the D string, and your ring finger on the 2nd fret of the B string. Let the low E, G, and high E strings ring open. Strum all six strings. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "Eaug",
@@ -8624,7 +8694,8 @@ export const chords = [
           64
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the G string, your middle finger on the 1st fret of the B string, your ring finger on the 2nd fret of the D string, and your pinky on the 3rd fret of the A string. Let the low E and high E strings ring open. Strum all six strings. The augmented sound should feel unresolved and slightly tense — if it sounds like a normal major chord, check that every note is ringing."
   },
   {
     "name": "Esus2",
@@ -8777,7 +8848,8 @@ export const chords = [
           78
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across all six strings at the 1st fret with your index finger. Place your ring finger on the 3rd fret of the G string, and your pinky on the 4th fret of the B string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string. The open, airy quality of a sus2 chord depends on every note ringing clearly — avoid letting your fingers brush adjacent strings."
   },
   {
     "name": "Esus4",
@@ -8921,7 +8993,8 @@ export const chords = [
           64
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your middle finger on the 2nd fret of the A string, your ring finger on the 2nd fret of the D string, and your pinky on the 2nd fret of the G string. Let the low E, B, and high E strings ring open. Strum all six strings. This chord wants to resolve. Try playing it followed by the major version of the same root to hear the natural pull."
   },
   {
     "name": "Emaj7",
@@ -9065,7 +9138,8 @@ export const chords = [
           71
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 1st fret of the G string, and your ring finger on the 2nd fret of the A string. Let the low E, B, and high E strings ring open. Strum all six strings. The major seventh should ring with a smooth, jazzy sweetness. Take care that the seventh note is clear and not muffled."
   },
   {
     "name": "Em7",
@@ -9235,7 +9309,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your middle finger on the 2nd fret of the A string, your ring finger on the 2nd fret of the D string, and your pinky on the 3rd fret of the B string. Let the low E, G, and high E strings ring open. Strum all six strings. This chord should sound warm and mellow. If any notes buzz, adjust your finger angle until each string speaks clearly."
   },
   {
     "name": "E7sus4",
@@ -9380,7 +9455,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your middle finger on the 2nd fret of the A string, and your ring finger on the 2nd fret of the G string. Let the low E, D, B, and high E strings ring open. Strum all six strings."
   },
   {
     "name": "Em7♭5",
@@ -9520,7 +9596,8 @@ export const chords = [
           70
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the A string, your middle finger on the 2nd fret of the D string, your ring finger on the 3rd fret of the G string, your ring finger on the 3rd fret of the B string, and your ring finger on the 3rd fret of the high E string. Let the low E string ring open. Strum all six strings. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. The half-diminished sound is dark and tense — essential in jazz ii–V–i progressions. Make sure the flattened fifth rings out."
   },
   {
     "name": "EmMaj7",
@@ -9665,7 +9742,8 @@ export const chords = [
         ],
         "capo": true
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, and your middle finger on the 2nd fret of the A string. Let the low E, G, B, and high E strings ring open. Strum all six strings. This chord has an unusual, dramatic tension between the minor third and major seventh. Let both notes ring to hear its full color."
   },
   {
     "name": "EaugMaj7",
@@ -9811,7 +9889,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the G string, your middle finger on the 2nd fret of the D string, your ring finger on the 3rd fret of the A string, your pinky on the 4th fret of the B string, and your pinky on the 4th fret of the high E string. Let the low E string ring open. Strum all six strings. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. A rare, lush chord. The raised fifth and major seventh create a dreamy dissonance — check each note sounds clearly."
   },
   {
     "name": "Eaug7",
@@ -9948,7 +10027,8 @@ export const chords = [
           72
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the G string, your middle finger on the 1st fret of the B string, and your pinky on the 3rd fret of the A string. Let the low E, D, and high E strings ring open. Strum all six strings. The augmented seventh has a restless, unstable quality. It wants to resolve — try following it with a chord a fourth higher."
   },
   {
     "name": "F Major",
@@ -10104,7 +10184,8 @@ export const chords = [
           72
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across all six strings at the 1st fret with your index finger. Place your middle finger on the 2nd fret of the G string, your ring finger on the 3rd fret of the A string, and your pinky on the 3rd fret of the D string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string."
   },
   {
     "name": "F Minor",
@@ -10254,7 +10335,8 @@ export const chords = [
           65
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across all six strings at the 1st fret with your index finger. Place your ring finger on the 3rd fret of the A string, and your pinky on the 3rd fret of the D string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string."
   },
   {
     "name": "F7",
@@ -10408,7 +10490,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across all six strings at the 1st fret with your index finger. Place your middle finger on the 2nd fret of the G string, and your ring finger on the 3rd fret of the A string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string. Make sure the seventh note rings clearly — it gives this chord its bluesy character."
   },
   {
     "name": "F5",
@@ -10460,7 +10543,8 @@ export const chords = [
           53
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the low E string, your ring finger on the 3rd fret of the A string, and your pinky on the 3rd fret of the D string. Mute the G, B, and high E strings. Strum all six strings."
   },
   {
     "name": "Fdim",
@@ -10590,7 +10674,8 @@ export const chords = [
           71
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 3rd fret of the D string, your middle finger on the 4th fret of the G string, and your ring finger on the 4th fret of the high E string. Mute the low E, A, and B strings. Strum from the D string down. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "Fdim7",
@@ -10730,7 +10815,8 @@ export const chords = [
           71
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the low E string, your middle finger on the 1st fret of the G string, and your ring finger on the 1st fret of the high E string. Mute the A string, and let the D and B strings ring open. Strum all six strings. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "Faug",
@@ -10867,7 +10953,8 @@ export const chords = [
           69
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the high E string, your middle finger on the 2nd fret of the G string, your ring finger on the 2nd fret of the B string, and your pinky on the 3rd fret of the D string. Mute the low E and A strings. Strum from the D string down. The augmented sound should feel unresolved and slightly tense — if it sounds like a normal major chord, check that every note is ringing."
   },
   {
     "name": "Fsus2",
@@ -11022,7 +11109,8 @@ export const chords = [
           72
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre from the low E to the B string at the 1st fret with your index finger. Place your middle finger on the 3rd fret of the A string, your ring finger on the 3rd fret of the D string, and your pinky on the 3rd fret of the high E string. Mute the G string. Strum all six strings. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. The open, airy quality of a sus2 chord depends on every note ringing clearly — avoid letting your fingers brush adjacent strings."
   },
   {
     "name": "Fsus4",
@@ -11171,7 +11259,8 @@ export const chords = [
           70
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across all six strings at the 1st fret with your index finger. Place your middle finger on the 3rd fret of the A string, your ring finger on the 3rd fret of the D string, and your pinky on the 3rd fret of the G string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string. This chord wants to resolve. Try playing it followed by the major version of the same root to hear the natural pull."
   },
   {
     "name": "Fmaj7",
@@ -11316,7 +11405,8 @@ export const chords = [
           72
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the B string, your middle finger on the 2nd fret of the G string, and your ring finger on the 3rd fret of the D string. Mute the low E and A strings, and let the high E string ring open. Strum from the D string down. The major seventh should ring with a smooth, jazzy sweetness. Take care that the seventh note is clear and not muffled."
   },
   {
     "name": "Fm7",
@@ -11463,7 +11553,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across all six strings at the 1st fret with your index finger. Place your ring finger on the 3rd fret of the A string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string. This chord should sound warm and mellow. If any notes buzz, adjust your finger angle until each string speaks clearly."
   },
   {
     "name": "F7sus4",
@@ -11618,7 +11709,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across all six strings at the 1st fret with your index finger. Place your ring finger on the 3rd fret of the A string, and your pinky on the 3rd fret of the G string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string."
   },
   {
     "name": "Fm7♭5",
@@ -11752,7 +11844,8 @@ export const chords = [
           59
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the low E string, your middle finger on the 1st fret of the D string, and your ring finger on the 1st fret of the G string. Mute the A and high E strings, and let the B string ring open. Strum all six strings. The half-diminished sound is dark and tense — essential in jazz ii–V–i progressions. Make sure the flattened fifth rings out."
   },
   {
     "name": "FmMaj7",
@@ -11895,7 +11988,8 @@ export const chords = [
           76
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the low E string, your index finger on the 1st fret of the G string, your index finger on the 1st fret of the B string, your index finger on the 1st fret of the high E string, your middle finger on the 2nd fret of the D string, and your ring finger on the 3rd fret of the A string. Strum all six strings. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. This chord has an unusual, dramatic tension between the minor third and major seventh. Let both notes ring to hear its full color."
   },
   {
     "name": "FaugMaj7",
@@ -12033,7 +12127,8 @@ export const chords = [
           76
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the low E string, your middle finger on the 2nd fret of the D string, your ring finger on the 2nd fret of the G string, and your pinky on the 2nd fret of the B string. Let the A and high E strings ring open. Strum all six strings. A rare, lush chord. The raised fifth and major seventh create a dreamy dissonance — check each note sounds clearly."
   },
   {
     "name": "Faug7",
@@ -12169,7 +12264,8 @@ export const chords = [
           73
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the low E string, your middle finger on the 1st fret of the D string, your ring finger on the 2nd fret of the G string, and your pinky on the 2nd fret of the B string. Mute the high E string, and let the A string ring open. Strum all six strings. The augmented seventh has a restless, unstable quality. It wants to resolve — try following it with a chord a fourth higher."
   },
   {
     "name": "F# Major",
@@ -12232,7 +12328,8 @@ export const chords = [
           66
         ]
       }
-    ]
+    ],
+    "howToPlay": "Press your index finger flat across all six strings at the 2nd fret. Place your middle finger on the 3rd fret of the G string, your ring finger on the 4th fret of the A string, and your pinky on the 4th fret of the D string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string."
   },
   {
     "name": "F# Minor",
@@ -12295,7 +12392,8 @@ export const chords = [
           66
         ]
       }
-    ]
+    ],
+    "howToPlay": "Press your index finger flat across all six strings at the 2nd fret. Place your ring finger on the 4th fret of the A string, and your pinky on the 4th fret of the D string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string."
   },
   {
     "name": "F#7",
@@ -12358,7 +12456,8 @@ export const chords = [
           66
         ]
       }
-    ]
+    ],
+    "howToPlay": "Press your index finger flat across all six strings at the 2nd fret. Place your middle finger on the 3rd fret of the G string, and your ring finger on the 4th fret of the A string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string. Make sure the seventh note rings clearly — it gives this chord its bluesy character."
   },
   {
     "name": "F#5",
@@ -12410,7 +12509,8 @@ export const chords = [
           54
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the low E string, your ring finger on the 4th fret of the A string, and your pinky on the 4th fret of the D string. Mute the G, B, and high E strings. Strum all six strings."
   },
   {
     "name": "F#dim",
@@ -12463,7 +12563,8 @@ export const chords = [
           57
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the low E string, your middle finger on the 3rd fret of the A string, your ring finger on the 2nd fret of the G string, and your pinky on the 4th fret of the D string. Mute the B and high E strings. Strum all six strings. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "F#dim7",
@@ -12517,7 +12618,8 @@ export const chords = [
           60
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your index finger on the 1st fret of the B string, your middle finger on the 2nd fret of the low E string, your middle finger on the 2nd fret of the G string, and your ring finger on the 3rd fret of the A string. Mute the high E string. Strum all six strings. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "F#aug",
@@ -12571,7 +12673,8 @@ export const chords = [
           62
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the A string, your middle finger on the 2nd fret of the low E string, your ring finger on the 3rd fret of the G string, and your pinky on the 3rd fret of the B string. Mute the high E string, and let the D string ring open. Strum all six strings. The augmented sound should feel unresolved and slightly tense — if it sounds like a normal major chord, check that every note is ringing."
   },
   {
     "name": "F#sus2",
@@ -12625,7 +12728,8 @@ export const chords = [
           61
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the low E string, your index finger on the 1st fret of the G string, your middle finger on the 2nd fret of the B string, your ring finger on the 4th fret of the A string, and your pinky on the 4th fret of the D string. Mute the high E string. Strum all six strings. The open, airy quality of a sus2 chord depends on every note ringing clearly — avoid letting your fingers brush adjacent strings."
   },
   {
     "name": "F#sus4",
@@ -12688,7 +12792,8 @@ export const chords = [
           66
         ]
       }
-    ]
+    ],
+    "howToPlay": "Press your index finger flat across all six strings at the 2nd fret. Place your middle finger on the 4th fret of the A string, your ring finger on the 4th fret of the D string, and your pinky on the 4th fret of the G string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string. This chord wants to resolve. Try playing it followed by the major version of the same root to hear the natural pull."
   },
   {
     "name": "F#maj7",
@@ -12743,7 +12848,8 @@ export const chords = [
           65
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the low E string, your index finger on the 2nd fret of the B string, your middle finger on the 3rd fret of the D string, your middle finger on the 3rd fret of the G string, and your ring finger on the 4th fret of the A string. Strum all six strings. The major seventh should ring with a smooth, jazzy sweetness. Take care that the seventh note is clear and not muffled."
   },
   {
     "name": "F#m7",
@@ -12806,7 +12912,8 @@ export const chords = [
           66
         ]
       }
-    ]
+    ],
+    "howToPlay": "Press your index finger flat across all six strings at the 2nd fret. Place your ring finger on the 4th fret of the A string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string. This chord should sound warm and mellow. If any notes buzz, adjust your finger angle until each string speaks clearly."
   },
   {
     "name": "F#7sus4",
@@ -12869,7 +12976,8 @@ export const chords = [
           66
         ]
       }
-    ]
+    ],
+    "howToPlay": "Press your index finger flat across all six strings at the 2nd fret. Place your middle finger on the 4th fret of the A string, and your ring finger on the 4th fret of the G string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string."
   },
   {
     "name": "F#m7♭5",
@@ -13007,7 +13115,8 @@ export const chords = [
         ],
         "capo": true
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the B string, your middle finger on the 2nd fret of the low E string, your ring finger on the 2nd fret of the D string, and your pinky on the 2nd fret of the G string. Let the A and high E strings ring open. Strum all six strings. The half-diminished sound is dark and tense — essential in jazz ii–V–i progressions. Make sure the flattened fifth rings out."
   },
   {
     "name": "F#mMaj7",
@@ -13157,7 +13266,8 @@ export const chords = [
         ],
         "capo": true
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the low E string, your index finger on the 2nd fret of the G string, your index finger on the 2nd fret of the B string, your index finger on the 2nd fret of the high E string, your middle finger on the 3rd fret of the D string, and your ring finger on the 4th fret of the A string. Strum all six strings. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. This chord has an unusual, dramatic tension between the minor third and major seventh. Let both notes ring to hear its full color."
   },
   {
     "name": "F#augMaj7",
@@ -13296,7 +13406,8 @@ export const chords = [
         ],
         "capo": true
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the low E string, your middle finger on the 3rd fret of the D string, your ring finger on the 3rd fret of the G string, and your pinky on the 3rd fret of the B string. Mute the A and high E strings. Strum all six strings. A rare, lush chord. The raised fifth and major seventh create a dreamy dissonance — check each note sounds clearly."
   },
   {
     "name": "F#aug7",
@@ -13432,7 +13543,8 @@ export const chords = [
         ],
         "capo": true
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the low E string, your middle finger on the 2nd fret of the D string, your ring finger on the 3rd fret of the G string, and your pinky on the 3rd fret of the B string. Mute the A and high E strings. Strum all six strings. The augmented seventh has a restless, unstable quality. It wants to resolve — try following it with a chord a fourth higher."
   },
   {
     "name": "G Major",
@@ -13579,7 +13691,8 @@ export const chords = [
           71
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the A string, your middle finger on the 3rd fret of the low E string, and your ring finger on the 3rd fret of the high E string. Let the D, G, and B strings ring open. Strum all six strings. Keep your fingers arched so the open strings ring clearly without being accidentally muted."
   },
   {
     "name": "G Minor",
@@ -13722,7 +13835,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the A string, your middle finger on the 3rd fret of the low E string, your ring finger on the 3rd fret of the B string, and your pinky on the 3rd fret of the high E string. Let the D and G strings ring open. Strum all six strings. Listen for a clean, even sound across all fretted strings — minor chords can lose their character if any note buzzes."
   },
   {
     "name": "G7",
@@ -13869,7 +13983,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the high E string, your middle finger on the 2nd fret of the A string, and your ring finger on the 3rd fret of the low E string. Let the D, G, and B strings ring open. Strum all six strings. Make sure the seventh note rings clearly — it gives this chord its bluesy character."
   },
   {
     "name": "G5",
@@ -13921,7 +14036,8 @@ export const chords = [
           55
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 3rd fret of the low E string, your ring finger on the 5th fret of the A string, and your pinky on the 5th fret of the D string. Mute the G, B, and high E strings. Strum all six strings."
   },
   {
     "name": "Gdim",
@@ -14051,7 +14167,8 @@ export const chords = [
           70
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the A string, your middle finger on the 2nd fret of the B string, your ring finger on the 3rd fret of the low E string, and your pinky on the 3rd fret of the G string. Mute the D and high E strings. Strum all six strings. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "Gdim7",
@@ -14189,7 +14306,8 @@ export const chords = [
           70
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the A string, your middle finger on the 2nd fret of the B string, your ring finger on the 3rd fret of the low E string, and your pinky on the 3rd fret of the G string. Mute the D string, and let the high E string ring open. Strum all six strings. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "Gaug",
@@ -14326,7 +14444,8 @@ export const chords = [
           67
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 2nd fret of the A string, and your ring finger on the 3rd fret of the low E string. Mute the high E string, and let the G and B strings ring open. Strum all six strings. The augmented sound should feel unresolved and slightly tense — if it sounds like a normal major chord, check that every note is ringing."
   },
   {
     "name": "Gsus2",
@@ -14473,7 +14592,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 3rd fret of the low E string, your middle finger on the 3rd fret of the B string, and your ring finger on the 3rd fret of the high E string. Let the A, D, and G strings ring open. Strum all six strings. The open, airy quality of a sus2 chord depends on every note ringing clearly — avoid letting your fingers brush adjacent strings."
   },
   {
     "name": "Gsus4",
@@ -14621,7 +14741,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the B string, your middle finger on the 3rd fret of the low E string, your ring finger on the 3rd fret of the A string, and your pinky on the 3rd fret of the high E string. Let the D and G strings ring open. Strum all six strings. This chord wants to resolve. Try playing it followed by the major version of the same root to hear the natural pull."
   },
   {
     "name": "Gmaj7",
@@ -14768,7 +14889,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the high E string, your middle finger on the 2nd fret of the A string, and your ring finger on the 3rd fret of the low E string. Let the D, G, and B strings ring open. Strum all six strings. The major seventh should ring with a smooth, jazzy sweetness. Take care that the seventh note is clear and not muffled."
   },
   {
     "name": "Gm7",
@@ -14923,7 +15045,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across all six strings at the 1st fret with your index finger. Place your ring finger on the 3rd fret of the A string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string. This chord should sound warm and mellow. If any notes buzz, adjust your finger angle until each string speaks clearly."
   },
   {
     "name": "G7sus4",
@@ -15079,7 +15202,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across the B and high E strings at the 1st fret with your index finger. Place your middle finger on the 3rd fret of the low E string, and your ring finger on the 3rd fret of the A string. Let the D and G strings ring open. Strum all six strings. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact."
   },
   {
     "name": "Gm7♭5",
@@ -15212,7 +15336,8 @@ export const chords = [
           70
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the high E string, your middle finger on the 2nd fret of the B string, your ring finger on the 3rd fret of the low E string, and your pinky on the 3rd fret of the G string. Mute the A and D strings. Strum all six strings. The half-diminished sound is dark and tense — essential in jazz ii–V–i progressions. Make sure the flattened fifth rings out."
   },
   {
     "name": "GmMaj7",
@@ -15358,7 +15483,8 @@ export const chords = [
         ],
         "capo": true
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the A string, your middle finger on the 2nd fret of the high E string, your ring finger on the 3rd fret of the low E string, and your pinky on the 3rd fret of the B string. Let the D and G strings ring open. Strum all six strings. This chord has an unusual, dramatic tension between the minor third and major seventh. Let both notes ring to hear its full color."
   },
   {
     "name": "GaugMaj7",
@@ -15494,7 +15620,8 @@ export const chords = [
           71
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, and your ring finger on the 2nd fret of the high E string. Mute the low E and A strings, and let the G and B strings ring open. Strum from the D string down. A rare, lush chord. The raised fifth and major seventh create a dreamy dissonance — check each note sounds clearly."
   },
   {
     "name": "Gaug7",
@@ -15631,7 +15758,8 @@ export const chords = [
         ],
         "capo": true
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 1st fret of the high E string, your ring finger on the 2nd fret of the A string, and your pinky on the 3rd fret of the low E string. Let the G and B strings ring open. Strum all six strings. The augmented seventh has a restless, unstable quality. It wants to resolve — try following it with a chord a fourth higher."
   },
   {
     "name": "G# Major",
@@ -15786,7 +15914,8 @@ export const chords = [
           72
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across the D, G, and B strings at the 1st fret with your index finger. Place your middle finger on the 3rd fret of the A string, and your ring finger on the 4th fret of the low E string. Mute the high E string. Strum all six strings. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact."
   },
   {
     "name": "G# Minor",
@@ -15933,7 +16062,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across all six strings at the 1st fret with your index finger. Place your ring finger on the 3rd fret of the A string, and your pinky on the 3rd fret of the D string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string."
   },
   {
     "name": "G#7",
@@ -16087,7 +16217,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across the D, G, and B strings at the 1st fret with your index finger. Place your middle finger on the 2nd fret of the high E string. Mute the low E and A strings. Strum from the D string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. Make sure the seventh note rings clearly — it gives this chord its bluesy character."
   },
   {
     "name": "G#5",
@@ -16139,7 +16270,8 @@ export const chords = [
           56
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 4th fret of the low E string, your ring finger on the 6th fret of the A string, and your pinky on the 6th fret of the D string. Mute the G, B, and high E strings. Strum all six strings."
   },
   {
     "name": "G#dim",
@@ -16269,7 +16401,8 @@ export const chords = [
           71
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the A string, your middle finger on the 3rd fret of the B string, your ring finger on the 4th fret of the low E string, and your pinky on the 4th fret of the G string. Mute the D and high E strings. Strum all six strings. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "G#dim7",
@@ -16409,7 +16542,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the G string, and your middle finger on the 1st fret of the high E string. Mute the low E and A strings, and let the D and B strings ring open. Strum from the D string down. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "G#aug",
@@ -16555,7 +16689,8 @@ export const chords = [
           68
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across the G and B strings at the 1st fret with your index finger. Place your middle finger on the 2nd fret of the D string, your ring finger on the 3rd fret of the A string, and your pinky on the 4th fret of the low E string. Mute the high E string. Strum all six strings. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. The augmented sound should feel unresolved and slightly tense — if it sounds like a normal major chord, check that every note is ringing."
   },
   {
     "name": "G#sus2",
@@ -16700,7 +16835,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 3rd fret of the G string, your middle finger on the 4th fret of the low E string, your ring finger on the 4th fret of the B string, and your pinky on the 4th fret of the high E string. Mute the A and D strings. Strum all six strings. The open, airy quality of a sus2 chord depends on every note ringing clearly — avoid letting your fingers brush adjacent strings."
   },
   {
     "name": "G#sus4",
@@ -16854,7 +16990,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across the D and G strings at the 1st fret with your index finger. Place your middle finger on the 2nd fret of the B string, and your pinky on the 4th fret of the high E string. Mute the low E and A strings. Strum from the D string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. This chord wants to resolve. Try playing it followed by the major version of the same root to hear the natural pull."
   },
   {
     "name": "G#maj7",
@@ -17005,7 +17142,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across all six strings at the 1st fret with your index finger. Place your middle finger on the 2nd fret of the D string, your ring finger on the 2nd fret of the G string, and your pinky on the 3rd fret of the A string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string. The major seventh should ring with a smooth, jazzy sweetness. Take care that the seventh note is clear and not muffled."
   },
   {
     "name": "G#m7",
@@ -17159,7 +17297,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across all six strings at the 1st fret with your index finger. Place your ring finger on the 3rd fret of the A string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string. This chord should sound warm and mellow. If any notes buzz, adjust your finger angle until each string speaks clearly."
   },
   {
     "name": "G#7sus4",
@@ -17319,7 +17458,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across the D and G strings at the 1st fret with your index finger. Place your middle finger on the 2nd fret of the B string, and your middle finger on the 2nd fret of the high E string. Mute the low E and A strings. Strum from the D string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact."
   },
   {
     "name": "G#m7♭5",
@@ -17452,7 +17592,8 @@ export const chords = [
           71
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the G string, and your ring finger on the 2nd fret of the high E string. Mute the low E and A strings, and let the D and B strings ring open. Strum from the D string down. The half-diminished sound is dark and tense — essential in jazz ii–V–i progressions. Make sure the flattened fifth rings out."
   },
   {
     "name": "G#mMaj7",
@@ -17602,7 +17743,8 @@ export const chords = [
         ],
         "capo": true
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your index finger on the 1st fret of the G string, your middle finger on the 2nd fret of the A string, your ring finger on the 3rd fret of the high E string, and your pinky on the 4th fret of the B string. Mute the low E string. Strum from the A string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. This chord has an unusual, dramatic tension between the minor third and major seventh. Let both notes ring to hear its full color."
   },
   {
     "name": "G#augMaj7",
@@ -17742,7 +17884,8 @@ export const chords = [
           72
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the B string, your middle finger on the 2nd fret of the D string, your ring finger on the 3rd fret of the A string, and your pinky on the 4th fret of the low E string. Let the G and high E strings ring open. Strum all six strings. A rare, lush chord. The raised fifth and major seventh create a dreamy dissonance — check each note sounds clearly."
   },
   {
     "name": "G#aug7",
@@ -17879,7 +18022,8 @@ export const chords = [
         ],
         "capo": true
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the low E string, your middle finger on the 1st fret of the D string, your ring finger on the 2nd fret of the G string, and your pinky on the 2nd fret of the B string. Mute the A string, and let the high E string ring open. Strum all six strings. The augmented seventh has a restless, unstable quality. It wants to resolve — try following it with a chord a fourth higher."
   },
   {
     "name": "A Major",
@@ -18021,7 +18165,8 @@ export const chords = [
           73
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the D string, your middle finger on the 2nd fret of the G string, and your ring finger on the 2nd fret of the B string. Mute the low E string, and let the A and high E strings ring open. Strum from the A string down. Keep your fingers arched so the open strings ring clearly without being accidentally muted."
   },
   {
     "name": "A Minor",
@@ -18163,7 +18308,8 @@ export const chords = [
           72
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the B string, your middle finger on the 2nd fret of the D string, and your ring finger on the 2nd fret of the G string. Mute the low E string, and let the A and high E strings ring open. Strum from the A string down. Listen for a clean, even sound across all fretted strings — minor chords can lose their character if any note buzzes."
   },
   {
     "name": "A7",
@@ -18305,7 +18451,8 @@ export const chords = [
           73
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your middle finger on the 2nd fret of the D string, and your ring finger on the 2nd fret of the B string. Mute the low E string, and let the A, G, and high E strings ring open. Strum from the A string down. Make sure the seventh note rings clearly — it gives this chord its bluesy character."
   },
   {
     "name": "A5",
@@ -18357,7 +18504,8 @@ export const chords = [
           57
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the D string, and your middle finger on the 2nd fret of the G string. Mute the low E, B, and high E strings, and let the A string ring open. Strum from the A string down."
   },
   {
     "name": "Adim",
@@ -18487,7 +18635,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 1st fret of the B string, and your ring finger on the 2nd fret of the G string. Mute the low E and high E strings, and let the A string ring open. Strum from the A string down. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "Adim7",
@@ -18630,7 +18779,8 @@ export const chords = [
           72
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 1st fret of the B string, your ring finger on the 2nd fret of the G string, and your pinky on the 2nd fret of the high E string. Mute the low E string, and let the A string ring open. Strum from the A string down. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "Aaug",
@@ -18773,7 +18923,8 @@ export const chords = [
           69
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the high E string, your middle finger on the 2nd fret of the G string, your ring finger on the 2nd fret of the B string, and your pinky on the 3rd fret of the D string. Mute the low E string, and let the A string ring open. Strum from the A string down. The augmented sound should feel unresolved and slightly tense — if it sounds like a normal major chord, check that every note is ringing."
   },
   {
     "name": "Asus2",
@@ -18912,7 +19063,8 @@ export const chords = [
           64
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your middle finger on the 2nd fret of the D string, and your ring finger on the 2nd fret of the G string. Mute the low E string, and let the A, B, and high E strings ring open. Strum from the A string down. The open, airy quality of a sus2 chord depends on every note ringing clearly — avoid letting your fingers brush adjacent strings."
   },
   {
     "name": "Asus4",
@@ -19054,7 +19206,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the D string, your middle finger on the 2nd fret of the G string, and your ring finger on the 3rd fret of the B string. Mute the low E string, and let the A and high E strings ring open. Strum from the A string down. This chord wants to resolve. Try playing it followed by the major version of the same root to hear the natural pull."
   },
   {
     "name": "Amaj7",
@@ -19198,7 +19351,8 @@ export const chords = [
           73
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the G string, your middle finger on the 2nd fret of the D string, and your ring finger on the 2nd fret of the B string. Mute the low E string, and let the A and high E strings ring open. Strum from the A string down. The major seventh should ring with a smooth, jazzy sweetness. Take care that the seventh note is clear and not muffled."
   },
   {
     "name": "Am7",
@@ -19340,7 +19494,8 @@ export const chords = [
           72
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the B string, and your middle finger on the 2nd fret of the D string. Mute the low E string, and let the A, G, and high E strings ring open. Strum from the A string down. This chord should sound warm and mellow. If any notes buzz, adjust your finger angle until each string speaks clearly."
   },
   {
     "name": "A7sus4",
@@ -19482,7 +19637,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your middle finger on the 2nd fret of the D string, and your ring finger on the 3rd fret of the B string. Mute the low E string, and let the A, G, and high E strings ring open. Strum from the A string down."
   },
   {
     "name": "Am7♭5",
@@ -19620,7 +19776,8 @@ export const chords = [
           72
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your middle finger on the 1st fret of the D string, and your ring finger on the 1st fret of the B string. Mute the low E and high E strings, and let the A and G strings ring open. Strum from the A string down. The half-diminished sound is dark and tense — essential in jazz ii–V–i progressions. Make sure the flattened fifth rings out."
   },
   {
     "name": "AmMaj7",
@@ -19764,7 +19921,8 @@ export const chords = [
         ],
         "capo": true
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the G string, your middle finger on the 1st fret of the B string, and your ring finger on the 2nd fret of the D string. Mute the low E string, and let the A and high E strings ring open. Strum from the A string down. This chord has an unusual, dramatic tension between the minor third and major seventh. Let both notes ring to hear its full color."
   },
   {
     "name": "AaugMaj7",
@@ -19909,7 +20067,8 @@ export const chords = [
         ],
         "capo": true
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the G string, your index finger on the 1st fret of the high E string, your middle finger on the 2nd fret of the B string, and your ring finger on the 3rd fret of the D string. Mute the low E string, and let the A string ring open. Strum from the A string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. A rare, lush chord. The raised fifth and major seventh create a dreamy dissonance — check each note sounds clearly."
   },
   {
     "name": "Aaug7",
@@ -20048,7 +20207,8 @@ export const chords = [
           73
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the high E string, your middle finger on the 2nd fret of the B string, and your ring finger on the 3rd fret of the D string. Mute the low E string, and let the A and G strings ring open. Strum from the A string down. The augmented seventh has a restless, unstable quality. It wants to resolve — try following it with a chord a fourth higher."
   },
   {
     "name": "A# Major",
@@ -20202,7 +20362,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre from the A to the high E string at the 1st fret with your index finger. Place your middle finger on the 3rd fret of the D string, your ring finger on the 3rd fret of the G string, and your pinky on the 3rd fret of the B string. Mute the low E string. Strum from the A string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact."
   },
   {
     "name": "A# Minor",
@@ -20351,7 +20512,8 @@ export const chords = [
           73
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre from the A to the high E string at the 1st fret with your index finger. Place your middle finger on the 2nd fret of the B string, your ring finger on the 3rd fret of the D string, and your pinky on the 3rd fret of the G string. Mute the low E string. Strum from the A string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact."
   },
   {
     "name": "A#7",
@@ -20501,7 +20663,8 @@ export const chords = [
           70
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre from the A to the high E string at the 1st fret with your index finger. Place your ring finger on the 3rd fret of the D string, and your pinky on the 3rd fret of the B string. Mute the low E string. Strum from the A string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. Make sure the seventh note rings clearly — it gives this chord its bluesy character."
   },
   {
     "name": "A#5",
@@ -20553,7 +20716,8 @@ export const chords = [
           58
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the A string, your ring finger on the 3rd fret of the D string, and your pinky on the 3rd fret of the G string. Mute the low E, B, and high E strings. Strum from the A string down."
   },
   {
     "name": "A#dim",
@@ -20683,7 +20847,8 @@ export const chords = [
           76
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the A string, your middle finger on the 2nd fret of the D string, your ring finger on the 2nd fret of the B string, and your pinky on the 3rd fret of the G string. Mute the low E and high E strings. Strum from the A string down. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "A#dim7",
@@ -20820,7 +20985,8 @@ export const chords = [
           73
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the A string, your middle finger on the 2nd fret of the D string, and your ring finger on the 2nd fret of the B string. Mute the low E string, and let the G and high E strings ring open. Strum from the A string down. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "A#aug",
@@ -20957,7 +21123,8 @@ export const chords = [
           66
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the A string, your middle finger on the 3rd fret of the G string, your ring finger on the 3rd fret of the B string, and your pinky on the 4th fret of the D string. Mute the low E and high E strings. Strum from the A string down. The augmented sound should feel unresolved and slightly tense — if it sounds like a normal major chord, check that every note is ringing."
   },
   {
     "name": "A#sus2",
@@ -21112,7 +21279,8 @@ export const chords = [
           77
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across all six strings at the 1st fret with your index finger. Place your ring finger on the 3rd fret of the D string, and your pinky on the 3rd fret of the G string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string. The open, airy quality of a sus2 chord depends on every note ringing clearly — avoid letting your fingers brush adjacent strings."
   },
   {
     "name": "A#sus4",
@@ -21265,7 +21433,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre from the A to the high E string at the 1st fret with your index finger. Place your middle finger on the 3rd fret of the D string, your ring finger on the 3rd fret of the G string, and your pinky on the 4th fret of the B string. Mute the low E string. Strum from the A string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. This chord wants to resolve. Try playing it followed by the major version of the same root to hear the natural pull."
   },
   {
     "name": "A#maj7",
@@ -21419,7 +21588,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre from the A to the high E string at the 1st fret with your index finger. Place your middle finger on the 2nd fret of the G string, your ring finger on the 3rd fret of the D string, and your pinky on the 3rd fret of the B string. Mute the low E string. Strum from the A string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. The major seventh should ring with a smooth, jazzy sweetness. Take care that the seventh note is clear and not muffled."
   },
   {
     "name": "A#m7",
@@ -21569,7 +21739,8 @@ export const chords = [
           73
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre from the A to the high E string at the 1st fret with your index finger. Place your middle finger on the 2nd fret of the B string, and your ring finger on the 3rd fret of the D string. Mute the low E string. Strum from the A string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. This chord should sound warm and mellow. If any notes buzz, adjust your finger angle until each string speaks clearly."
   },
   {
     "name": "A#7sus4",
@@ -21719,7 +21890,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre from the A to the high E string at the 1st fret with your index finger. Place your ring finger on the 3rd fret of the D string, and your pinky on the 4th fret of the B string. Mute the low E string. Strum from the A string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact."
   },
   {
     "name": "A#m7♭5",
@@ -21855,7 +22027,8 @@ export const chords = [
           73
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the A string, your middle finger on the 1st fret of the G string, your ring finger on the 2nd fret of the D string, and your pinky on the 2nd fret of the B string. Mute the low E and high E strings. Strum from the A string down. The half-diminished sound is dark and tense — essential in jazz ii–V–i progressions. Make sure the flattened fifth rings out."
   },
   {
     "name": "A#mMaj7",
@@ -22004,7 +22177,8 @@ export const chords = [
         ],
         "capo": true
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the A string, your index finger on the 1st fret of the high E string, your middle finger on the 2nd fret of the G string, your ring finger on the 2nd fret of the B string, and your pinky on the 3rd fret of the D string. Mute the low E string. Strum from the A string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. This chord has an unusual, dramatic tension between the minor third and major seventh. Let both notes ring to hear its full color."
   },
   {
     "name": "A#augMaj7",
@@ -22144,7 +22318,8 @@ export const chords = [
         ],
         "capo": true
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the A string, your middle finger on the 2nd fret of the G string, your ring finger on the 2nd fret of the high E string, and your pinky on the 3rd fret of the B string. Mute the low E string, and let the D string ring open. Strum from the A string down. A rare, lush chord. The raised fifth and major seventh create a dreamy dissonance — check each note sounds clearly."
   },
   {
     "name": "A#aug7",
@@ -22281,7 +22456,8 @@ export const chords = [
           78
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the A string, your index finger on the 1st fret of the G string, your middle finger on the 2nd fret of the high E string, your ring finger on the 3rd fret of the B string, and your pinky on the 4th fret of the D string. Mute the low E string. Strum from the A string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. The augmented seventh has a restless, unstable quality. It wants to resolve — try following it with a chord a fourth higher."
   },
   {
     "name": "B Major",
@@ -22435,7 +22611,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Press your index finger flat across all six strings at the 2nd fret. Place your middle finger on the 4th fret of the D string, your ring finger on the 4th fret of the G string, and your pinky on the 4th fret of the B string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string."
   },
   {
     "name": "B Minor",
@@ -22582,7 +22759,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Press your index finger flat across all six strings at the 2nd fret. Place your middle finger on the 3rd fret of the B string, your ring finger on the 4th fret of the D string, and your pinky on the 4th fret of the G string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string."
   },
   {
     "name": "B7",
@@ -22727,7 +22905,8 @@ export const chords = [
           71
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 2nd fret of the A string, your ring finger on the 2nd fret of the G string, and your pinky on the 2nd fret of the high E string. Mute the low E string, and let the B string ring open. Strum from the A string down. Make sure the seventh note rings clearly — it gives this chord its bluesy character."
   },
   {
     "name": "B5",
@@ -22787,7 +22966,8 @@ export const chords = [
           59
         ]
       }
-    ]
+    ],
+    "howToPlay": "Press your index finger flat across the A and A strings at the 2nd fret. Place your ring finger on the 4th fret of the D string, and your pinky on the 4th fret of the G string. Mute the low E, B, and high E strings. Strum from the A string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact."
   },
   {
     "name": "Bdim",
@@ -22917,7 +23097,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your middle finger on the 1st fret of the high E string, and your ring finger on the 2nd fret of the A string. Mute the low E and G strings, and let the D and B strings ring open. Strum from the A string down. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "Bdim7",
@@ -23063,7 +23244,8 @@ export const chords = [
           71
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across the G, B, and high E strings at the 1st fret with your index finger. Place your middle finger on the 2nd fret of the A string, your ring finger on the 3rd fret of the D string, and your pinky on the 3rd fret of the B string. Mute the low E string. Strum from the A string down. For the partial barre, tilt your index finger slightly to use its bony edge for cleaner contact. This chord has a tight, clustered shape. Keep your fingers close together and perpendicular to the fretboard."
   },
   {
     "name": "Baug",
@@ -23198,7 +23380,8 @@ export const chords = [
           64
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, and your middle finger on the 2nd fret of the A string. Mute the low E and high E strings, and let the G and B strings ring open. Strum from the A string down. The augmented sound should feel unresolved and slightly tense — if it sounds like a normal major chord, check that every note is ringing."
   },
   {
     "name": "Bsus2",
@@ -23349,7 +23532,8 @@ export const chords = [
           78
         ]
       }
-    ]
+    ],
+    "howToPlay": "Press your index finger flat across all six strings at the 2nd fret. Place your ring finger on the 4th fret of the D string, and your pinky on the 4th fret of the G string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string. The open, airy quality of a sus2 chord depends on every note ringing clearly — avoid letting your fingers brush adjacent strings."
   },
   {
     "name": "Bsus4",
@@ -23504,7 +23688,8 @@ export const chords = [
           76
         ]
       }
-    ]
+    ],
+    "howToPlay": "Barre across all six strings at the 1st fret with your index finger. Place your middle finger on the 3rd fret of the D string, your ring finger on the 3rd fret of the G string, and your pinky on the 4th fret of the B string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string. This chord wants to resolve. Try playing it followed by the major version of the same root to hear the natural pull."
   },
   {
     "name": "Bmaj7",
@@ -23659,7 +23844,8 @@ export const chords = [
           75
         ]
       }
-    ]
+    ],
+    "howToPlay": "Press your index finger flat across all six strings at the 2nd fret. Place your middle finger on the 3rd fret of the G string, your ring finger on the 4th fret of the D string, and your pinky on the 4th fret of the B string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string. The major seventh should ring with a smooth, jazzy sweetness. Take care that the seventh note is clear and not muffled."
   },
   {
     "name": "Bm7",
@@ -23810,7 +23996,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Press your index finger flat across all six strings at the 2nd fret. Place your middle finger on the 3rd fret of the B string, and your ring finger on the 4th fret of the D string. Strum all six strings. If the barre feels difficult, focus on pressing with the side edge of your index finger rather than the flat pad — this helps get a clean sound on every string. This chord should sound warm and mellow. If any notes buzz, adjust your finger angle until each string speaks clearly."
   },
   {
     "name": "B7sus4",
@@ -23956,7 +24143,8 @@ export const chords = [
           71
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the A string, your middle finger on the 2nd fret of the D string, and your ring finger on the 2nd fret of the G string. Mute the low E string, and let the B and high E strings ring open. Strum from the A string down."
   },
   {
     "name": "Bm7♭5",
@@ -24094,7 +24282,8 @@ export const chords = [
           74
         ]
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the A string, your middle finger on the 2nd fret of the G string, your ring finger on the 3rd fret of the D string, and your pinky on the 3rd fret of the B string. Mute the low E and high E strings. Strum from the A string down. The half-diminished sound is dark and tense — essential in jazz ii–V–i progressions. Make sure the flattened fifth rings out."
   },
   {
     "name": "BmMaj7",
@@ -24240,7 +24429,8 @@ export const chords = [
         ],
         "capo": true
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 2nd fret of the A string, your middle finger on the 2nd fret of the high E string, and your ring finger on the 3rd fret of the G string. Mute the low E string, and let the D and B strings ring open. Strum from the A string down. This chord has an unusual, dramatic tension between the minor third and major seventh. Let both notes ring to hear its full color."
   },
   {
     "name": "BaugMaj7",
@@ -24378,7 +24568,8 @@ export const chords = [
         ],
         "capo": true
       }
-    ]
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 2nd fret of the A string, your ring finger on the 3rd fret of the G string, and your pinky on the 3rd fret of the high E string. Mute the low E string, and let the B string ring open. Strum from the A string down. A rare, lush chord. The raised fifth and major seventh create a dreamy dissonance — check each note sounds clearly."
   },
   {
     "name": "Baug7",
@@ -24514,8 +24705,9 @@ export const chords = [
           75
         ]
       }
-    ]
-  },
+    ],
+    "howToPlay": "Place your index finger on the 1st fret of the D string, your middle finger on the 2nd fret of the A string, your ring finger on the 2nd fret of the G string, and your pinky on the 3rd fret of the high E string. Mute the low E string, and let the B string ring open. Strum from the A string down. The augmented seventh has a restless, unstable quality. It wants to resolve — try following it with a chord a fourth higher."
+  }
 ];
 
 

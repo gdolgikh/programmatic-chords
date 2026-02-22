@@ -22,9 +22,6 @@ const idx = chords.findIndex(c => c.slug === chord.slug);
 const prev = idx > 0 ? chords[idx - 1] : null;
 const next = idx < chords.length - 1 ? chords[idx + 1] : null;
 
-// String labels
-const stringNames = ['E', 'A', 'D', 'G', 'B', 'e'];
-
 // Get MIDI data safely - handle missing or incomplete data
 const getMidiData = () => {
   if (!chord.allPositions?.[0]?.midi) {
@@ -49,13 +46,6 @@ const chordMidi = getMidiData();
 
 // Chord name aliases for SEO
 const aliases = getChordAliases(chord.root, chord.quality, chord.name);
-
-// Build notes-on-strings info
-const fretLabel = (f) => {
-  if (f === -1) return '×';
-  if (f === 0) return 'Open';
-  return `Fret ${f}`;
-};
 
 // Generate arpeggio patterns for tab display
 const playedStrings = chord.frets
@@ -459,17 +449,12 @@ if (playedStrings.length >= 2) {
           </div>
         )}
 
-        <div class="chord-frets">
-          <h3 class="detail-heading">String by String</h3>
-          <div class="fret-list">
-            {chord.frets.map((f, i) => (
-              <div class:list={['fret-item', { muted: f === -1 }]}>
-                <span class="fret-string">{stringNames[i]}</span>
-                <span class="fret-value">{fretLabel(f)}</span>
-              </div>
-            ))}
+        {chord.howToPlay && (
+          <div class="how-to-play">
+            <h3 class="detail-heading">How to Play</h3>
+            <p class="how-to-play-text">{chord.howToPlay}</p>
           </div>
-        </div>
+        )}
       </div>
     </div>
 
@@ -565,7 +550,9 @@ if (playedStrings.length >= 2) {
               </button>
             </div>
           ))}
-        </div>
+        <p class="progression-cta">
+          See how {chord.name} works with other chords — <a href="/chord-progression-generator/" class="cta-btn">Progression Generator</a>
+        </p>
       </section>
     )}
 
@@ -816,38 +803,15 @@ if (playedStrings.length >= 2) {
     margin-bottom: 0.5rem;
   }
 
-  .fret-list {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
+  .how-to-play {
+    margin-top: 0.25rem;
   }
 
-  .fret-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.2rem;
-    padding: 0.4rem 0.6rem;
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    min-width: 52px;
-  }
-
-  .fret-item.muted {
-    opacity: 0.4;
-  }
-
-  .fret-string {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--red);
-  }
-
-  .fret-value {
-    font-size: 0.75rem;
+  .how-to-play-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
     color: var(--ink-faded);
-    font-weight: 500;
+    max-width: 520px;
   }
 
   .chord-nav {
@@ -881,14 +845,9 @@ if (playedStrings.length >= 2) {
     font-size: 1.1rem;
   }
 
-  .nav-home {
-    color: var(--red);
-    border-color: var(--red);
-  }
-
   .nav-home:hover {
-    background: var(--red);
-    color: var(--cream);
+    color: var(--ink);
+    background: var(--paper);
   }
 
   /* Arpeggio section */
@@ -996,6 +955,37 @@ if (playedStrings.length >= 2) {
 
   .play-pattern-btn.playing {
     background: var(--red);
+  }
+
+  .progression-cta {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.45rem 1rem;
+    background: var(--red);
+    color: var(--cream);
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+    vertical-align: middle;
+    margin-left: 0.15rem;
+  }
+
+  .cta-btn:hover {
+    opacity: 0.85;
   }
 
   /* Mobile */
