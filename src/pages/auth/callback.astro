@@ -9,31 +9,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Signing in...</title>
   <style>
+    @font-face {
+      font-family: 'IBM Plex Mono';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('/fonts/ibm-plex-mono-400-latin.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 400 900;
+      font-display: swap;
+      src: url('/fonts/playfair-display-latin.woff2') format('woff2');
+    }
+
     body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: #051420;
-      color: rgba(255, 255, 255, 0.9);
+      font-family: 'IBM Plex Mono', monospace;
+      background: #f5f0e8;
+      color: #1a1510;
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
       margin: 0;
     }
+    html.dark body {
+      background: #0e0d0b;
+      color: #c8b98a;
+    }
+
+    .message {
+      text-align: center;
+    }
+
+    .logo-icon {
+      font-size: 2rem;
+      color: #c0392b;
+      margin-bottom: 1.5rem;
+    }
+    html.dark .logo-icon {
+      color: #d4a843;
+    }
+
     .spinner {
-      width: 40px;
-      height: 40px;
-      border: 3px solid rgba(103, 232, 249, 0.2);
-      border-top-color: #67e8f9;
+      width: 28px;
+      height: 28px;
+      border: 2px solid #c8bfa8;
+      border-top-color: #1a1510;
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
       margin: 0 auto 1rem;
     }
+    html.dark .spinner {
+      border-color: #2e2a22;
+      border-top-color: #c8b98a;
+    }
+
     @keyframes spin { to { transform: rotate(360deg); } }
-    .message { text-align: center; }
+
+    .message p {
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      color: #5a4f3f;
+    }
+    html.dark .message p {
+      color: #6b5e42;
+    }
   </style>
+  <script is:inline>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark') document.documentElement.classList.add('dark');
+    })();
+  </script>
 </head>
 <body>
   <div class="message">
+    <div class="logo-icon">&#9835;</div>
     <div class="spinner"></div>
     <p>Signing you in...</p>
   </div>

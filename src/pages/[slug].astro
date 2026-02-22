@@ -199,7 +199,10 @@ if (playedStrings.length >= 2) {
       }
 
       async function playChord() {
-        if (!isLoaded) { await preloadAudio(); return; }
+        if (!isLoaded) {
+          await preloadAudio();
+          if (!isLoaded) return;
+        }
         await resumeAudio();
 
         const now = Tone.now();
@@ -226,8 +229,10 @@ if (playedStrings.length >= 2) {
 
       playButton.addEventListener('click', playChord);
       playButton.addEventListener('mouseenter', preloadAudio, { once: true });
+      playButton.addEventListener('touchstart', preloadAudio, { once: true, passive: true });
 
       document.querySelectorAll('.finger-dot').forEach(dot => {
+        dot.addEventListener('touchstart', preloadAudio, { once: true, passive: true });
         dot.addEventListener('click', (e) => {
           e.stopPropagation();
           const midi = parseInt(dot.getAttribute('data-midi'));

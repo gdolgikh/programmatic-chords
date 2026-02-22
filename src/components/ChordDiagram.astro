@@ -175,17 +175,17 @@ const fingerLabels = isLarge ? frets.map((fret, i) => {
         font-weight="600"
       >&times;</text>
     ) : (
-      <circle
-        cx={ind.x}
-        cy={ind.y}
-        r={ind.r}
-        fill="none"
-        style="stroke: var(--diagram-open)"
-        stroke-width="1.2"
-        class="finger-dot"
-        data-string={ind.stringIndex}
-        data-midi={ind.midiNote}
-      />
+      <g class="finger-dot" data-string={ind.stringIndex} data-midi={ind.midiNote}>
+        <circle cx={ind.x} cy={ind.y} r={ind.r + 2} fill="transparent" />
+        <circle
+          cx={ind.x}
+          cy={ind.y}
+          r={ind.r}
+          fill="none"
+          style="stroke: var(--diagram-open); pointer-events: none;"
+          stroke-width="1.2"
+        />
+      </g>
     )
   ))}
 
