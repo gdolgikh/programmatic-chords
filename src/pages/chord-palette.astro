@@ -79,11 +79,7 @@ import Layout from '../components/Layout.astro';
     <div class="generate-section" id="generateSection">
       <div class="generate-row">
         <input type="text" class="style-input" id="styleInput" placeholder="Style: acoustic folk, jazz trio, lo-fi beats...">
-        <select class="setting-select" id="durationSelect">
-          <option value="8">8 sec</option>
-          <option value="15" selected>15 sec</option>
-          <option value="30">30 sec</option>
-        </select>
+        <span class="setting-select" style="pointer-events:none;opacity:.7">30 sec</span>
         <button class="ctrl-btn generate-btn" id="generateBtn" disabled>Generate Track</button>
       </div>
       <div class="generate-output" id="generateOutput">
@@ -1326,7 +1322,6 @@ html.dark .setting-select {
         generateStatus: 'idle',
         generateStyle: '',
         generatedTrackUrl: null,
-        generateDuration: 15,
       };
 
       const listeners = new Set();
@@ -1918,7 +1913,6 @@ html.dark .setting-select {
     const GenerateTrack = (() => {
       const generateBtn = document.getElementById('generateBtn');
       const styleInput = document.getElementById('styleInput');
-      const durationSelect = document.getElementById('durationSelect');
       const generateOutput = document.getElementById('generateOutput');
       const generateStatusEl = document.getElementById('generateStatus');
       const generatePlayer = document.getElementById('generatePlayer');
@@ -1960,12 +1954,8 @@ html.dark .setting-select {
         AppState.set({ generateStyle: styleInput.value });
       });
 
-      durationSelect.addEventListener('change', () => {
-        AppState.set({ generateDuration: parseInt(durationSelect.value) });
-      });
-
       generateBtn.addEventListener('click', async () => {
-        const { progression, bpm, timeSig, generateStyle, generateDuration } = AppState.get();
+        const { progression, bpm, timeSig, generateStyle } = AppState.get();
         if (progression.length === 0) return;
 
         if (!supabaseConfigured || !supabase) {
@@ -2020,7 +2010,6 @@ html.dark .setting-select {
                 bpm,
                 timeSig,
                 style: generateStyle || 'acoustic backing track',
-                duration: generateDuration,
               }),
             }
           );
