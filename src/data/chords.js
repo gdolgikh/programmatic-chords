@@ -1624,6 +1624,561 @@ export const chords = [
     ]
   },
   {
+    "name": "C Half-Diminished",
+    "slug": "c-m7b5-chord-guitar",
+    "root": "C",
+    "quality": "m7♭5",
+    "frets": [
+      -1,
+      3,
+      4,
+      3,
+      4,
+      -1
+    ],
+    "fingers": [
+      0,
+      1,
+      3,
+      2,
+      4,
+      0
+    ],
+    "barres": [],
+    "description": "A half-diminished seventh chord with a dark, restless quality. C Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          3,
+          4,
+          3,
+          4,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          48,
+          54,
+          58,
+          63
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          2,
+          1,
+          3
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          2,
+          1,
+          4
+        ],
+        "baseFret": 4,
+        "barres": [
+          1
+        ],
+        "midi": [
+          54,
+          60,
+          63,
+          70
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          1,
+          2,
+          3,
+          1,
+          4,
+          1
+        ],
+        "fingers": [
+          1,
+          2,
+          3,
+          1,
+          4,
+          1
+        ],
+        "baseFret": 8,
+        "barres": [
+          1
+        ],
+        "midi": [
+          48,
+          54,
+          60,
+          63,
+          70,
+          72
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          3,
+          3,
+          3
+        ],
+        "baseFret": 10,
+        "barres": [
+          2
+        ],
+        "midi": [
+          60,
+          66,
+          70,
+          75
+        ]
+      }
+    ]
+  },
+  {
+    "name": "C Minor-Major 7th",
+    "slug": "c-mmaj7-chord-guitar",
+    "root": "C",
+    "quality": "mMaj7",
+    "frets": [
+      -1,
+      3,
+      1,
+      0,
+      0,
+      -1
+    ],
+    "fingers": [
+      0,
+      3,
+      1,
+      0,
+      0,
+      0
+    ],
+    "barres": [],
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. C Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          3,
+          1,
+          0,
+          0,
+          -1
+        ],
+        "fingers": [
+          0,
+          3,
+          1,
+          0,
+          0,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          48,
+          51,
+          55,
+          59
+        ]
+      },
+      {
+        "frets": [
+          1,
+          1,
+          3,
+          2,
+          2,
+          1
+        ],
+        "fingers": [
+          1,
+          1,
+          4,
+          2,
+          3,
+          1
+        ],
+        "baseFret": 3,
+        "barres": [
+          1
+        ],
+        "midi": [
+          43,
+          48,
+          55,
+          59,
+          63,
+          67
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "fingers": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "baseFret": 8,
+        "barres": [
+          1
+        ],
+        "midi": [
+          48,
+          55,
+          59,
+          63,
+          67,
+          72
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          3,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          3,
+          4,
+          2
+        ],
+        "baseFret": 10,
+        "barres": [],
+        "midi": [
+          60,
+          67,
+          71,
+          75
+        ]
+      }
+    ]
+  },
+  {
+    "name": "C Augmented Major 7th",
+    "slug": "c-augmaj7-chord-guitar",
+    "root": "C",
+    "quality": "augMaj7",
+    "frets": [
+      -1,
+      3,
+      2,
+      1,
+      0,
+      0
+    ],
+    "fingers": [
+      0,
+      3,
+      2,
+      1,
+      0,
+      0
+    ],
+    "barres": [],
+    "description": "An augmented major seventh chord with a dreamy, floating quality. C Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          3,
+          2,
+          1,
+          0,
+          0
+        ],
+        "fingers": [
+          0,
+          3,
+          2,
+          1,
+          0,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          48,
+          52,
+          56,
+          59,
+          64
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          4,
+          2,
+          3,
+          0
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          2,
+          3,
+          0
+        ],
+        "baseFret": 3,
+        "barres": [],
+        "midi": [
+          48,
+          56,
+          59,
+          64,
+          64
+        ]
+      },
+      {
+        "frets": [
+          4,
+          3,
+          2,
+          1,
+          0,
+          0
+        ],
+        "fingers": [
+          4,
+          3,
+          2,
+          1,
+          0,
+          0
+        ],
+        "baseFret": 5,
+        "barres": [],
+        "midi": [
+          48,
+          52,
+          56,
+          60,
+          59,
+          64
+        ]
+      },
+      {
+        "frets": [
+          1,
+          4,
+          3,
+          2,
+          0,
+          0
+        ],
+        "fingers": [
+          1,
+          4,
+          3,
+          2,
+          0,
+          0
+        ],
+        "baseFret": 8,
+        "barres": [],
+        "midi": [
+          48,
+          56,
+          60,
+          64,
+          59,
+          64
+        ]
+      }
+    ]
+  },
+  {
+    "name": "C Augmented 7th",
+    "slug": "c-aug7-chord-guitar",
+    "root": "C",
+    "quality": "aug7",
+    "frets": [
+      -1,
+      3,
+      2,
+      3,
+      -1,
+      4
+    ],
+    "fingers": [
+      0,
+      2,
+      1,
+      3,
+      0,
+      4
+    ],
+    "barres": [],
+    "description": "An augmented seventh chord with an unstable, restless character. C Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          3,
+          2,
+          3,
+          -1,
+          4
+        ],
+        "fingers": [
+          0,
+          2,
+          1,
+          3,
+          0,
+          4
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          48,
+          52,
+          58,
+          68
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "baseFret": 3,
+        "barres": [
+          1
+        ],
+        "midi": [
+          48,
+          56,
+          58,
+          64,
+          68
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          1,
+          -1,
+          1,
+          2,
+          2,
+          0
+        ],
+        "fingers": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          0
+        ],
+        "baseFret": 8,
+        "barres": [],
+        "midi": [
+          48,
+          58,
+          64,
+          68,
+          64
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          4,
+          2,
+          3
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          4,
+          2,
+          3
+        ],
+        "baseFret": 10,
+        "barres": [],
+        "midi": [
+          60,
+          68,
+          70,
+          76
+        ]
+      }
+    ]
+  },
+  {
     "name": "C# Major",
     "slug": "c-sharp-major-chord-guitar",
     "root": "C#",
@@ -2284,6 +2839,566 @@ export const chords = [
           54,
           59,
           61
+        ]
+      }
+    ]
+  },
+  {
+    "name": "C# Half-Diminished",
+    "slug": "c-sharp-m7b5-chord-guitar",
+    "root": "C#",
+    "quality": "m7♭5",
+    "frets": [
+      -1,
+      1,
+      2,
+      1,
+      2,
+      -1
+    ],
+    "fingers": [
+      0,
+      1,
+      3,
+      2,
+      4,
+      0
+    ],
+    "barres": [],
+    "description": "A half-diminished seventh chord with a dark, restless quality. C# Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "baseFret": 4,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          1,
+          2,
+          1,
+          2,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          0
+        ],
+        "baseFret": 4,
+        "barres": [],
+        "midi": [
+          49,
+          55,
+          59,
+          64
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          2,
+          1,
+          3
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          2,
+          1,
+          4
+        ],
+        "baseFret": 5,
+        "barres": [
+          1
+        ],
+        "midi": [
+          55,
+          61,
+          64,
+          71
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          2,
+          -1,
+          2,
+          2,
+          1,
+          -1
+        ],
+        "fingers": [
+          2,
+          0,
+          3,
+          4,
+          1,
+          0
+        ],
+        "baseFret": 8,
+        "barres": [],
+        "midi": [
+          49,
+          59,
+          64,
+          67
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          2,
+          2,
+          2
+        ],
+        "baseFret": 11,
+        "barres": [
+          2
+        ],
+        "midi": [
+          61,
+          67,
+          71,
+          76
+        ]
+      }
+    ]
+  },
+  {
+    "name": "C# Minor-Major 7th",
+    "slug": "c-sharp-mmaj7-chord-guitar",
+    "root": "C#",
+    "quality": "mMaj7",
+    "frets": [
+      -1,
+      4,
+      2,
+      1,
+      1,
+      -1
+    ],
+    "fingers": [
+      0,
+      4,
+      2,
+      1,
+      1,
+      0
+    ],
+    "barres": [
+      1
+    ],
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. C# Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          4,
+          2,
+          1,
+          1,
+          -1
+        ],
+        "fingers": [
+          0,
+          4,
+          2,
+          1,
+          1,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [
+          1
+        ],
+        "midi": [
+          49,
+          52,
+          56,
+          60
+        ]
+      },
+      {
+        "frets": [
+          1,
+          1,
+          3,
+          2,
+          2,
+          1
+        ],
+        "fingers": [
+          1,
+          1,
+          4,
+          2,
+          3,
+          1
+        ],
+        "baseFret": 4,
+        "barres": [
+          1
+        ],
+        "midi": [
+          44,
+          49,
+          56,
+          60,
+          64,
+          68
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "fingers": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "baseFret": 9,
+        "barres": [
+          1
+        ],
+        "midi": [
+          49,
+          56,
+          60,
+          64,
+          68,
+          73
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          1,
+          3,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          1,
+          1,
+          3,
+          4,
+          2
+        ],
+        "baseFret": 11,
+        "barres": [
+          1
+        ],
+        "midi": [
+          56,
+          61,
+          68,
+          72,
+          76
+        ],
+        "capo": true
+      }
+    ]
+  },
+  {
+    "name": "C# Augmented Major 7th",
+    "slug": "c-sharp-augmaj7-chord-guitar",
+    "root": "C#",
+    "quality": "augMaj7",
+    "frets": [
+      1,
+      4,
+      3,
+      2,
+      1,
+      1
+    ],
+    "fingers": [
+      1,
+      4,
+      3,
+      2,
+      1,
+      1
+    ],
+    "barres": [
+      1
+    ],
+    "description": "An augmented major seventh chord with a dreamy, floating quality. C# Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          1,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "fingers": [
+          1,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "baseFret": 1,
+        "barres": [
+          1
+        ],
+        "midi": [
+          41,
+          49,
+          53,
+          57,
+          60,
+          65
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          4,
+          2,
+          3,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          2,
+          3,
+          0
+        ],
+        "baseFret": 4,
+        "barres": [],
+        "midi": [
+          49,
+          57,
+          60,
+          65
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          4,
+          3,
+          3,
+          1
+        ],
+        "fingers": [
+          0,
+          0,
+          4,
+          2,
+          3,
+          1
+        ],
+        "baseFret": 8,
+        "barres": [],
+        "midi": [
+          61,
+          65,
+          69,
+          72
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          4,
+          3,
+          3
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          4,
+          2,
+          3
+        ],
+        "baseFret": 11,
+        "barres": [],
+        "midi": [
+          61,
+          69,
+          72,
+          77
+        ]
+      }
+    ]
+  },
+  {
+    "name": "C# Augmented 7th",
+    "slug": "c-sharp-aug7-chord-guitar",
+    "root": "C#",
+    "quality": "aug7",
+    "frets": [
+      -1,
+      4,
+      3,
+      2,
+      0,
+      1
+    ],
+    "fingers": [
+      0,
+      4,
+      3,
+      2,
+      0,
+      1
+    ],
+    "barres": [],
+    "description": "An augmented seventh chord with an unstable, restless character. C# Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          4,
+          3,
+          2,
+          0,
+          1
+        ],
+        "fingers": [
+          0,
+          4,
+          3,
+          2,
+          0,
+          1
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          49,
+          53,
+          57,
+          59,
+          65
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "baseFret": 4,
+        "barres": [
+          1
+        ],
+        "midi": [
+          49,
+          57,
+          59,
+          65,
+          69
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          3,
+          2,
+          1,
+          -1,
+          0,
+          1
+        ],
+        "fingers": [
+          4,
+          3,
+          1,
+          0,
+          0,
+          2
+        ],
+        "baseFret": 7,
+        "barres": [],
+        "midi": [
+          49,
+          53,
+          57,
+          59,
+          71
+        ]
+      },
+      {
+        "frets": [
+          1,
+          -1,
+          1,
+          2,
+          2,
+          -1
+        ],
+        "fingers": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          0
+        ],
+        "baseFret": 9,
+        "barres": [],
+        "midi": [
+          49,
+          59,
+          65,
+          69
         ]
       }
     ]
@@ -3890,6 +5005,561 @@ export const chords = [
           67,
           69,
           74
+        ]
+      }
+    ]
+  },
+  {
+    "name": "D Half-Diminished",
+    "slug": "d-m7b5-chord-guitar",
+    "root": "D",
+    "quality": "m7♭5",
+    "frets": [
+      -1,
+      -1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "fingers": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1
+    ],
+    "barres": [
+      1
+    ],
+    "description": "A half-diminished seventh chord with a dark, restless quality. D Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          -1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "fingers": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        "baseFret": 1,
+        "barres": [
+          1
+        ],
+        "midi": [
+          50,
+          56,
+          60,
+          65
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          3,
+          1,
+          3,
+          1,
+          2
+        ],
+        "fingers": [
+          0,
+          3,
+          1,
+          4,
+          1,
+          2
+        ],
+        "baseFret": 3,
+        "barres": [
+          1
+        ],
+        "midi": [
+          50,
+          53,
+          60,
+          62,
+          68
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          2,
+          1,
+          2,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          0
+        ],
+        "baseFret": 5,
+        "barres": [],
+        "midi": [
+          50,
+          56,
+          60,
+          65
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          0,
+          3,
+          2,
+          1
+        ],
+        "fingers": [
+          0,
+          1,
+          0,
+          4,
+          3,
+          2
+        ],
+        "baseFret": 8,
+        "barres": [],
+        "midi": [
+          53,
+          50,
+          65,
+          68,
+          72
+        ]
+      }
+    ]
+  },
+  {
+    "name": "D Minor-Major 7th",
+    "slug": "d-mmaj7-chord-guitar",
+    "root": "D",
+    "quality": "mMaj7",
+    "frets": [
+      -1,
+      -1,
+      0,
+      2,
+      2,
+      1
+    ],
+    "fingers": [
+      0,
+      0,
+      0,
+      2,
+      3,
+      1
+    ],
+    "barres": [],
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. D Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          -1,
+          0,
+          2,
+          2,
+          1
+        ],
+        "fingers": [
+          0,
+          0,
+          0,
+          2,
+          3,
+          1
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          50,
+          57,
+          61,
+          65
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          4,
+          2,
+          1,
+          1,
+          0
+        ],
+        "fingers": [
+          0,
+          4,
+          2,
+          1,
+          1,
+          0
+        ],
+        "baseFret": 2,
+        "barres": [
+          1
+        ],
+        "midi": [
+          50,
+          53,
+          57,
+          61,
+          64
+        ]
+      },
+      {
+        "frets": [
+          1,
+          1,
+          3,
+          2,
+          2,
+          1
+        ],
+        "fingers": [
+          1,
+          1,
+          4,
+          2,
+          3,
+          1
+        ],
+        "baseFret": 5,
+        "barres": [
+          1
+        ],
+        "midi": [
+          45,
+          50,
+          57,
+          61,
+          65,
+          69
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "fingers": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "baseFret": 10,
+        "barres": [
+          1
+        ],
+        "midi": [
+          50,
+          57,
+          61,
+          65,
+          69,
+          74
+        ],
+        "capo": true
+      }
+    ]
+  },
+  {
+    "name": "D Augmented Major 7th",
+    "slug": "d-augmaj7-chord-guitar",
+    "root": "D",
+    "quality": "augMaj7",
+    "frets": [
+      -1,
+      -1,
+      0,
+      3,
+      2,
+      2
+    ],
+    "fingers": [
+      0,
+      0,
+      0,
+      4,
+      2,
+      3
+    ],
+    "barres": [],
+    "description": "An augmented major seventh chord with a dreamy, floating quality. D Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          -1,
+          0,
+          3,
+          2,
+          2
+        ],
+        "fingers": [
+          0,
+          0,
+          0,
+          4,
+          2,
+          3
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          50,
+          58,
+          61,
+          66
+        ]
+      },
+      {
+        "frets": [
+          1,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "fingers": [
+          1,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "baseFret": 2,
+        "barres": [
+          1
+        ],
+        "midi": [
+          42,
+          50,
+          54,
+          58,
+          61,
+          66
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          0,
+          2,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          1,
+          0,
+          2,
+          4,
+          3
+        ],
+        "baseFret": 5,
+        "barres": [],
+        "midi": [
+          50,
+          50,
+          61,
+          66,
+          70
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          0,
+          3,
+          3,
+          1
+        ],
+        "fingers": [
+          0,
+          0,
+          0,
+          2,
+          3,
+          1
+        ],
+        "baseFret": 9,
+        "barres": [],
+        "midi": [
+          50,
+          66,
+          70,
+          73
+        ]
+      }
+    ]
+  },
+  {
+    "name": "D Augmented 7th",
+    "slug": "d-aug7-chord-guitar",
+    "root": "D",
+    "quality": "aug7",
+    "frets": [
+      -1,
+      -1,
+      0,
+      3,
+      1,
+      2
+    ],
+    "fingers": [
+      0,
+      0,
+      0,
+      4,
+      1,
+      2
+    ],
+    "barres": [],
+    "description": "An augmented seventh chord with an unstable, restless character. D Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          -1,
+          0,
+          3,
+          1,
+          2
+        ],
+        "fingers": [
+          0,
+          0,
+          0,
+          4,
+          1,
+          2
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          50,
+          58,
+          60,
+          66
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          2,
+          1,
+          2,
+          -1,
+          3
+        ],
+        "fingers": [
+          0,
+          2,
+          1,
+          3,
+          0,
+          4
+        ],
+        "baseFret": 4,
+        "barres": [],
+        "midi": [
+          50,
+          54,
+          60,
+          70
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "baseFret": 5,
+        "barres": [
+          1
+        ],
+        "midi": [
+          50,
+          58,
+          60,
+          66,
+          70
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          1,
+          -1,
+          1,
+          2,
+          2,
+          -1
+        ],
+        "fingers": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          0
+        ],
+        "baseFret": 10,
+        "barres": [],
+        "midi": [
+          50,
+          60,
+          66,
+          70
         ]
       }
     ]
@@ -5512,6 +7182,561 @@ export const chords = [
           68,
           70,
           75
+        ]
+      }
+    ]
+  },
+  {
+    "name": "D# Half-Diminished",
+    "slug": "d-sharp-m7b5-chord-guitar",
+    "root": "D#",
+    "quality": "m7♭5",
+    "frets": [
+      -1,
+      -1,
+      1,
+      2,
+      2,
+      2
+    ],
+    "fingers": [
+      0,
+      0,
+      1,
+      2,
+      2,
+      2
+    ],
+    "barres": [
+      2
+    ],
+    "description": "A half-diminished seventh chord with a dark, restless quality. D# Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          2,
+          2,
+          2
+        ],
+        "baseFret": 1,
+        "barres": [
+          2
+        ],
+        "midi": [
+          51,
+          57,
+          61,
+          66
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          2,
+          1,
+          2,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          0
+        ],
+        "baseFret": 6,
+        "barres": [],
+        "midi": [
+          51,
+          57,
+          61,
+          66
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          2,
+          1,
+          3
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          2,
+          1,
+          4
+        ],
+        "baseFret": 7,
+        "barres": [
+          1
+        ],
+        "midi": [
+          57,
+          63,
+          66,
+          73
+        ]
+      },
+      {
+        "frets": [
+          2,
+          -1,
+          2,
+          2,
+          1,
+          -1
+        ],
+        "fingers": [
+          2,
+          0,
+          3,
+          4,
+          1,
+          0
+        ],
+        "baseFret": 10,
+        "barres": [],
+        "midi": [
+          51,
+          61,
+          66,
+          69
+        ]
+      }
+    ]
+  },
+  {
+    "name": "D# Minor-Major 7th",
+    "slug": "d-sharp-mmaj7-chord-guitar",
+    "root": "D#",
+    "quality": "mMaj7",
+    "frets": [
+      -1,
+      -1,
+      1,
+      3,
+      3,
+      2
+    ],
+    "fingers": [
+      0,
+      0,
+      1,
+      3,
+      4,
+      2
+    ],
+    "barres": [],
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. D# Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          3,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          3,
+          4,
+          2
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          51,
+          58,
+          62,
+          66
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          4,
+          2,
+          1,
+          1,
+          -1
+        ],
+        "fingers": [
+          0,
+          4,
+          3,
+          1,
+          2,
+          0
+        ],
+        "baseFret": 3,
+        "barres": [],
+        "midi": [
+          51,
+          54,
+          58,
+          62
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          3,
+          2,
+          2,
+          1
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          2,
+          3,
+          1
+        ],
+        "baseFret": 6,
+        "barres": [
+          1
+        ],
+        "midi": [
+          51,
+          58,
+          62,
+          66,
+          70
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "fingers": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "baseFret": 11,
+        "barres": [
+          1
+        ],
+        "midi": [
+          51,
+          58,
+          62,
+          66,
+          70,
+          75
+        ],
+        "capo": true
+      }
+    ]
+  },
+  {
+    "name": "D# Augmented Major 7th",
+    "slug": "d-sharp-augmaj7-chord-guitar",
+    "root": "D#",
+    "quality": "augMaj7",
+    "frets": [
+      1,
+      4,
+      3,
+      2,
+      1,
+      1
+    ],
+    "fingers": [
+      1,
+      4,
+      3,
+      2,
+      1,
+      1
+    ],
+    "barres": [
+      1
+    ],
+    "description": "An augmented major seventh chord with a dreamy, floating quality. D# Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "baseFret": 3,
+    "allPositions": [
+      {
+        "frets": [
+          1,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "fingers": [
+          1,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "baseFret": 3,
+        "barres": [
+          1
+        ],
+        "midi": [
+          43,
+          51,
+          55,
+          59,
+          62,
+          67
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          2,
+          1,
+          3,
+          -1,
+          3
+        ],
+        "fingers": [
+          0,
+          2,
+          1,
+          3,
+          0,
+          4
+        ],
+        "baseFret": 5,
+        "barres": [],
+        "midi": [
+          51,
+          55,
+          62,
+          71
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          4,
+          2,
+          3,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          2,
+          3,
+          0
+        ],
+        "baseFret": 6,
+        "barres": [],
+        "midi": [
+          51,
+          59,
+          62,
+          67
+        ]
+      },
+      {
+        "frets": [
+          1,
+          -1,
+          2,
+          2,
+          2,
+          1
+        ],
+        "fingers": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          1
+        ],
+        "baseFret": 11,
+        "barres": [
+          1
+        ],
+        "midi": [
+          51,
+          62,
+          67,
+          71,
+          75
+        ],
+        "capo": true
+      }
+    ]
+  },
+  {
+    "name": "D# Augmented 7th",
+    "slug": "d-sharp-aug7-chord-guitar",
+    "root": "D#",
+    "quality": "aug7",
+    "frets": [
+      -1,
+      -1,
+      1,
+      4,
+      2,
+      3
+    ],
+    "fingers": [
+      0,
+      0,
+      1,
+      4,
+      2,
+      3
+    ],
+    "barres": [],
+    "description": "An augmented seventh chord with an unstable, restless character. D# Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          4,
+          2,
+          3
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          4,
+          2,
+          3
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          51,
+          59,
+          61,
+          67
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "baseFret": 6,
+        "barres": [
+          1
+        ],
+        "midi": [
+          51,
+          59,
+          61,
+          67,
+          71
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          3,
+          2,
+          3,
+          0,
+          0,
+          1
+        ],
+        "fingers": [
+          3,
+          2,
+          4,
+          0,
+          0,
+          1
+        ],
+        "baseFret": 9,
+        "barres": [],
+        "midi": [
+          51,
+          55,
+          61,
+          55,
+          59,
+          73
+        ]
+      },
+      {
+        "frets": [
+          1,
+          -1,
+          1,
+          2,
+          2,
+          -1
+        ],
+        "fingers": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          0
+        ],
+        "baseFret": 11,
+        "barres": [],
+        "midi": [
+          51,
+          61,
+          67,
+          71
         ]
       }
     ]
@@ -7153,6 +9378,574 @@ export const chords = [
           64,
           69,
           74
+        ]
+      }
+    ]
+  },
+  {
+    "name": "E Half-Diminished",
+    "slug": "e-m7b5-chord-guitar",
+    "root": "E",
+    "quality": "m7♭5",
+    "frets": [
+      0,
+      1,
+      2,
+      3,
+      3,
+      3
+    ],
+    "fingers": [
+      0,
+      1,
+      2,
+      3,
+      3,
+      3
+    ],
+    "barres": [
+      3
+    ],
+    "description": "A half-diminished seventh chord with a dark, restless quality. E Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          0,
+          1,
+          2,
+          3,
+          3,
+          3
+        ],
+        "fingers": [
+          0,
+          1,
+          2,
+          3,
+          3,
+          3
+        ],
+        "baseFret": 1,
+        "barres": [
+          3
+        ],
+        "midi": [
+          40,
+          46,
+          52,
+          58,
+          62,
+          67
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          2,
+          1,
+          2,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          0
+        ],
+        "baseFret": 7,
+        "barres": [],
+        "midi": [
+          52,
+          58,
+          62,
+          67
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          2,
+          1,
+          3
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          2,
+          1,
+          4
+        ],
+        "baseFret": 8,
+        "barres": [
+          1
+        ],
+        "midi": [
+          58,
+          64,
+          67,
+          74
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          2,
+          -1,
+          2,
+          2,
+          1,
+          -1
+        ],
+        "fingers": [
+          2,
+          0,
+          3,
+          4,
+          1,
+          0
+        ],
+        "baseFret": 11,
+        "barres": [],
+        "midi": [
+          52,
+          62,
+          67,
+          70
+        ]
+      }
+    ]
+  },
+  {
+    "name": "E Minor-Major 7th",
+    "slug": "e-mmaj7-chord-guitar",
+    "root": "E",
+    "quality": "mMaj7",
+    "frets": [
+      0,
+      2,
+      1,
+      0,
+      0,
+      0
+    ],
+    "fingers": [
+      0,
+      2,
+      1,
+      0,
+      0,
+      0
+    ],
+    "barres": [],
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. E Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          0,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        "fingers": [
+          0,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          40,
+          47,
+          51,
+          55,
+          59,
+          64
+        ]
+      },
+      {
+        "frets": [
+          0,
+          2,
+          2,
+          4,
+          4,
+          3
+        ],
+        "fingers": [
+          0,
+          1,
+          1,
+          3,
+          4,
+          2
+        ],
+        "baseFret": 1,
+        "barres": [
+          2
+        ],
+        "midi": [
+          40,
+          47,
+          52,
+          59,
+          63,
+          67
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          4,
+          2,
+          1,
+          1,
+          -1
+        ],
+        "fingers": [
+          0,
+          4,
+          2,
+          1,
+          1,
+          0
+        ],
+        "baseFret": 4,
+        "barres": [
+          1
+        ],
+        "midi": [
+          52,
+          55,
+          59,
+          63
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          1,
+          1,
+          3,
+          2,
+          2,
+          1
+        ],
+        "fingers": [
+          1,
+          1,
+          4,
+          2,
+          3,
+          1
+        ],
+        "baseFret": 7,
+        "barres": [
+          1
+        ],
+        "midi": [
+          47,
+          52,
+          59,
+          63,
+          67,
+          71
+        ],
+        "capo": true
+      }
+    ]
+  },
+  {
+    "name": "E Augmented Major 7th",
+    "slug": "e-augmaj7-chord-guitar",
+    "root": "E",
+    "quality": "augMaj7",
+    "frets": [
+      0,
+      3,
+      2,
+      1,
+      4,
+      4
+    ],
+    "fingers": [
+      0,
+      3,
+      2,
+      1,
+      4,
+      4
+    ],
+    "barres": [
+      4
+    ],
+    "description": "An augmented major seventh chord with a dreamy, floating quality. E Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          0,
+          3,
+          2,
+          1,
+          4,
+          4
+        ],
+        "fingers": [
+          0,
+          3,
+          2,
+          1,
+          4,
+          4
+        ],
+        "baseFret": 1,
+        "barres": [
+          4
+        ],
+        "midi": [
+          40,
+          48,
+          52,
+          56,
+          63,
+          68
+        ]
+      },
+      {
+        "frets": [
+          1,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "fingers": [
+          1,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "baseFret": 4,
+        "barres": [
+          1
+        ],
+        "midi": [
+          44,
+          52,
+          56,
+          60,
+          63,
+          68
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          4,
+          2,
+          3,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          2,
+          3,
+          0
+        ],
+        "baseFret": 7,
+        "barres": [],
+        "midi": [
+          52,
+          60,
+          63,
+          68
+        ]
+      },
+      {
+        "frets": [
+          0,
+          3,
+          2,
+          1,
+          1,
+          3
+        ],
+        "fingers": [
+          0,
+          3,
+          2,
+          1,
+          1,
+          4
+        ],
+        "baseFret": 9,
+        "barres": [
+          1
+        ],
+        "midi": [
+          40,
+          56,
+          60,
+          64,
+          68,
+          75
+        ]
+      }
+    ]
+  },
+  {
+    "name": "E Augmented 7th",
+    "slug": "e-aug7-chord-guitar",
+    "root": "E",
+    "quality": "aug7",
+    "frets": [
+      0,
+      3,
+      0,
+      1,
+      1,
+      0
+    ],
+    "fingers": [
+      0,
+      4,
+      0,
+      1,
+      2,
+      0
+    ],
+    "barres": [],
+    "description": "An augmented seventh chord with an unstable, restless character. E Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          0,
+          3,
+          0,
+          1,
+          1,
+          0
+        ],
+        "fingers": [
+          0,
+          4,
+          0,
+          1,
+          2,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          40,
+          48,
+          50,
+          56,
+          60,
+          64
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          4,
+          2,
+          3
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          4,
+          2,
+          3
+        ],
+        "baseFret": 2,
+        "barres": [],
+        "midi": [
+          52,
+          60,
+          62,
+          68
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "baseFret": 7,
+        "barres": [
+          1
+        ],
+        "midi": [
+          52,
+          60,
+          62,
+          68,
+          72
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          1,
+          -1,
+          1,
+          2,
+          2,
+          -1
+        ],
+        "fingers": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          0
+        ],
+        "baseFret": 12,
+        "barres": [],
+        "midi": [
+          52,
+          62,
+          68,
+          72
         ]
       }
     ]
@@ -8828,6 +11621,557 @@ export const chords = [
     ]
   },
   {
+    "name": "F Half-Diminished",
+    "slug": "f-m7b5-chord-guitar",
+    "root": "F",
+    "quality": "m7♭5",
+    "frets": [
+      1,
+      -1,
+      1,
+      1,
+      0,
+      -1
+    ],
+    "fingers": [
+      1,
+      0,
+      2,
+      3,
+      0,
+      0
+    ],
+    "barres": [],
+    "description": "A half-diminished seventh chord with a dark, restless quality. F Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          1,
+          -1,
+          1,
+          1,
+          0,
+          -1
+        ],
+        "fingers": [
+          1,
+          0,
+          2,
+          3,
+          0,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          41,
+          51,
+          56,
+          59
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          3,
+          4,
+          4,
+          4
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          2,
+          2,
+          2
+        ],
+        "baseFret": 1,
+        "barres": [
+          4
+        ],
+        "midi": [
+          53,
+          59,
+          63,
+          68
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          2,
+          1,
+          2,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          0
+        ],
+        "baseFret": 8,
+        "barres": [],
+        "midi": [
+          53,
+          59,
+          63,
+          68
+        ]
+      },
+      {
+        "frets": [
+          3,
+          1,
+          3,
+          3,
+          0,
+          -1
+        ],
+        "fingers": [
+          2,
+          1,
+          3,
+          4,
+          0,
+          0
+        ],
+        "baseFret": 11,
+        "barres": [],
+        "midi": [
+          53,
+          56,
+          63,
+          68,
+          59
+        ]
+      }
+    ]
+  },
+  {
+    "name": "F Minor-Major 7th",
+    "slug": "f-mmaj7-chord-guitar",
+    "root": "F",
+    "quality": "mMaj7",
+    "frets": [
+      1,
+      3,
+      2,
+      1,
+      1,
+      1
+    ],
+    "fingers": [
+      1,
+      3,
+      2,
+      1,
+      1,
+      1
+    ],
+    "barres": [
+      1
+    ],
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. F Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "fingers": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "baseFret": 1,
+        "barres": [
+          1
+        ],
+        "midi": [
+          41,
+          48,
+          52,
+          56,
+          60,
+          65
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          3,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          3,
+          4,
+          2
+        ],
+        "baseFret": 3,
+        "barres": [],
+        "midi": [
+          53,
+          60,
+          64,
+          68
+        ]
+      },
+      {
+        "frets": [
+          1,
+          1,
+          3,
+          2,
+          2,
+          1
+        ],
+        "fingers": [
+          1,
+          1,
+          4,
+          2,
+          3,
+          1
+        ],
+        "baseFret": 8,
+        "barres": [
+          1
+        ],
+        "midi": [
+          48,
+          53,
+          60,
+          64,
+          68,
+          72
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          4,
+          2,
+          2,
+          1
+        ],
+        "fingers": [
+          0,
+          0,
+          4,
+          2,
+          3,
+          1
+        ],
+        "baseFret": 12,
+        "barres": [],
+        "midi": [
+          65,
+          68,
+          72,
+          76
+        ]
+      }
+    ]
+  },
+  {
+    "name": "F Augmented Major 7th",
+    "slug": "f-augmaj7-chord-guitar",
+    "root": "F",
+    "quality": "augMaj7",
+    "frets": [
+      1,
+      0,
+      2,
+      2,
+      2,
+      0
+    ],
+    "fingers": [
+      1,
+      0,
+      2,
+      3,
+      4,
+      0
+    ],
+    "barres": [],
+    "description": "An augmented major seventh chord with a dreamy, floating quality. F Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          1,
+          0,
+          2,
+          2,
+          2,
+          0
+        ],
+        "fingers": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          41,
+          45,
+          52,
+          57,
+          61,
+          64
+        ]
+      },
+      {
+        "frets": [
+          1,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "fingers": [
+          1,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "baseFret": 5,
+        "barres": [
+          1
+        ],
+        "midi": [
+          45,
+          53,
+          57,
+          61,
+          64,
+          69
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          4,
+          2,
+          3,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          2,
+          3,
+          0
+        ],
+        "baseFret": 8,
+        "barres": [],
+        "midi": [
+          53,
+          61,
+          64,
+          69
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          4,
+          3,
+          3,
+          1
+        ],
+        "fingers": [
+          0,
+          0,
+          4,
+          2,
+          3,
+          1
+        ],
+        "baseFret": 12,
+        "barres": [],
+        "midi": [
+          65,
+          69,
+          73,
+          76
+        ]
+      }
+    ]
+  },
+  {
+    "name": "F Augmented 7th",
+    "slug": "f-aug7-chord-guitar",
+    "root": "F",
+    "quality": "aug7",
+    "frets": [
+      1,
+      0,
+      1,
+      2,
+      2,
+      -1
+    ],
+    "fingers": [
+      1,
+      0,
+      2,
+      3,
+      4,
+      0
+    ],
+    "barres": [],
+    "description": "An augmented seventh chord with an unstable, restless character. F Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          1,
+          0,
+          1,
+          2,
+          2,
+          -1
+        ],
+        "fingers": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          41,
+          45,
+          51,
+          57,
+          61
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          4,
+          2,
+          3
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          4,
+          2,
+          3
+        ],
+        "baseFret": 3,
+        "barres": [],
+        "midi": [
+          53,
+          61,
+          63,
+          69
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "baseFret": 8,
+        "barres": [
+          1
+        ],
+        "midi": [
+          53,
+          61,
+          63,
+          69,
+          73
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          2,
+          1,
+          2,
+          -1,
+          3,
+          -1
+        ],
+        "fingers": [
+          2,
+          1,
+          3,
+          0,
+          4,
+          0
+        ],
+        "baseFret": 12,
+        "barres": [],
+        "midi": [
+          53,
+          57,
+          63,
+          73
+        ]
+      }
+    ]
+  },
+  {
     "name": "F# Major",
     "slug": "f-sharp-major-chord-guitar",
     "root": "F#",
@@ -9524,6 +12868,569 @@ export const chords = [
           61,
           66
         ]
+      }
+    ]
+  },
+  {
+    "name": "F# Half-Diminished",
+    "slug": "f-sharp-m7b5-chord-guitar",
+    "root": "F#",
+    "quality": "m7♭5",
+    "frets": [
+      2,
+      0,
+      2,
+      2,
+      1,
+      0
+    ],
+    "fingers": [
+      2,
+      0,
+      3,
+      4,
+      1,
+      0
+    ],
+    "barres": [],
+    "description": "A half-diminished seventh chord with a dark, restless quality. F# Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          2,
+          0,
+          2,
+          2,
+          1,
+          0
+        ],
+        "fingers": [
+          2,
+          0,
+          3,
+          4,
+          1,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          42,
+          45,
+          52,
+          57,
+          60,
+          64
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          2,
+          2,
+          2
+        ],
+        "baseFret": 4,
+        "barres": [
+          2
+        ],
+        "midi": [
+          54,
+          60,
+          64,
+          69
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          2,
+          1,
+          2,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          0
+        ],
+        "baseFret": 9,
+        "barres": [],
+        "midi": [
+          54,
+          60,
+          64,
+          69
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          2,
+          1,
+          3
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          2,
+          1,
+          4
+        ],
+        "baseFret": 10,
+        "barres": [
+          1
+        ],
+        "midi": [
+          60,
+          66,
+          69,
+          76
+        ],
+        "capo": true
+      }
+    ]
+  },
+  {
+    "name": "F# Minor-Major 7th",
+    "slug": "f-sharp-mmaj7-chord-guitar",
+    "root": "F#",
+    "quality": "mMaj7",
+    "frets": [
+      2,
+      4,
+      3,
+      2,
+      2,
+      2
+    ],
+    "fingers": [
+      1,
+      3,
+      2,
+      1,
+      1,
+      1
+    ],
+    "barres": [
+      2
+    ],
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. F# Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          2,
+          4,
+          3,
+          2,
+          2,
+          2
+        ],
+        "fingers": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "baseFret": 1,
+        "barres": [
+          2
+        ],
+        "midi": [
+          42,
+          49,
+          53,
+          57,
+          61,
+          66
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          1,
+          3,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          1,
+          1,
+          3,
+          4,
+          2
+        ],
+        "baseFret": 4,
+        "barres": [
+          1
+        ],
+        "midi": [
+          49,
+          54,
+          61,
+          65,
+          69
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          4,
+          2,
+          1,
+          1,
+          -1
+        ],
+        "fingers": [
+          0,
+          4,
+          2,
+          1,
+          1,
+          0
+        ],
+        "baseFret": 6,
+        "barres": [
+          1
+        ],
+        "midi": [
+          54,
+          57,
+          61,
+          65
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          1,
+          1,
+          3,
+          2,
+          2,
+          1
+        ],
+        "fingers": [
+          1,
+          1,
+          4,
+          2,
+          3,
+          1
+        ],
+        "baseFret": 9,
+        "barres": [
+          1
+        ],
+        "midi": [
+          49,
+          54,
+          61,
+          65,
+          69,
+          73
+        ],
+        "capo": true
+      }
+    ]
+  },
+  {
+    "name": "F# Augmented Major 7th",
+    "slug": "f-sharp-augmaj7-chord-guitar",
+    "root": "F#",
+    "quality": "augMaj7",
+    "frets": [
+      2,
+      -1,
+      3,
+      3,
+      3,
+      -1
+    ],
+    "fingers": [
+      1,
+      0,
+      2,
+      3,
+      4,
+      0
+    ],
+    "barres": [],
+    "description": "An augmented major seventh chord with a dreamy, floating quality. F# Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          2,
+          -1,
+          3,
+          3,
+          3,
+          -1
+        ],
+        "fingers": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          42,
+          53,
+          58,
+          62
+        ]
+      },
+      {
+        "frets": [
+          1,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "fingers": [
+          1,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "baseFret": 6,
+        "barres": [
+          1
+        ],
+        "midi": [
+          46,
+          54,
+          58,
+          62,
+          65,
+          70
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          4,
+          2,
+          3,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          2,
+          3,
+          0
+        ],
+        "baseFret": 9,
+        "barres": [],
+        "midi": [
+          54,
+          62,
+          65,
+          70
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          2,
+          1,
+          1,
+          3
+        ],
+        "fingers": [
+          0,
+          0,
+          2,
+          1,
+          1,
+          4
+        ],
+        "baseFret": 11,
+        "barres": [
+          1
+        ],
+        "midi": [
+          62,
+          66,
+          70,
+          77
+        ],
+        "capo": true
+      }
+    ]
+  },
+  {
+    "name": "F# Augmented 7th",
+    "slug": "f-sharp-aug7-chord-guitar",
+    "root": "F#",
+    "quality": "aug7",
+    "frets": [
+      2,
+      -1,
+      2,
+      3,
+      3,
+      -1
+    ],
+    "fingers": [
+      1,
+      0,
+      2,
+      3,
+      4,
+      0
+    ],
+    "barres": [],
+    "description": "An augmented seventh chord with an unstable, restless character. F# Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          2,
+          -1,
+          2,
+          3,
+          3,
+          -1
+        ],
+        "fingers": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          42,
+          52,
+          58,
+          62
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          4,
+          2,
+          3
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          4,
+          2,
+          3
+        ],
+        "baseFret": 4,
+        "barres": [],
+        "midi": [
+          54,
+          62,
+          64,
+          70
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          3,
+          2,
+          1,
+          1,
+          0
+        ],
+        "fingers": [
+          0,
+          4,
+          3,
+          1,
+          2,
+          0
+        ],
+        "baseFret": 7,
+        "barres": [],
+        "midi": [
+          54,
+          58,
+          62,
+          66,
+          64
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "baseFret": 9,
+        "barres": [
+          1
+        ],
+        "midi": [
+          54,
+          62,
+          64,
+          70,
+          74
+        ],
+        "capo": true
       }
     ]
   },
@@ -11171,6 +15078,558 @@ export const chords = [
           72,
           74
         ]
+      }
+    ]
+  },
+  {
+    "name": "G Half-Diminished",
+    "slug": "g-m7b5-chord-guitar",
+    "root": "G",
+    "quality": "m7♭5",
+    "frets": [
+      3,
+      -1,
+      -1,
+      3,
+      2,
+      1
+    ],
+    "fingers": [
+      3,
+      0,
+      0,
+      4,
+      2,
+      1
+    ],
+    "barres": [],
+    "description": "A half-diminished seventh chord with a dark, restless quality. G Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          3,
+          -1,
+          -1,
+          3,
+          2,
+          1
+        ],
+        "fingers": [
+          3,
+          0,
+          0,
+          4,
+          2,
+          1
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          43,
+          58,
+          61,
+          65
+        ]
+      },
+      {
+        "frets": [
+          3,
+          -1,
+          3,
+          3,
+          2,
+          -1
+        ],
+        "fingers": [
+          2,
+          0,
+          3,
+          4,
+          1,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          43,
+          53,
+          58,
+          61
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          2,
+          2,
+          2
+        ],
+        "baseFret": 5,
+        "barres": [
+          2
+        ],
+        "midi": [
+          55,
+          61,
+          65,
+          70
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          2,
+          1,
+          2,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          0
+        ],
+        "baseFret": 10,
+        "barres": [],
+        "midi": [
+          55,
+          61,
+          65,
+          70
+        ]
+      }
+    ]
+  },
+  {
+    "name": "G Minor-Major 7th",
+    "slug": "g-mmaj7-chord-guitar",
+    "root": "G",
+    "quality": "mMaj7",
+    "frets": [
+      3,
+      1,
+      0,
+      0,
+      3,
+      2
+    ],
+    "fingers": [
+      3,
+      1,
+      0,
+      0,
+      4,
+      2
+    ],
+    "barres": [],
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. G Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          3,
+          1,
+          0,
+          0,
+          3,
+          2
+        ],
+        "fingers": [
+          3,
+          1,
+          0,
+          0,
+          4,
+          2
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          43,
+          46,
+          50,
+          55,
+          62,
+          66
+        ]
+      },
+      {
+        "frets": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "fingers": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "baseFret": 3,
+        "barres": [
+          1
+        ],
+        "midi": [
+          43,
+          50,
+          54,
+          58,
+          62,
+          67
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          1,
+          3,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          1,
+          1,
+          3,
+          4,
+          2
+        ],
+        "baseFret": 5,
+        "barres": [
+          1
+        ],
+        "midi": [
+          50,
+          55,
+          62,
+          66,
+          70
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          3,
+          2,
+          2,
+          1
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          2,
+          3,
+          1
+        ],
+        "baseFret": 10,
+        "barres": [
+          1
+        ],
+        "midi": [
+          55,
+          62,
+          66,
+          70,
+          74
+        ],
+        "capo": true
+      }
+    ]
+  },
+  {
+    "name": "G Augmented Major 7th",
+    "slug": "g-augmaj7-chord-guitar",
+    "root": "G",
+    "quality": "augMaj7",
+    "frets": [
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      2
+    ],
+    "fingers": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      3
+    ],
+    "barres": [],
+    "description": "An augmented major seventh chord with a dreamy, floating quality. G Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          0,
+          0,
+          2
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          3
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          51,
+          55,
+          59,
+          66
+        ]
+      },
+      {
+        "frets": [
+          3,
+          -1,
+          4,
+          4,
+          4,
+          -1
+        ],
+        "fingers": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          43,
+          54,
+          59,
+          63
+        ]
+      },
+      {
+        "frets": [
+          1,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "fingers": [
+          1,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "baseFret": 7,
+        "barres": [
+          1
+        ],
+        "midi": [
+          47,
+          55,
+          59,
+          63,
+          66,
+          71
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          4,
+          2,
+          3,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          2,
+          3,
+          0
+        ],
+        "baseFret": 10,
+        "barres": [],
+        "midi": [
+          55,
+          63,
+          66,
+          71
+        ]
+      }
+    ]
+  },
+  {
+    "name": "G Augmented 7th",
+    "slug": "g-aug7-chord-guitar",
+    "root": "G",
+    "quality": "aug7",
+    "frets": [
+      3,
+      2,
+      1,
+      0,
+      0,
+      1
+    ],
+    "fingers": [
+      4,
+      3,
+      1,
+      0,
+      0,
+      2
+    ],
+    "barres": [],
+    "description": "An augmented seventh chord with an unstable, restless character. G Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          3,
+          2,
+          1,
+          0,
+          0,
+          1
+        ],
+        "fingers": [
+          4,
+          3,
+          1,
+          0,
+          0,
+          2
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          43,
+          47,
+          51,
+          55,
+          59,
+          65
+        ]
+      },
+      {
+        "frets": [
+          3,
+          -1,
+          3,
+          4,
+          4,
+          -1
+        ],
+        "fingers": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          43,
+          53,
+          59,
+          63
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          4,
+          2,
+          3
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          4,
+          2,
+          3
+        ],
+        "baseFret": 5,
+        "barres": [],
+        "midi": [
+          55,
+          63,
+          65,
+          71
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "baseFret": 10,
+        "barres": [
+          1
+        ],
+        "midi": [
+          55,
+          63,
+          65,
+          71,
+          75
+        ],
+        "capo": true
       }
     ]
   },
@@ -12863,6 +17322,566 @@ export const chords = [
     ]
   },
   {
+    "name": "G# Half-Diminished",
+    "slug": "g-sharp-m7b5-chord-guitar",
+    "root": "G#",
+    "quality": "m7♭5",
+    "frets": [
+      -1,
+      -1,
+      0,
+      1,
+      0,
+      2
+    ],
+    "fingers": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      3
+    ],
+    "barres": [],
+    "description": "A half-diminished seventh chord with a dark, restless quality. G# Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          -1,
+          0,
+          1,
+          0,
+          2
+        ],
+        "fingers": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          3
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          50,
+          56,
+          59,
+          66
+        ]
+      },
+      {
+        "frets": [
+          4,
+          -1,
+          4,
+          4,
+          3,
+          -1
+        ],
+        "fingers": [
+          2,
+          0,
+          3,
+          4,
+          1,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          44,
+          54,
+          59,
+          62
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          2,
+          2,
+          2
+        ],
+        "baseFret": 6,
+        "barres": [
+          2
+        ],
+        "midi": [
+          56,
+          62,
+          66,
+          71
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          2,
+          1,
+          2,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          0
+        ],
+        "baseFret": 11,
+        "barres": [],
+        "midi": [
+          56,
+          62,
+          66,
+          71
+        ]
+      }
+    ]
+  },
+  {
+    "name": "G# Minor-Major 7th",
+    "slug": "g-sharp-mmaj7-chord-guitar",
+    "root": "G#",
+    "quality": "mMaj7",
+    "frets": [
+      -1,
+      2,
+      1,
+      1,
+      4,
+      3
+    ],
+    "fingers": [
+      0,
+      2,
+      1,
+      1,
+      4,
+      3
+    ],
+    "barres": [
+      1
+    ],
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. G# Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          2,
+          1,
+          1,
+          4,
+          3
+        ],
+        "fingers": [
+          0,
+          2,
+          1,
+          1,
+          4,
+          3
+        ],
+        "baseFret": 1,
+        "barres": [
+          1
+        ],
+        "midi": [
+          47,
+          51,
+          56,
+          63,
+          67
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "fingers": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "baseFret": 4,
+        "barres": [
+          1
+        ],
+        "midi": [
+          44,
+          51,
+          55,
+          59,
+          63,
+          68
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          1,
+          3,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          1,
+          1,
+          3,
+          4,
+          2
+        ],
+        "baseFret": 6,
+        "barres": [
+          1
+        ],
+        "midi": [
+          51,
+          56,
+          63,
+          67,
+          71
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          3,
+          2,
+          2,
+          1
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          2,
+          3,
+          1
+        ],
+        "baseFret": 11,
+        "barres": [
+          1
+        ],
+        "midi": [
+          56,
+          63,
+          67,
+          71,
+          75
+        ],
+        "capo": true
+      }
+    ]
+  },
+  {
+    "name": "G# Augmented Major 7th",
+    "slug": "g-sharp-augmaj7-chord-guitar",
+    "root": "G#",
+    "quality": "augMaj7",
+    "frets": [
+      4,
+      3,
+      2,
+      0,
+      1,
+      0
+    ],
+    "fingers": [
+      4,
+      3,
+      2,
+      0,
+      1,
+      0
+    ],
+    "barres": [],
+    "description": "An augmented major seventh chord with a dreamy, floating quality. G# Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          4,
+          3,
+          2,
+          0,
+          1,
+          0
+        ],
+        "fingers": [
+          4,
+          3,
+          2,
+          0,
+          1,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          44,
+          48,
+          52,
+          55,
+          60,
+          64
+        ]
+      },
+      {
+        "frets": [
+          2,
+          1,
+          3,
+          0,
+          3,
+          0
+        ],
+        "fingers": [
+          2,
+          1,
+          3,
+          0,
+          4,
+          0
+        ],
+        "baseFret": 3,
+        "barres": [],
+        "midi": [
+          44,
+          48,
+          55,
+          55,
+          64,
+          64
+        ]
+      },
+      {
+        "frets": [
+          1,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "fingers": [
+          1,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "baseFret": 8,
+        "barres": [
+          1
+        ],
+        "midi": [
+          48,
+          56,
+          60,
+          64,
+          67,
+          72
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          4,
+          2,
+          3,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          2,
+          3,
+          0
+        ],
+        "baseFret": 11,
+        "barres": [],
+        "midi": [
+          56,
+          64,
+          67,
+          72
+        ]
+      }
+    ]
+  },
+  {
+    "name": "G# Augmented 7th",
+    "slug": "g-sharp-aug7-chord-guitar",
+    "root": "G#",
+    "quality": "aug7",
+    "frets": [
+      1,
+      -1,
+      1,
+      2,
+      2,
+      0
+    ],
+    "fingers": [
+      1,
+      0,
+      2,
+      3,
+      4,
+      0
+    ],
+    "barres": [],
+    "description": "An augmented seventh chord with an unstable, restless character. G# Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "baseFret": 4,
+    "allPositions": [
+      {
+        "frets": [
+          1,
+          -1,
+          1,
+          2,
+          2,
+          0
+        ],
+        "fingers": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          0
+        ],
+        "baseFret": 4,
+        "barres": [],
+        "midi": [
+          44,
+          54,
+          60,
+          64,
+          64
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          4,
+          2,
+          3
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          4,
+          2,
+          3
+        ],
+        "baseFret": 6,
+        "barres": [],
+        "midi": [
+          56,
+          64,
+          66,
+          72
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          3,
+          2,
+          3,
+          1,
+          0
+        ],
+        "fingers": [
+          0,
+          3,
+          2,
+          4,
+          1,
+          0
+        ],
+        "baseFret": 9,
+        "barres": [],
+        "midi": [
+          56,
+          60,
+          66,
+          68,
+          64
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "baseFret": 11,
+        "barres": [
+          1
+        ],
+        "midi": [
+          56,
+          64,
+          66,
+          72,
+          76
+        ],
+        "capo": true
+      }
+    ]
+  },
+  {
     "name": "A Major",
     "slug": "a-major-chord-guitar",
     "root": "A",
@@ -14461,6 +19480,572 @@ export const chords = [
           67,
           69,
           74
+        ]
+      }
+    ]
+  },
+  {
+    "name": "A Half-Diminished",
+    "slug": "a-m7b5-chord-guitar",
+    "root": "A",
+    "quality": "m7♭5",
+    "frets": [
+      -1,
+      0,
+      1,
+      0,
+      1,
+      -1
+    ],
+    "fingers": [
+      0,
+      0,
+      2,
+      0,
+      3,
+      0
+    ],
+    "barres": [],
+    "description": "A half-diminished seventh chord with a dark, restless quality. A Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          0,
+          1,
+          0,
+          1,
+          -1
+        ],
+        "fingers": [
+          0,
+          0,
+          2,
+          0,
+          3,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          45,
+          51,
+          55,
+          60
+        ]
+      },
+      {
+        "frets": [
+          2,
+          -1,
+          2,
+          2,
+          1,
+          -1
+        ],
+        "fingers": [
+          2,
+          0,
+          3,
+          4,
+          1,
+          0
+        ],
+        "baseFret": 4,
+        "barres": [],
+        "midi": [
+          45,
+          55,
+          60,
+          63
+        ]
+      },
+      {
+        "frets": [
+          1,
+          2,
+          3,
+          1,
+          4,
+          1
+        ],
+        "fingers": [
+          1,
+          2,
+          3,
+          1,
+          4,
+          1
+        ],
+        "baseFret": 5,
+        "barres": [
+          1
+        ],
+        "midi": [
+          45,
+          51,
+          57,
+          60,
+          67,
+          69
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          2,
+          2,
+          2
+        ],
+        "baseFret": 7,
+        "barres": [
+          2
+        ],
+        "midi": [
+          57,
+          63,
+          67,
+          72
+        ]
+      }
+    ]
+  },
+  {
+    "name": "A Minor-Major 7th",
+    "slug": "a-mmaj7-chord-guitar",
+    "root": "A",
+    "quality": "mMaj7",
+    "frets": [
+      -1,
+      0,
+      2,
+      1,
+      1,
+      0
+    ],
+    "fingers": [
+      0,
+      0,
+      3,
+      1,
+      2,
+      0
+    ],
+    "barres": [],
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. A Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          0,
+          2,
+          1,
+          1,
+          0
+        ],
+        "fingers": [
+          0,
+          0,
+          3,
+          1,
+          2,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          45,
+          52,
+          56,
+          60,
+          64
+        ]
+      },
+      {
+        "frets": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "fingers": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "baseFret": 5,
+        "barres": [
+          1
+        ],
+        "midi": [
+          45,
+          52,
+          56,
+          60,
+          64,
+          69
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          1,
+          3,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          1,
+          1,
+          3,
+          4,
+          2
+        ],
+        "baseFret": 7,
+        "barres": [
+          1
+        ],
+        "midi": [
+          52,
+          57,
+          64,
+          68,
+          72
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          4,
+          2,
+          1,
+          1,
+          -1
+        ],
+        "fingers": [
+          0,
+          4,
+          2,
+          1,
+          1,
+          0
+        ],
+        "baseFret": 9,
+        "barres": [
+          1
+        ],
+        "midi": [
+          57,
+          60,
+          64,
+          68
+        ],
+        "capo": true
+      }
+    ]
+  },
+  {
+    "name": "A Augmented Major 7th",
+    "slug": "a-augmaj7-chord-guitar",
+    "root": "A",
+    "quality": "augMaj7",
+    "frets": [
+      -1,
+      0,
+      3,
+      1,
+      2,
+      1
+    ],
+    "fingers": [
+      0,
+      0,
+      3,
+      1,
+      2,
+      1
+    ],
+    "barres": [
+      1
+    ],
+    "description": "An augmented major seventh chord with a dreamy, floating quality. A Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          0,
+          3,
+          1,
+          2,
+          1
+        ],
+        "fingers": [
+          0,
+          0,
+          3,
+          1,
+          2,
+          1
+        ],
+        "baseFret": 1,
+        "barres": [
+          1
+        ],
+        "midi": [
+          45,
+          53,
+          56,
+          61,
+          65
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          0,
+          3,
+          2,
+          2,
+          4
+        ],
+        "fingers": [
+          0,
+          0,
+          2,
+          1,
+          1,
+          3
+        ],
+        "baseFret": 1,
+        "barres": [
+          2
+        ],
+        "midi": [
+          45,
+          53,
+          57,
+          61,
+          68
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          0,
+          2,
+          2,
+          2,
+          1
+        ],
+        "fingers": [
+          0,
+          0,
+          2,
+          3,
+          4,
+          1
+        ],
+        "baseFret": 5,
+        "barres": [],
+        "midi": [
+          45,
+          56,
+          61,
+          65,
+          69
+        ]
+      },
+      {
+        "frets": [
+          1,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "fingers": [
+          0,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "baseFret": 9,
+        "barres": [
+          1
+        ],
+        "midi": [
+          49,
+          57,
+          61,
+          65,
+          68,
+          73
+        ],
+        "capo": true
+      }
+    ]
+  },
+  {
+    "name": "A Augmented 7th",
+    "slug": "a-aug7-chord-guitar",
+    "root": "A",
+    "quality": "aug7",
+    "frets": [
+      -1,
+      0,
+      3,
+      0,
+      2,
+      1
+    ],
+    "fingers": [
+      0,
+      0,
+      3,
+      0,
+      2,
+      1
+    ],
+    "barres": [],
+    "description": "An augmented seventh chord with an unstable, restless character. A Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          0,
+          3,
+          0,
+          2,
+          1
+        ],
+        "fingers": [
+          0,
+          0,
+          3,
+          0,
+          2,
+          1
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          45,
+          53,
+          55,
+          61,
+          65
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          0,
+          3,
+          2,
+          2,
+          3
+        ],
+        "fingers": [
+          0,
+          0,
+          2,
+          1,
+          1,
+          3
+        ],
+        "baseFret": 1,
+        "barres": [
+          2
+        ],
+        "midi": [
+          45,
+          53,
+          57,
+          61,
+          67
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          0,
+          1,
+          2,
+          2,
+          1
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          2,
+          3,
+          1
+        ],
+        "baseFret": 5,
+        "barres": [
+          1
+        ],
+        "midi": [
+          45,
+          55,
+          61,
+          65,
+          69
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          4,
+          2,
+          3
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          4,
+          2,
+          3
+        ],
+        "baseFret": 7,
+        "barres": [],
+        "midi": [
+          57,
+          65,
+          67,
+          73
         ]
       }
     ]
@@ -16132,6 +21717,568 @@ export const chords = [
           65,
           68,
           75
+        ]
+      }
+    ]
+  },
+  {
+    "name": "A# Half-Diminished",
+    "slug": "a-sharp-m7b5-chord-guitar",
+    "root": "A#",
+    "quality": "m7♭5",
+    "frets": [
+      -1,
+      1,
+      2,
+      1,
+      2,
+      -1
+    ],
+    "fingers": [
+      0,
+      1,
+      3,
+      2,
+      4,
+      0
+    ],
+    "barres": [],
+    "description": "A half-diminished seventh chord with a dark, restless quality. A# Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          1,
+          2,
+          1,
+          2,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          46,
+          52,
+          56,
+          61
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          2,
+          3,
+          2,
+          4
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          2,
+          1,
+          4
+        ],
+        "baseFret": 1,
+        "barres": [
+          2
+        ],
+        "midi": [
+          52,
+          58,
+          61,
+          68
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          2,
+          -1,
+          2,
+          2,
+          1,
+          -1
+        ],
+        "fingers": [
+          2,
+          0,
+          3,
+          4,
+          1,
+          0
+        ],
+        "baseFret": 5,
+        "barres": [],
+        "midi": [
+          46,
+          56,
+          61,
+          64
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          2,
+          2,
+          2
+        ],
+        "baseFret": 8,
+        "barres": [
+          2
+        ],
+        "midi": [
+          58,
+          64,
+          68,
+          73
+        ]
+      }
+    ]
+  },
+  {
+    "name": "A# Minor-Major 7th",
+    "slug": "a-sharp-mmaj7-chord-guitar",
+    "root": "A#",
+    "quality": "mMaj7",
+    "frets": [
+      -1,
+      1,
+      3,
+      2,
+      2,
+      1
+    ],
+    "fingers": [
+      0,
+      1,
+      4,
+      2,
+      3,
+      1
+    ],
+    "barres": [
+      1
+    ],
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. A# Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          1,
+          3,
+          2,
+          2,
+          1
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          2,
+          3,
+          1
+        ],
+        "baseFret": 1,
+        "barres": [
+          1
+        ],
+        "midi": [
+          46,
+          53,
+          57,
+          61,
+          65
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "fingers": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "baseFret": 6,
+        "barres": [
+          1
+        ],
+        "midi": [
+          46,
+          53,
+          57,
+          61,
+          65,
+          70
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          1,
+          3,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          1,
+          1,
+          3,
+          4,
+          2
+        ],
+        "baseFret": 8,
+        "barres": [
+          1
+        ],
+        "midi": [
+          53,
+          58,
+          65,
+          69,
+          73
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          4,
+          2,
+          1,
+          1,
+          -1
+        ],
+        "fingers": [
+          0,
+          4,
+          2,
+          1,
+          1,
+          0
+        ],
+        "baseFret": 10,
+        "barres": [
+          1
+        ],
+        "midi": [
+          58,
+          61,
+          65,
+          69
+        ],
+        "capo": true
+      }
+    ]
+  },
+  {
+    "name": "A# Augmented Major 7th",
+    "slug": "a-sharp-augmaj7-chord-guitar",
+    "root": "A#",
+    "quality": "augMaj7",
+    "frets": [
+      -1,
+      1,
+      0,
+      2,
+      3,
+      2
+    ],
+    "fingers": [
+      0,
+      1,
+      0,
+      2,
+      4,
+      3
+    ],
+    "barres": [],
+    "description": "An augmented major seventh chord with a dreamy, floating quality. A# Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          1,
+          0,
+          2,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          1,
+          0,
+          2,
+          4,
+          3
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          46,
+          50,
+          57,
+          62,
+          66
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          2,
+          1,
+          1,
+          3
+        ],
+        "fingers": [
+          0,
+          0,
+          2,
+          1,
+          1,
+          4
+        ],
+        "baseFret": 3,
+        "barres": [
+          1
+        ],
+        "midi": [
+          54,
+          58,
+          62,
+          69
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          1,
+          -1,
+          2,
+          2,
+          2,
+          -1
+        ],
+        "fingers": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          0
+        ],
+        "baseFret": 6,
+        "barres": [],
+        "midi": [
+          46,
+          57,
+          62,
+          66
+        ]
+      },
+      {
+        "frets": [
+          1,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "fingers": [
+          1,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "baseFret": 10,
+        "barres": [
+          1
+        ],
+        "midi": [
+          50,
+          58,
+          62,
+          66,
+          69,
+          74
+        ],
+        "capo": true
+      }
+    ]
+  },
+  {
+    "name": "A# Augmented 7th",
+    "slug": "a-sharp-aug7-chord-guitar",
+    "root": "A#",
+    "quality": "aug7",
+    "frets": [
+      -1,
+      1,
+      4,
+      1,
+      3,
+      2
+    ],
+    "fingers": [
+      0,
+      1,
+      4,
+      1,
+      3,
+      2
+    ],
+    "barres": [
+      1
+    ],
+    "description": "An augmented seventh chord with an unstable, restless character. A# Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "baseFret": 1,
+        "barres": [
+          1
+        ],
+        "midi": [
+          46,
+          54,
+          56,
+          62,
+          66
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          1,
+          -1,
+          1,
+          2,
+          2,
+          -1
+        ],
+        "fingers": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          0
+        ],
+        "baseFret": 6,
+        "barres": [],
+        "midi": [
+          46,
+          56,
+          62,
+          66
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          4,
+          2,
+          3
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          4,
+          2,
+          3
+        ],
+        "baseFret": 8,
+        "barres": [],
+        "midi": [
+          58,
+          66,
+          68,
+          74
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          2,
+          1,
+          2,
+          -1,
+          3
+        ],
+        "fingers": [
+          0,
+          2,
+          1,
+          3,
+          0,
+          4
+        ],
+        "baseFret": 12,
+        "barres": [],
+        "midi": [
+          58,
+          62,
+          68,
+          78
         ]
       }
     ]
@@ -17810,7 +23957,565 @@ export const chords = [
         ]
       }
     ]
-  }
+  },
+  {
+    "name": "B Half-Diminished",
+    "slug": "b-m7b5-chord-guitar",
+    "root": "B",
+    "quality": "m7♭5",
+    "frets": [
+      -1,
+      2,
+      3,
+      2,
+      3,
+      -1
+    ],
+    "fingers": [
+      0,
+      1,
+      3,
+      2,
+      4,
+      0
+    ],
+    "barres": [],
+    "description": "A half-diminished seventh chord with a dark, restless quality. B Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          2,
+          3,
+          2,
+          3,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          0
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          47,
+          53,
+          57,
+          62
+        ]
+      },
+      {
+        "frets": [
+          2,
+          -1,
+          2,
+          2,
+          1,
+          -1
+        ],
+        "fingers": [
+          2,
+          0,
+          3,
+          4,
+          1,
+          0
+        ],
+        "baseFret": 6,
+        "barres": [],
+        "midi": [
+          47,
+          57,
+          62,
+          65
+        ]
+      },
+      {
+        "frets": [
+          1,
+          2,
+          3,
+          1,
+          4,
+          1
+        ],
+        "fingers": [
+          1,
+          2,
+          3,
+          1,
+          4,
+          1
+        ],
+        "baseFret": 7,
+        "barres": [
+          1
+        ],
+        "midi": [
+          47,
+          53,
+          59,
+          62,
+          69,
+          71
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          2,
+          2,
+          2
+        ],
+        "baseFret": 9,
+        "barres": [
+          2
+        ],
+        "midi": [
+          59,
+          65,
+          69,
+          74
+        ]
+      }
+    ]
+  },
+  {
+    "name": "B Minor-Major 7th",
+    "slug": "b-mmaj7-chord-guitar",
+    "root": "B",
+    "quality": "mMaj7",
+    "frets": [
+      -1,
+      2,
+      0,
+      3,
+      0,
+      2
+    ],
+    "fingers": [
+      0,
+      1,
+      0,
+      3,
+      0,
+      2
+    ],
+    "barres": [],
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. B Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          2,
+          0,
+          3,
+          0,
+          2
+        ],
+        "fingers": [
+          0,
+          1,
+          0,
+          3,
+          0,
+          2
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          47,
+          50,
+          58,
+          59,
+          66
+        ]
+      },
+      {
+        "frets": [
+          2,
+          2,
+          4,
+          3,
+          3,
+          2
+        ],
+        "fingers": [
+          1,
+          1,
+          4,
+          2,
+          3,
+          1
+        ],
+        "baseFret": 1,
+        "barres": [
+          2
+        ],
+        "midi": [
+          42,
+          47,
+          54,
+          58,
+          62,
+          66
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "fingers": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "baseFret": 7,
+        "barres": [
+          1
+        ],
+        "midi": [
+          47,
+          54,
+          58,
+          62,
+          66,
+          71
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          1,
+          3,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          1,
+          1,
+          3,
+          4,
+          2
+        ],
+        "baseFret": 9,
+        "barres": [
+          1
+        ],
+        "midi": [
+          54,
+          59,
+          66,
+          70,
+          74
+        ],
+        "capo": true
+      }
+    ]
+  },
+  {
+    "name": "B Augmented Major 7th",
+    "slug": "b-augmaj7-chord-guitar",
+    "root": "B",
+    "quality": "augMaj7",
+    "frets": [
+      -1,
+      2,
+      1,
+      3,
+      0,
+      3
+    ],
+    "fingers": [
+      0,
+      2,
+      1,
+      3,
+      0,
+      4
+    ],
+    "barres": [],
+    "description": "An augmented major seventh chord with a dreamy, floating quality. B Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          2,
+          1,
+          3,
+          0,
+          3
+        ],
+        "fingers": [
+          0,
+          2,
+          1,
+          3,
+          0,
+          4
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          47,
+          51,
+          58,
+          59,
+          67
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          4,
+          2,
+          3,
+          -1
+        ],
+        "fingers": [
+          0,
+          1,
+          4,
+          2,
+          3,
+          0
+        ],
+        "baseFret": 2,
+        "barres": [],
+        "midi": [
+          47,
+          55,
+          58,
+          63
+        ]
+      },
+      {
+        "frets": [
+          2,
+          1,
+          3,
+          0,
+          3,
+          -1
+        ],
+        "fingers": [
+          2,
+          1,
+          3,
+          0,
+          3,
+          0
+        ],
+        "baseFret": 6,
+        "barres": [],
+        "midi": [
+          47,
+          51,
+          58,
+          55,
+          67
+        ]
+      },
+      {
+        "frets": [
+          1,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "fingers": [
+          1,
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "baseFret": 11,
+        "barres": [
+          1
+        ],
+        "midi": [
+          51,
+          59,
+          63,
+          67,
+          70,
+          75
+        ],
+        "capo": true
+      }
+    ]
+  },
+  {
+    "name": "B Augmented 7th",
+    "slug": "b-aug7-chord-guitar",
+    "root": "B",
+    "quality": "aug7",
+    "frets": [
+      -1,
+      2,
+      1,
+      2,
+      0,
+      3
+    ],
+    "fingers": [
+      0,
+      2,
+      1,
+      3,
+      0,
+      4
+    ],
+    "barres": [],
+    "description": "An augmented seventh chord with an unstable, restless character. B Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "baseFret": 1,
+    "allPositions": [
+      {
+        "frets": [
+          -1,
+          2,
+          1,
+          2,
+          0,
+          3
+        ],
+        "fingers": [
+          0,
+          2,
+          1,
+          3,
+          0,
+          4
+        ],
+        "baseFret": 1,
+        "barres": [],
+        "midi": [
+          47,
+          51,
+          57,
+          59,
+          67
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "fingers": [
+          0,
+          0,
+          2,
+          1,
+          1,
+          3
+        ],
+        "baseFret": 2,
+        "barres": [
+          1
+        ],
+        "midi": [
+          47,
+          55,
+          57,
+          63,
+          67
+        ],
+        "capo": true
+      },
+      {
+        "frets": [
+          1,
+          -1,
+          1,
+          2,
+          2,
+          -1
+        ],
+        "fingers": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          0
+        ],
+        "baseFret": 7,
+        "barres": [],
+        "midi": [
+          47,
+          57,
+          63,
+          67
+        ]
+      },
+      {
+        "frets": [
+          -1,
+          -1,
+          1,
+          4,
+          2,
+          3
+        ],
+        "fingers": [
+          0,
+          0,
+          1,
+          4,
+          2,
+          3
+        ],
+        "baseFret": 9,
+        "barres": [],
+        "midi": [
+          59,
+          67,
+          69,
+          75
+        ]
+      }
+    ]
+  },
 ];
 
 

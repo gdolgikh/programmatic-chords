@@ -60,6 +60,22 @@ const qualityAliases = {
     ['7sus4'],
     ['dominant 7th suspended 4th'],
   ],
+  'm7♭5': [
+    ['m7♭5', 'm7b5', 'ø', 'ø7', 'half-dim', 'half-dim7'],
+    ['half-diminished seventh', 'half-diminished 7th'],
+  ],
+  'mMaj7': [
+    ['mMaj7', 'm(maj7)', 'mM7', 'minMaj7', '-Δ7'],
+    ['minor-major seventh', 'minor-major 7th'],
+  ],
+  'augMaj7': [
+    ['augMaj7', 'aug(maj7)', '+maj7', '+M7', '+Δ7'],
+    ['augmented major seventh', 'augmented major 7th'],
+  ],
+  'aug7': [
+    ['aug7', '+7', 'augdom7'],
+    ['augmented seventh', 'augmented 7th'],
+  ],
 };
 
 /**

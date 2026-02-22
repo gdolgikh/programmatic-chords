@@ -25,19 +25,6 @@ import Layout from '../components/Layout.astro';
     <div class="chord-grid" id="chordGrid"></div>
   </section>
 
-  <!-- Chord Diagram -->
-  <section class="diagram-section" id="diagramSection">
-    <div class="diagram-header">
-      <span class="diagram-chord-name" id="diagramName"></span>
-      <span class="diagram-quality" id="diagramQuality"></span>
-    </div>
-    <div class="diagram-container">
-      <div class="diagram-svg-wrap" id="diagramSvg"></div>
-    </div>
-    <div class="diagram-notes" id="diagramNotes"></div>
-    <button class="add-to-progression" id="addToProgression">+ Add to Progression</button>
-  </section>
-
   <!-- Progression Builder -->
   <section class="progression-section">
     <span class="selector-label">Progression</span>
@@ -298,6 +285,7 @@ html.dark .scale-select {
 }
 
 .chord-cell {
+  position: relative;
   padding: 0.4rem 0.2rem;
   text-align: center;
   border-bottom: 1px solid var(--rule);
@@ -344,6 +332,50 @@ html.dark .scale-select {
   line-height: 1.2;
 }
 
+.cell-add {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ink);
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.12s ease, background 0.12s ease;
+}
+
+.chord-cell:hover .cell-add,
+.chord-cell.active .cell-add {
+  opacity: 1;
+}
+
+.cell-add:hover {
+  background: var(--ink);
+  color: var(--cream);
+  border-color: var(--ink);
+}
+
+.chord-cell.active .cell-add {
+  color: var(--cream);
+  background: transparent;
+  border-color: var(--cream);
+}
+
+.chord-cell.active .cell-add:hover {
+  background: var(--cream);
+  color: var(--ink);
+}
+
 /* Triad row emphasis */
 .chord-cell.triad-row:not(.empty) {
   min-height: 2.8rem;
@@ -352,85 +384,6 @@ html.dark .scale-select {
 .chord-cell.triad-row .cell-name {
   font-size: 0.82rem;
   font-weight: 500;
-}
-
-/* ═══════════════════════════════════════════
-   Chord Diagram
-   ═══════════════════════════════════════════ */
-.diagram-section {
-  margin-bottom: 2rem;
-  border: 1px solid var(--rule);
-  padding: 1.5rem;
-  display: none;
-}
-
-.diagram-section.visible {
-  display: block;
-}
-
-.diagram-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.diagram-chord-name {
-  font-family: var(--font-serif);
-  font-size: 1.4rem;
-  font-weight: 700;
-}
-
-.diagram-quality {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--ink-faded);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.diagram-container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.diagram-svg-wrap {
-  flex-shrink: 0;
-}
-
-.diagram-notes {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--ink-faded);
-  margin-top: 1rem;
-  text-align: center;
-}
-
-.add-to-progression {
-  display: block;
-  margin: 1rem auto 0;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 0.55rem 1.25rem;
-  background: var(--ink);
-  color: var(--cream);
-  border: none;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.add-to-progression:hover {
-  opacity: 0.85;
-}
-
-.add-to-progression:active {
-  transform: scale(0.97);
 }
 
 /* ═══════════════════════════════════════════
@@ -449,12 +402,12 @@ html.dark .scale-select {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  min-height: 2.5rem;
+  min-height: 3rem;
   padding: 0.5rem;
   border: 1px solid var(--rule);
   background: var(--paper);
   margin-bottom: 1rem;
-  align-items: center;
+  align-items: stretch;
 }
 
 .progression-strip.empty-state {
@@ -462,7 +415,7 @@ html.dark .scale-select {
 }
 
 .progression-strip.empty-state::after {
-  content: 'Select a chord, then press + Add to build a progression';
+  content: 'Click + on any chord to build a progression';
   font-family: var(--font-mono);
   font-size: 0.7rem;
   color: var(--ink-faded);
@@ -472,14 +425,13 @@ html.dark .scale-select {
 .chord-chip {
   position: relative;
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.35rem 0.6rem;
+  width: 85px;
+  padding: 0.4rem;
   background: var(--card-bg);
   border: 1px solid var(--rule);
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 500;
   color: var(--ink);
   cursor: grab;
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
@@ -495,6 +447,30 @@ html.dark .scale-select {
   background: var(--ink);
   color: var(--cream);
   border-color: var(--ink);
+}
+
+.chord-chip.playing .chip-diagram svg {
+  --diagram-nut: var(--cream);
+  --diagram-dot: var(--cream);
+  --diagram-line: rgba(255,255,255,0.3);
+  --diagram-mute: rgba(255,255,255,0.5);
+  --diagram-open: rgba(255,255,255,0.5);
+}
+
+.chord-chip.playing .chip-name {
+  color: var(--cream);
+}
+
+.chord-chip.playing .chip-actions {
+  color: var(--cream);
+}
+
+.chord-chip.playing .chip-link {
+  color: rgba(255,255,255,0.6);
+}
+
+.chord-chip.playing .chip-remove {
+  color: rgba(255,255,255,0.6);
 }
 
 .chord-chip.dragging {
@@ -524,6 +500,56 @@ html.dark .scale-select {
   border-radius: 1px;
 }
 
+.chip-diagram {
+  max-width: 60px;
+  line-height: 0;
+}
+
+.chip-diagram svg {
+  width: 100%;
+  height: auto;
+}
+
+.chip-name {
+  font-size: 0.7rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 0.15rem;
+  text-align: center;
+  color: var(--ink);
+}
+
+.chip-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.15rem;
+}
+
+.chip-link {
+  font-size: 0.65rem;
+  color: var(--ink-faded);
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.chip-link:hover {
+  color: var(--ink);
+}
+
+.chip-remove {
+  font-size: 0.65rem;
+  color: var(--ink-faded);
+  cursor: pointer;
+  padding: 0 0.1rem;
+  line-height: 1;
+}
+
+.chip-remove:hover {
+  color: var(--red);
+}
+
 .drag-ghost {
   position: fixed;
   z-index: 999;
@@ -539,18 +565,6 @@ html.dark .scale-select {
   font-weight: 500;
   opacity: 0.9;
   white-space: nowrap;
-}
-
-.chip-remove {
-  font-size: 0.65rem;
-  color: var(--ink-faded);
-  cursor: pointer;
-  padding: 0 0.1rem;
-  line-height: 1;
-}
-
-.chip-remove:hover {
-  color: var(--red);
 }
 
 .progression-controls {
@@ -1523,7 +1537,7 @@ html.dark .setting-select {
             } else {
               const suffix = MusicTheory.chordSuffix(quality);
               const name = d.note + suffix;
-              html += `<div class="chord-cell ${isTriad ? 'triad-row' : ''}" data-degree="${d.degree}" data-quality="${quality}" data-pc="${d.pc}" data-name="${name}"><span class="cell-name">${name}</span></div>`;
+              html += `<div class="chord-cell ${isTriad ? 'triad-row' : ''}" data-degree="${d.degree}" data-quality="${quality}" data-pc="${d.pc}" data-name="${name}"><span class="cell-name">${name}</span><span class="cell-add">+</span></div>`;
             }
           });
         });
@@ -1555,10 +1569,18 @@ html.dark .setting-select {
         if (!frets) return;
 
         const midi = VoicingEngine.fretsToMidi(frets);
-        const chord = { degree, quality, name, frets, midi, pc };
+        const root = MusicTheory.NOTE_NAMES[pc];
 
+        // Click on "+" → add to progression without playing
+        if (e.target.closest('.cell-add')) {
+          const { progression } = AppState.get();
+          AppState.set({ progression: [...progression, { name, quality, frets, midi, pc, root }] });
+          return;
+        }
+
+        // Click on cell body → play chord + highlight
+        const chord = { degree, quality, name, frets, midi, pc, root };
         AppState.set({ activeChord: chord });
-
         AudioEngine.strumChord(midi);
       });
 
@@ -1567,48 +1589,49 @@ html.dark .setting-select {
 
 
     /* ═══════════════════════════════════════════════════════════════
-       7. DIAGRAM DISPLAY
+       7a. CHORD PAGE SLUG UTILITY
        ═══════════════════════════════════════════════════════════════ */
-    const DiagramDisplay = (() => {
-      const section = document.getElementById('diagramSection');
-      const nameEl = document.getElementById('diagramName');
-      const qualityEl = document.getElementById('diagramQuality');
-      const svgEl = document.getElementById('diagramSvg');
-      const notesEl = document.getElementById('diagramNotes');
-      const addBtn = document.getElementById('addToProgression');
+    function chordPageSlug(noteName, quality) {
+      const noteSlugMap = {
+        'C': 'c', 'C#': 'c-sharp', 'D': 'd', 'D#': 'd-sharp',
+        'E': 'e', 'F': 'f', 'F#': 'f-sharp', 'G': 'g',
+        'G#': 'g-sharp', 'A': 'a', 'A#': 'a-sharp', 'B': 'b',
+      };
+      // quality → [slugSuffix, needsSeparator]
+      // needsSeparator: whether a hyphen goes between note slug and suffix for natural notes
+      const qualitySlugMap = {
+        'maj':     ['major', true],
+        'min':     ['minor', true],
+        'dom7':    ['7', false],
+        'min7':    ['m7', false],
+        'm7b5':    ['m7b5', true],
+        'minMaj7': ['mmaj7', true],
+        'augMaj7': ['augmaj7', true],
+        'aug7':    ['aug7', true],
+        'dim':     ['dim', false],
+        'dim7':    ['dim7', false],
+        'sus2':    ['sus2', false],
+        'sus4':    ['sus4', false],
+        'maj7':    ['maj7', false],
+        'aug':     ['aug', false],
+        '7sus4':   ['7sus4', false],
+        '5':       ['5', false],
+      };
 
-      function update(state) {
-        const { activeChord } = state;
-        if (!activeChord) {
-          section.classList.remove('visible');
-          return;
-        }
+      const noteSlug = noteSlugMap[noteName];
+      const qEntry = qualitySlugMap[quality];
+      if (!noteSlug || !qEntry) return null;
 
-        section.classList.add('visible');
-        nameEl.textContent = activeChord.name;
-        qualityEl.textContent = activeChord.quality;
-        svgEl.innerHTML = ChordDiagram.render(activeChord.frets);
-
-        const midi = activeChord.midi;
-        const noteNames = midi
-          .filter(n => n !== null)
-          .map(n => VoicingEngine.midiToNoteName(n));
-        notesEl.textContent = noteNames.join(' \u2013 ');
-      }
-
-      addBtn.addEventListener('click', () => {
-        const { activeChord, progression } = AppState.get();
-        if (!activeChord) return;
-        const { name, quality, frets, midi, pc } = activeChord;
-        AppState.set({ progression: [...progression, { name, quality, frets, midi, pc }] });
-      });
-
-      return { update };
-    })();
+      const [suffix, needsSep] = qEntry;
+      const isSharp = noteName.includes('#');
+      // Sharp notes always use hyphens; natural notes use hyphen only for word-like suffixes
+      const sep = (isSharp || needsSep) ? '-' : '';
+      return `/${noteSlug}${sep}${suffix}-chord-guitar`;
+    }
 
 
     /* ═══════════════════════════════════════════════════════════════
-       8. PROGRESSION BUILDER
+       7b. PROGRESSION BUILDER
        ═══════════════════════════════════════════════════════════════ */
     const ProgressionBuilder = (() => {
       const strip = document.getElementById('progressionStrip');
@@ -1682,9 +1705,18 @@ html.dark .setting-select {
         let html = '';
         progression.forEach((chord, i) => {
           const playing = i === playbackIndex ? ' playing' : '';
+          const miniSvg = ChordDiagram.render(chord.frets);
+          const slug = chord.root ? chordPageSlug(chord.root, chord.quality) : null;
+          const linkHtml = slug
+            ? `<a class="chip-link" href="${slug}" title="View chord">\u2197</a>`
+            : '';
           html += `<div class="chord-chip${playing}" data-index="${i}">
-            <span>${chord.name}</span>
-            <span class="chip-remove" data-remove="${i}">\u2715</span>
+            <div class="chip-diagram">${miniSvg}</div>
+            <span class="chip-name">${chord.name}</span>
+            <div class="chip-actions">
+              ${linkHtml}
+              <span class="chip-remove" data-remove="${i}">\u2715</span>
+            </div>
           </div>`;
         });
         strip.innerHTML = html;
@@ -1729,6 +1761,7 @@ html.dark .setting-select {
       function onPointerDown(e) {
         if (AppState.get().isPlaying) return;
         if (e.target.closest('.chip-remove')) return;
+        if (e.target.closest('.chip-link')) return;
         const chip = e.target.closest('.chord-chip');
         if (!chip) return;
 
@@ -1811,6 +1844,12 @@ html.dark .setting-select {
 
       strip.addEventListener('click', (e) => {
         if (suppressClick) { suppressClick = false; return; }
+
+        // Link click → let browser navigate, stop event from triggering chord play
+        if (e.target.closest('.chip-link')) {
+          e.stopPropagation();
+          return;
+        }
 
         const removeBtn = e.target.closest('.chip-remove');
         if (removeBtn) {
@@ -2277,7 +2316,6 @@ html.dark .setting-select {
       AppState.subscribe((state) => {
         updateScaleLabel();
         ChordGrid.render();
-        DiagramDisplay.update(state);
         ProgressionBuilder.renderStrip();
       });
 
@@ -2288,7 +2326,6 @@ html.dark .setting-select {
         // Initial render
         updateScaleLabel();
         ChordGrid.render();
-        DiagramDisplay.update(AppState.get());
         ProgressionBuilder.renderStrip();
         GenerateTrack.updateUI();
         GenerateTrack.loadCredits();
