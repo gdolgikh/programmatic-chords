@@ -2151,9 +2151,18 @@ html.dark .setting-select {
           const pack = btn.dataset.pack;
           if (!supabaseConfigured || !supabase) return;
 
+          // getUser() forces a token refresh if expired
+          const { data: { user } } = await supabase.auth.getUser();
+          if (!user) {
+            generateStatusEl.textContent = 'Please sign in to purchase credits.';
+            generateStatusEl.classList.add('error');
+            generateOutput.classList.add('visible');
+            return;
+          }
+
           const { data: { session } } = await supabase.auth.getSession();
           if (!session?.access_token) {
-            generateStatusEl.textContent = 'Please sign in to purchase credits.';
+            generateStatusEl.textContent = 'Session expired. Please sign in again.';
             generateStatusEl.classList.add('error');
             generateOutput.classList.add('visible');
             return;
