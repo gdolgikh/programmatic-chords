@@ -27,18 +27,18 @@ import Layout from '../components/Layout.astro';
 
   <!-- Progression Builder -->
   <section class="progression-section">
-    <span class="selector-label">Progression</span>
+    <div class="progression-header">
+      <span class="selector-label">Progression</span>
+      <div class="progression-header-actions">
+        <button class="header-action-btn" id="randomizeBtn" title="Random 4-chord progression">Randomize</button>
+        <button class="header-action-btn" id="clearBtn" disabled>Clear</button>
+      </div>
+    </div>
     <div class="progression-strip empty-state" id="progressionStrip"></div>
     <div class="progression-controls">
       <button class="ctrl-btn play-btn" id="playBtn" disabled>Play</button>
       <button class="ctrl-btn stop-btn" id="stopBtn" disabled>Stop</button>
-      <button class="ctrl-btn clear-btn" id="clearBtn" disabled>Clear</button>
-      <div class="bpm-control">
-        <span class="bpm-label" id="bpmLabel">100 bpm</span>
-        <input type="range" class="bpm-slider" id="bpmSlider" min="40" max="200" value="100">
-      </div>
-    </div>
-    <div class="progression-settings">
+      <span class="controls-divider"></span>
       <div class="setting-group">
         <span class="setting-label">Time</span>
         <select class="setting-select" id="timeSigSelect">
@@ -48,10 +48,9 @@ import Layout from '../components/Layout.astro';
         </select>
       </div>
       <div class="setting-group">
-        <span class="setting-label">Play</span>
         <select class="setting-select" id="playTypeSelect">
-          <option value="strum" selected>Strum</option>
-          <option value="arpeggio">Arpeggio</option>
+          <option value="arpeggio" selected>Pick</option>
+          <option value="strum">Strum</option>
         </select>
       </div>
       <div class="setting-group">
@@ -62,11 +61,15 @@ import Layout from '../components/Layout.astro';
         <span class="setting-label">Metronome</span>
         <button class="setting-toggle" id="metronomeToggle">Off</button>
       </div>
+      <div class="bpm-control">
+        <span class="bpm-label" id="bpmLabel">100 bpm</span>
+        <input type="range" class="bpm-slider" id="bpmSlider" min="40" max="200" value="100">
+      </div>
     </div>
     <div class="generate-section" id="generateSection">
       <div class="generate-row">
         <input type="text" class="style-input" id="styleInput" placeholder="Style: acoustic folk, jazz trio, lo-fi beats...">
-        <span class="setting-select" style="pointer-events:none;opacity:.7">30 sec</span>
+        <span class="generate-note">30 sec · beta</span>
         <button class="ctrl-btn generate-btn" id="generateBtn" disabled>Generate Track</button>
         <span class="credit-badge" id="creditBadge" style="display:none"></span>
       </div>
@@ -394,8 +397,49 @@ html.dark .scale-select {
   padding: 1.25rem;
 }
 
-.progression-section .selector-label {
+.progression-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   margin-bottom: 0.75rem;
+}
+
+.progression-header .selector-label {
+  margin-bottom: 0;
+}
+
+.progression-header-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.header-action-btn {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.65rem;
+  background: none;
+  color: var(--ink-faded);
+  border: 1px solid var(--rule);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.header-action-btn:hover {
+  color: var(--ink);
+  border-color: var(--ink-faded);
+}
+
+.header-action-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.header-action-btn:disabled:hover {
+  color: var(--ink-faded);
+  border-color: var(--rule);
 }
 
 .progression-strip {
@@ -428,7 +472,7 @@ html.dark .scale-select {
   flex-direction: column;
   align-items: center;
   width: 85px;
-  padding: 0.4rem;
+  padding: 0.4rem 0.4rem 1.6rem;
   background: var(--card-bg);
   border: 1px solid var(--rule);
   font-family: var(--font-mono);
@@ -461,16 +505,20 @@ html.dark .scale-select {
   color: var(--cream);
 }
 
-.chord-chip.playing .chip-actions {
-  color: var(--cream);
-}
-
-.chord-chip.playing .chip-link {
-  color: rgba(255,255,255,0.6);
-}
-
+.chord-chip.playing .chip-link,
 .chord-chip.playing .chip-remove {
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.5);
+  border-color: rgba(255,255,255,0.15);
+}
+
+.chord-chip.playing .chip-link:hover {
+  color: var(--cream);
+  background: rgba(255,255,255,0.1);
+}
+
+.chord-chip.playing .chip-remove:hover {
+  color: #e8a0a0;
+  background: rgba(255,255,255,0.1);
 }
 
 .chord-chip.dragging {
@@ -519,35 +567,49 @@ html.dark .scale-select {
   color: var(--ink);
 }
 
-.chip-actions {
+.chip-link,
+.chip-remove {
+  position: absolute;
+  bottom: 0;
   display: flex;
   align-items: center;
-  gap: 0.35rem;
-  margin-top: 0.15rem;
+  justify-content: center;
+  width: 24px;
+  height: 22px;
+  font-size: 0.75rem;
+  color: var(--ink-faded);
+  cursor: pointer;
+  line-height: 1;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.chord-chip:hover .chip-link,
+.chord-chip:hover .chip-remove {
+  opacity: 1;
 }
 
 .chip-link {
-  font-size: 0.65rem;
-  color: var(--ink-faded);
-  text-decoration: none;
-  cursor: pointer;
-  line-height: 1;
+  left: 0;
+  border-top: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+}
+
+.chip-remove {
+  right: 0;
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
 }
 
 .chip-link:hover {
   color: var(--ink);
-}
-
-.chip-remove {
-  font-size: 0.65rem;
-  color: var(--ink-faded);
-  cursor: pointer;
-  padding: 0 0.1rem;
-  line-height: 1;
+  background: var(--card-hover);
 }
 
 .chip-remove:hover {
   color: var(--red);
+  background: var(--card-hover);
 }
 
 .drag-ghost {
@@ -601,16 +663,6 @@ html.dark .scale-select {
   background: var(--red);
 }
 
-.ctrl-btn.clear-btn {
-  background: none;
-  color: var(--ink-faded);
-  border: 1px solid var(--rule);
-}
-
-.ctrl-btn.clear-btn:hover {
-  color: var(--ink);
-  border-color: var(--ink-faded);
-}
 
 .bpm-control {
   display: flex;
@@ -656,15 +708,10 @@ html.dark .scale-select {
   cursor: pointer;
 }
 
-/* ── Progression Settings Row ── */
-.progression-settings {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 0.75rem;
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--rule);
+.controls-divider {
+  width: 1px;
+  height: 1.2rem;
+  background: var(--rule);
 }
 
 .setting-group {
@@ -761,6 +808,14 @@ html.dark .setting-select {
 
 .style-input:focus {
   border-color: var(--ink-faded);
+}
+
+.generate-note {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--ink-faded);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 
 .generate-btn {
@@ -917,7 +972,6 @@ html.dark .setting-select {
   .scale-label { font-size: 1.1rem; }
   .chord-grid { font-size: 0.85rem; }
   .bpm-control { margin-left: 0; width: 100%; margin-top: 0.5rem; }
-  .progression-settings { gap: 0.75rem; }
   .generate-row { flex-direction: column; align-items: stretch; }
   .style-input { min-width: 0; }
   .credit-badge { align-self: flex-start; }
@@ -1367,11 +1421,12 @@ html.dark .setting-select {
 
       const SAMPLE_ANTICIPATION = 0.035;
 
-      function scheduleChord(midiNotes, time) {
+      function scheduleChord(midiNotes, time, reverse) {
         const notes = midiNotes.filter(n => n !== null);
+        const ordered = reverse ? [...notes].reverse() : notes;
         const strumDelay = 0.018;
         const t0 = time - SAMPLE_ANTICIPATION;
-        notes.forEach((midi, i) => {
+        ordered.forEach((midi, i) => {
           sampler.triggerAttackRelease(
             VoicingEngine.midiToNoteName(midi), '2n', t0 + i * strumDelay
           );
@@ -1397,7 +1452,7 @@ html.dark .setting-select {
         bpm: 100,
         isPlaying: false,
         loop: false,
-        playType: 'strum',
+        playType: 'arpeggio',
         timeSig: '4/4',
         metronome: false,
         generateStatus: 'idle',
@@ -1638,6 +1693,7 @@ html.dark .setting-select {
       const playBtn = document.getElementById('playBtn');
       const stopBtn = document.getElementById('stopBtn');
       const clearBtn = document.getElementById('clearBtn');
+      const randomizeBtn = document.getElementById('randomizeBtn');
       const bpmSlider = document.getElementById('bpmSlider');
       const bpmLabel = document.getElementById('bpmLabel');
       const timeSigSelect = document.getElementById('timeSigSelect');
@@ -1650,6 +1706,7 @@ html.dark .setting-select {
 
       let dragState = null;
       let suppressClick = false;
+      let undoProgression = null;
 
       function getTimeSigConfig(timeSig) {
         switch (timeSig) {
@@ -1693,7 +1750,8 @@ html.dark .setting-select {
           strip.classList.add('empty-state');
           playBtn.disabled = true;
           stopBtn.disabled = true;
-          clearBtn.disabled = true;
+          clearBtn.disabled = !undoProgression;
+          clearBtn.textContent = undoProgression ? 'Undo' : 'Clear';
           return;
         }
 
@@ -1701,6 +1759,7 @@ html.dark .setting-select {
         playBtn.disabled = isPlaying;
         stopBtn.disabled = !isPlaying;
         clearBtn.disabled = false;
+        clearBtn.textContent = 'Clear';
 
         let html = '';
         progression.forEach((chord, i) => {
@@ -1708,15 +1767,13 @@ html.dark .setting-select {
           const miniSvg = ChordDiagram.render(chord.frets);
           const slug = chord.root ? chordPageSlug(chord.root, chord.quality) : null;
           const linkHtml = slug
-            ? `<a class="chip-link" href="${slug}" title="View chord">\u2197</a>`
+            ? `<a class="chip-link" href="${slug}" target="_blank" rel="noopener" title="View chord">\u2197</a>`
             : '';
           html += `<div class="chord-chip${playing}" data-index="${i}">
             <div class="chip-diagram">${miniSvg}</div>
             <span class="chip-name">${chord.name}</span>
-            <div class="chip-actions">
-              ${linkHtml}
-              <span class="chip-remove" data-remove="${i}">\u2715</span>
-            </div>
+            ${linkHtml}
+            <span class="chip-remove" data-remove="${i}">\u2715</span>
           </div>`;
         });
         strip.innerHTML = html;
@@ -1955,14 +2012,20 @@ html.dark .setting-select {
               scheduledEvents.push(eventId);
             });
           } else {
-            const eventId = Tone.Transport.schedule((t) => {
-              AudioEngine.scheduleChord(chord.midi, t);
-              Tone.Draw.schedule(() => {
-                playbackIndex = bar;
-                renderStrip();
-              }, t);
-            }, `${bar}:0:0`);
-            scheduledEvents.push(eventId);
+            for (let beatIdx = 0; beatIdx < config.beatsPerBar; beatIdx++) {
+              const time = beatTime(bar, beatIdx, timeSig);
+              const upstroke = beatIdx % 2 === 1;
+              const eventId = Tone.Transport.schedule((t) => {
+                AudioEngine.scheduleChord(chord.midi, t, upstroke);
+                if (beatIdx === 0) {
+                  Tone.Draw.schedule(() => {
+                    playbackIndex = bar;
+                    renderStrip();
+                  }, t);
+                }
+              }, time);
+              scheduledEvents.push(eventId);
+            }
           }
         });
 
@@ -2006,8 +2069,49 @@ html.dark .setting-select {
       }
 
       clearBtn.addEventListener('click', () => {
-        stopPlayback();
-        AppState.set({ progression: [], activeChord: null });
+        const { progression } = AppState.get();
+        if (undoProgression && progression.length === 0) {
+          // Undo: restore saved progression
+          AppState.set({ progression: undoProgression, activeChord: null });
+          undoProgression = null;
+        } else {
+          // Clear: save current, then clear
+          stopPlayback();
+          undoProgression = progression.length > 0 ? [...progression] : null;
+          AppState.set({ progression: [], activeChord: null });
+        }
+      });
+
+      randomizeBtn.addEventListener('click', () => {
+        // Gather all non-empty cells currently in the grid
+        const cells = [...document.querySelectorAll('.chord-cell:not(.empty)')];
+        if (cells.length === 0) return;
+
+        const picked = [];
+        for (let i = 0; i < 4; i++) {
+          const cell = cells[Math.floor(Math.random() * cells.length)];
+          const quality = cell.dataset.quality;
+          const pc = parseInt(cell.dataset.pc);
+          const name = cell.dataset.name;
+          const frets = VoicingEngine.getVoicing(quality, pc);
+          if (!frets) continue;
+          const midi = VoicingEngine.fretsToMidi(frets);
+          const root = MusicTheory.NOTE_NAMES[pc];
+          picked.push({ name, quality, frets, midi, pc, root });
+        }
+        if (picked.length === 0) return;
+        undoProgression = null;
+        AppState.set({ progression: picked, activeChord: null });
+      });
+
+      // Reset undo when a new chord is added
+      let prevProgLen = AppState.get().progression.length;
+      AppState.subscribe((state) => {
+        const curLen = state.progression.length;
+        if (curLen > prevProgLen) {
+          undoProgression = null;
+        }
+        prevProgLen = curLen;
       });
 
       return { renderStrip, stopPlayback };
