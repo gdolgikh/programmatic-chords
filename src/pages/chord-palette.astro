@@ -1994,7 +1994,7 @@ html.dark .setting-select {
 
         try {
           const projectUrl = import.meta.env.PUBLIC_SUPABASE_URL;
-          const response = await fetch(`${projectUrl}/functions/v1/generate-track`, {
+          const response = await fetch(`${projectUrl}/functions/v1/hyper-processor`, {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${session.access_token}`,
