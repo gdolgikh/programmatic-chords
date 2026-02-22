@@ -81,6 +81,13 @@ import Layout from '../components/Layout.astro';
         <input type="text" class="style-input" id="styleInput" placeholder="Style: acoustic folk, jazz trio, lo-fi beats...">
         <span class="setting-select" style="pointer-events:none;opacity:.7">30 sec</span>
         <button class="ctrl-btn generate-btn" id="generateBtn" disabled>Generate Track</button>
+        <span class="credit-badge" id="creditBadge" style="display:none"></span>
+      </div>
+      <div class="buy-credits-panel" id="buyCreditsPanel" style="display:none">
+        <span class="buy-credits-label">Buy generation credits:</span>
+        <button class="ctrl-btn credit-pack-btn" data-pack="starter">10 credits — $4.99</button>
+        <button class="ctrl-btn credit-pack-btn" data-pack="pro">30 credits — $9.99</button>
+        <button class="ctrl-btn credit-pack-btn" data-pack="studio">100 credits — $24.99</button>
       </div>
       <div class="generate-output" id="generateOutput">
         <span class="generate-status" id="generateStatus"></span>
@@ -806,6 +813,64 @@ html.dark .setting-select {
   display: inline-block;
 }
 
+/* ── Credit Badge ── */
+.credit-badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  background: var(--card-bg);
+  border: 1px solid var(--rule);
+  color: var(--ink-faded);
+  white-space: nowrap;
+}
+
+.credit-badge.low {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+/* ── Buy Credits Panel ── */
+.buy-credits-panel {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.buy-credits-panel.visible {
+  display: flex;
+}
+
+.buy-credits-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--ink-faded);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+
+.credit-pack-btn {
+  background: none;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.credit-pack-btn:hover {
+  border-color: var(--ink-faded);
+  background: var(--card-bg);
+}
+
 .download-btn:hover {
   color: var(--ink);
   border-color: var(--ink-faded);
@@ -841,6 +906,8 @@ html.dark .setting-select {
   .progression-settings { gap: 0.75rem; }
   .generate-row { flex-direction: column; align-items: stretch; }
   .style-input { min-width: 0; }
+  .credit-badge { align-self: flex-start; }
+  .buy-credits-panel { flex-direction: column; align-items: stretch; }
   .generate-output { flex-direction: column; align-items: stretch; }
   .generate-player { max-width: 100%; }
 }
@@ -1322,6 +1389,7 @@ html.dark .setting-select {
         generateStatus: 'idle',
         generateStyle: '',
         generatedTrackUrl: null,
+        userCredits: null,
       };
 
       const listeners = new Set();
@@ -1908,7 +1976,7 @@ html.dark .setting-select {
 
 
     /* ═══════════════════════════════════════════════════════════════
-       8b. GENERATE TRACK (AI Backing Track)
+       8b. GENERATE TRACK (AI Backing Track) + Credits
        ═══════════════════════════════════════════════════════════════ */
     const GenerateTrack = (() => {
       const generateBtn = document.getElementById('generateBtn');
@@ -1917,11 +1985,42 @@ html.dark .setting-select {
       const generateStatusEl = document.getElementById('generateStatus');
       const generatePlayer = document.getElementById('generatePlayer');
       const downloadBtn = document.getElementById('downloadBtn');
+      const creditBadge = document.getElementById('creditBadge');
+      const buyCreditsPanel = document.getElementById('buyCreditsPanel');
+
+      async function loadCredits() {
+        if (!supabaseConfigured || !supabase) return;
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) return;
+        const { data, error } = await supabase
+          .from('user_credits')
+          .select('credits')
+          .eq('user_id', user.id)
+          .single();
+        if (!error && data) {
+          AppState.set({ userCredits: data.credits });
+        }
+      }
 
       function updateUI() {
-        const { progression, generateStatus: status, generatedTrackUrl } = AppState.get();
+        const { progression, generateStatus: status, generatedTrackUrl, userCredits } = AppState.get();
+        const noCredits = userCredits !== null && userCredits <= 0;
 
-        generateBtn.disabled = progression.length === 0 || status === 'generating';
+        // Credit badge
+        if (userCredits !== null) {
+          creditBadge.style.display = '';
+          creditBadge.textContent = `${userCredits} credit${userCredits !== 1 ? 's' : ''}`;
+          creditBadge.classList.toggle('low', userCredits <= 0);
+        } else {
+          creditBadge.style.display = 'none';
+        }
+
+        // Buy panel visibility
+        buyCreditsPanel.classList.toggle('visible', noCredits);
+        buyCreditsPanel.style.display = noCredits ? '' : 'none';
+
+        // Generate button
+        generateBtn.disabled = progression.length === 0 || status === 'generating' || noCredits;
         generateBtn.textContent = status === 'generating' ? 'Generating...' : 'Generate Track';
 
         generateOutput.classList.toggle('visible', status !== 'idle');
@@ -1931,7 +2030,10 @@ html.dark .setting-select {
           generateStatusEl.textContent = 'Generating backing track...';
           generateStatusEl.classList.add('active');
         } else if (status === 'error') {
-          generateStatusEl.textContent = 'Generation failed. Try again.';
+          // Keep the custom error text if already set
+          if (!generateStatusEl.textContent || generateStatusEl.textContent === '') {
+            generateStatusEl.textContent = 'Generation failed. Try again.';
+          }
           generateStatusEl.classList.add('error');
         } else if (status === 'done') {
           generateStatusEl.textContent = 'Track ready';
@@ -2014,6 +2116,16 @@ html.dark .setting-select {
             }
           );
 
+          // Handle 402 — no credits
+          if (response.status === 402) {
+            AppState.set({ generateStatus: 'error', userCredits: 0 });
+            generateOutput.classList.add('visible');
+            generateStatusEl.textContent = 'No credits remaining. Purchase credits to continue generating.';
+            generateStatusEl.classList.remove('active');
+            generateStatusEl.classList.add('error');
+            return;
+          }
+
           if (!response.ok) {
             const errBody = await response.text();
             console.error('Edge function error:', response.status, errBody);
@@ -2021,16 +2133,84 @@ html.dark .setting-select {
           }
 
           const data = await response.json();
-          AppState.set({ generateStatus: 'done', generatedTrackUrl: data.audio_url });
+          AppState.set({
+            generateStatus: 'done',
+            generatedTrackUrl: data.audio_url,
+            userCredits: data.credits_remaining ?? AppState.get().userCredits,
+          });
         } catch (e) {
           console.error('Generate track error:', e);
           AppState.set({ generateStatus: 'error' });
+          generateStatusEl.textContent = 'Generation failed. Try again.';
         }
       });
 
+      // Buy credits button handlers
+      document.querySelectorAll('.credit-pack-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const pack = btn.dataset.pack;
+          if (!supabaseConfigured || !supabase) return;
+
+          const { data: { session } } = await supabase.auth.getSession();
+          if (!session?.access_token) {
+            generateStatusEl.textContent = 'Please sign in to purchase credits.';
+            generateStatusEl.classList.add('error');
+            generateOutput.classList.add('visible');
+            return;
+          }
+
+          btn.disabled = true;
+          btn.textContent = 'Loading...';
+
+          try {
+            const res = await fetch(
+              `${supabaseUrl}/functions/v1/create-checkout`,
+              {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${session.access_token}`,
+                  'apikey': supabaseAnonKey,
+                },
+                body: JSON.stringify({ pack }),
+              }
+            );
+
+            if (!res.ok) {
+              const err = await res.json();
+              throw new Error(err.error || 'Checkout failed');
+            }
+
+            const { url } = await res.json();
+            if (url) {
+              window.location.href = url;
+            }
+          } catch (e) {
+            console.error('Checkout error:', e);
+            generateOutput.classList.add('visible');
+            generateStatusEl.textContent = 'Failed to start checkout. Try again.';
+            generateStatusEl.classList.add('error');
+          } finally {
+            btn.disabled = false;
+            const labels = { starter: '10 credits \u2014 $4.99', pro: '30 credits \u2014 $9.99', studio: '100 credits \u2014 $24.99' };
+            btn.textContent = labels[pack] || pack;
+          }
+        });
+      });
+
+      // Load credits on payment return
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('payment') === 'success') {
+        // Short delay to let webhook process
+        setTimeout(() => loadCredits(), 2000);
+        // Clean URL
+        const cleanUrl = window.location.pathname;
+        window.history.replaceState({}, '', cleanUrl);
+      }
+
       AppState.subscribe(updateUI);
 
-      return { updateUI };
+      return { updateUI, loadCredits };
     })();
 
 
@@ -2102,6 +2282,7 @@ html.dark .setting-select {
         DiagramDisplay.update(AppState.get());
         ProgressionBuilder.renderStrip();
         GenerateTrack.updateUI();
+        GenerateTrack.loadCredits();
       }
 
       return { init };
