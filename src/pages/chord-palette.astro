@@ -1977,9 +1977,9 @@ html.dark .setting-select {
           return;
         }
 
-        // Check auth
-        const { data: { session } } = await supabase.auth.getSession();
-        if (!session) {
+        // Check auth — getUser() forces a token refresh if expired
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) {
           AppState.set({ generateStatus: 'error' });
           generateOutput.classList.add('visible');
           generateStatusEl.textContent = 'Sign in with Google to generate tracks';
