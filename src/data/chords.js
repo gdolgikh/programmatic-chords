@@ -1624,7 +1624,7 @@ export const chords = [
     ]
   },
   {
-    "name": "C Half-Diminished",
+    "name": "Cm7♭5",
     "slug": "c-m7b5-chord-guitar",
     "root": "C",
     "quality": "m7♭5",
@@ -1645,7 +1645,7 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "A half-diminished seventh chord with a dark, restless quality. C Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "description": "A half-diminished seventh chord with a dark, restless quality. Cm7♭5 appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -1765,7 +1765,7 @@ export const chords = [
     ]
   },
   {
-    "name": "C Minor-Major 7th",
+    "name": "CmMaj7",
     "slug": "c-mmaj7-chord-guitar",
     "root": "C",
     "quality": "mMaj7",
@@ -1786,7 +1786,7 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. C Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. CmMaj7 creates a sophisticated, tense color found in film scores and jazz harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -1906,7 +1906,7 @@ export const chords = [
     ]
   },
   {
-    "name": "C Augmented Major 7th",
+    "name": "CaugMaj7",
     "slug": "c-augmaj7-chord-guitar",
     "root": "C",
     "quality": "augMaj7",
@@ -1927,7 +1927,7 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "An augmented major seventh chord with a dreamy, floating quality. C Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "description": "An augmented major seventh chord with a dreamy, floating quality. CaugMaj7 appears in harmonic minor harmony and adds lush tension to jazz voicings.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -2043,7 +2043,7 @@ export const chords = [
     ]
   },
   {
-    "name": "C Augmented 7th",
+    "name": "Caug7",
     "slug": "c-aug7-chord-guitar",
     "root": "C",
     "quality": "aug7",
@@ -2064,7 +2064,7 @@ export const chords = [
       4
     ],
     "barres": [],
-    "description": "An augmented seventh chord with an unstable, restless character. C Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "description": "An augmented seventh chord with an unstable, restless character. Caug7 creates strong pull toward resolution and appears in melodic minor harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -2844,7 +2844,7 @@ export const chords = [
     ]
   },
   {
-    "name": "C# Half-Diminished",
+    "name": "C#m7♭5",
     "slug": "c-sharp-m7b5-chord-guitar",
     "root": "C#",
     "quality": "m7♭5",
@@ -2865,7 +2865,7 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "A half-diminished seventh chord with a dark, restless quality. C# Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "description": "A half-diminished seventh chord with a dark, restless quality. C#m7♭5 appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
     "baseFret": 4,
     "allPositions": [
       {
@@ -2980,7 +2980,7 @@ export const chords = [
     ]
   },
   {
-    "name": "C# Minor-Major 7th",
+    "name": "C#mMaj7",
     "slug": "c-sharp-mmaj7-chord-guitar",
     "root": "C#",
     "quality": "mMaj7",
@@ -3003,7 +3003,7 @@ export const chords = [
     "barres": [
       1
     ],
-    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. C# Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. C#mMaj7 creates a sophisticated, tense color found in film scores and jazz harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -3129,7 +3129,7 @@ export const chords = [
     ]
   },
   {
-    "name": "C# Augmented Major 7th",
+    "name": "C#augMaj7",
     "slug": "c-sharp-augmaj7-chord-guitar",
     "root": "C#",
     "quality": "augMaj7",
@@ -3152,7 +3152,7 @@ export const chords = [
     "barres": [
       1
     ],
-    "description": "An augmented major seventh chord with a dreamy, floating quality. C# Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "description": "An augmented major seventh chord with a dreamy, floating quality. C#augMaj7 appears in harmonic minor harmony and adds lush tension to jazz voicings.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -3267,7 +3267,7 @@ export const chords = [
     ]
   },
   {
-    "name": "C# Augmented 7th",
+    "name": "C#aug7",
     "slug": "c-sharp-aug7-chord-guitar",
     "root": "C#",
     "quality": "aug7",
@@ -3288,7 +3288,7 @@ export const chords = [
       1
     ],
     "barres": [],
-    "description": "An augmented seventh chord with an unstable, restless character. C# Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "description": "An augmented seventh chord with an unstable, restless character. C#aug7 creates strong pull toward resolution and appears in melodic minor harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -5010,7 +5010,7 @@ export const chords = [
     ]
   },
   {
-    "name": "D Half-Diminished",
+    "name": "Dm7♭5",
     "slug": "d-m7b5-chord-guitar",
     "root": "D",
     "quality": "m7♭5",
@@ -5033,7 +5033,7 @@ export const chords = [
     "barres": [
       1
     ],
-    "description": "A half-diminished seventh chord with a dark, restless quality. D Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "description": "A half-diminished seventh chord with a dark, restless quality. Dm7♭5 appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -5149,7 +5149,7 @@ export const chords = [
     ]
   },
   {
-    "name": "D Minor-Major 7th",
+    "name": "DmMaj7",
     "slug": "d-mmaj7-chord-guitar",
     "root": "D",
     "quality": "mMaj7",
@@ -5170,7 +5170,7 @@ export const chords = [
       1
     ],
     "barres": [],
-    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. D Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. DmMaj7 creates a sophisticated, tense color found in film scores and jazz harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -5293,7 +5293,7 @@ export const chords = [
     ]
   },
   {
-    "name": "D Augmented Major 7th",
+    "name": "DaugMaj7",
     "slug": "d-augmaj7-chord-guitar",
     "root": "D",
     "quality": "augMaj7",
@@ -5314,7 +5314,7 @@ export const chords = [
       3
     ],
     "barres": [],
-    "description": "An augmented major seventh chord with a dreamy, floating quality. D Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "description": "An augmented major seventh chord with a dreamy, floating quality. DaugMaj7 appears in harmonic minor harmony and adds lush tension to jazz voicings.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -5430,7 +5430,7 @@ export const chords = [
     ]
   },
   {
-    "name": "D Augmented 7th",
+    "name": "Daug7",
     "slug": "d-aug7-chord-guitar",
     "root": "D",
     "quality": "aug7",
@@ -5451,7 +5451,7 @@ export const chords = [
       2
     ],
     "barres": [],
-    "description": "An augmented seventh chord with an unstable, restless character. D Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "description": "An augmented seventh chord with an unstable, restless character. Daug7 creates strong pull toward resolution and appears in melodic minor harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -7187,7 +7187,7 @@ export const chords = [
     ]
   },
   {
-    "name": "D# Half-Diminished",
+    "name": "D#m7♭5",
     "slug": "d-sharp-m7b5-chord-guitar",
     "root": "D#",
     "quality": "m7♭5",
@@ -7210,7 +7210,7 @@ export const chords = [
     "barres": [
       2
     ],
-    "description": "A half-diminished seventh chord with a dark, restless quality. D# Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "description": "A half-diminished seventh chord with a dark, restless quality. D#m7♭5 appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -7324,7 +7324,7 @@ export const chords = [
     ]
   },
   {
-    "name": "D# Minor-Major 7th",
+    "name": "D#mMaj7",
     "slug": "d-sharp-mmaj7-chord-guitar",
     "root": "D#",
     "quality": "mMaj7",
@@ -7345,7 +7345,7 @@ export const chords = [
       2
     ],
     "barres": [],
-    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. D# Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. D#mMaj7 creates a sophisticated, tense color found in film scores and jazz harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -7464,7 +7464,7 @@ export const chords = [
     ]
   },
   {
-    "name": "D# Augmented Major 7th",
+    "name": "D#augMaj7",
     "slug": "d-sharp-augmaj7-chord-guitar",
     "root": "D#",
     "quality": "augMaj7",
@@ -7487,7 +7487,7 @@ export const chords = [
     "barres": [
       1
     ],
-    "description": "An augmented major seventh chord with a dreamy, floating quality. D# Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "description": "An augmented major seventh chord with a dreamy, floating quality. D#augMaj7 appears in harmonic minor harmony and adds lush tension to jazz voicings.",
     "baseFret": 3,
     "allPositions": [
       {
@@ -7605,7 +7605,7 @@ export const chords = [
     ]
   },
   {
-    "name": "D# Augmented 7th",
+    "name": "D#aug7",
     "slug": "d-sharp-aug7-chord-guitar",
     "root": "D#",
     "quality": "aug7",
@@ -7626,7 +7626,7 @@ export const chords = [
       3
     ],
     "barres": [],
-    "description": "An augmented seventh chord with an unstable, restless character. D# Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "description": "An augmented seventh chord with an unstable, restless character. D#aug7 creates strong pull toward resolution and appears in melodic minor harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -9383,7 +9383,7 @@ export const chords = [
     ]
   },
   {
-    "name": "E Half-Diminished",
+    "name": "Em7♭5",
     "slug": "e-m7b5-chord-guitar",
     "root": "E",
     "quality": "m7♭5",
@@ -9406,7 +9406,7 @@ export const chords = [
     "barres": [
       3
     ],
-    "description": "A half-diminished seventh chord with a dark, restless quality. E Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "description": "A half-diminished seventh chord with a dark, restless quality. Em7♭5 appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -9523,7 +9523,7 @@ export const chords = [
     ]
   },
   {
-    "name": "E Minor-Major 7th",
+    "name": "EmMaj7",
     "slug": "e-mmaj7-chord-guitar",
     "root": "E",
     "quality": "mMaj7",
@@ -9544,7 +9544,7 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. E Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. EmMaj7 creates a sophisticated, tense color found in film scores and jazz harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -9668,7 +9668,7 @@ export const chords = [
     ]
   },
   {
-    "name": "E Augmented Major 7th",
+    "name": "EaugMaj7",
     "slug": "e-augmaj7-chord-guitar",
     "root": "E",
     "quality": "augMaj7",
@@ -9691,7 +9691,7 @@ export const chords = [
     "barres": [
       4
     ],
-    "description": "An augmented major seventh chord with a dreamy, floating quality. E Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "description": "An augmented major seventh chord with a dreamy, floating quality. EaugMaj7 appears in harmonic minor harmony and adds lush tension to jazz voicings.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -9814,7 +9814,7 @@ export const chords = [
     ]
   },
   {
-    "name": "E Augmented 7th",
+    "name": "Eaug7",
     "slug": "e-aug7-chord-guitar",
     "root": "E",
     "quality": "aug7",
@@ -9835,7 +9835,7 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "An augmented seventh chord with an unstable, restless character. E Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "description": "An augmented seventh chord with an unstable, restless character. Eaug7 creates strong pull toward resolution and appears in melodic minor harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -11621,7 +11621,7 @@ export const chords = [
     ]
   },
   {
-    "name": "F Half-Diminished",
+    "name": "Fm7♭5",
     "slug": "f-m7b5-chord-guitar",
     "root": "F",
     "quality": "m7♭5",
@@ -11642,7 +11642,7 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "A half-diminished seventh chord with a dark, restless quality. F Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "description": "A half-diminished seventh chord with a dark, restless quality. Fm7♭5 appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -11755,7 +11755,7 @@ export const chords = [
     ]
   },
   {
-    "name": "F Minor-Major 7th",
+    "name": "FmMaj7",
     "slug": "f-mmaj7-chord-guitar",
     "root": "F",
     "quality": "mMaj7",
@@ -11778,7 +11778,7 @@ export const chords = [
     "barres": [
       1
     ],
-    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. F Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. FmMaj7 creates a sophisticated, tense color found in film scores and jazz harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -11898,7 +11898,7 @@ export const chords = [
     ]
   },
   {
-    "name": "F Augmented Major 7th",
+    "name": "FaugMaj7",
     "slug": "f-augmaj7-chord-guitar",
     "root": "F",
     "quality": "augMaj7",
@@ -11919,7 +11919,7 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "An augmented major seventh chord with a dreamy, floating quality. F Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "description": "An augmented major seventh chord with a dreamy, floating quality. FaugMaj7 appears in harmonic minor harmony and adds lush tension to jazz voicings.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -12036,7 +12036,7 @@ export const chords = [
     ]
   },
   {
-    "name": "F Augmented 7th",
+    "name": "Faug7",
     "slug": "f-aug7-chord-guitar",
     "root": "F",
     "quality": "aug7",
@@ -12057,7 +12057,7 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "An augmented seventh chord with an unstable, restless character. F Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "description": "An augmented seventh chord with an unstable, restless character. Faug7 creates strong pull toward resolution and appears in melodic minor harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -12872,7 +12872,7 @@ export const chords = [
     ]
   },
   {
-    "name": "F# Half-Diminished",
+    "name": "F#m7♭5",
     "slug": "f-sharp-m7b5-chord-guitar",
     "root": "F#",
     "quality": "m7♭5",
@@ -12893,7 +12893,7 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "A half-diminished seventh chord with a dark, restless quality. F# Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "description": "A half-diminished seventh chord with a dark, restless quality. F#m7♭5 appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -13010,7 +13010,7 @@ export const chords = [
     ]
   },
   {
-    "name": "F# Minor-Major 7th",
+    "name": "F#mMaj7",
     "slug": "f-sharp-mmaj7-chord-guitar",
     "root": "F#",
     "quality": "mMaj7",
@@ -13033,7 +13033,7 @@ export const chords = [
     "barres": [
       2
     ],
-    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. F# Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. F#mMaj7 creates a sophisticated, tense color found in film scores and jazz harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -13160,7 +13160,7 @@ export const chords = [
     ]
   },
   {
-    "name": "F# Augmented Major 7th",
+    "name": "F#augMaj7",
     "slug": "f-sharp-augmaj7-chord-guitar",
     "root": "F#",
     "quality": "augMaj7",
@@ -13181,7 +13181,7 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "An augmented major seventh chord with a dreamy, floating quality. F# Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "description": "An augmented major seventh chord with a dreamy, floating quality. F#augMaj7 appears in harmonic minor harmony and adds lush tension to jazz voicings.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -13299,7 +13299,7 @@ export const chords = [
     ]
   },
   {
-    "name": "F# Augmented 7th",
+    "name": "F#aug7",
     "slug": "f-sharp-aug7-chord-guitar",
     "root": "F#",
     "quality": "aug7",
@@ -13320,7 +13320,7 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "An augmented seventh chord with an unstable, restless character. F# Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "description": "An augmented seventh chord with an unstable, restless character. F#aug7 creates strong pull toward resolution and appears in melodic minor harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -15082,7 +15082,7 @@ export const chords = [
     ]
   },
   {
-    "name": "G Half-Diminished",
+    "name": "Gm7♭5",
     "slug": "g-m7b5-chord-guitar",
     "root": "G",
     "quality": "m7♭5",
@@ -15103,7 +15103,7 @@ export const chords = [
       1
     ],
     "barres": [],
-    "description": "A half-diminished seventh chord with a dark, restless quality. G Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "description": "A half-diminished seventh chord with a dark, restless quality. Gm7♭5 appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -15215,7 +15215,7 @@ export const chords = [
     ]
   },
   {
-    "name": "G Minor-Major 7th",
+    "name": "GmMaj7",
     "slug": "g-mmaj7-chord-guitar",
     "root": "G",
     "quality": "mMaj7",
@@ -15236,7 +15236,7 @@ export const chords = [
       2
     ],
     "barres": [],
-    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. G Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. GmMaj7 creates a sophisticated, tense color found in film scores and jazz harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -15361,7 +15361,7 @@ export const chords = [
     ]
   },
   {
-    "name": "G Augmented Major 7th",
+    "name": "GaugMaj7",
     "slug": "g-augmaj7-chord-guitar",
     "root": "G",
     "quality": "augMaj7",
@@ -15382,7 +15382,7 @@ export const chords = [
       3
     ],
     "barres": [],
-    "description": "An augmented major seventh chord with a dreamy, floating quality. G Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "description": "An augmented major seventh chord with a dreamy, floating quality. GaugMaj7 appears in harmonic minor harmony and adds lush tension to jazz voicings.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -15497,7 +15497,7 @@ export const chords = [
     ]
   },
   {
-    "name": "G Augmented 7th",
+    "name": "Gaug7",
     "slug": "g-aug7-chord-guitar",
     "root": "G",
     "quality": "aug7",
@@ -15518,7 +15518,7 @@ export const chords = [
       2
     ],
     "barres": [],
-    "description": "An augmented seventh chord with an unstable, restless character. G Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "description": "An augmented seventh chord with an unstable, restless character. Gaug7 creates strong pull toward resolution and appears in melodic minor harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -17322,7 +17322,7 @@ export const chords = [
     ]
   },
   {
-    "name": "G# Half-Diminished",
+    "name": "G#m7♭5",
     "slug": "g-sharp-m7b5-chord-guitar",
     "root": "G#",
     "quality": "m7♭5",
@@ -17343,7 +17343,7 @@ export const chords = [
       3
     ],
     "barres": [],
-    "description": "A half-diminished seventh chord with a dark, restless quality. G# Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "description": "A half-diminished seventh chord with a dark, restless quality. G#m7♭5 appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -17455,7 +17455,7 @@ export const chords = [
     ]
   },
   {
-    "name": "G# Minor-Major 7th",
+    "name": "G#mMaj7",
     "slug": "g-sharp-mmaj7-chord-guitar",
     "root": "G#",
     "quality": "mMaj7",
@@ -17478,7 +17478,7 @@ export const chords = [
     "barres": [
       1
     ],
-    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. G# Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. G#mMaj7 creates a sophisticated, tense color found in film scores and jazz harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -17605,7 +17605,7 @@ export const chords = [
     ]
   },
   {
-    "name": "G# Augmented Major 7th",
+    "name": "G#augMaj7",
     "slug": "g-sharp-augmaj7-chord-guitar",
     "root": "G#",
     "quality": "augMaj7",
@@ -17626,7 +17626,7 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "An augmented major seventh chord with a dreamy, floating quality. G# Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "description": "An augmented major seventh chord with a dreamy, floating quality. G#augMaj7 appears in harmonic minor harmony and adds lush tension to jazz voicings.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -17745,7 +17745,7 @@ export const chords = [
     ]
   },
   {
-    "name": "G# Augmented 7th",
+    "name": "G#aug7",
     "slug": "g-sharp-aug7-chord-guitar",
     "root": "G#",
     "quality": "aug7",
@@ -17766,7 +17766,7 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "An augmented seventh chord with an unstable, restless character. G# Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "description": "An augmented seventh chord with an unstable, restless character. G#aug7 creates strong pull toward resolution and appears in melodic minor harmony.",
     "baseFret": 4,
     "allPositions": [
       {
@@ -19485,7 +19485,7 @@ export const chords = [
     ]
   },
   {
-    "name": "A Half-Diminished",
+    "name": "Am7♭5",
     "slug": "a-m7b5-chord-guitar",
     "root": "A",
     "quality": "m7♭5",
@@ -19506,7 +19506,7 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "A half-diminished seventh chord with a dark, restless quality. A Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "description": "A half-diminished seventh chord with a dark, restless quality. Am7♭5 appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -19623,7 +19623,7 @@ export const chords = [
     ]
   },
   {
-    "name": "A Minor-Major 7th",
+    "name": "AmMaj7",
     "slug": "a-mmaj7-chord-guitar",
     "root": "A",
     "quality": "mMaj7",
@@ -19644,7 +19644,7 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. A Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. AmMaj7 creates a sophisticated, tense color found in film scores and jazz harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -19767,7 +19767,7 @@ export const chords = [
     ]
   },
   {
-    "name": "A Augmented Major 7th",
+    "name": "AaugMaj7",
     "slug": "a-augmaj7-chord-guitar",
     "root": "A",
     "quality": "augMaj7",
@@ -19790,7 +19790,7 @@ export const chords = [
     "barres": [
       1
     ],
-    "description": "An augmented major seventh chord with a dreamy, floating quality. A Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "description": "An augmented major seventh chord with a dreamy, floating quality. AaugMaj7 appears in harmonic minor harmony and adds lush tension to jazz voicings.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -19912,7 +19912,7 @@ export const chords = [
     ]
   },
   {
-    "name": "A Augmented 7th",
+    "name": "Aaug7",
     "slug": "a-aug7-chord-guitar",
     "root": "A",
     "quality": "aug7",
@@ -19933,7 +19933,7 @@ export const chords = [
       1
     ],
     "barres": [],
-    "description": "An augmented seventh chord with an unstable, restless character. A Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "description": "An augmented seventh chord with an unstable, restless character. Aaug7 creates strong pull toward resolution and appears in melodic minor harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -21722,7 +21722,7 @@ export const chords = [
     ]
   },
   {
-    "name": "A# Half-Diminished",
+    "name": "A#m7♭5",
     "slug": "a-sharp-m7b5-chord-guitar",
     "root": "A#",
     "quality": "m7♭5",
@@ -21743,7 +21743,7 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "A half-diminished seventh chord with a dark, restless quality. A# Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "description": "A half-diminished seventh chord with a dark, restless quality. A#m7♭5 appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -21858,7 +21858,7 @@ export const chords = [
     ]
   },
   {
-    "name": "A# Minor-Major 7th",
+    "name": "A#mMaj7",
     "slug": "a-sharp-mmaj7-chord-guitar",
     "root": "A#",
     "quality": "mMaj7",
@@ -21881,7 +21881,7 @@ export const chords = [
     "barres": [
       1
     ],
-    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. A# Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. A#mMaj7 creates a sophisticated, tense color found in film scores and jazz harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -22007,7 +22007,7 @@ export const chords = [
     ]
   },
   {
-    "name": "A# Augmented Major 7th",
+    "name": "A#augMaj7",
     "slug": "a-sharp-augmaj7-chord-guitar",
     "root": "A#",
     "quality": "augMaj7",
@@ -22028,7 +22028,7 @@ export const chords = [
       3
     ],
     "barres": [],
-    "description": "An augmented major seventh chord with a dreamy, floating quality. A# Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "description": "An augmented major seventh chord with a dreamy, floating quality. A#augMaj7 appears in harmonic minor harmony and adds lush tension to jazz voicings.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -22147,7 +22147,7 @@ export const chords = [
     ]
   },
   {
-    "name": "A# Augmented 7th",
+    "name": "A#aug7",
     "slug": "a-sharp-aug7-chord-guitar",
     "root": "A#",
     "quality": "aug7",
@@ -22170,7 +22170,7 @@ export const chords = [
     "barres": [
       1
     ],
-    "description": "An augmented seventh chord with an unstable, restless character. A# Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "description": "An augmented seventh chord with an unstable, restless character. A#aug7 creates strong pull toward resolution and appears in melodic minor harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -23959,7 +23959,7 @@ export const chords = [
     ]
   },
   {
-    "name": "B Half-Diminished",
+    "name": "Bm7♭5",
     "slug": "b-m7b5-chord-guitar",
     "root": "B",
     "quality": "m7♭5",
@@ -23980,7 +23980,7 @@ export const chords = [
       0
     ],
     "barres": [],
-    "description": "A half-diminished seventh chord with a dark, restless quality. B Half-Diminished appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
+    "description": "A half-diminished seventh chord with a dark, restless quality. Bm7♭5 appears naturally in minor keys and is essential for jazz ii-V-i progressions.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -24097,7 +24097,7 @@ export const chords = [
     ]
   },
   {
-    "name": "B Minor-Major 7th",
+    "name": "BmMaj7",
     "slug": "b-mmaj7-chord-guitar",
     "root": "B",
     "quality": "mMaj7",
@@ -24118,7 +24118,7 @@ export const chords = [
       2
     ],
     "barres": [],
-    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. B Minor-Major 7th creates a sophisticated, tense color found in film scores and jazz harmony.",
+    "description": "A minor-major seventh chord combining the darkness of minor with a bright major seventh. BmMaj7 creates a sophisticated, tense color found in film scores and jazz harmony.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -24243,7 +24243,7 @@ export const chords = [
     ]
   },
   {
-    "name": "B Augmented Major 7th",
+    "name": "BaugMaj7",
     "slug": "b-augmaj7-chord-guitar",
     "root": "B",
     "quality": "augMaj7",
@@ -24264,7 +24264,7 @@ export const chords = [
       4
     ],
     "barres": [],
-    "description": "An augmented major seventh chord with a dreamy, floating quality. B Augmented Major 7th appears in harmonic minor harmony and adds lush tension to jazz voicings.",
+    "description": "An augmented major seventh chord with a dreamy, floating quality. BaugMaj7 appears in harmonic minor harmony and adds lush tension to jazz voicings.",
     "baseFret": 1,
     "allPositions": [
       {
@@ -24381,7 +24381,7 @@ export const chords = [
     ]
   },
   {
-    "name": "B Augmented 7th",
+    "name": "Baug7",
     "slug": "b-aug7-chord-guitar",
     "root": "B",
     "quality": "aug7",
@@ -24402,7 +24402,7 @@ export const chords = [
       4
     ],
     "barres": [],
-    "description": "An augmented seventh chord with an unstable, restless character. B Augmented 7th creates strong pull toward resolution and appears in melodic minor harmony.",
+    "description": "An augmented seventh chord with an unstable, restless character. Baug7 creates strong pull toward resolution and appears in melodic minor harmony.",
     "baseFret": 1,
     "allPositions": [
       {
