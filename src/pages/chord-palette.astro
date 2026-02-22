@@ -863,7 +863,7 @@ html.dark .setting-select {
 </style>
 
 <script>
-  import { supabase, supabaseConfigured } from '../lib/supabase.js';
+  import { supabase, supabaseConfigured, supabaseUrl, supabaseAnonKey } from '../lib/supabase.js';
 
   let Tone;
   let cleanup = null;
@@ -1988,22 +1988,50 @@ html.dark .setting-select {
           return;
         }
 
+        // Get session with fresh access token (getUser above refreshes if expired)
+        const { data: { session } } = await supabase.auth.getSession();
+        if (!session?.access_token) {
+          AppState.set({ generateStatus: 'error' });
+          generateOutput.classList.add('visible');
+          generateStatusEl.textContent = 'Session expired. Please sign in again.';
+          generateStatusEl.classList.remove('active');
+          generateStatusEl.classList.add('error');
+          return;
+        }
+
         AppState.set({ generateStatus: 'generating', generatedTrackUrl: null });
 
         const chords = MusicTheory.toMusicGenChords(progression);
 
         try {
-          const { data, error } = await supabase.functions.invoke('hyper-processor', {
-            body: {
-              chords,
-              bpm,
-              timeSig,
-              style: generateStyle || 'acoustic backing track',
-              duration: generateDuration,
-            },
-          });
+          // Use raw fetch with explicit JWT access token to avoid issues
+          // with publishable key format in supabase.functions.invoke()
+          const response = await fetch(
+            `${supabaseUrl}/functions/v1/hyper-processor`,
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${session.access_token}`,
+                'apikey': supabaseAnonKey,
+              },
+              body: JSON.stringify({
+                chords,
+                bpm,
+                timeSig,
+                style: generateStyle || 'acoustic backing track',
+                duration: generateDuration,
+              }),
+            }
+          );
 
-          if (error) throw error;
+          if (!response.ok) {
+            const errBody = await response.text();
+            console.error('Edge function error:', response.status, errBody);
+            throw new Error(`HTTP ${response.status}: ${errBody}`);
+          }
+
+          const data = await response.json();
           AppState.set({ generateStatus: 'done', generatedTrackUrl: data.audio_url });
         } catch (e) {
           console.error('Generate track error:', e);
