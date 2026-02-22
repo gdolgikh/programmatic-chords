@@ -2001,7 +2001,7 @@ html.dark .setting-select {
 
         AppState.set({ generateStatus: 'generating', generatedTrackUrl: null });
 
-        const chords = MusicTheory.toMusicGenChords(progression);
+        const chords = progression.map(c => c.name).join(', ');
 
         try {
           // Use raw fetch with explicit JWT access token to avoid issues
